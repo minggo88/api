@@ -1,0 +1,1955 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-09 10:50+0900\n"
+"PO-Revision-Date: 2022-08-09 11:01+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: .\n"
+
+#: ../data/pot.php:6
+msgid "Afghanistan"
+msgstr "阿富汗"
+
+#: ../data/pot.php:7
+msgid "Åland Islands"
+msgstr "奥兰群岛"
+
+#: ../data/pot.php:8
+msgid "Albania"
+msgstr "阿尔巴尼亚"
+
+#: ../data/pot.php:9
+msgid "Algeria"
+msgstr "阿尔及利亚"
+
+#: ../data/pot.php:10
+msgid "American Samoa"
+msgstr "美属萨摩亚"
+
+#: ../data/pot.php:11
+msgid "Andorra"
+msgstr "安道尔"
+
+#: ../data/pot.php:12
+msgid "Angola"
+msgstr "安哥拉"
+
+#: ../data/pot.php:13
+msgid "Anguilla"
+msgstr "安圭拉"
+
+#: ../data/pot.php:14
+msgid "Antarctica"
+msgstr "南极洲"
+
+#: ../data/pot.php:15
+msgid "Antigua and Barbuda"
+msgstr "安提瓜和巴布达"
+
+#: ../data/pot.php:16
+msgid "Argentina"
+msgstr "阿根廷"
+
+#: ../data/pot.php:17
+msgid "Armenia"
+msgstr "亚美尼亚"
+
+#: ../data/pot.php:18
+msgid "Aruba"
+msgstr "阿鲁巴岛"
+
+#: ../data/pot.php:19 ../v1.0/getCountry/index.php:21
+msgid "Australia"
+msgstr "澳大利亚"
+
+#: ../data/pot.php:20
+msgid "Austria"
+msgstr "奥地利"
+
+#: ../data/pot.php:21
+msgid "Azerbaijan"
+msgstr "阿塞拜疆"
+
+#: ../data/pot.php:22
+msgid "Bahamas"
+msgstr "巴哈马"
+
+#: ../data/pot.php:23
+msgid "Bahrain"
+msgstr "巴林"
+
+#: ../data/pot.php:24
+msgid "Bangladesh"
+msgstr "孟加拉国"
+
+#: ../data/pot.php:25
+msgid "Barbados"
+msgstr "巴巴多斯"
+
+#: ../data/pot.php:26
+msgid "Belarus"
+msgstr "白俄罗斯"
+
+#: ../data/pot.php:27
+msgid "Belgium"
+msgstr "比利时"
+
+#: ../data/pot.php:28
+msgid "Belize"
+msgstr "伯利兹"
+
+#: ../data/pot.php:29
+msgid "Benin"
+msgstr "贝宁"
+
+#: ../data/pot.php:30
+msgid "Bermuda"
+msgstr "百慕大"
+
+#: ../data/pot.php:31
+msgid "Bhutan"
+msgstr "不丹"
+
+#: ../data/pot.php:32
+msgid "Bolivia"
+msgstr "玻利维亚"
+
+#: ../data/pot.php:33
+msgid "Bonaire"
+msgstr "博内尔岛"
+
+#: ../data/pot.php:34
+msgid "Bosnia and Herzegovina"
+msgstr "波斯尼亚和黑塞哥维那"
+
+#: ../data/pot.php:35
+msgid "Botswana"
+msgstr "博茨瓦纳"
+
+#: ../data/pot.php:36
+msgid "Brazil"
+msgstr "巴西"
+
+#: ../data/pot.php:37
+msgid "British Indian Ocean Territory"
+msgstr "英属印度洋领地"
+
+#: ../data/pot.php:38
+msgid "Brunei Darussalam"
+msgstr "文莱达鲁萨兰国"
+
+#: ../data/pot.php:39
+msgid "Bulgaria"
+msgstr "保加利亚"
+
+#: ../data/pot.php:40
+msgid "Burkina Faso"
+msgstr "布基纳法索"
+
+#: ../data/pot.php:41
+msgid "Burundi"
+msgstr "布隆迪"
+
+#: ../data/pot.php:42
+msgid "Cabo Verde"
+msgstr "佛得角"
+
+#: ../data/pot.php:43
+msgid "Cambodia"
+msgstr "柬埔寨"
+
+#: ../data/pot.php:44
+msgid "Cameroon"
+msgstr "喀麦隆"
+
+#: ../data/pot.php:45 ../v1.0/getCountry/index.php:24
+msgid "Canada"
+msgstr "加拿大"
+
+#: ../data/pot.php:46
+msgid "Cayman Islands"
+msgstr "开曼群岛"
+
+#: ../data/pot.php:47
+msgid "Central African Republic"
+msgstr "中非共和国"
+
+#: ../data/pot.php:48
+msgid "Chad"
+msgstr "乍得"
+
+#: ../data/pot.php:49
+msgid "Chile"
+msgstr "智利"
+
+#: ../data/pot.php:50 ../v1.0/getCountry/index.php:13
+msgid "China"
+msgstr "中国"
+
+#: ../data/pot.php:51
+msgid "Christmas Island"
+msgstr "圣诞岛"
+
+#: ../data/pot.php:52
+msgid "Cocos (Keeling) Islands"
+msgstr "科科斯（基林）群岛"
+
+#: ../data/pot.php:53
+msgid "Colombia"
+msgstr "哥伦比亚"
+
+#: ../data/pot.php:54
+msgid "Comoros"
+msgstr "科摩罗"
+
+#: ../data/pot.php:55
+msgid "Congo"
+msgstr "刚果"
+
+#: ../data/pot.php:56
+msgid "Congo, Democratic Republic of the"
+msgstr "刚果民主共和国"
+
+#: ../data/pot.php:57
+msgid "Cook Islands"
+msgstr "库克群岛"
+
+#: ../data/pot.php:58
+msgid "Costa Rica"
+msgstr "哥斯达黎加"
+
+#: ../data/pot.php:59
+msgid "Côte d'Ivoire"
+msgstr "科特迪瓦"
+
+#: ../data/pot.php:60
+msgid "Croatia"
+msgstr "克罗地亚"
+
+#: ../data/pot.php:61
+msgid "Cuba"
+msgstr "古巴"
+
+#: ../data/pot.php:62
+msgid "Curaçao"
+msgstr "库拉索"
+
+#: ../data/pot.php:63
+msgid "Cyprus"
+msgstr "塞浦路斯"
+
+#: ../data/pot.php:64
+msgid "Czechia(Czech Republic)"
+msgstr "捷克（捷克共和国）"
+
+#: ../data/pot.php:65
+msgid "Denmark"
+msgstr "丹麦"
+
+#: ../data/pot.php:66
+msgid "Djibouti"
+msgstr "吉布提"
+
+#: ../data/pot.php:67
+msgid "Dominica"
+msgstr "多米尼克"
+
+#: ../data/pot.php:68
+msgid "Dominican Republic"
+msgstr "多明尼加共和国"
+
+#: ../data/pot.php:69
+msgid "Ecuador"
+msgstr "厄瓜多尔"
+
+#: ../data/pot.php:70
+msgid "Egypt"
+msgstr "埃及"
+
+#: ../data/pot.php:71
+msgid "El Salvador"
+msgstr "萨尔瓦多"
+
+#: ../data/pot.php:72
+msgid "Equatorial Guinea"
+msgstr "赤道几内亚"
+
+#: ../data/pot.php:73
+msgid "Eritrea"
+msgstr "厄立特里亚"
+
+#: ../data/pot.php:74
+msgid "Estonia"
+msgstr "爱沙尼亚"
+
+#: ../data/pot.php:75
+msgid "Eswatini"
+msgstr "斯威士兰"
+
+#: ../data/pot.php:76
+msgid "Ethiopia"
+msgstr "埃塞俄比亚"
+
+#: ../data/pot.php:77
+msgid "Falkland Islands (Malvinas)"
+msgstr "福克兰群岛（马尔维纳斯）"
+
+#: ../data/pot.php:78
+msgid "Faroe Islands"
+msgstr "法罗群岛"
+
+#: ../data/pot.php:79
+msgid "Fiji"
+msgstr "斐济"
+
+#: ../data/pot.php:80
+msgid "Finland"
+msgstr "芬兰"
+
+#: ../data/pot.php:81
+msgid "France"
+msgstr "法国"
+
+#: ../data/pot.php:82
+msgid "French Guiana"
+msgstr "法属圭亚那"
+
+#: ../data/pot.php:83
+msgid "French Polynesia"
+msgstr "法属波利尼西亚"
+
+#: ../data/pot.php:84
+msgid "French Southern Territories"
+msgstr "法属南部领地"
+
+#: ../data/pot.php:85
+msgid "Gabon"
+msgstr "加蓬"
+
+#: ../data/pot.php:86
+msgid "Gambia"
+msgstr "冈比亚"
+
+#: ../data/pot.php:87
+msgid "Georgia"
+msgstr "乔治亚州"
+
+#: ../data/pot.php:88
+msgid "Germany"
+msgstr "德国"
+
+#: ../data/pot.php:89
+msgid "Ghana"
+msgstr "加纳"
+
+#: ../data/pot.php:90
+msgid "Gibraltar"
+msgstr "直布罗陀"
+
+#: ../data/pot.php:91
+msgid "Greece"
+msgstr "希腊"
+
+#: ../data/pot.php:92
+msgid "Greenland"
+msgstr "格陵兰"
+
+#: ../data/pot.php:93
+msgid "Grenada"
+msgstr "格林纳达"
+
+#: ../data/pot.php:94
+msgid "Guadeloupe"
+msgstr "瓜德罗普"
+
+#: ../data/pot.php:95
+msgid "Guam"
+msgstr "关岛"
+
+#: ../data/pot.php:96
+msgid "Guatemala"
+msgstr "危地马拉"
+
+#: ../data/pot.php:97
+msgid "Guernsey"
+msgstr "根西岛"
+
+#: ../data/pot.php:98
+msgid "Guinea"
+msgstr "几内亚"
+
+#: ../data/pot.php:99
+msgid "Guinea-Bissau"
+msgstr "几内亚比绍"
+
+#: ../data/pot.php:100
+msgid "Guyana"
+msgstr "圭亚那"
+
+#: ../data/pot.php:101
+msgid "Haiti"
+msgstr "海地"
+
+#: ../data/pot.php:102
+msgid "Vatican City State (Holy See)"
+msgstr "梵蒂冈城国（罗马教廷）"
+
+#: ../data/pot.php:103
+msgid "Honduras"
+msgstr "洪都拉斯"
+
+#: ../data/pot.php:104 ../v1.0/getCountry/index.php:14
+msgid "Hong Kong"
+msgstr "香港"
+
+#: ../data/pot.php:105
+msgid "Hungary"
+msgstr "匈牙利"
+
+#: ../data/pot.php:106
+msgid "Iceland"
+msgstr "冰岛"
+
+#: ../data/pot.php:107
+msgid "India"
+msgstr "印度"
+
+#: ../data/pot.php:108 ../v1.0/getCountry/index.php:18
+msgid "Indonesia"
+msgstr "印度尼西亚"
+
+#: ../data/pot.php:109
+msgid "Iran"
+msgstr "伊朗"
+
+#: ../data/pot.php:110
+msgid "Iraq"
+msgstr "伊拉克"
+
+#: ../data/pot.php:111
+msgid "Ireland"
+msgstr "爱尔兰"
+
+#: ../data/pot.php:112
+msgid "Isle of Man"
+msgstr "马恩岛"
+
+#: ../data/pot.php:113
+msgid "Israel"
+msgstr "以色列"
+
+#: ../data/pot.php:114
+msgid "Italy"
+msgstr "意大利"
+
+#: ../data/pot.php:115
+msgid "Jamaica"
+msgstr "牙买加"
+
+#: ../data/pot.php:116 ../v1.0/getCountry/index.php:25
+msgid "Japan"
+msgstr "日本"
+
+#: ../data/pot.php:117
+msgid "Jersey"
+msgstr "球衣"
+
+#: ../data/pot.php:118
+msgid "Jordan"
+msgstr "约旦"
+
+#: ../data/pot.php:119
+msgid "Kazakhstan"
+msgstr "哈萨克斯坦"
+
+#: ../data/pot.php:120
+msgid "Kenya"
+msgstr "肯尼亚"
+
+#: ../data/pot.php:121
+msgid "Kiribati"
+msgstr "基里巴斯"
+
+#: ../data/pot.php:122
+msgid "Korea, Democratic People's Republic of"
+msgstr "朝鲜民主主义人民共和国"
+
+#: ../data/pot.php:123
+msgid "Korea, Republic of"
+msgstr "大韩民国"
+
+#: ../data/pot.php:124
+msgid "Kuwait"
+msgstr "科威特"
+
+#: ../data/pot.php:125
+msgid "Kyrgyzstan"
+msgstr "吉尔吉斯斯坦"
+
+#: ../data/pot.php:126
+msgid "Lao People's Democratic Republic"
+msgstr "老挝人民民主共和国"
+
+#: ../data/pot.php:127
+msgid "Latvia"
+msgstr "拉脱维亚"
+
+#: ../data/pot.php:128
+msgid "Lebanon"
+msgstr "黎巴嫩"
+
+#: ../data/pot.php:129
+msgid "Lesotho"
+msgstr "莱索托"
+
+#: ../data/pot.php:130
+msgid "Liberia"
+msgstr "利比里亚"
+
+#: ../data/pot.php:131
+msgid "Libya"
+msgstr "利比亚"
+
+#: ../data/pot.php:132
+msgid "Liechtenstein"
+msgstr "列支敦士登"
+
+#: ../data/pot.php:133
+msgid "Lithuania"
+msgstr "立陶宛"
+
+#: ../data/pot.php:134
+msgid "Luxembourg"
+msgstr "卢森堡"
+
+#: ../data/pot.php:135
+msgid "Macao"
+msgstr "澳门"
+
+#: ../data/pot.php:136
+msgid "Madagascar"
+msgstr "马达加斯加"
+
+#: ../data/pot.php:137
+msgid "Malawi"
+msgstr "马拉维"
+
+#: ../data/pot.php:138 ../v1.0/getCountry/index.php:17
+msgid "Malaysia"
+msgstr "马来西亚"
+
+#: ../data/pot.php:139
+msgid "Maldives"
+msgstr "马尔代夫"
+
+#: ../data/pot.php:140
+msgid "Mali"
+msgstr "马里"
+
+#: ../data/pot.php:141
+msgid "Malta"
+msgstr "马耳他"
+
+#: ../data/pot.php:142
+msgid "Marshall Islands"
+msgstr "马绍尔群岛"
+
+#: ../data/pot.php:143
+msgid "Martinique"
+msgstr "马提尼克岛"
+
+#: ../data/pot.php:144
+msgid "Mauritania"
+msgstr "毛里塔尼亚"
+
+#: ../data/pot.php:145
+msgid "Mauritius"
+msgstr "毛里求斯"
+
+#: ../data/pot.php:146
+msgid "Mayotte"
+msgstr "马约特岛"
+
+#: ../data/pot.php:147
+msgid "Mexico"
+msgstr "墨西哥"
+
+#: ../data/pot.php:148
+msgid "Micronesia, Federated States of"
+msgstr "密克罗尼西亚联邦"
+
+#: ../data/pot.php:149
+msgid "Moldova, Republic of"
+msgstr "摩尔多瓦共和国"
+
+#: ../data/pot.php:150
+msgid "Monaco"
+msgstr "摩纳哥"
+
+#: ../data/pot.php:151 ../v1.0/getCountry/index.php:19
+msgid "Mongolia"
+msgstr "蒙古"
+
+#: ../data/pot.php:152
+msgid "Montenegro"
+msgstr "黑山"
+
+#: ../data/pot.php:153
+msgid "Montserrat"
+msgstr "蒙特塞拉特"
+
+#: ../data/pot.php:154
+msgid "Morocco"
+msgstr "摩洛哥"
+
+#: ../data/pot.php:155
+msgid "Mozambique"
+msgstr "莫桑比克"
+
+#: ../data/pot.php:156
+msgid "Myanmar"
+msgstr "缅甸"
+
+#: ../data/pot.php:157
+msgid "Namibia"
+msgstr "纳米比亚"
+
+#: ../data/pot.php:158
+msgid "Nauru"
+msgstr "瑙鲁"
+
+#: ../data/pot.php:159
+msgid "Nepal"
+msgstr "尼泊尔"
+
+#: ../data/pot.php:160
+msgid "Netherlands"
+msgstr "荷兰"
+
+#: ../data/pot.php:161
+msgid "New Caledonia"
+msgstr "新喀里多尼亚"
+
+#: ../data/pot.php:162
+msgid "New Zealand"
+msgstr "新西兰"
+
+#: ../data/pot.php:163
+msgid "Nicaragua"
+msgstr "尼加拉瓜"
+
+#: ../data/pot.php:164
+msgid "Niger"
+msgstr "尼日尔"
+
+#: ../data/pot.php:165
+msgid "Nigeria"
+msgstr "尼日利亚"
+
+#: ../data/pot.php:166
+msgid "Niue"
+msgstr "纽埃"
+
+#: ../data/pot.php:167
+msgid "Norfolk Island"
+msgstr "诺福克岛"
+
+#: ../data/pot.php:168
+msgid "North Macedonia"
+msgstr "北马其顿"
+
+#: ../data/pot.php:169
+msgid "Northern Mariana Islands"
+msgstr "北马里亚纳群岛"
+
+#: ../data/pot.php:170
+msgid "Norway"
+msgstr "挪威"
+
+#: ../data/pot.php:171
+msgid "Oman"
+msgstr "阿曼"
+
+#: ../data/pot.php:172
+msgid "Pakistan"
+msgstr "巴基斯坦"
+
+#: ../data/pot.php:173
+msgid "Palau"
+msgstr "帕劳"
+
+#: ../data/pot.php:174
+msgid "Palestine, State of"
+msgstr "巴勒斯坦国"
+
+#: ../data/pot.php:175
+msgid "Panama"
+msgstr "巴拿马"
+
+#: ../data/pot.php:176
+msgid "Papua New Guinea"
+msgstr "巴布亚新几内亚"
+
+#: ../data/pot.php:177
+msgid "Paraguay"
+msgstr "巴拉圭"
+
+#: ../data/pot.php:178
+msgid "Peru"
+msgstr "秘鲁"
+
+#: ../data/pot.php:179
+msgid "Philippines"
+msgstr "菲律宾"
+
+#: ../data/pot.php:180
+msgid "Pitcairn"
+msgstr "皮特凯恩"
+
+#: ../data/pot.php:181
+msgid "Poland"
+msgstr "波兰"
+
+#: ../data/pot.php:182
+msgid "Portugal"
+msgstr "葡萄牙"
+
+#: ../data/pot.php:183
+msgid "Puerto Rico"
+msgstr "波多黎各"
+
+#: ../data/pot.php:184
+msgid "Qatar"
+msgstr "卡塔尔"
+
+#: ../data/pot.php:185
+msgid "Réunion"
+msgstr "团圆"
+
+#: ../data/pot.php:186
+msgid "Romania"
+msgstr "罗马尼亚"
+
+#: ../data/pot.php:187
+msgid "Russia"
+msgstr "俄罗斯"
+
+#: ../data/pot.php:188
+msgid "Rwanda"
+msgstr "卢旺达"
+
+#: ../data/pot.php:189
+msgid "Saint Barthélemy"
+msgstr "圣巴泰勒米"
+
+#: ../data/pot.php:190
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "圣赫勒拿、阿森松和特里斯坦达库尼亚"
+
+#: ../data/pot.php:191
+msgid "Saint Kitts and Nevis"
+msgstr "圣基茨和尼维斯"
+
+#: ../data/pot.php:192
+msgid "Saint Lucia"
+msgstr "圣卢西亚"
+
+#: ../data/pot.php:193
+msgid "Saint Martin (France)"
+msgstr "圣马丁（法国）"
+
+#: ../data/pot.php:194
+msgid "Saint Pierre and Miquelon"
+msgstr "圣皮埃尔和密克隆"
+
+#: ../data/pot.php:195
+msgid "Saint Vincent and the Grenadines"
+msgstr "圣文森特和格林纳丁斯"
+
+#: ../data/pot.php:196
+msgid "Samoa"
+msgstr "萨摩亚"
+
+#: ../data/pot.php:197
+msgid "San Marino"
+msgstr "圣马力诺"
+
+#: ../data/pot.php:198
+msgid "Sao Tome and Principe"
+msgstr "圣多美和普林西比"
+
+#: ../data/pot.php:199
+msgid "Saudi Arabia"
+msgstr "沙特阿拉伯"
+
+#: ../data/pot.php:200
+msgid "Senegal"
+msgstr "塞内加尔"
+
+#: ../data/pot.php:201
+msgid "Serbia"
+msgstr "塞尔维亚"
+
+#: ../data/pot.php:202
+msgid "Seychelles"
+msgstr "塞舌尔"
+
+#: ../data/pot.php:203
+msgid "Sierra Leone"
+msgstr "塞拉利昂"
+
+#: ../data/pot.php:204 ../v1.0/getCountry/index.php:16
+msgid "Singapore"
+msgstr "新加坡"
+
+#: ../data/pot.php:205
+msgid "Sint Maarten (Dutch part)"
+msgstr "圣马丁（荷兰部分）"
+
+#: ../data/pot.php:206
+msgid "Slovakia"
+msgstr "斯洛伐克"
+
+#: ../data/pot.php:207
+msgid "Slovenia"
+msgstr "斯洛文尼亚"
+
+#: ../data/pot.php:208
+msgid "Solomon Islands"
+msgstr "所罗门群岛"
+
+#: ../data/pot.php:209
+msgid "Somalia"
+msgstr "索马里"
+
+#: ../data/pot.php:210
+msgid "South Africa"
+msgstr "南非"
+
+#: ../data/pot.php:211
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "南乔治亚岛和南桑威奇群岛"
+
+#: ../data/pot.php:212
+msgid "South Sudan"
+msgstr "南苏丹"
+
+#: ../data/pot.php:213
+msgid "Spain"
+msgstr "西班牙"
+
+#: ../data/pot.php:214
+msgid "Sri Lanka"
+msgstr "斯里兰卡"
+
+#: ../data/pot.php:215
+msgid "Sudan"
+msgstr "苏丹"
+
+#: ../data/pot.php:216
+msgid "Suriname"
+msgstr "苏里南"
+
+#: ../data/pot.php:217
+msgid "Svalbard and Jan Mayen"
+msgstr "斯瓦尔巴和扬马延"
+
+#: ../data/pot.php:218
+msgid "Sweden"
+msgstr "瑞典"
+
+#: ../data/pot.php:219
+msgid "Switzerland"
+msgstr "瑞士"
+
+#: ../data/pot.php:220
+msgid "Syrian Arab Republic"
+msgstr "阿拉伯叙利亚共和国"
+
+#: ../data/pot.php:221
+msgid "Taiwan, Province of China"
+msgstr "中国台湾省"
+
+#: ../data/pot.php:222
+msgid "Tajikistan"
+msgstr "塔吉克斯坦"
+
+#: ../data/pot.php:223
+msgid "Tanzania, United Republic of"
+msgstr "坦桑尼亚联合共和国"
+
+#: ../data/pot.php:224 ../v1.0/getCountry/index.php:20
+msgid "Thailand"
+msgstr "泰国"
+
+#: ../data/pot.php:225
+msgid "Timor-Leste"
+msgstr "东帝汶"
+
+#: ../data/pot.php:226
+msgid "Togo"
+msgstr "多哥"
+
+#: ../data/pot.php:227
+msgid "Tokelau"
+msgstr "托克劳"
+
+#: ../data/pot.php:228
+msgid "Tonga"
+msgstr "汤加"
+
+#: ../data/pot.php:229
+msgid "Trinidad and Tobago"
+msgstr "特立尼达和多巴哥"
+
+#: ../data/pot.php:230
+msgid "Tunisia"
+msgstr "突尼斯"
+
+#: ../data/pot.php:231
+msgid "Turkey"
+msgstr "火鸡"
+
+#: ../data/pot.php:232
+msgid "Turkmenistan"
+msgstr "土库曼斯坦"
+
+#: ../data/pot.php:233
+msgid "Turks and Caicos Islands"
+msgstr "特克斯和凯科斯群岛"
+
+#: ../data/pot.php:234
+msgid "Tuvalu"
+msgstr "图瓦卢"
+
+#: ../data/pot.php:235
+msgid "Uganda"
+msgstr "乌干达"
+
+#: ../data/pot.php:236
+msgid "Ukraine"
+msgstr "乌克兰"
+
+#: ../data/pot.php:237
+msgid "United Arab Emirates"
+msgstr "阿拉伯联合酋长国"
+
+#: ../data/pot.php:238
+msgid "United Kingdom of Great Britain and Northern Ireland"
+msgstr "大不列颠及北爱尔兰联合王国"
+
+#: ../data/pot.php:239
+msgid "United States of America"
+msgstr "美国"
+
+#: ../data/pot.php:240
+msgid "Uruguay"
+msgstr "乌拉圭"
+
+#: ../data/pot.php:241
+msgid "Uzbekistan"
+msgstr "乌兹别克斯坦"
+
+#: ../data/pot.php:242
+msgid "Vanuatu"
+msgstr "瓦努阿图"
+
+#: ../data/pot.php:243
+msgid "Venezuela, Bolivarian Republic of"
+msgstr "委内瑞拉玻利瓦尔共和国"
+
+#: ../data/pot.php:244
+msgid "Viet Nam"
+msgstr "越南"
+
+#: ../data/pot.php:245
+msgid "Virgin Islands (British)"
+msgstr "维尔京群岛（英国）"
+
+#: ../data/pot.php:246
+msgid "Virgin Islands (U.S.)"
+msgstr "维尔京群岛（美国）"
+
+#: ../data/pot.php:247
+msgid "Wallis and Futuna"
+msgstr "瓦利斯和富图纳"
+
+#: ../data/pot.php:248
+msgid "Western Sahara"
+msgstr "西撒哈拉"
+
+#: ../data/pot.php:249
+msgid "Yemen"
+msgstr "也门"
+
+#: ../data/pot.php:250
+msgid "Zambia"
+msgstr "赞比亚"
+
+#: ../data/pot.php:251
+msgid "Zimbabwe"
+msgstr "津巴布韦"
+
+#: ../lib/ExchangeApi.php:213 ../lib/ExchangeApi.php:228
+#: ../lib/TradeApi.php:211 ../lib/TradeApi.php:226
+msgid "Please login."
+msgstr "请登录。"
+
+#: ../lib/ExchangeApi.php:221 ../lib/TradeApi.php:219
+msgid "Please logout."
+msgstr "请登出。"
+
+#: ../lib/ExchangeApi.php:235 ../lib/TradeApi.php:233
+msgid "You do not have permission."
+msgstr "你没有许可。"
+
+#: ../lib/ExchangeApi.php:296 ../lib/ExchangeApi.php:306
+#: ../lib/ExchangeApi.php:316 ../lib/ExchangeApi.php:326
+#: ../lib/ExchangeApi.php:337 ../lib/ExchangeApi.php:348
+#: ../lib/ExchangeApi.php:406 ../lib/ExchangeApi.php:416
+#: ../lib/TradeApi.php:299 ../lib/TradeApi.php:316 ../lib/TradeApi.php:326
+#: ../lib/TradeApi.php:336 ../lib/TradeApi.php:347 ../lib/TradeApi.php:358
+#: ../lib/TradeApi.php:422 ../lib/TradeApi.php:432
+msgid "Failed to connect to coin server. details: "
+msgstr "无法连接代币服务器。 详细信息: "
+
+#: ../lib/ExchangeApi.php:595 ../lib/ExchangeApi.php:620
+#: ../lib/SimpleRestful.php:2108 ../lib/TradeApi.php:719
+#: ../lib/TradeApi.php:745
+msgid "Please enter the number."
+msgstr "请输入数字。"
+
+#: ../lib/ExchangeApi.php:683
+msgid "Failed to create new address. "
+msgstr "未生成新地址。"
+
+#: ../lib/ExchangeApi.php:741
+msgid "Deposit"
+msgstr "订金"
+
+#: ../lib/ExchangeApi.php:742
+msgid "Withdrawal"
+msgstr "退出"
+
+#: ../lib/ExchangeApi.php:743
+msgid "Exchange"
+msgstr "交换"
+
+#: ../lib/ExchangeApi.php:744
+msgid "Attendance"
+msgstr "出勤"
+
+#: ../lib/ExchangeApi.php:745
+msgid "Invite"
+msgstr "邀请"
+
+#: ../lib/ExchangeApi.php:746
+msgid "Bonus"
+msgstr "奖金"
+
+#: ../lib/ExchangeApi.php:747
+msgid "받기"
+msgstr "接收"
+
+#: ../lib/ExchangeApi.php:747
+msgid "Send"
+msgstr "发送"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Complete"
+msgstr "完全的"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Process"
+msgstr "过程"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Cancel"
+msgstr "取消"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Waiting"
+msgstr "等待"
+
+#: ../lib/ExchangeApi.php:1115 ../lib/TradeApi.php:1967
+msgid "joined"
+msgstr "加入"
+
+#: ../lib/ExchangeApi.php:1124 ../lib/TradeApi.php:1977
+msgid "in progress"
+msgstr "进行中"
+
+#: ../lib/ExchangeApi.php:1719 ../lib/TradeApi.php:2411
+msgid "Please enter the correct media."
+msgstr "请输入正确的媒体。"
+
+#: ../lib/ExchangeApi.php:1728 ../lib/TradeApi.php:2427
+msgid "Please enter the correct action value."
+msgstr "请输入正确的操作值。"
+
+#: ../lib/ExchangeApi.php:1734 ../lib/TradeApi.php:2433
+msgid "You can only view your personal information."
+msgstr "仅可查询本人信息。"
+
+#: ../lib/ExchangeApi.php:1742
+msgid "Please enter the correct country code."
+msgstr "请输入正确的国家/地区代码。"
+
+#: ../lib/ExchangeApi.php:1750
+msgid "Please enter the correct mobile number."
+msgstr "请输入正确的手机号码。"
+
+#: ../lib/ExchangeApi.php:1765
+msgid "Please add a country calling code."
+msgstr "请添加国家/地区呼叫代码。"
+
+#: ../lib/ExchangeApi.php:1774
+msgid "Please enter the correct social name."
+msgstr "请输入正确的社交名称。"
+
+#: ../lib/ExchangeApi.php:1782
+msgid "Please enter 6 numbers for PIN number."
+msgstr "请输入PIN码6号码。"
+
+#: ../lib/ExchangeApi.php:1791
+msgid "Please enter the correct share type."
+msgstr "请输入正确的份额类型。"
+
+#: ../lib/ExchangeApi.php:1835 ../lib/SimpleRestful.php:2139
+#: ../lib/TradeApi.php:2453
+msgid "Please enter the correct symbol."
+msgstr "请输入正确的符号值。"
+
+#: ../lib/SimpleRestful.php:332
+msgid "Failed to create folders. path: {dir}"
+msgstr "无法生成文件夹. 路径: {dir}"
+
+#: ../lib/SimpleRestful.php:336
+msgid "The folder does not have write permission. Please specify write permission. path: {dir}"
+msgstr "文件夹没有写入权限. 请指定写入权限. 路径: {dir}"
+
+#: ../lib/SimpleRestful.php:371
+msgid "Mysql Connection Error: Failed connecting to database server"
+msgstr "MySQL连接错误: 连接数据库服务器失败。"
+
+#: ../lib/SimpleRestful.php:456
+msgid "Mysql Query Error: Failed executing database query"
+msgstr "MySQL 查询错误: 数据库查询执行失败。"
+
+#: ../lib/SimpleRestful.php:1025
+msgid "Unable to access"
+msgstr "无法访问"
+
+#: ../lib/SimpleRestful.php:2090
+msgid "the required fields"
+msgstr "请填写必填项。"
+
+#: ../lib/SimpleRestful.php:2092
+msgid "Please fill in {name}."
+msgstr "{name} 请输入项目。"
+
+#: ../lib/SimpleRestful.php:2100
+msgid "Please enter a number greater than zero."
+msgstr "请输入比0大的数字。"
+
+#: ../lib/SimpleRestful.php:2132
+msgid "Please enter the correct email."
+msgstr "请输入有效的邮箱地址。"
+
+#: ../lib/TradeApi.php:294
+msgid "{symbol}의 PHP모듈이 없습니다. 생성해주세요."
+msgstr "{symbol} 的 PHP 模块不存在。 请创建。"
+
+#: ../lib/TradeApi.php:2418
+msgid "Please enter the correct return type."
+msgstr "请输入正确的返还形式。"
+
+#: ../lib/TradeApi.php:2444
+msgid "Please enter the correct UUID."
+msgstr "请输入正确的UUID。"
+
+#: ../lib/TradeApi.php:2462
+msgid "Please enter the correct date."
+msgstr "请输入正确的日期。"
+
+#: ../lib/TradeApi.php:2471
+msgid "Please enter the price according to the quotation unit({quote_unite})."
+msgstr "请按照报价({quote_unite})输入价格。"
+
+#: ../v1.0/attendance/index.php:58
+msgid "Not attendance time."
+msgstr "不出勤时间。"
+
+#: ../v1.0/attendance/index.php:67
+msgid "You are already attendance."
+msgstr "你已经出席了。"
+
+#: ../v1.0/attendance/index.php:183 ../v1.0/attendance/index.php:191
+#: ../v1.0/attendance/index.php:198 ../v1.0/buy/index.php:287
+#: ../v1.0/buy/index_static_price.php:195 ../v1.0/buy_direct/index.php:283
+#: ../v1.0/cancel/index.php:61 ../v1.0/checkReceive/index.php:117
+#: ../v1.0/deposit/index.php:47 ../v1.0/depositJin/index.php:65
+#: ../v1.0/putAuction/buy.php:365 ../v1.0/putAuction/subscribe.php:62
+#: ../v1.0/putFCM/index.php:32 ../v1.0/putM2M/index.php:45
+#: ../v1.0/putMyInfo/auction_apply.php:90 ../v1.0/putProposal/index.php:32
+#: ../v1.0/sell/index.php:271 ../v1.0/sell/index_static_price.php:181
+#: ../v1.0/sell_direct/index.php:291 ../v1.0/send/index.php:228
+#: ../v1.0/send/index.php:242 ../v1.0/send/nft.php:184 ../v1.0/send/nft.php:195
+msgid "A system error has occurred."
+msgstr "发生系统错误。"
+
+#: ../v1.0/buy/index.php:47 ../v1.0/buy_direct/index.php:50
+#: ../v1.0/sell/index.php:45 ../v1.0/sell_direct/index.php:50
+msgid "거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요."
+msgstr "请输入交易量{trade_min_volume} {symbol}或更多。"
+
+#: ../v1.0/buy/index.php:95 ../v1.0/buy/index.php:98
+msgid "지갑이 잠겨있어 매수하실 수 없습니다."
+msgstr "您无法购买，因为您的钱包已锁定。"
+
+#: ../v1.0/buy/index.php:105 ../v1.0/buy_direct/index.php:121
+#: ../v1.0/sell/index.php:103 ../v1.0/sell_direct/index.php:125
+msgid "Your payment amount is too low. Please raise the quantity."
+msgstr "您的付款金额太低。 请提高数量。"
+
+#: ../v1.0/buy/index.php:120 ../v1.0/buy/index_static_price.php:69
+#: ../v1.0/buy_direct/index.php:136
+msgid "There is not enough balance to buy."
+msgstr "余额不足无法购买。"
+
+#: ../v1.0/buy/index.php:126 ../v1.0/buy_direct/index.php:142
+#: ../v1.0/sell/index.php:114 ../v1.0/sell_direct/index.php:136
+msgid "There is no fee account information."
+msgstr "没有版本信息。"
+
+#: ../v1.0/buy_direct/index.php:29 ../v1.0/sell_direct/index.php:28
+msgid "Please enter only 4 decimal places for quantity."
+msgstr "请输入数量仅4位小数。"
+
+#: ../v1.0/buy_direct/index.php:57 ../v1.0/sell_direct/index.php:57
+msgid "주문정보를 찾을 수 없습니다."
+msgstr "未找到订单信息。"
+
+#: ../v1.0/buy_direct/index.php:60
+msgid "매도 주문을 선택해주세요."
+msgstr "请选择卖出订单。"
+
+#: ../v1.0/buy_direct/index.php:63 ../v1.0/sell_direct/index.php:63
+msgid "거래가능한 주문수량이 없습니다."
+msgstr "没有可交易的订单数量。"
+
+#: ../v1.0/buy_direct/index.php:68
+msgid "판매가격과 다른 구매가격을 입력하여 구매하지 못했습니다."
+msgstr "购买失败，因为您输入的购买价格与销售价格不同。"
+
+#: ../v1.0/buy_direct/index.php:94
+msgid "남은 판매수량보다 많이 주문하실 수 없습니다."
+msgstr "您不能订购超过剩余销售数量。"
+
+#: ../v1.0/buy_direct/index.php:105 ../v1.0/buy_direct/index.php:114
+#: ../v1.0/sell_direct/index.php:109 ../v1.0/sell_direct/index.php:118
+msgid "{symbol}지갑이 잠겨있어 매도하실 수 없습니다."
+msgstr "{symbol}您的钱包已锁定，无法出售。"
+
+#: ../v1.0/cancel/index.php:28
+msgid "You can only process your own orders."
+msgstr "只能处理本人的订单。"
+
+#: ../v1.0/cancel/index.php:33
+msgid "You can not cancel because already completed an order."
+msgstr "交易已完成，无法取消。"
+
+#: ../v1.0/checkConfirmCode/index.php:43 ../v1.0/checkConfirmCode/index.php:63
+#: ../v1.0/checkConfirmCode/index.php:73
+msgid "Failed to validate confirm code."
+msgstr "无法验证确认码。"
+
+#: ../v1.0/checkConfirmCode/index.php:73
+msgid "Please enter a valid verification code."
+msgstr "请输入有效的验证码。"
+
+#: ../v1.0/checkPin/index.php:29 ../v1.0/send/index.php:55
+#: ../v1.0/send/nft.php:35 ../v1.0/withdraw/index copy.php:35
+#: ../v1.0/withdraw/index.php:47
+msgid "Please enter the correct PIN number."
+msgstr "请输入正确的交易安全号码。"
+
+#: ../v1.0/checkReceive/index.php:28
+msgid "Symbole 정보가 없습니다."
+msgstr "没有符号信息。"
+
+#: ../v1.0/checkReceive/index.php:52
+msgid "이미 처리했습니다."
+msgstr "已处理。"
+
+#: ../v1.0/checkReceive/index.php:70
+msgid "입금 정보에서 입금자와 입금액을 찾지 못했습니다."
+msgstr "充值信息中无法找到充值者和充值金额的相关信息。"
+
+#: ../v1.0/deleteBbs/index.php:20 ../v1.0/deleteComment/index.php:20
+#: ../v1.0/deleteM2M/index.php:20
+msgid "다른 회원님이 작성한 글입니다."
+msgstr "这篇文章是另一位会员写的。"
+
+#: ../v1.0/depositJin/index.php:36 ../v1.0/depositJin/index.php:39
+msgid "A x-system error has occurred."
+msgstr "发生了X-System错误。"
+
+#: ../v1.0/findinfo/findid.php:13 ../v1.0/findinfo/findpw.php:12
+msgid "Please enter your email or phone number."
+msgstr "请输入您的电子邮件或电话号码。"
+
+#: ../v1.0/findinfo/findid.php:34 ../v1.0/findinfo/findpw.php:26
+msgid "There is no account information."
+msgstr "没有账户信息。"
+
+#: ../v1.0/findinfo/findpw.php:44
+msgid "This is the password change guide for {name}."
+msgstr "这是 {name} 的密码更改指南。"
+
+#: ../v1.0/findinfo/findpw.php:48
+msgid "Failed to send email."
+msgstr "发送电子邮件失败。"
+
+#: ../v1.0/findinfo/findpw.php:53 ../v1.0/findinfo/tpl_email.php:36
+msgid "Click the following link to set a new password."
+msgstr "单击以下链接以设置新密码。"
+
+#: ../v1.0/findinfo/tpl_email.php:31
+msgid "Dear {member_name},"
+msgstr "亲爱的{member_name}，"
+
+#: ../v1.0/findinfo/tpl_email.php:32
+msgid "We were asked to reset your account."
+msgstr "我们被要求重置您的帐户。"
+
+#: ../v1.0/findinfo/tpl_email.php:33
+msgid "Don't worry, your account is safe."
+msgstr "别担心，您的帐户是安全的。"
+
+#: ../v1.0/findinfo/tpl_email.php:34
+msgid "Ignore the E-Mail if the request to reset your password does not come from you."
+msgstr "如果重置密码的请求不是来自您，请忽略该电子邮件。"
+
+#: ../v1.0/findinfo/tpl_email.php:35
+msgid "Follow the instructions below if this request comes from you."
+msgstr "如果此请求来自您，请按照以下说明进行操作。"
+
+#: ../v1.0/findinfo/tpl_email.php:38
+msgid "If clicking the link doesn't work you can copy the link into your browser window or type it there directly."
+msgstr "如果单击链接不起作用，您可以将链接复制到浏览器窗口或直接在那里输入。"
+
+#: ../v1.0/findinfo/tpl_email.php:41
+msgid "Go Website"
+msgstr "去网站"
+
+#: ../v1.0/getCountry/index.php:12
+msgid "Korea (the Republic of)"
+msgstr "韩国"
+
+#: ../v1.0/getCountry/index.php:15
+msgid "Macau"
+msgstr "澳门"
+
+#: ../v1.0/getCountry/index.php:22
+msgid "United States"
+msgstr "美国"
+
+#: ../v1.0/getCountry/index.php:23
+msgid "United Kingdom"
+msgstr "英国"
+
+#: ../v1.0/getVersion/index.php:21
+msgid "There is no version information."
+msgstr "没有版本信息。"
+
+#: ../v1.0/join/index.php:10
+msgid "Enter your first name!"
+msgstr "请输入您的名字。"
+
+#: ../v1.0/join/index.php:14
+msgid "Enter your last name!"
+msgstr "请输入您的姓。"
+
+#: ../v1.0/join/index.php:21
+msgid "Please enter your member ID."
+msgstr "请输入会员账号。"
+
+#: ../v1.0/join/index.php:26
+msgid "The member ID must contain a country code in uppercase letters."
+msgstr "会员ID必须包含大写字母的国家/地区代码。"
+
+#: ../v1.0/join/index.php:30
+msgid "Please enter your phone number."
+msgstr "请输入电话号码。"
+
+#: ../v1.0/join/index.php:36
+msgid "Please enter the mobile value."
+msgstr "请输入正确的手机号码。"
+
+#: ../v1.0/join/index.php:49
+msgid "Enter your password!"
+msgstr "请输入密码。"
+
+#: ../v1.0/join/index.php:67
+msgid "Please enter another ID that is not duplicated."
+msgstr "请输入未重复的账号。"
+
+#: ../v1.0/join/index.php:99 ../v1.0/join/index.php:103
+msgid "There was an error processing your subscription. Please contact administrator."
+msgstr "没有注册会员。 请咨询管理员。"
+
+#: ../v1.0/login/index.php:27 ../v1.0/login/index.php:32
+#: ../v1.0/loginAdmin/index.php:23 ../v1.0/socialLogin/index.php:165
+msgid "The information does not match. Please check your ID!"
+msgstr "输入的信息不符. 请确认ID。"
+
+#: ../v1.0/login/index.php:37
+msgid "You did not verify your email. Please check your email verification!"
+msgstr "邮箱认证未完成. 请完成邮箱认证。"
+
+#: ../v1.0/login/index.php:49 ../v1.0/socialLogin/index.php:183
+msgid "Login failed."
+msgstr "登录失败。"
+
+#: ../v1.0/logout/index.php:10
+msgid "Please enter the token value."
+msgstr "请输入令牌值。"
+
+#: ../v1.0/putAuction/auction.php:26
+msgid "Please enter a higher value than the starting price."
+msgstr "请输入比起始价格更高的值。"
+
+#: ../v1.0/putAuction/auction.php:50
+msgid "상품 정보를 찾지 못했습니다."
+msgstr "未找到产品信息。"
+
+#: ../v1.0/putAuction/auction.php:59
+msgid "You cannot sell more than your holdings."
+msgstr "您卖出的数量不能超过您持有的数量。"
+
+#: ../v1.0/putAuction/auction.php:63
+msgid "Only members who have the full quantity can sell in split."
+msgstr "只有拥有完整数量的会员才能拆分销售。"
+
+#: ../v1.0/putAuction/auction.php:73
+msgid "Bundles cannot be split."
+msgstr "捆绑不能拆分。"
+
+#: ../v1.0/putAuction/auction.php:82
+msgid "경매번호가 경매에 등록된 상품정보와 다릅니다."
+msgstr "拍卖号与拍卖中注册的产品信息不同。"
+
+#: ../v1.0/putAuction/auction.php:86 ../v1.0/putAuction/goods.php:92
+msgid "보유 중인 상품이 아닙니다."
+msgstr "这不是你持有的商品。"
+
+#: ../v1.0/putAuction/auction.php:90
+msgid "경매번호 등록자가 아닙니다."
+msgstr "它不是拍卖号码注册人。"
+
+#: ../v1.0/putAuction/auction.php:98
+msgid "입찰자가 있어 수정할 수 없습니다."
+msgstr "存在投标人且无法编辑。"
+
+#: ../v1.0/putAuction/auction.php:102
+msgid "경매가 종료되어 수정할 수 없습니다."
+msgstr "拍卖终止，无法修改。"
+
+#: ../v1.0/putAuction/auction.php:159
+msgid "보유 중인 상품이 아니라서 경매를 등록하지 못했습니다."
+msgstr "这不是您尚未注册拍卖的商品。"
+
+#: ../v1.0/putAuction/auction.php:163
+msgid "진행중인 경매가 있어 등록하지 못했습니다."
+msgstr "我一直在进行中，所以我无法注册。"
+
+#: ../v1.0/putAuction/auction.php:167
+msgid "묶음 판매중인 상품이라 등록하지 못했습니다."
+msgstr "无法注册，因为它是捆绑产品。"
+
+#: ../v1.0/putAuction/bid.php:34 ../v1.0/putMyInfo/auction_apply.php:25
+msgid "No auction now."
+msgstr "现在没有拍卖。"
+
+#: ../v1.0/putAuction/bid.php:37 ../v1.0/putMyInfo/auction_apply.php:28
+msgid "경매가 시작되지 않았습니다."
+msgstr "拍卖尚未开始。"
+
+#: ../v1.0/putAuction/bid.php:37 ../v1.0/putMyInfo/auction_apply.php:28
+msgid "시작날짜를 확인해주세요."
+msgstr "请检查开始日期。"
+
+#: ../v1.0/putAuction/bid.php:40 ../v1.0/putAuction/bid.php:43
+#: ../v1.0/putMyInfo/auction_apply.php:31
+msgid "경매가 종료되었습니다."
+msgstr "拍卖已被终止。"
+
+#: ../v1.0/putAuction/bid.php:40 ../v1.0/putAuction/bid.php:43
+#: ../v1.0/putMyInfo/auction_apply.php:31
+msgid "다른 경매상품에 참여해주세요."
+msgstr "请参加其他拍卖产品。"
+
+#: ../v1.0/putAuction/bid.php:49 ../v1.0/putAuction/buy.php:72
+msgid "Please enter the order quantity below the remain quantity."
+msgstr "请在剩余数量下方输入订单数量。"
+
+#: ../v1.0/putAuction/bid.php:69 ../v1.0/putAuction/buy.php:88
+#: ../v1.0/putMyInfo/auction_apply.php:38
+msgid "You can't apply your goods."
+msgstr "您无法应用您的货物。"
+
+#: ../v1.0/putAuction/bid.php:76
+msgid "The bid price is less than or equal to the maximum price."
+msgstr "投标价格小于或等于最高价格。"
+
+#: ../v1.0/putAuction/bid.php:100 ../v1.0/putAuction/buy.php:135
+msgid "There is not enough balance."
+msgstr "没有足够的平衡。"
+
+#: ../v1.0/putAuction/bid.php:107 ../v1.0/putAuction/buy.php:142
+msgid "Please set an auction manager."
+msgstr "请设置拍卖经理。"
+
+#: ../v1.0/putAuction/bid.php:114 ../v1.0/putAuction/buy.php:149
+msgid "경매 관리자 지갑을 생성하지 못했습니다."
+msgstr "拍卖经理钱包无法生成钱包。"
+
+#: ../v1.0/putAuction/buy.php:60
+msgid "판매 가능한 상품이 없습니다."
+msgstr "没有可供出售的产品。"
+
+#: ../v1.0/putAuction/buy.php:95
+msgid "입찰가격이 높아져 바로구매는 비활성화 되었습니다."
+msgstr "由于投标价格上涨，直接购买已被停用。"
+
+#: ../v1.0/putAuction/buy.php:215
+msgid "구매 수량이 남은 수량보다 많습니다."
+msgstr "采购数量大于剩余数量。"
+
+#: ../v1.0/putAuction/del_goods.php:26 ../v1.0/putAuction/report_goods.php:28
+msgid "There is no product."
+msgstr "没有产品。"
+
+#: ../v1.0/putAuction/del_goods.php:30
+msgid "Splited products cannot be deleted."
+msgstr "无法删除拆分的产品。"
+
+#: ../v1.0/putAuction/del_goods.php:34
+msgid "Only the owner of the product can be deleted."
+msgstr "只能删除产品的所有者。"
+
+#: ../v1.0/putAuction/del_goods.php:44
+msgid "The auction info exist so can not be deleted."
+msgstr "存在拍卖信息，因此无法删除。"
+
+#: ../v1.0/putAuction/goods.php:44
+msgid "Please enter a royalty of 10% or less."
+msgstr "请输入 10% 或更少的版税。"
+
+#: ../v1.0/putAuction/goods.php:67
+msgid "올바른 카테고리값을 전달해주세요."
+msgstr "请传递正确的类别值。"
+
+#: ../v1.0/putAuction/goods.php:95
+msgid "상품정보가 없습니다."
+msgstr "没有产品信息。"
+
+#: ../v1.0/putAuction/goods.php:100
+msgid "로열티는 상품의 크리에이터만 수정할 수 있습니다."
+msgstr "版税只能由产品的创建者修改。"
+
+#: ../v1.0/putAuction/goods.php:157
+msgid "메인이미지가 이미 등록된 상품입니다."
+msgstr "主图是已经注册的产品。"
+
+#: ../v1.0/putAuction/report_goods.php:34
+msgid "It is already reported."
+msgstr "已经报道了。"
+
+#: ../v1.0/putAuction/subscribe.php:25
+msgid "구독종류를 올바르게 입력해주세요."
+msgstr "请正确输入订阅类型。"
+
+#: ../v1.0/putFCM/index.php:22
+msgid "The UUID that is already registered."
+msgstr "已注册的UUID。"
+
+#: ../v1.0/putM2M/index.php:23
+msgid "Author information is different."
+msgstr "作者信息不同。"
+
+#: ../v1.0/putM2M/index.php:26
+msgid "Posts with comments can not be modified."
+msgstr "不能修改带有评论的帖子。"
+
+#: ../v1.0/putMyInfo/auction_apply.php:50
+msgid "The apply price is less than or equal to the maximum price."
+msgstr "申请价格小于或等于最高价格。"
+
+#: ../v1.0/putMyInfo/auction_apply.php:56
+msgid "잔액이 부족합니다."
+msgstr "余额不足。"
+
+#: ../v1.0/putMyInfo/auction_apply.php:63
+msgid "경매관리자 지갑을 설정해주세요."
+msgstr "请设置拍卖经理钱包。"
+
+#: ../v1.0/putMyInfo/auction_sell.php:29
+msgid "No item."
+msgstr "没有项目。"
+
+#: ../v1.0/putMyInfo/auction_sell.php:32
+msgid "보유중인 상품이 아닙니다."
+msgstr "该产品没有库存。"
+
+#: ../v1.0/sell/index.php:84 ../v1.0/sell/index.php:88
+msgid "지갑이 잠겨있어 매도하실 수 없습니다."
+msgstr "钱包被锁定，不能出售。"
+
+#: ../v1.0/sell/index.php:108 ../v1.0/sell/index_static_price.php:56
+#: ../v1.0/sell_direct/index.php:130
+msgid "There is not enough balance to sell."
+msgstr "余额不足, 不能销售。"
+
+#: ../v1.0/sell_direct/index.php:60
+msgid "매수 주문을 선택해주세요."
+msgstr "请选择购买订单。"
+
+#: ../v1.0/sell_direct/index.php:68
+msgid "구매가격과 다른 판매가격을 입력하여 판매하지 못했습니다."
+msgstr "销售失败，因为您输入的销售价格与购买价格不同。"
+
+#: ../v1.0/sell_direct/index.php:98
+msgid "남은 구매수량보다 많이 주문하실 수 없습니다."
+msgstr "您不能订购超过剩余购买数量。"
+
+#: ../v1.0/send/index.php:76
+msgid "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator."
+msgstr "在短时间内发生太多发送，发送功能会自动锁定。解锁，联系管理员。"
+
+#: ../v1.0/send/index.php:84 ../v1.0/send/nft.php:62
+msgid "You do not have a wallet."
+msgstr "你没有钱包。"
+
+#: ../v1.0/send/index.php:84 ../v1.0/send/nft.php:62
+msgid "Please create a wallet."
+msgstr "请创建一个钱包。"
+
+#: ../v1.0/send/index.php:88 ../v1.0/send/nft.php:66
+msgid "Your wallet is locked and cannot be send."
+msgstr "你的钱包被锁定，不能发送。"
+
+#: ../v1.0/send/index.php:94 ../v1.0/send/index.php:208
+#: ../v1.0/send/nft.php:163
+msgid "There is not enough balance to send."
+msgstr "没有足够的余额来发送。"
+
+#: ../v1.0/send/index.php:114 ../v1.0/send/nft.php:90
+msgid "수신자의 지갑이 없어 생성하려 했으나 생성하지 못했습니다."
+msgstr "我试图创建收件人的钱包，但我无法生成。"
+
+#: ../v1.0/send/index.php:123 ../v1.0/send/nft.php:99
+msgid "There is no receiver wallet."
+msgstr "没有接收器钱包。"
+
+#: ../v1.0/send/index.php:123 ../v1.0/send/nft.php:99
+msgid "Please enter a valid receiver address."
+msgstr "请输入有效的接收器地址。"
+
+#: ../v1.0/send/index.php:131
+msgid "다른 회원님에게 보내주세요."
+msgstr "请将其发送给其他成员。"
+
+#: ../v1.0/send/index.php:137
+msgid "외부로 송금시에는 최소 {out_min_volume} {symbol}이상으로 전송해주세요"
+msgstr "向外汇款时，请至少发送 {out_min_volume} {symbol}"
+
+#: ../v1.0/send/index.php:141
+msgid "외부로 송금시에는 최대 {out_min_volume} {symbol}미만으로 전송해주세요"
+msgstr "向外汇款时，请小于最大{out_min_volume} {symbol}"
+
+#: ../v1.0/send/index.php:148 ../v1.0/send/nft.php:124
+msgid "We blocked the same amount transfer in a short period of time to prevent duplicate shipments. Please send it after a while to send the same amount."
+msgstr "我们在短时间内阻止了相同的转移，以防止重复的货物。请在一段时间后发送相同的金额。"
+
+#: ../v1.0/send/index.php:155
+msgid "NFT 정보를 찾지 못했습니다."
+msgstr "没有找到NFT信息。"
+
+#: ../v1.0/send/index.php:159
+msgid "NFT의 소유주만 전송할 수 있습니다."
+msgstr "只能转移NFT所有者。"
+
+#: ../v1.0/send/index.php:163
+msgid "보유수량보다 많이 전송할 수 없습니다."
+msgstr "您转账的金额不能超过您拥有的金额。"
+
+#: ../v1.0/send/index.php:168
+msgid "분할된 NFT는 외부로 전송할 수 없습니다."
+msgstr "分区的 NFT 不能向外传输。"
+
+#: ../v1.0/send/index.php:228 ../v1.0/send/index.php:242
+#: ../v1.0/send/nft.php:184 ../v1.0/send/nft.php:195
+msgid "Failed to send."
+msgstr "发送失败。"
+
+#: ../v1.0/send/index.php:260 ../v1.0/send/nft.php:209
+msgid "There is no fee wallet."
+msgstr "没有收费钱包。"
+
+#: ../v1.0/send/index.php:260 ../v1.0/send/nft.php:209
+msgid "Please create a fee wallet for {symbol}."
+msgstr "请为{符号}创建收费钱包。"
+
+#: ../v1.0/sendConfirmCode/index.php:66 ../v1.0/sendConfirmCode/index.php:77
+#: ../v1.0/sendConfirmCode/index.php:87
+msgid "Failed to send confirm code."
+msgstr "无法发送确认码。"
+
+#: ../v1.0/sendConfirmCode/index.php:74 ../v1.0/sendConfirmCode/index.php:84
+msgid "Your verification code is: {tmpnum}"
+msgstr "您的验证码是：{tmpnum}"
+
+#: ../v1.0/sendConfirmCode/index.php:84
+msgid "인증번호를 입력해주세요."
+msgstr "请输入验证码。"
+
+#: ../v1.0/socialJoin/index.php:45
+msgid "Please enter a 6-digit number."
+msgstr "请输入一个 6 位数字。"
+
+#: ../v1.0/socialJoin/index.php:119
+msgid "Already joined."
+msgstr "已经加入了。"
+
+#: ../v1.0/socialJoin/index.php:119
+msgid "Please login!"
+msgstr "请登录！"
+
+#: ../v1.0/socialJoin/index.php:124
+msgid "Please enter another ID."
+msgstr "请输入其他ID。"
+
+#: ../v1.0/socialJoin/index.php:135
+msgid "Fail join!"
+msgstr "失败！"
+
+#: ../v1.0/socialLogin/index.php:42
+msgid "Please enter a password."
+msgstr "请输入密码。"
+
+#: ../v1.0/socialLogin/index.php:151
+msgid "The information does not match."
+msgstr "信息不匹配。"
+
+#: ../v1.0/socialLogin/index.php:151
+msgid "Please check your ID!"
+msgstr "请检查您的身份证！"
+
+#: ../v1.0/withdraw/index copy.php:29 ../v1.0/withdraw/index.php:38
+msgid "Please enter a value larger than the minimum withdrawal amount."
+msgstr "请输入大于最低提现额的金额。"
+
+#: ../v1.0/withdraw/index copy.php:43 ../v1.0/withdraw/index.php:55
+msgid "Please enter the member's withdrawal address."
+msgstr "请输入会员所有的提现地址。"
+
+#: ../v1.0/withdraw/index copy.php:49 ../v1.0/withdraw/index.php:73
+msgid "You can not withdraw more than your balance."
+msgstr "提现金额不能超过余额。"
+
+#: ../v1.0/withdraw/index copy.php:63 ../v1.0/withdraw/index.php:91
+msgid "Withdrawal amount is less than the fee."
+msgstr "请输入大于提现手续费的提现金额。"
+
+#: ../v1.0/withdraw/index copy.php:67 ../v1.0/withdraw/index.php:95
+msgid "실 출금액이 없습니다."
+msgstr "没有房间设有房间。"
+
+#: ../v1.0/withdraw/index copy.php:67 ../v1.0/withdraw/index.php:95
+msgid "수수료보다 많은 금액을 출금해주세요."
+msgstr "请给我比收费更多的钱。"
+
+#: ../v1.0/withdraw/index copy.php:78 ../v1.0/withdraw/index.php:106
+msgid "Member requested withdrawal."
+msgstr "会员申请提现。"
+
+#: ../v1.0/withdraw/index.php:41
+msgid "출금하실 금액을 최대출금액보다 작게 입력해주세요."
+msgstr "请输入小于最大提款金额的提款金额。"
+
+#: ../v1.0/withdraw/index.php:60 ../v1.0/withdraw/index.php:63
+msgid "지갑이 잠겨있어 출금하실 수 없습니다."
+msgstr "您的钱包已被锁定，您无法取款。"
+
+#: ../v1.0/withdraw/index.php:68
+msgid "은행계좌 인증을 완료 후 출금 신청해주세요."
+msgstr "验证您的银行帐户后，请申请提款。"
+
+#~ msgid "Wallet address is missing. Please create an address."
+#~ msgstr "钱包地址不存在，请生成地址。"
+
+#~ msgid "Please enter the correct address."
+#~ msgstr "请输入正确的地址。"
+
+#~ msgid "Symbol 정보가 없습니다."
+#~ msgstr "没有符号信息。"
+
+#~ msgid "Please enter the correct email address."
+#~ msgstr "请输入正确的电子邮件地址。"
+
+#~ msgid "Not a valid order status code."
+#~ msgstr "不是有效的订单状态代码。"
+
+#~ msgid "Please enter the amount you are sending."
+#~ msgstr "请输入您发送的金额。"
+
+#~ msgid "친구초대 기능은 닫혀있습니다. 지급코인과 지급금액을 정의한 후 사용해주세요."
+#~ msgstr "朋友邀请功能已关闭。请定义付款和付款金额，请使用。"
+
+#~ msgid "The version of the program is incorrect. Please download again."
+#~ msgstr "程序的版本不正确。请再次下载。"
+
+#~ msgid "There is no symbol information."
+#~ msgstr "没有符号信息。"
+
+#~ msgid "This member has already joined."
+#~ msgstr "这位会员已经加入了。"
+
+#~ msgid "You have already sent."
+#~ msgstr "你已经发送了。"
+
+#~ msgid "You have already invited."
+#~ msgstr "你已经邀请了。"
+
+#~ msgid "bid"
+#~ msgstr "出价"
+
+#~ msgid "buy"
+#~ msgstr "买"
+
+#~ msgid "send"
+#~ msgstr "发送"
+
+#~ msgid "external deposit"
+#~ msgstr "外部存款"
+
+#~ msgid "mint"
+#~ msgstr "薄荷"
+
+#~ msgid "socialJoin을 사용해주세요."
+#~ msgstr "请使用socialJoin。"
+
+#~ msgid "접근권한이 없습니다."
+#~ msgstr "没有访问权限。"
+
+#~ msgid "socialLogin을 사용해주세요."
+#~ msgstr "请使用socialLogin。"
+
+#~ msgid "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator (webmaster@cexstock.com)."
+#~ msgstr "在短时间内发生太多发送，发送功能会自动锁定。解锁，联系Administrator（Webmaster@cexstock.com）。"
+
+#~ msgid "We blocked the same amount transfer in a short period of time to prevent duplicate shipments."
+#~ msgstr "我们在短时间内阻止了相同的转移，以防止重复的货物。"
+
+#~ msgid "Please send it after a while to send the same amount."
+#~ msgstr "请在一段时间后发送它来发送相同的金额。"
+
+#~ msgid "Your order price is invalid."
+#~ msgstr "您的订单价格无效。"
+
+#~ msgid "Please make sure the sender walletname is correct."
+#~ msgstr "请确保发件人walletname正确。"
+
+#~ msgid "Please make sure the secret key is correct."
+#~ msgstr "请确保秘密密钥是正确的。"
+
+#~ msgid "There is no store manager information."
+#~ msgstr "没有商店经理信息。"
+
+#~ msgid "The store information is different."
+#~ msgstr "商店信息不同。"
+
+#~ msgid "Please check the store information."
+#~ msgstr "请检查商店信息。"
+
+#~ msgid "Store manager's wallet is missing."
+#~ msgstr "商店经理的钱包缺失。"
+
+#~ msgid "bonus sender's wallet is missing."
+#~ msgstr "奖金发件人的钱包缺失。"
+
+#~ msgid "경매가 시작되어 수정할 수 없습니다."
+#~ msgstr "拍卖无法启动和修改。"
+
+#~ msgid "You can't bid your goods."
+#~ msgstr "您无法投标您的货物。"
+
+#~ msgid "바로구매가 불가한 상태입니다."
+#~ msgstr "无法立即购买。"
+
+#~ msgid "이미 등록된 상품입니다."
+#~ msgstr "它已经注册了。"
+
+#~ msgid "이미 처리한 게임결과입니다."
+#~ msgstr "已经处理过的游戏结果。"
+
+#~ msgid "nickname duplication!"
+#~ msgstr "昵称重复！"
+
+#~ msgid "Please enter the amount larger than the minimum withdrawal amount."
+#~ msgstr "请输入大于最低提款金额的金额。"
+
+#~ msgid "Please enter the amount smaller than the maximum withdrawal amount."
+#~ msgstr "请输入小于最大提款金额的金额。"
+
+#~ msgid "Please request the withdrawal after completing the bank account authentication."
+#~ msgstr "完成银行帐户身份验证后请申请提款。"
+
+#~ msgid "There is no actual withdrawal amount to be received."
+#~ msgstr "没有收到实际提款金额。"
+
+#~ msgid "Please enter more than the fee."
+#~ msgstr "请输入超过费用。"
+
+#~ msgid "서비스 준비중입니다."
+#~ msgstr "服务正在准备。"
+
+#~ msgid "There is no fee manager account information."
+#~ msgstr "没有收费经理帐户信息。"
+
+#~ msgid "Failed to exchange. Please try again in a few minutes."
+#~ msgstr "未能交换。请在几分钟后再试一次。"
+
+#~ msgid "External Deposit"
+#~ msgstr "外部存款"
+
+#~ msgid "Mint"
+#~ msgstr "作为"
+
+#~ msgid "Buy"
+#~ msgstr "购买"
+
+#~ msgid "Bid"
+#~ msgstr "出价"
+
+#~ msgid "현재 사용중인 올바른 비밀번호를 입력해주세요."
+#~ msgstr "请输入您当前使用的正确密码。"
+
+#~ msgid "올바른 새 비밀번호를 입력해주세요."
+#~ msgstr "请输入正确的新密码。"
+
+#~ msgid "시스템 정검중입니다."
+#~ msgstr "系统正在检查中。"
+
+#~ msgid "메시지에서 금액, 입금자, 계좌번호를 찾지 못했습니다."
+#~ msgstr "在消息中找不到金额、存款人和帐号。"

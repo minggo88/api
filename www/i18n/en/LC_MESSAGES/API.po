@@ -1,0 +1,1959 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-09 10:50+0900\n"
+"PO-Revision-Date: 2022-08-09 11:04+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: ../data/pot.php:6
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: ../data/pot.php:7
+msgid "Åland Islands"
+msgstr "Åland Islands"
+
+#: ../data/pot.php:8
+msgid "Albania"
+msgstr "Albania"
+
+#: ../data/pot.php:9
+msgid "Algeria"
+msgstr "Algeria"
+
+#: ../data/pot.php:10
+msgid "American Samoa"
+msgstr "American Samoa"
+
+#: ../data/pot.php:11
+msgid "Andorra"
+msgstr "Andorra"
+
+#: ../data/pot.php:12
+msgid "Angola"
+msgstr "Angola"
+
+#: ../data/pot.php:13
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: ../data/pot.php:14
+msgid "Antarctica"
+msgstr "Antarctica"
+
+#: ../data/pot.php:15
+msgid "Antigua and Barbuda"
+msgstr "Antigua and Barbuda"
+
+#: ../data/pot.php:16
+msgid "Argentina"
+msgstr "Argentina"
+
+#: ../data/pot.php:17
+msgid "Armenia"
+msgstr "Armenia"
+
+#: ../data/pot.php:18
+msgid "Aruba"
+msgstr "Aruba"
+
+#: ../data/pot.php:19 ../v1.0/getCountry/index.php:21
+msgid "Australia"
+msgstr "Australia"
+
+#: ../data/pot.php:20
+msgid "Austria"
+msgstr "Austria"
+
+#: ../data/pot.php:21
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+#: ../data/pot.php:22
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: ../data/pot.php:23
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: ../data/pot.php:24
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: ../data/pot.php:25
+msgid "Barbados"
+msgstr "Barbados"
+
+#: ../data/pot.php:26
+msgid "Belarus"
+msgstr "Belarus"
+
+#: ../data/pot.php:27
+msgid "Belgium"
+msgstr "Belgium"
+
+#: ../data/pot.php:28
+msgid "Belize"
+msgstr "Belize"
+
+#: ../data/pot.php:29
+msgid "Benin"
+msgstr "Benin"
+
+#: ../data/pot.php:30
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: ../data/pot.php:31
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: ../data/pot.php:32
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: ../data/pot.php:33
+msgid "Bonaire"
+msgstr "Bonaire"
+
+#: ../data/pot.php:34
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia and Herzegovina"
+
+#: ../data/pot.php:35
+msgid "Botswana"
+msgstr "Botswana"
+
+#: ../data/pot.php:36
+msgid "Brazil"
+msgstr "Brazil"
+
+#: ../data/pot.php:37
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+#: ../data/pot.php:38
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: ../data/pot.php:39
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: ../data/pot.php:40
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: ../data/pot.php:41
+msgid "Burundi"
+msgstr "Burundi"
+
+#: ../data/pot.php:42
+msgid "Cabo Verde"
+msgstr "Cabo Verde"
+
+#: ../data/pot.php:43
+msgid "Cambodia"
+msgstr "Cambodia"
+
+#: ../data/pot.php:44
+msgid "Cameroon"
+msgstr "Cameroon"
+
+#: ../data/pot.php:45 ../v1.0/getCountry/index.php:24
+msgid "Canada"
+msgstr "Canada"
+
+#: ../data/pot.php:46
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+#: ../data/pot.php:47
+msgid "Central African Republic"
+msgstr "Central African Republic"
+
+#: ../data/pot.php:48
+msgid "Chad"
+msgstr "Chad"
+
+#: ../data/pot.php:49
+msgid "Chile"
+msgstr "Chile"
+
+#: ../data/pot.php:50 ../v1.0/getCountry/index.php:13
+msgid "China"
+msgstr "China"
+
+#: ../data/pot.php:51
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+#: ../data/pot.php:52
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+#: ../data/pot.php:53
+msgid "Colombia"
+msgstr "Colombia"
+
+#: ../data/pot.php:54
+msgid "Comoros"
+msgstr "Comoros"
+
+#: ../data/pot.php:55
+msgid "Congo"
+msgstr "Congo"
+
+#: ../data/pot.php:56
+msgid "Congo, Democratic Republic of the"
+msgstr "Congo, Democratic Republic of the"
+
+#: ../data/pot.php:57
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+#: ../data/pot.php:58
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: ../data/pot.php:59
+msgid "Côte d'Ivoire"
+msgstr "Côte d'Ivoire"
+
+#: ../data/pot.php:60
+msgid "Croatia"
+msgstr "Croatia"
+
+#: ../data/pot.php:61
+msgid "Cuba"
+msgstr "Cuba"
+
+#: ../data/pot.php:62
+msgid "Curaçao"
+msgstr "Curaçao"
+
+#: ../data/pot.php:63
+msgid "Cyprus"
+msgstr "Cyprus"
+
+#: ../data/pot.php:64
+msgid "Czechia(Czech Republic)"
+msgstr "Czechia(Czech Republic)"
+
+#: ../data/pot.php:65
+msgid "Denmark"
+msgstr "Denmark"
+
+#: ../data/pot.php:66
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: ../data/pot.php:67
+msgid "Dominica"
+msgstr "Dominica"
+
+#: ../data/pot.php:68
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+#: ../data/pot.php:69
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: ../data/pot.php:70
+msgid "Egypt"
+msgstr "Egypt"
+
+#: ../data/pot.php:71
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: ../data/pot.php:72
+msgid "Equatorial Guinea"
+msgstr "Equatorial Guinea"
+
+#: ../data/pot.php:73
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: ../data/pot.php:74
+msgid "Estonia"
+msgstr "Estonia"
+
+#: ../data/pot.php:75
+msgid "Eswatini"
+msgstr "Eswatini"
+
+#: ../data/pot.php:76
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+#: ../data/pot.php:77
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falkland Islands (Malvinas)"
+
+#: ../data/pot.php:78
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+#: ../data/pot.php:79
+msgid "Fiji"
+msgstr "Fiji"
+
+#: ../data/pot.php:80
+msgid "Finland"
+msgstr "Finland"
+
+#: ../data/pot.php:81
+msgid "France"
+msgstr "France"
+
+#: ../data/pot.php:82
+msgid "French Guiana"
+msgstr "French Guiana"
+
+#: ../data/pot.php:83
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+#: ../data/pot.php:84
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+#: ../data/pot.php:85
+msgid "Gabon"
+msgstr "Gabon"
+
+#: ../data/pot.php:86
+msgid "Gambia"
+msgstr "Gambia"
+
+#: ../data/pot.php:87
+msgid "Georgia"
+msgstr "Georgia"
+
+#: ../data/pot.php:88
+msgid "Germany"
+msgstr "Germany"
+
+#: ../data/pot.php:89
+msgid "Ghana"
+msgstr "Ghana"
+
+#: ../data/pot.php:90
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: ../data/pot.php:91
+msgid "Greece"
+msgstr "Greece"
+
+#: ../data/pot.php:92
+msgid "Greenland"
+msgstr "Greenland"
+
+#: ../data/pot.php:93
+msgid "Grenada"
+msgstr "Grenada"
+
+#: ../data/pot.php:94
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: ../data/pot.php:95
+msgid "Guam"
+msgstr "Guam"
+
+#: ../data/pot.php:96
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: ../data/pot.php:97
+msgid "Guernsey"
+msgstr "Guernsey"
+
+#: ../data/pot.php:98
+msgid "Guinea"
+msgstr "Guinea"
+
+#: ../data/pot.php:99
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: ../data/pot.php:100
+msgid "Guyana"
+msgstr "Guyana"
+
+#: ../data/pot.php:101
+msgid "Haiti"
+msgstr "Haiti"
+
+#: ../data/pot.php:102
+msgid "Vatican City State (Holy See)"
+msgstr "Vatican City State (Holy See)"
+
+#: ../data/pot.php:103
+msgid "Honduras"
+msgstr "Honduras"
+
+#: ../data/pot.php:104 ../v1.0/getCountry/index.php:14
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: ../data/pot.php:105
+msgid "Hungary"
+msgstr "Hungary"
+
+#: ../data/pot.php:106
+msgid "Iceland"
+msgstr "Iceland"
+
+#: ../data/pot.php:107
+msgid "India"
+msgstr "India"
+
+#: ../data/pot.php:108 ../v1.0/getCountry/index.php:18
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: ../data/pot.php:109
+msgid "Iran"
+msgstr "Iran"
+
+#: ../data/pot.php:110
+msgid "Iraq"
+msgstr "Iraq"
+
+#: ../data/pot.php:111
+msgid "Ireland"
+msgstr "Ireland"
+
+#: ../data/pot.php:112
+msgid "Isle of Man"
+msgstr "Isle of Man"
+
+#: ../data/pot.php:113
+msgid "Israel"
+msgstr "Israel"
+
+#: ../data/pot.php:114
+msgid "Italy"
+msgstr "Italy"
+
+#: ../data/pot.php:115
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: ../data/pot.php:116 ../v1.0/getCountry/index.php:25
+msgid "Japan"
+msgstr "Japan"
+
+#: ../data/pot.php:117
+msgid "Jersey"
+msgstr "Jersey"
+
+#: ../data/pot.php:118
+msgid "Jordan"
+msgstr "Jordan"
+
+#: ../data/pot.php:119
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+#: ../data/pot.php:120
+msgid "Kenya"
+msgstr "Kenya"
+
+#: ../data/pot.php:121
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: ../data/pot.php:122
+msgid "Korea, Democratic People's Republic of"
+msgstr "Korea, Democratic People's Republic of"
+
+#: ../data/pot.php:123
+msgid "Korea, Republic of"
+msgstr "Korea, Republic of"
+
+#: ../data/pot.php:124
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: ../data/pot.php:125
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+#: ../data/pot.php:126
+msgid "Lao People's Democratic Republic"
+msgstr "Lao People's Democratic Republic"
+
+#: ../data/pot.php:127
+msgid "Latvia"
+msgstr "Latvia"
+
+#: ../data/pot.php:128
+msgid "Lebanon"
+msgstr "Lebanon"
+
+#: ../data/pot.php:129
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: ../data/pot.php:130
+msgid "Liberia"
+msgstr "Liberia"
+
+#: ../data/pot.php:131
+msgid "Libya"
+msgstr "Libya"
+
+#: ../data/pot.php:132
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: ../data/pot.php:133
+msgid "Lithuania"
+msgstr "Lithuania"
+
+#: ../data/pot.php:134
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: ../data/pot.php:135
+msgid "Macao"
+msgstr "Macao"
+
+#: ../data/pot.php:136
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: ../data/pot.php:137
+msgid "Malawi"
+msgstr "Malawi"
+
+#: ../data/pot.php:138 ../v1.0/getCountry/index.php:17
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: ../data/pot.php:139
+msgid "Maldives"
+msgstr "Maldives"
+
+#: ../data/pot.php:140
+msgid "Mali"
+msgstr "Mali"
+
+#: ../data/pot.php:141
+msgid "Malta"
+msgstr "Malta"
+
+#: ../data/pot.php:142
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+#: ../data/pot.php:143
+msgid "Martinique"
+msgstr "Martinique"
+
+#: ../data/pot.php:144
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: ../data/pot.php:145
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: ../data/pot.php:146
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: ../data/pot.php:147
+msgid "Mexico"
+msgstr "Mexico"
+
+#: ../data/pot.php:148
+msgid "Micronesia, Federated States of"
+msgstr "Micronesia, Federated States of"
+
+#: ../data/pot.php:149
+msgid "Moldova, Republic of"
+msgstr "Moldova, Republic of"
+
+#: ../data/pot.php:150
+msgid "Monaco"
+msgstr "Monaco"
+
+#: ../data/pot.php:151 ../v1.0/getCountry/index.php:19
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: ../data/pot.php:152
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: ../data/pot.php:153
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: ../data/pot.php:154
+msgid "Morocco"
+msgstr "Morocco"
+
+#: ../data/pot.php:155
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: ../data/pot.php:156
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: ../data/pot.php:157
+msgid "Namibia"
+msgstr "Namibia"
+
+#: ../data/pot.php:158
+msgid "Nauru"
+msgstr "Nauru"
+
+#: ../data/pot.php:159
+msgid "Nepal"
+msgstr "Nepal"
+
+#: ../data/pot.php:160
+msgid "Netherlands"
+msgstr "Netherlands"
+
+#: ../data/pot.php:161
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+#: ../data/pot.php:162
+msgid "New Zealand"
+msgstr "New Zealand"
+
+#: ../data/pot.php:163
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: ../data/pot.php:164
+msgid "Niger"
+msgstr "Niger"
+
+#: ../data/pot.php:165
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: ../data/pot.php:166
+msgid "Niue"
+msgstr "Niue"
+
+#: ../data/pot.php:167
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+#: ../data/pot.php:168
+msgid "North Macedonia"
+msgstr "North Macedonia"
+
+#: ../data/pot.php:169
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+#: ../data/pot.php:170
+msgid "Norway"
+msgstr "Norway"
+
+#: ../data/pot.php:171
+msgid "Oman"
+msgstr "Oman"
+
+#: ../data/pot.php:172
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: ../data/pot.php:173
+msgid "Palau"
+msgstr "Palau"
+
+#: ../data/pot.php:174
+msgid "Palestine, State of"
+msgstr "Palestine, State of"
+
+#: ../data/pot.php:175
+msgid "Panama"
+msgstr "Panama"
+
+#: ../data/pot.php:176
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+#: ../data/pot.php:177
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: ../data/pot.php:178
+msgid "Peru"
+msgstr "Peru"
+
+#: ../data/pot.php:179
+msgid "Philippines"
+msgstr "Philippines"
+
+#: ../data/pot.php:180
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: ../data/pot.php:181
+msgid "Poland"
+msgstr "Poland"
+
+#: ../data/pot.php:182
+msgid "Portugal"
+msgstr "Portugal"
+
+#: ../data/pot.php:183
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: ../data/pot.php:184
+msgid "Qatar"
+msgstr "Qatar"
+
+#: ../data/pot.php:185
+msgid "Réunion"
+msgstr "Réunion"
+
+#: ../data/pot.php:186
+msgid "Romania"
+msgstr "Romania"
+
+#: ../data/pot.php:187
+msgid "Russia"
+msgstr "Russia"
+
+#: ../data/pot.php:188
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: ../data/pot.php:189
+msgid "Saint Barthélemy"
+msgstr "Saint Barthélemy"
+
+#: ../data/pot.php:190
+msgid "Saint Helena, Ascension and Tristan da Cunha"
+msgstr "Saint Helena, Ascension and Tristan da Cunha"
+
+#: ../data/pot.php:191
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts and Nevis"
+
+#: ../data/pot.php:192
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+#: ../data/pot.php:193
+msgid "Saint Martin (France)"
+msgstr "Saint Martin (France)"
+
+#: ../data/pot.php:194
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre and Miquelon"
+
+#: ../data/pot.php:195
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent and the Grenadines"
+
+#: ../data/pot.php:196
+msgid "Samoa"
+msgstr "Samoa"
+
+#: ../data/pot.php:197
+msgid "San Marino"
+msgstr "San Marino"
+
+#: ../data/pot.php:198
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome and Principe"
+
+#: ../data/pot.php:199
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+#: ../data/pot.php:200
+msgid "Senegal"
+msgstr "Senegal"
+
+#: ../data/pot.php:201
+msgid "Serbia"
+msgstr "Serbia"
+
+#: ../data/pot.php:202
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: ../data/pot.php:203
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: ../data/pot.php:204 ../v1.0/getCountry/index.php:16
+msgid "Singapore"
+msgstr "Singapore"
+
+#: ../data/pot.php:205
+msgid "Sint Maarten (Dutch part)"
+msgstr "Sint Maarten (Dutch part)"
+
+#: ../data/pot.php:206
+msgid "Slovakia"
+msgstr "Slovakia"
+
+#: ../data/pot.php:207
+msgid "Slovenia"
+msgstr "Slovenia"
+
+#: ../data/pot.php:208
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+#: ../data/pot.php:209
+msgid "Somalia"
+msgstr "Somalia"
+
+#: ../data/pot.php:210
+msgid "South Africa"
+msgstr "South Africa"
+
+#: ../data/pot.php:211
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "South Georgia and the South Sandwich Islands"
+
+#: ../data/pot.php:212
+msgid "South Sudan"
+msgstr "South Sudan"
+
+#: ../data/pot.php:213
+msgid "Spain"
+msgstr "Spain"
+
+#: ../data/pot.php:214
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: ../data/pot.php:215
+msgid "Sudan"
+msgstr "Sudan"
+
+#: ../data/pot.php:216
+msgid "Suriname"
+msgstr "Suriname"
+
+#: ../data/pot.php:217
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard and Jan Mayen"
+
+#: ../data/pot.php:218
+msgid "Sweden"
+msgstr "Sweden"
+
+#: ../data/pot.php:219
+msgid "Switzerland"
+msgstr "Switzerland"
+
+#: ../data/pot.php:220
+msgid "Syrian Arab Republic"
+msgstr "Syrian Arab Republic"
+
+#: ../data/pot.php:221
+msgid "Taiwan, Province of China"
+msgstr "Taiwan, Province of China"
+
+#: ../data/pot.php:222
+msgid "Tajikistan"
+msgstr "Tajikistan"
+
+#: ../data/pot.php:223
+msgid "Tanzania, United Republic of"
+msgstr "Tanzania, United Republic of"
+
+#: ../data/pot.php:224 ../v1.0/getCountry/index.php:20
+msgid "Thailand"
+msgstr "Thailand"
+
+#: ../data/pot.php:225
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+#: ../data/pot.php:226
+msgid "Togo"
+msgstr "Togo"
+
+#: ../data/pot.php:227
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: ../data/pot.php:228
+msgid "Tonga"
+msgstr "Tonga"
+
+#: ../data/pot.php:229
+msgid "Trinidad and Tobago"
+msgstr "Trinidad and Tobago"
+
+#: ../data/pot.php:230
+msgid "Tunisia"
+msgstr "Tunisia"
+
+#: ../data/pot.php:231
+msgid "Turkey"
+msgstr "Turkey"
+
+#: ../data/pot.php:232
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: ../data/pot.php:233
+msgid "Turks and Caicos Islands"
+msgstr "Turks and Caicos Islands"
+
+#: ../data/pot.php:234
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: ../data/pot.php:235
+msgid "Uganda"
+msgstr "Uganda"
+
+#: ../data/pot.php:236
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: ../data/pot.php:237
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+#: ../data/pot.php:238
+msgid "United Kingdom of Great Britain and Northern Ireland"
+msgstr "United Kingdom of Great Britain and Northern Ireland"
+
+#: ../data/pot.php:239
+msgid "United States of America"
+msgstr "United States of America"
+
+#: ../data/pot.php:240
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: ../data/pot.php:241
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+#: ../data/pot.php:242
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: ../data/pot.php:243
+msgid "Venezuela, Bolivarian Republic of"
+msgstr "Venezuela, Bolivarian Republic of"
+
+#: ../data/pot.php:244
+msgid "Viet Nam"
+msgstr "Viet Nam"
+
+#: ../data/pot.php:245
+msgid "Virgin Islands (British)"
+msgstr "Virgin Islands (British)"
+
+#: ../data/pot.php:246
+msgid "Virgin Islands (U.S.)"
+msgstr "Virgin Islands (U.S.)"
+
+#: ../data/pot.php:247
+msgid "Wallis and Futuna"
+msgstr "Wallis and Futuna"
+
+#: ../data/pot.php:248
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+#: ../data/pot.php:249
+msgid "Yemen"
+msgstr "Yemen"
+
+#: ../data/pot.php:250
+msgid "Zambia"
+msgstr "Zambia"
+
+#: ../data/pot.php:251
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: ../lib/ExchangeApi.php:213 ../lib/ExchangeApi.php:228
+#: ../lib/TradeApi.php:211 ../lib/TradeApi.php:226
+msgid "Please login."
+msgstr "Please login."
+
+#: ../lib/ExchangeApi.php:221 ../lib/TradeApi.php:219
+msgid "Please logout."
+msgstr "Please logout."
+
+#: ../lib/ExchangeApi.php:235 ../lib/TradeApi.php:233
+msgid "You do not have permission."
+msgstr "You do not have permission."
+
+#: ../lib/ExchangeApi.php:296 ../lib/ExchangeApi.php:306
+#: ../lib/ExchangeApi.php:316 ../lib/ExchangeApi.php:326
+#: ../lib/ExchangeApi.php:337 ../lib/ExchangeApi.php:348
+#: ../lib/ExchangeApi.php:406 ../lib/ExchangeApi.php:416
+#: ../lib/TradeApi.php:299 ../lib/TradeApi.php:316 ../lib/TradeApi.php:326
+#: ../lib/TradeApi.php:336 ../lib/TradeApi.php:347 ../lib/TradeApi.php:358
+#: ../lib/TradeApi.php:422 ../lib/TradeApi.php:432
+msgid "Failed to connect to coin server. details: "
+msgstr "Failed to connect to coin server. details: "
+
+#: ../lib/ExchangeApi.php:595 ../lib/ExchangeApi.php:620
+#: ../lib/SimpleRestful.php:2108 ../lib/TradeApi.php:719
+#: ../lib/TradeApi.php:745
+msgid "Please enter the number."
+msgstr "Please enter the number."
+
+#: ../lib/ExchangeApi.php:683
+msgid "Failed to create new address. "
+msgstr "Failed to create new address. "
+
+#: ../lib/ExchangeApi.php:741
+msgid "Deposit"
+msgstr "Deposit"
+
+#: ../lib/ExchangeApi.php:742
+msgid "Withdrawal"
+msgstr "Withdrawal"
+
+#: ../lib/ExchangeApi.php:743
+msgid "Exchange"
+msgstr "Exchange"
+
+#: ../lib/ExchangeApi.php:744
+msgid "Attendance"
+msgstr "Attendance"
+
+#: ../lib/ExchangeApi.php:745
+msgid "Invite"
+msgstr "Invite"
+
+#: ../lib/ExchangeApi.php:746
+msgid "Bonus"
+msgstr "Bonus"
+
+#: ../lib/ExchangeApi.php:747
+msgid "받기"
+msgstr "Receive"
+
+#: ../lib/ExchangeApi.php:747
+msgid "Send"
+msgstr "Send"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Complete"
+msgstr "Complete"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Process"
+msgstr "Process"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Cancel"
+msgstr "Cancel"
+
+#: ../lib/ExchangeApi.php:782
+msgid "Waiting"
+msgstr "Waiting"
+
+#: ../lib/ExchangeApi.php:1115 ../lib/TradeApi.php:1967
+msgid "joined"
+msgstr "joined"
+
+#: ../lib/ExchangeApi.php:1124 ../lib/TradeApi.php:1977
+msgid "in progress"
+msgstr "in progress"
+
+#: ../lib/ExchangeApi.php:1719 ../lib/TradeApi.php:2411
+msgid "Please enter the correct media."
+msgstr "Please enter the correct media."
+
+#: ../lib/ExchangeApi.php:1728 ../lib/TradeApi.php:2427
+msgid "Please enter the correct action value."
+msgstr "Please enter the correct action value."
+
+#: ../lib/ExchangeApi.php:1734 ../lib/TradeApi.php:2433
+msgid "You can only view your personal information."
+msgstr "You can only view your personal information."
+
+#: ../lib/ExchangeApi.php:1742
+msgid "Please enter the correct country code."
+msgstr "Please enter the correct country code."
+
+#: ../lib/ExchangeApi.php:1750
+msgid "Please enter the correct mobile number."
+msgstr "Please enter the correct mobile number."
+
+#: ../lib/ExchangeApi.php:1765
+msgid "Please add a country calling code."
+msgstr "Please add a country calling code."
+
+#: ../lib/ExchangeApi.php:1774
+msgid "Please enter the correct social name."
+msgstr "Please enter the correct social name."
+
+#: ../lib/ExchangeApi.php:1782
+msgid "Please enter 6 numbers for PIN number."
+msgstr "Please enter 6 numbers for PIN number."
+
+#: ../lib/ExchangeApi.php:1791
+msgid "Please enter the correct share type."
+msgstr "Please enter the correct share type."
+
+#: ../lib/ExchangeApi.php:1835 ../lib/SimpleRestful.php:2139
+#: ../lib/TradeApi.php:2453
+msgid "Please enter the correct symbol."
+msgstr "Please enter the correct symbol."
+
+#: ../lib/SimpleRestful.php:332
+msgid "Failed to create folders. path: {dir}"
+msgstr "Failed to create folders. path: {dir}"
+
+#: ../lib/SimpleRestful.php:336
+msgid "The folder does not have write permission. Please specify write permission. path: {dir}"
+msgstr "The folder does not have write permission. Please specify write permission. path: {dir}"
+
+#: ../lib/SimpleRestful.php:371
+msgid "Mysql Connection Error: Failed connecting to database server"
+msgstr "Mysql Connection Error: Failed connecting to database server"
+
+#: ../lib/SimpleRestful.php:456
+msgid "Mysql Query Error: Failed executing database query"
+msgstr "Mysql Query Error: Failed executing database query"
+
+#: ../lib/SimpleRestful.php:1025
+msgid "Unable to access"
+msgstr "Unable to access"
+
+#: ../lib/SimpleRestful.php:2090
+msgid "the required fields"
+msgstr "the required fields"
+
+#: ../lib/SimpleRestful.php:2092
+msgid "Please fill in {name}."
+msgstr "Please fill in {name}."
+
+#: ../lib/SimpleRestful.php:2100
+msgid "Please enter a number greater than zero."
+msgstr "Please enter a number greater than zero."
+
+#: ../lib/SimpleRestful.php:2132
+msgid "Please enter the correct email."
+msgstr "Please enter the correct email."
+
+#: ../lib/TradeApi.php:294
+msgid "{symbol}의 PHP모듈이 없습니다. 생성해주세요."
+msgstr "The PHP module for {symbol} does not exist. please create."
+
+#: ../lib/TradeApi.php:2418
+msgid "Please enter the correct return type."
+msgstr "Please enter the correct return type."
+
+#: ../lib/TradeApi.php:2444
+msgid "Please enter the correct UUID."
+msgstr "Please enter the correct UUID."
+
+#: ../lib/TradeApi.php:2462
+msgid "Please enter the correct date."
+msgstr "Please enter the correct date."
+
+#: ../lib/TradeApi.php:2471
+msgid "Please enter the price according to the quotation unit({quote_unite})."
+msgstr "Please enter the price according to the quotation unit({quote_unite})."
+
+#: ../v1.0/attendance/index.php:58
+msgid "Not attendance time."
+msgstr "Not attendance time."
+
+#: ../v1.0/attendance/index.php:67
+msgid "You are already attendance."
+msgstr "You are already attendance."
+
+#: ../v1.0/attendance/index.php:183 ../v1.0/attendance/index.php:191
+#: ../v1.0/attendance/index.php:198 ../v1.0/buy/index.php:287
+#: ../v1.0/buy/index_static_price.php:195 ../v1.0/buy_direct/index.php:283
+#: ../v1.0/cancel/index.php:61 ../v1.0/checkReceive/index.php:117
+#: ../v1.0/deposit/index.php:47 ../v1.0/depositJin/index.php:65
+#: ../v1.0/putAuction/buy.php:365 ../v1.0/putAuction/subscribe.php:62
+#: ../v1.0/putFCM/index.php:32 ../v1.0/putM2M/index.php:45
+#: ../v1.0/putMyInfo/auction_apply.php:90 ../v1.0/putProposal/index.php:32
+#: ../v1.0/sell/index.php:271 ../v1.0/sell/index_static_price.php:181
+#: ../v1.0/sell_direct/index.php:291 ../v1.0/send/index.php:228
+#: ../v1.0/send/index.php:242 ../v1.0/send/nft.php:184 ../v1.0/send/nft.php:195
+msgid "A system error has occurred."
+msgstr "A system error has occurred."
+
+#: ../v1.0/buy/index.php:47 ../v1.0/buy_direct/index.php:50
+#: ../v1.0/sell/index.php:45 ../v1.0/sell_direct/index.php:50
+msgid "거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요."
+msgstr "Please enter a transaction quantity of {trade_min_volume} {symbol} or more."
+
+#: ../v1.0/buy/index.php:95 ../v1.0/buy/index.php:98
+msgid "지갑이 잠겨있어 매수하실 수 없습니다."
+msgstr "You cannot purchase because your wallet is locked."
+
+#: ../v1.0/buy/index.php:105 ../v1.0/buy_direct/index.php:121
+#: ../v1.0/sell/index.php:103 ../v1.0/sell_direct/index.php:125
+msgid "Your payment amount is too low. Please raise the quantity."
+msgstr "Your payment amount is too low. Please raise the quantity."
+
+#: ../v1.0/buy/index.php:120 ../v1.0/buy/index_static_price.php:69
+#: ../v1.0/buy_direct/index.php:136
+msgid "There is not enough balance to buy."
+msgstr "There is not enough balance to buy."
+
+#: ../v1.0/buy/index.php:126 ../v1.0/buy_direct/index.php:142
+#: ../v1.0/sell/index.php:114 ../v1.0/sell_direct/index.php:136
+msgid "There is no fee account information."
+msgstr "There is no fee account information."
+
+#: ../v1.0/buy_direct/index.php:29 ../v1.0/sell_direct/index.php:28
+msgid "Please enter only 4 decimal places for quantity."
+msgstr "Please enter only 4 decimal places for quantity."
+
+#: ../v1.0/buy_direct/index.php:57 ../v1.0/sell_direct/index.php:57
+msgid "주문정보를 찾을 수 없습니다."
+msgstr "Order information not found."
+
+#: ../v1.0/buy_direct/index.php:60
+msgid "매도 주문을 선택해주세요."
+msgstr "Please select a sell order."
+
+#: ../v1.0/buy_direct/index.php:63 ../v1.0/sell_direct/index.php:63
+msgid "거래가능한 주문수량이 없습니다."
+msgstr "There is no tradeable order quantity."
+
+#: ../v1.0/buy_direct/index.php:68
+msgid "판매가격과 다른 구매가격을 입력하여 구매하지 못했습니다."
+msgstr "Failed to purchase because you entered a purchase price that is different from the selling price."
+
+#: ../v1.0/buy_direct/index.php:94
+msgid "남은 판매수량보다 많이 주문하실 수 없습니다."
+msgstr "You cannot order more than the remaining sales quantity."
+
+#: ../v1.0/buy_direct/index.php:105 ../v1.0/buy_direct/index.php:114
+#: ../v1.0/sell_direct/index.php:109 ../v1.0/sell_direct/index.php:118
+msgid "{symbol}지갑이 잠겨있어 매도하실 수 없습니다."
+msgstr "{symbol}Your wallet is locked and cannot be sold."
+
+#: ../v1.0/cancel/index.php:28
+msgid "You can only process your own orders."
+msgstr "You can only process your own orders."
+
+#: ../v1.0/cancel/index.php:33
+msgid "You can not cancel because already completed an order."
+msgstr "You can not cancel because already completed an order."
+
+#: ../v1.0/checkConfirmCode/index.php:43 ../v1.0/checkConfirmCode/index.php:63
+#: ../v1.0/checkConfirmCode/index.php:73
+msgid "Failed to validate confirm code."
+msgstr "Failed to validate confirm code."
+
+#: ../v1.0/checkConfirmCode/index.php:73
+msgid "Please enter a valid verification code."
+msgstr "Please enter a valid verification code."
+
+#: ../v1.0/checkPin/index.php:29 ../v1.0/send/index.php:55
+#: ../v1.0/send/nft.php:35 ../v1.0/withdraw/index copy.php:35
+#: ../v1.0/withdraw/index.php:47
+msgid "Please enter the correct PIN number."
+msgstr "Please enter the correct PIN number."
+
+#: ../v1.0/checkReceive/index.php:28
+msgid "Symbole 정보가 없습니다."
+msgstr "No Symbole information."
+
+#: ../v1.0/checkReceive/index.php:52
+msgid "이미 처리했습니다."
+msgstr "Already processed it."
+
+#: ../v1.0/checkReceive/index.php:70
+msgid "입금 정보에서 입금자와 입금액을 찾지 못했습니다."
+msgstr "We could not find the depositor and deposit amount in your deposit information."
+
+#: ../v1.0/deleteBbs/index.php:20 ../v1.0/deleteComment/index.php:20
+#: ../v1.0/deleteM2M/index.php:20
+msgid "다른 회원님이 작성한 글입니다."
+msgstr "This article was written by another member."
+
+#: ../v1.0/depositJin/index.php:36 ../v1.0/depositJin/index.php:39
+msgid "A x-system error has occurred."
+msgstr "A x-system error has occurred."
+
+#: ../v1.0/findinfo/findid.php:13 ../v1.0/findinfo/findpw.php:12
+msgid "Please enter your email or phone number."
+msgstr "Please enter your email or phone number."
+
+#: ../v1.0/findinfo/findid.php:34 ../v1.0/findinfo/findpw.php:26
+msgid "There is no account information."
+msgstr "There is no account information."
+
+#: ../v1.0/findinfo/findpw.php:44
+msgid "This is the password change guide for {name}."
+msgstr "This is the password change guide for {name}."
+
+#: ../v1.0/findinfo/findpw.php:48
+msgid "Failed to send email."
+msgstr "Failed to send email."
+
+#: ../v1.0/findinfo/findpw.php:53 ../v1.0/findinfo/tpl_email.php:36
+msgid "Click the following link to set a new password."
+msgstr "Click the following link to set a new password."
+
+#: ../v1.0/findinfo/tpl_email.php:31
+msgid "Dear {member_name},"
+msgstr "Dear {member_name},"
+
+#: ../v1.0/findinfo/tpl_email.php:32
+msgid "We were asked to reset your account."
+msgstr "We were asked to reset your account."
+
+#: ../v1.0/findinfo/tpl_email.php:33
+msgid "Don't worry, your account is safe."
+msgstr "Don't worry, your account is safe."
+
+#: ../v1.0/findinfo/tpl_email.php:34
+msgid "Ignore the E-Mail if the request to reset your password does not come from you."
+msgstr "Ignore the E-Mail if the request to reset your password does not come from you."
+
+#: ../v1.0/findinfo/tpl_email.php:35
+msgid "Follow the instructions below if this request comes from you."
+msgstr "Follow the instructions below if this request comes from you."
+
+#: ../v1.0/findinfo/tpl_email.php:38
+msgid "If clicking the link doesn't work you can copy the link into your browser window or type it there directly."
+msgstr "If clicking the link doesn't work you can copy the link into your browser window or type it there directly."
+
+#: ../v1.0/findinfo/tpl_email.php:41
+msgid "Go Website"
+msgstr "Go Website"
+
+#: ../v1.0/getCountry/index.php:12
+msgid "Korea (the Republic of)"
+msgstr "Korea (the Republic of)"
+
+#: ../v1.0/getCountry/index.php:15
+msgid "Macau"
+msgstr "Macau"
+
+#: ../v1.0/getCountry/index.php:22
+msgid "United States"
+msgstr "United States"
+
+#: ../v1.0/getCountry/index.php:23
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+#: ../v1.0/getVersion/index.php:21
+msgid "There is no version information."
+msgstr "There is no version information."
+
+#: ../v1.0/join/index.php:10
+msgid "Enter your first name!"
+msgstr "Enter your first name!"
+
+#: ../v1.0/join/index.php:14
+msgid "Enter your last name!"
+msgstr "Enter your last name!"
+
+#: ../v1.0/join/index.php:21
+msgid "Please enter your member ID."
+msgstr "Please enter your member ID."
+
+#: ../v1.0/join/index.php:26
+msgid "The member ID must contain a country code in uppercase letters."
+msgstr "The member ID must contain a country code in uppercase letters."
+
+#: ../v1.0/join/index.php:30
+msgid "Please enter your phone number."
+msgstr "Please enter your phone number."
+
+#: ../v1.0/join/index.php:36
+msgid "Please enter the mobile value."
+msgstr "Please enter the mobile value."
+
+#: ../v1.0/join/index.php:49
+msgid "Enter your password!"
+msgstr "Enter your password!"
+
+#: ../v1.0/join/index.php:67
+msgid "Please enter another ID that is not duplicated."
+msgstr "Please enter another ID that is not duplicated."
+
+#: ../v1.0/join/index.php:99 ../v1.0/join/index.php:103
+msgid "There was an error processing your subscription. Please contact administrator."
+msgstr "There was an error processing your subscription. Please contact administrator."
+
+#: ../v1.0/login/index.php:27 ../v1.0/login/index.php:32
+#: ../v1.0/loginAdmin/index.php:23 ../v1.0/socialLogin/index.php:165
+msgid "The information does not match. Please check your ID!"
+msgstr "The information does not match. Please check your ID!"
+
+#: ../v1.0/login/index.php:37
+msgid "You did not verify your email. Please check your email verification!"
+msgstr "You did not verify your email. Please check your email verification!"
+
+#: ../v1.0/login/index.php:49 ../v1.0/socialLogin/index.php:183
+msgid "Login failed."
+msgstr "Login failed."
+
+#: ../v1.0/logout/index.php:10
+msgid "Please enter the token value."
+msgstr "Please enter the token value."
+
+#: ../v1.0/putAuction/auction.php:26
+msgid "Please enter a higher value than the starting price."
+msgstr "Please enter a higher value than the starting price."
+
+#: ../v1.0/putAuction/auction.php:50
+msgid "상품 정보를 찾지 못했습니다."
+msgstr "Product information not found."
+
+#: ../v1.0/putAuction/auction.php:59
+msgid "You cannot sell more than your holdings."
+msgstr "You cannot sell more than your holdings."
+
+#: ../v1.0/putAuction/auction.php:63
+msgid "Only members who have the full quantity can sell in split."
+msgstr "Only members who have the full quantity can sell in split."
+
+#: ../v1.0/putAuction/auction.php:73
+msgid "Bundles cannot be split."
+msgstr "Bundles cannot be split."
+
+#: ../v1.0/putAuction/auction.php:82
+msgid "경매번호가 경매에 등록된 상품정보와 다릅니다."
+msgstr "The auction number is different from the product information registered in the auction."
+
+#: ../v1.0/putAuction/auction.php:86 ../v1.0/putAuction/goods.php:92
+msgid "보유 중인 상품이 아닙니다."
+msgstr "This product is not in stock."
+
+#: ../v1.0/putAuction/auction.php:90
+msgid "경매번호 등록자가 아닙니다."
+msgstr "I am not a registered auction number."
+
+#: ../v1.0/putAuction/auction.php:98
+msgid "입찰자가 있어 수정할 수 없습니다."
+msgstr "There is a bidder and cannot be edited."
+
+#: ../v1.0/putAuction/auction.php:102
+msgid "경매가 종료되어 수정할 수 없습니다."
+msgstr "The auction has ended and cannot be edited."
+
+#: ../v1.0/putAuction/auction.php:159
+msgid "보유 중인 상품이 아니라서 경매를 등록하지 못했습니다."
+msgstr "The auction could not be registered because the item is not in stock."
+
+#: ../v1.0/putAuction/auction.php:163
+msgid "진행중인 경매가 있어 등록하지 못했습니다."
+msgstr "Registration failed because there is an ongoing auction."
+
+#: ../v1.0/putAuction/auction.php:167
+msgid "묶음 판매중인 상품이라 등록하지 못했습니다."
+msgstr "Couldn't register because it's a bundled product."
+
+#: ../v1.0/putAuction/bid.php:34 ../v1.0/putMyInfo/auction_apply.php:25
+msgid "No auction now."
+msgstr "No auction now."
+
+#: ../v1.0/putAuction/bid.php:37 ../v1.0/putMyInfo/auction_apply.php:28
+msgid "경매가 시작되지 않았습니다."
+msgstr "The auction has not started."
+
+#: ../v1.0/putAuction/bid.php:37 ../v1.0/putMyInfo/auction_apply.php:28
+msgid "시작날짜를 확인해주세요."
+msgstr "Please check the start date."
+
+#: ../v1.0/putAuction/bid.php:40 ../v1.0/putAuction/bid.php:43
+#: ../v1.0/putMyInfo/auction_apply.php:31
+msgid "경매가 종료되었습니다."
+msgstr "The auction has ended."
+
+#: ../v1.0/putAuction/bid.php:40 ../v1.0/putAuction/bid.php:43
+#: ../v1.0/putMyInfo/auction_apply.php:31
+msgid "다른 경매상품에 참여해주세요."
+msgstr "Please participate in other auction products."
+
+#: ../v1.0/putAuction/bid.php:49 ../v1.0/putAuction/buy.php:72
+msgid "Please enter the order quantity below the remain quantity."
+msgstr "Please enter the order quantity below the remain quantity."
+
+#: ../v1.0/putAuction/bid.php:69 ../v1.0/putAuction/buy.php:88
+#: ../v1.0/putMyInfo/auction_apply.php:38
+msgid "You can't apply your goods."
+msgstr "You can't apply your goods."
+
+#: ../v1.0/putAuction/bid.php:76
+msgid "The bid price is less than or equal to the maximum price."
+msgstr "The bid price is less than or equal to the maximum price."
+
+#: ../v1.0/putAuction/bid.php:100 ../v1.0/putAuction/buy.php:135
+msgid "There is not enough balance."
+msgstr "There is not enough balance."
+
+#: ../v1.0/putAuction/bid.php:107 ../v1.0/putAuction/buy.php:142
+msgid "Please set an auction manager."
+msgstr "Please set an auction manager."
+
+#: ../v1.0/putAuction/bid.php:114 ../v1.0/putAuction/buy.php:149
+msgid "경매 관리자 지갑을 생성하지 못했습니다."
+msgstr "Failed to create auction manager wallet."
+
+#: ../v1.0/putAuction/buy.php:60
+msgid "판매 가능한 상품이 없습니다."
+msgstr "There are no products available for sale."
+
+#: ../v1.0/putAuction/buy.php:95
+msgid "입찰가격이 높아져 바로구매는 비활성화 되었습니다."
+msgstr "Direct purchase has been deactivated due to the increased bid price."
+
+#: ../v1.0/putAuction/buy.php:215
+msgid "구매 수량이 남은 수량보다 많습니다."
+msgstr "The purchase quantity is greater than the remaining quantity."
+
+#: ../v1.0/putAuction/del_goods.php:26 ../v1.0/putAuction/report_goods.php:28
+msgid "There is no product."
+msgstr "There is no product."
+
+#: ../v1.0/putAuction/del_goods.php:30
+msgid "Splited products cannot be deleted."
+msgstr "Splited products cannot be deleted."
+
+#: ../v1.0/putAuction/del_goods.php:34
+msgid "Only the owner of the product can be deleted."
+msgstr "Only the owner of the product can be deleted."
+
+#: ../v1.0/putAuction/del_goods.php:44
+msgid "The auction info exist so can not be deleted."
+msgstr "The auction info exist so can not be deleted."
+
+#: ../v1.0/putAuction/goods.php:44
+msgid "Please enter a royalty of 10% or less."
+msgstr "Please enter a royalty of 10% or less."
+
+#: ../v1.0/putAuction/goods.php:67
+msgid "올바른 카테고리값을 전달해주세요."
+msgstr "Please pass the correct category value."
+
+#: ../v1.0/putAuction/goods.php:95
+msgid "상품정보가 없습니다."
+msgstr "There is no product information."
+
+#: ../v1.0/putAuction/goods.php:100
+msgid "로열티는 상품의 크리에이터만 수정할 수 있습니다."
+msgstr "Royalty can only be modified by the creator of the product."
+
+#: ../v1.0/putAuction/goods.php:157
+msgid "메인이미지가 이미 등록된 상품입니다."
+msgstr "This is a product whose main image has already been registered."
+
+#: ../v1.0/putAuction/report_goods.php:34
+msgid "It is already reported."
+msgstr "It is already reported."
+
+#: ../v1.0/putAuction/subscribe.php:25
+msgid "구독종류를 올바르게 입력해주세요."
+msgstr "Please enter the subscription type correctly."
+
+#: ../v1.0/putFCM/index.php:22
+msgid "The UUID that is already registered."
+msgstr "The UUID that is already registered."
+
+#: ../v1.0/putM2M/index.php:23
+msgid "Author information is different."
+msgstr "Author information is different."
+
+#: ../v1.0/putM2M/index.php:26
+msgid "Posts with comments can not be modified."
+msgstr "Posts with comments can not be modified."
+
+#: ../v1.0/putMyInfo/auction_apply.php:50
+msgid "The apply price is less than or equal to the maximum price."
+msgstr "The apply price is less than or equal to the maximum price."
+
+#: ../v1.0/putMyInfo/auction_apply.php:56
+msgid "잔액이 부족합니다."
+msgstr "Insufficient balance."
+
+#: ../v1.0/putMyInfo/auction_apply.php:63
+msgid "경매관리자 지갑을 설정해주세요."
+msgstr "Please set up the auction manager wallet."
+
+#: ../v1.0/putMyInfo/auction_sell.php:29
+msgid "No item."
+msgstr "No item."
+
+#: ../v1.0/putMyInfo/auction_sell.php:32
+msgid "보유중인 상품이 아닙니다."
+msgstr "This product is not in stock."
+
+#: ../v1.0/sell/index.php:84 ../v1.0/sell/index.php:88
+msgid "지갑이 잠겨있어 매도하실 수 없습니다."
+msgstr "The wallet is locked and cannot be sold."
+
+#: ../v1.0/sell/index.php:108 ../v1.0/sell/index_static_price.php:56
+#: ../v1.0/sell_direct/index.php:130
+msgid "There is not enough balance to sell."
+msgstr "There is not enough balance to sell."
+
+#: ../v1.0/sell_direct/index.php:60
+msgid "매수 주문을 선택해주세요."
+msgstr "Please select a buy order."
+
+#: ../v1.0/sell_direct/index.php:68
+msgid "구매가격과 다른 판매가격을 입력하여 판매하지 못했습니다."
+msgstr "Failed to sell because you entered a selling price that is different from the purchase price."
+
+#: ../v1.0/sell_direct/index.php:98
+msgid "남은 구매수량보다 많이 주문하실 수 없습니다."
+msgstr "You cannot order more than the remaining purchase quantity."
+
+#: ../v1.0/send/index.php:76
+msgid "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator."
+msgstr "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator."
+
+#: ../v1.0/send/index.php:84 ../v1.0/send/nft.php:62
+msgid "You do not have a wallet."
+msgstr "You do not have a wallet."
+
+#: ../v1.0/send/index.php:84 ../v1.0/send/nft.php:62
+msgid "Please create a wallet."
+msgstr "Please create a wallet."
+
+#: ../v1.0/send/index.php:88 ../v1.0/send/nft.php:66
+msgid "Your wallet is locked and cannot be send."
+msgstr "Your wallet is locked and cannot be send."
+
+#: ../v1.0/send/index.php:94 ../v1.0/send/index.php:208
+#: ../v1.0/send/nft.php:163
+msgid "There is not enough balance to send."
+msgstr "There is not enough balance to send."
+
+#: ../v1.0/send/index.php:114 ../v1.0/send/nft.php:90
+msgid "수신자의 지갑이 없어 생성하려 했으나 생성하지 못했습니다."
+msgstr "An attempt was made to create the recipient's wallet because it did not exist, but it could not be created."
+
+#: ../v1.0/send/index.php:123 ../v1.0/send/nft.php:99
+msgid "There is no receiver wallet."
+msgstr "There is no receiver wallet."
+
+#: ../v1.0/send/index.php:123 ../v1.0/send/nft.php:99
+msgid "Please enter a valid receiver address."
+msgstr "Please enter a valid receiver address."
+
+#: ../v1.0/send/index.php:131
+msgid "다른 회원님에게 보내주세요."
+msgstr "Please send it to another member."
+
+#: ../v1.0/send/index.php:137
+msgid "외부로 송금시에는 최소 {out_min_volume} {symbol}이상으로 전송해주세요"
+msgstr "When sending money outside, please send at least {out_min_volume} {symbol}"
+
+#: ../v1.0/send/index.php:141
+msgid "외부로 송금시에는 최대 {out_min_volume} {symbol}미만으로 전송해주세요"
+msgstr "When sending money outside, please send less than the maximum {out_min_volume} {symbol}"
+
+#: ../v1.0/send/index.php:148 ../v1.0/send/nft.php:124
+msgid "We blocked the same amount transfer in a short period of time to prevent duplicate shipments. Please send it after a while to send the same amount."
+msgstr "We blocked the same amount transfer in a short period of time to prevent duplicate shipments. Please send it after a while to send the same amount."
+
+#: ../v1.0/send/index.php:155
+msgid "NFT 정보를 찾지 못했습니다."
+msgstr "NFT information not found."
+
+#: ../v1.0/send/index.php:159
+msgid "NFT의 소유주만 전송할 수 있습니다."
+msgstr "Only the owner of the NFT can transfer."
+
+#: ../v1.0/send/index.php:163
+msgid "보유수량보다 많이 전송할 수 없습니다."
+msgstr "You cannot transfer more than the amount you have."
+
+#: ../v1.0/send/index.php:168
+msgid "분할된 NFT는 외부로 전송할 수 없습니다."
+msgstr "A partitioned NFT cannot be transmitted externally."
+
+#: ../v1.0/send/index.php:228 ../v1.0/send/index.php:242
+#: ../v1.0/send/nft.php:184 ../v1.0/send/nft.php:195
+msgid "Failed to send."
+msgstr "Failed to send."
+
+#: ../v1.0/send/index.php:260 ../v1.0/send/nft.php:209
+msgid "There is no fee wallet."
+msgstr "There is no fee wallet."
+
+#: ../v1.0/send/index.php:260 ../v1.0/send/nft.php:209
+msgid "Please create a fee wallet for {symbol}."
+msgstr "Please create a fee wallet for {symbol}."
+
+#: ../v1.0/sendConfirmCode/index.php:66 ../v1.0/sendConfirmCode/index.php:77
+#: ../v1.0/sendConfirmCode/index.php:87
+msgid "Failed to send confirm code."
+msgstr "Failed to send confirm code."
+
+#: ../v1.0/sendConfirmCode/index.php:74 ../v1.0/sendConfirmCode/index.php:84
+msgid "Your verification code is: {tmpnum}"
+msgstr "Your verification code is: {tmpnum}"
+
+#: ../v1.0/sendConfirmCode/index.php:84
+msgid "인증번호를 입력해주세요."
+msgstr "Please enter the verification code."
+
+#: ../v1.0/socialJoin/index.php:45
+msgid "Please enter a 6-digit number."
+msgstr "Please enter a 6-digit number."
+
+#: ../v1.0/socialJoin/index.php:119
+msgid "Already joined."
+msgstr "Already joined."
+
+#: ../v1.0/socialJoin/index.php:119
+msgid "Please login!"
+msgstr "Please login!"
+
+#: ../v1.0/socialJoin/index.php:124
+msgid "Please enter another ID."
+msgstr "Please enter another ID."
+
+#: ../v1.0/socialJoin/index.php:135
+msgid "Fail join!"
+msgstr "Fail join!"
+
+#: ../v1.0/socialLogin/index.php:42
+msgid "Please enter a password."
+msgstr "Please enter a password."
+
+#: ../v1.0/socialLogin/index.php:151
+msgid "The information does not match."
+msgstr "The information does not match."
+
+#: ../v1.0/socialLogin/index.php:151
+msgid "Please check your ID!"
+msgstr "Please check your ID!"
+
+#: ../v1.0/withdraw/index copy.php:29 ../v1.0/withdraw/index.php:38
+msgid "Please enter a value larger than the minimum withdrawal amount."
+msgstr "Please enter a value larger than the minimum withdrawal amount."
+
+#: ../v1.0/withdraw/index copy.php:43 ../v1.0/withdraw/index.php:55
+msgid "Please enter the member's withdrawal address."
+msgstr "Please enter the member's withdrawal address."
+
+#: ../v1.0/withdraw/index copy.php:49 ../v1.0/withdraw/index.php:73
+msgid "You can not withdraw more than your balance."
+msgstr "You can not withdraw more than your balance."
+
+#: ../v1.0/withdraw/index copy.php:63 ../v1.0/withdraw/index.php:91
+msgid "Withdrawal amount is less than the fee."
+msgstr "Withdrawal amount is less than the fee."
+
+#: ../v1.0/withdraw/index copy.php:67 ../v1.0/withdraw/index.php:95
+msgid "실 출금액이 없습니다."
+msgstr "There is no actual withdrawal amount."
+
+#: ../v1.0/withdraw/index copy.php:67 ../v1.0/withdraw/index.php:95
+msgid "수수료보다 많은 금액을 출금해주세요."
+msgstr "Please withdraw more than the fee."
+
+#: ../v1.0/withdraw/index copy.php:78 ../v1.0/withdraw/index.php:106
+msgid "Member requested withdrawal."
+msgstr "Member requested withdrawal."
+
+#: ../v1.0/withdraw/index.php:41
+msgid "출금하실 금액을 최대출금액보다 작게 입력해주세요."
+msgstr "Please enter the amount to be withdrawn less than the maximum withdrawal amount."
+
+#: ../v1.0/withdraw/index.php:60 ../v1.0/withdraw/index.php:63
+msgid "지갑이 잠겨있어 출금하실 수 없습니다."
+msgstr "Your wallet is locked and you cannot withdraw money."
+
+#: ../v1.0/withdraw/index.php:68
+msgid "은행계좌 인증을 완료 후 출금 신청해주세요."
+msgstr "After verifying your bank account, please apply for withdrawal."
+
+#~ msgid "Wallet address is missing. Please create an address."
+#~ msgstr "Wallet address is missing. Please create an address."
+
+#~ msgid "Please enter the correct address."
+#~ msgstr "Please enter the correct address."
+
+#~ msgid "Symbol 정보가 없습니다."
+#~ msgstr "There is no symbol information."
+
+#~ msgid "Please enter the correct email address."
+#~ msgstr "Please enter the correct email address."
+
+#~ msgid "Not a valid order status code."
+#~ msgstr "Not a valid order status code."
+
+#~ msgid "Please enter the amount you are sending."
+#~ msgstr "Please enter the amount you are sendinPlease enter the amount you are sending.g."
+
+#~ msgid "친구초대 기능은 닫혀있습니다. 지급코인과 지급금액을 정의한 후 사용해주세요."
+#~ msgstr "Invite friends function is closed. Please use it after defining the payment coin and payment amount."
+
+#~ msgid "The version of the program is incorrect. Please download again."
+#~ msgstr "The version of the program is incorrect. Please download again."
+
+#~ msgid "There is no symbol information."
+#~ msgstr "There is no symbol information."
+
+#~ msgid "This member has already joined."
+#~ msgstr "This member has already joined."
+
+#~ msgid "You have already sent."
+#~ msgstr "You have already sent."
+
+#~ msgid "You have already invited."
+#~ msgstr "You have already invited."
+
+#~ msgid "bid"
+#~ msgstr "bid"
+
+#~ msgid "buy"
+#~ msgstr "buy"
+
+#~ msgid "send"
+#~ msgstr "send"
+
+#~ msgid "external deposit"
+#~ msgstr "external deposit"
+
+#~ msgid "mint"
+#~ msgstr "mint"
+
+#~ msgid "socialJoin을 사용해주세요."
+#~ msgstr "Please use socialJoin."
+
+#~ msgid "접근권한이 없습니다."
+#~ msgstr "You do not have access rights."
+
+#~ msgid "socialLogin을 사용해주세요."
+#~ msgstr "Please use socialLogin."
+
+#~ msgid "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator (webmaster@cexstock.com)."
+#~ msgstr "Too many send occurred in a short time, and the send function was automatically locked. To unlock, contact administrator (webmaster@cexstock.com)."
+
+#~ msgid "We blocked the same amount transfer in a short period of time to prevent duplicate shipments."
+#~ msgstr "We blocked the same amount transfer in a short period of time to prevent duplicate shipments."
+
+#~ msgid "Please send it after a while to send the same amount."
+#~ msgstr "Please send it after a while to send the same amount."
+
+#~ msgid "Your order price is invalid."
+#~ msgstr "Your order price is invalid."
+
+#~ msgid "Please make sure the sender walletname is correct."
+#~ msgstr "Please make sure the sender walletname is correct."
+
+#~ msgid "Please make sure the secret key is correct."
+#~ msgstr "Please make sure the secret key is correct."
+
+#~ msgid "There is no store manager information."
+#~ msgstr "There is no store manager information."
+
+#~ msgid "The store information is different."
+#~ msgstr "The store information is different."
+
+#~ msgid "Please check the store information."
+#~ msgstr "Please check the store information."
+
+#~ msgid "Store manager's wallet is missing."
+#~ msgstr "Store manager's wallet is missing."
+
+#~ msgid "bonus sender's wallet is missing."
+#~ msgstr "bonus sender's wallet is missing."
+
+#~ msgid "경매가 시작되어 수정할 수 없습니다."
+#~ msgstr "The auction has started and cannot be edited."
+
+#~ msgid "You can't bid your goods."
+#~ msgstr "You can't bid your goods."
+
+#~ msgid "바로구매가 불가한 상태입니다."
+#~ msgstr "Direct purchase is not possible."
+
+#~ msgid "이미 등록된 상품입니다."
+#~ msgstr "This product has already been registered."
+
+#~ msgid "이미 처리한 게임결과입니다."
+#~ msgstr "This is a game result that has already been processed."
+
+#~ msgid "nickname duplication!"
+#~ msgstr "nickname duplication!"
+
+#~ msgid "Please enter the amount larger than the minimum withdrawal amount."
+#~ msgstr "Please enter the amount larger than the minimum withdrawal amount."
+
+#~ msgid "Please enter the amount smaller than the maximum withdrawal amount."
+#~ msgstr "Please enter the amount smaller than the maximum withdrawal amount."
+
+#~ msgid "Please request the withdrawal after completing the bank account authentication."
+#~ msgstr "Please request the withdrawal after completing the bank account authentication."
+
+#~ msgid "There is no actual withdrawal amount to be received."
+#~ msgstr "There is no actual withdrawal amount to be received."
+
+#~ msgid "Please enter more than the fee."
+#~ msgstr "Please enter more than the fee."
+
+#~ msgid "서비스 준비중입니다."
+#~ msgstr "Service is being prepared."
+
+#~ msgid "There is no fee manager account information."
+#~ msgstr "There is no fee manager account information."
+
+#~ msgid "Failed to exchange. Please try again in a few minutes."
+#~ msgstr "Failed to exchange. Please try again in a few minutes."
+
+#~ msgid "External Deposit"
+#~ msgstr "External Deposit"
+
+#~ msgid "Mint"
+#~ msgstr "Mint"
+
+#~ msgid "Buy"
+#~ msgstr "Buy"
+
+#~ msgid "Bid"
+#~ msgstr "Bid"
+
+#~ msgid "현재 사용중인 올바른 비밀번호를 입력해주세요."
+#~ msgstr "Please enter the correct password currently in use."
+
+#~ msgid "올바른 새 비밀번호를 입력해주세요."
+#~ msgstr "Please enter the correct new password."
+
+#~ msgid "시스템 정검중입니다."
+#~ msgstr "The system is being checked."
+
+#~ msgid "메시지에서 금액, 입금자, 계좌번호를 찾지 못했습니다."
+#~ msgstr "The amount, depositor, and account number could not be found in the message."
