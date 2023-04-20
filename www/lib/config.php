@@ -69,19 +69,19 @@ if (!defined('__DB_INFO__')) {
         case 'loc':
             $_db_info = array(
                 'master' => array(
-                    'host' => 'loc.master',
+                    'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
                     'username' => 'kkikda',
-                    'password' => 'k$d^39@34',
+                    'password' => 'KKe8IuK28Due82A',
                     'charset' => 'utf8mb4',
-                    'database' => 'kkikda2'
+                    'database' => 'kkikda'
                 ),
                 'slave' => array(
                     array(
-                        'host' => 'loc.slave',
+                        'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
                         'username' => 'kkikda',
-                        'password' => 'k$d^39@34',
+                        'password' => 'KKe8IuK28Due82A',
                         'charset' => 'utf8mb4',
-                        'database' => 'kkikda2'
+                        'database' => 'kkikda'
                     )
                 )
             );
@@ -105,24 +105,24 @@ if (!defined('__DB_INFO__')) {
         case 'dev':
             $_db_info = array(
                 'master' => array(
-                    'host' => 'localhost',
+                    'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
                     'username' => 'kkikda',
-                    'password' => 'k$d^39@34',
+                    'password' => 'KKe8IuK28Due82A',
                     'charset' => 'utf8mb4',
-                    'database' => 'kkikda2'
+                    'database' => 'kkikda'
                 ),
                 'slave' => array(
                     array(
-                        'host' => 'localhost',
+                        'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
                         'username' => 'kkikda',
-                        'password' => 'k$d^39@34',
+                        'password' => 'KKe8IuK28Due82A',
                         'charset' => 'utf8mb4',
-                        'database' => 'kkikda2'
+                        'database' => 'kkikda'
                     )
                 )
             );
             $_memcache_info = array(
-                'host' => '192.168.0.200',
+                'host' => 'kkikdacache-dev.a12ygy.cfg.apn2.cache.amazonaws.com',
                 'port' => '11211',
             );
             $_google_drive_target_folderid = '1BWHSK6ofmXWi6kUgewJlGJ-T8psue72y';
