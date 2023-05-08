@@ -8,7 +8,7 @@ $tradeapi->set_log_dir($tradeapi->log_dir.'/'.basename(__dir__).'/');
 $tradeapi->set_log_name('');
 $tradeapi->write_log("REQUEST: " . json_encode($_REQUEST));
 
-
+$res = "";
 
 // 접속할 IP와 포트를 지정합니다.
 $ip = '61.109.249.165';
@@ -19,7 +19,7 @@ $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
 // 소켓이 열리지 않으면 오류를 출력합니다.
 if ($socket === false) {
-    echo "socket_create() failed: " . socket_strerror(socket_last_error()) . "\n";
+    $res =  "socket_create() failed: " . socket_strerror(socket_last_error()) . "\n";
 }
 
 // 서버에 연결합니다.
