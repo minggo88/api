@@ -19,7 +19,8 @@ $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 
 // 소켓이 열리지 않으면 오류를 출력합니다.
 if ($socket === false) {
-    $res =  "socket_create() failed: " . socket_strerror(socket_last_error()) . "\n";
+    //$res =  "socket_create() failed: " . socket_strerror(socket_last_error()) . "\n";
+    $this->error('055', __('Failed to connect to coin server. details: ').socket_strerror(socket_last_error());
 }
 
 // 서버에 연결합니다.
@@ -28,6 +29,7 @@ $result = socket_connect($socket, $ip, $port);
 // 연결이 실패하면 오류를 출력합니다.
 if ($result === false) {
     echo "socket_connect() failed: " . socket_strerror(socket_last_error($socket)) . "\n";
+    $this->error('055', __('Failed to connect to coin server. details2: ').socket_strerror(socket_last_error());
 }
 
 // 서버로 데이터를 전송합니다.
@@ -42,6 +44,7 @@ $res = "Response from server: " . $response . "\n";
 
 // 소켓을 닫습니다.
 socket_close($socket);
+$this->error('055', __('Failed to connect to coin server. details3: ').$res);
 
 
 // response
