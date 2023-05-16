@@ -7,7 +7,7 @@ $userno = $tradeapi->get_login_userno();
 
 $_REQUEST['userno'] = $userno;
 
-
+/*
 // 이미지 s3 정식폴더로 이동
 $s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
 foreach($s3_check_param as $param) {
@@ -25,3 +25,7 @@ $r = $tradeapi->save_member_info($_REQUEST);
 
 // response
 $tradeapi->success($r);
+*/
+
+$tradeapi->success("test");*/
+?>
