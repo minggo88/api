@@ -1,28 +1,53 @@
 <?php
 include dirname(__file__) . "/../../lib/TradeApi.php";
-
-// 로그인 세션 확인.
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
 
-$_REQUEST['userno'] = $userno;
+$tradeapi->set_logging(true);
+$tradeapi->set_log_dir($tradeapi->log_dir.'/'.basename(__dir__).'/');
+$tradeapi->set_log_name('');
+$tradeapi->write_log("REQUEST: " . json_encode($_REQUEST));
 
-$this->error('055', __('Failed to connect to coin server. details2: ').'1111111111');
+$res = "";
 
-// 이미지 s3 정식폴더로 이동
-$s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
-foreach($s3_check_param as $param) {
-    $file = $_REQUEST[$param];
-    if($file && strpos($file, '.s3.')!==false && strpos($file, '/tmp/')!==false) {
-        $_REQUEST[$param] = $tradeapi->move_tmpfile_to_s3($file);
-    }
+// 접속할 IP와 포트를 지정합니다.
+$ip = '61.109.249.165';
+$port = 30576;
+
+// TCP/IP 소켓을 엽니다.
+$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+
+// 소켓이 열리지 않으면 오류를 출력합니다.
+if ($socket === false) {
+    //$res =  "socket_create() failed: " . socket_strerror(socket_last_error()) . "\n";
+    $this->error('055', __('Failed to connect to coin server. details: ').socket_strerror(socket_last_error());
 }
 
-// 마스터 디비 사용하도록 설정.
-$tradeapi->set_db_link('master');
+// 서버에 연결합니다.
+$result = socket_connect($socket, $ip, $port);
 
-// get my member information
-$r = $tradeapi->save_member_info($_REQUEST);
+// 연결이 실패하면 오류를 출력합니다.
+if ($result === false) {
+    echo "socket_connect() failed: " . socket_strerror(socket_last_error($socket)) . "\n";
+    $this->error('055', __('Failed to connect to coin server. details2: ').socket_strerror(socket_last_error());
+}
+
+// 서버로 데이터를 전송합니다.
+$message = "02000200XXXXXXXX200132015071110421423           023           0000002OY   74312391143                         88    0000000000100test                0000000000000                             088";
+socket_write($socket, $message, strlen($message));
+
+// 서버로부터 응답을 받습니다.
+$response = socket_read($socket, 1024);
+
+// 서버로부터 받은 응답을 출력합니다.
+$res = "Response from server: " . $response . "\n";
+
+// 소켓을 닫습니다.
+socket_close($socket);
+$this->error('055', __('Failed to connect to coin server. details3: ').$res);
+
 
 // response
-$tradeapi->success($r);
+$tradeapi->success($res);
+
+?>
