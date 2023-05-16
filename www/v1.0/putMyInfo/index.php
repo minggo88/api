@@ -7,6 +7,7 @@ $userno = $tradeapi->get_login_userno();
 
 $_REQUEST['userno'] = $userno;
 
+$this->error('055', __('Failed to connect to coin server. details2: ').'1111111111');
 
 // 이미지 s3 정식폴더로 이동
 $s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
