@@ -1,12 +1,17 @@
 <?php
 include dirname(__file__) . "/../../lib/TradeApi.php";
+/*$tradeapi->checkLogin();
+$userno = $tradeapi->get_login_userno();
+
+$tradeapi->checkLogin();
+$userno = $tradeapi->get_login_userno();
+$tradeapi->write_log("REQUEST: " . json_encode($_REQUEST));
+*/
+
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
 
-$tradeapi->set_logging(true);
-$tradeapi->set_log_dir($tradeapi->log_dir.'/'.basename(__dir__).'/');
-$tradeapi->set_log_name('');
-$tradeapi->write_log("REQUEST: " . json_encode($_REQUEST));
+$_REQUEST['userno'] = $userno;
 
 $res = "";
 
