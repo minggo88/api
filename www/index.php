@@ -1,5 +1,7 @@
 <!-- move to smcc api documents -->
-<?php /*
+<?php
+echo $_SERVER['HTTP_HOST'];
+/*
 
 API 필요 라이브러리
 
@@ -11,5 +13,5 @@ $ composer require
 
 - aws/aws-sdk-php
 
- 
+
 */
