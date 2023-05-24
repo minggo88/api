@@ -10,7 +10,7 @@ $_REQUEST['userno'] = $userno;
 $ip = '61.109.249.165';
 $port = 30576;
 $message = "02000200XXXXXXXX200132015071110421423           023           0000002OY   74312391143                         88    0000000000100test                0000000000000                             088";
-/*
+
 // TCP/IP 소켓 생성
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 if ($socket === false) {
@@ -18,6 +18,7 @@ if ($socket === false) {
     $tradeapi->error('100', '실패1 : '.$msg);
     exit;
 }
+$tradeapi->error('100', '실패1 : '.$msg);
 
 // 서버에 연결
 $result = socket_connect($socket, $ip, $port);
@@ -37,8 +38,8 @@ $response = socket_read($socket, 1024);
 // 소켓 닫기
 socket_close($socket);
 
-$tradeapi->success($response);*/
-
+$tradeapi->success($response);
+/*
 // 이미지 s3 정식폴더로 이동
 $s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
 foreach($s3_check_param as $param) {
@@ -53,8 +54,8 @@ $tradeapi->set_db_link('master');
 
 // get my member information
 $r = $tradeapi->save_member_info($_REQUEST);
-
+*/
 // response
-$tradeapi->success($r);
+//$tradeapi->success($r);
 
 ?>
