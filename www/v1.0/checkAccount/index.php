@@ -4,7 +4,7 @@ include dirname(__file__) . "/../../lib/TradeApi.php";
 // 로그인 세션 확인.
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
-
+/*
 $_REQUEST['userno'] = $userno;
 
 
@@ -21,7 +21,7 @@ if ($socket === false) {
     exit;
 }
 $tradeapi->error('100', '실패3 : '.$msg);
-
+*/
 // 서버에 연결
 /*
 $result = socket_connect($socket, $ip, $port);
@@ -39,12 +39,12 @@ $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
 */
 // 소켓 닫기
-socket_close($socket);
+/*socket_close($socket);
 
 $r = array('message'=>$msg,'response'=>$msg )
 
-$tradeapi->success($response);
-/*
+$tradeapi->success($response);*/
+
 // 이미지 s3 정식폴더로 이동
 $s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
 foreach($s3_check_param as $param) {
@@ -59,8 +59,8 @@ $tradeapi->set_db_link('master');
 
 // get my member information
 $r = $tradeapi->save_member_info($_REQUEST);
-*/
+
 // response
-//$tradeapi->success($r);
+$tradeapi->success($r);
 
 ?>
