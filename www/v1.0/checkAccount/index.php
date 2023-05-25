@@ -4,8 +4,8 @@ include dirname(__file__) . "/../../lib/TradeApi.php";
 // 로그인 세션 확인.
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
-/*
-$_REQUEST['userno'] = $userno;
+
+//$_REQUEST['userno'] = $userno;
 
 
 
@@ -21,7 +21,7 @@ if ($socket === false) {
     exit;
 }
 $tradeapi->error('100', '실패3 : '.$msg);
-*/
+
 // 서버에 연결
 /*
 $result = socket_connect($socket, $ip, $port);
