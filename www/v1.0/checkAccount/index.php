@@ -39,14 +39,14 @@ $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
 */
 // 소켓 닫기
-/*socket_close($socket);
+socket_close($socket);
 
 $r = array('message'=>$msg,'response'=>$msg )
 
-$tradeapi->success($response);*/
+$tradeapi->success($response);
 
 // 이미지 s3 정식폴더로 이동
-$s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
+/*$s3_check_param = array('image_identify_url', 'image_mix_url', 'image_bank_url');
 foreach($s3_check_param as $param) {
     $file = $_REQUEST[$param];
     if($file && strpos($file, '.s3.')!==false && strpos($file, '/tmp/')!==false) {
@@ -62,5 +62,5 @@ $r = $tradeapi->save_member_info($_REQUEST);
 
 // response
 $tradeapi->success($r);
-
+*/
 ?>
