@@ -8,7 +8,6 @@ $userno = $tradeapi->get_login_userno();
 //$_REQUEST['userno'] = $userno;
 
 
-
 $ip = '61.109.249.165';
 $port = 30576;
 $message = "02000200XXXXXXXX200132015071110421423           023           0000002OY   74312391143                         88    0000000000100test                0000000000000                             088";
