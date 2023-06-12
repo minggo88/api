@@ -35,7 +35,7 @@ $tradeapi->set_db_link('master');
      'Content-Type: application/json; charset=UTF-8',
      'Authorization: Basic '.base64_encode($clientId.':'.$clientSecret)
  );
- /*
+ 
  // 요청 바디 설정
  $body = array(
      "organization": "0020",
@@ -56,6 +56,8 @@ $tradeapi->set_db_link('master');
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+ $tradeapi->error('049', __('check')); //주문수량을 잔여수량 이하로 입력해주세요.
+/*
  // 요청 실행
  $response = curl_exec($ch);
  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
