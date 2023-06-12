@@ -50,6 +50,7 @@ $tradeapi->set_db_link('master');
 
  // 요청 생성
  $ch = curl_init();
+ /*
  curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -57,7 +58,7 @@ $tradeapi->set_db_link('master');
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 
-/*
+
  // 요청 실행
  $response = curl_exec($ch);
  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
