@@ -20,6 +20,8 @@ foreach($s3_check_param as $param) {
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
 
+$tradeapi->error('049', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
+
 // get my member information
 //$r = $tradeapi->save_member_info($_REQUEST);
 //$d = $tradeapi->save_member_info($_REQUEST);
@@ -28,3 +30,4 @@ $tradeapi->set_db_link('master');
 
 // response
 $tradeapi->success('');
+?>
