@@ -21,10 +21,10 @@ foreach($s3_check_param as $param) {
 $tradeapi->set_db_link('master');
 
 // get my member information
-$r = $tradeapi->save_member_info($_REQUEST);
-$d = $tradeapi->save_member_info($_REQUEST);
+//$r = $tradeapi->save_member_info($_REQUEST);
+//$d = $tradeapi->save_member_info($_REQUEST);
 
-$s = $r.$d;
+//$s = $r.$d;
 
 // response
-$tradeapi->success($s);
+$tradeapi->success('');
