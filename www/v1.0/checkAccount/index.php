@@ -38,9 +38,9 @@ $tradeapi->set_db_link('master');
 
  // 요청 바디 설정
  $body = array(
-    "organization" => "0020",
+    "organization" => "0088",
     "connectedId" => "3Lj7J-OvQub96",
-    "account" => "1002440000000",
+    "account" => "100035550510",
     "startDate" => "20230601",
     "endDate" => "20230612",
     "orderBy" => "0",
@@ -52,7 +52,7 @@ $tradeapi->set_db_link('master');
  // 요청 생성
  $ch = curl_init();
  
- curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/account/transaction-list');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'v1/kr/bank/p/account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
