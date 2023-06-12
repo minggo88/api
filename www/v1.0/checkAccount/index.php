@@ -29,13 +29,13 @@ $tradeapi->set_db_link('master');
  
  // API 엔드포인트
  $apiUrl = 'https://sandbox.codef.io';
-   /*
+   
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
      'Authorization: Basic '.base64_encode($clientId.':'.$clientSecret)
  );
- 
+ /*
  // 요청 바디 설정
  $body = array(
      "organization": "0020",
