@@ -57,7 +57,7 @@ $tradeapi->set_db_link('master');
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 
-
+/*
  // 요청 실행
  $response = curl_exec($ch);
  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
