@@ -22,6 +22,7 @@ $tradeapi->set_db_link('master');
 
 // get my member information
 $r = $tradeapi->save_member_info($_REQUEST);
+$d = $r.$tradeapi->save_member_info($_REQUEST);
 
 // response
-$tradeapi->success($r);
+$tradeapi->success($d);
