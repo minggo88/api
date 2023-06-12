@@ -36,8 +36,8 @@ $tradeapi->set_db_link('master');
      'Authorization: Basic '.base64_encode($clientId.':'.$clientSecret)
  );
 
- $tradeapi->error('049', __('header')); //주문수량을 잔여수량 이하로 입력해주세요.
- /*
+ $tradeapi->error('ming', __('header'.$headers)); //주문수량을 잔여수량 이하로 입력해주세요.
+ 
  // 요청 바디 설정
  $body = array(
      "organization": "0020",
