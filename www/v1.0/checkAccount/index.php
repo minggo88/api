@@ -51,13 +51,15 @@ $tradeapi->set_db_link('master');
  // 요청 생성
  $ch = curl_init();
  curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/account/transaction-list');
+ $tradeapi->error('049', __('check')); //주문수량을 잔여수량 이하로 입력해주세요.
+/*
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
- $tradeapi->error('049', __('check')); //주문수량을 잔여수량 이하로 입력해주세요.
-/*
+
+
  // 요청 실행
  $response = curl_exec($ch);
  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
