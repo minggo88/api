@@ -51,8 +51,6 @@ $tradeapi->set_db_link('master');
  // 요청 생성
  $ch = curl_init();
  curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/account/transaction-list');
- $tradeapi->error('049', __('check')); //주문수량을 잔여수량 이하로 입력해주세요.
-/*
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
@@ -66,9 +64,11 @@ $tradeapi->set_db_link('master');
  
  // 응답 확인
  if ($httpCode == 200) {
-    $tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('049', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    //$tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
-    $tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('049', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    //$tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
 
  }
  
