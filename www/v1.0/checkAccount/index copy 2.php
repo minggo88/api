@@ -1,9 +1,9 @@
 <?php
-$clientId = 'ef27cfaa-10c1-4470-adac-60ba476273f9';
-$clientSecret = '83160c33-9045-4915-86d8-809473cdf5c3';
+$clientId = 'f5595264-2d91-4273-948c-0f4b6951beb2';
+$clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
 
 // API 엔드포인트
-$apiUrl = 'https://sandbox.codef.io';
+$apiUrl = 'https://development.codef.io';
 
 // 요청 헤더 설정
 $headers = array(
