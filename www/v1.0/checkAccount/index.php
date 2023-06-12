@@ -23,7 +23,7 @@ $tradeapi->set_db_link('master');
 /***
  *    -------------api 연결 여기부터
  */
-/*
+
  $clientId = 'ef27cfaa-10c1-4470-adac-60ba476273f9';
  $clientSecret = '83160c33-9045-4915-86d8-809473cdf5c3';
  
