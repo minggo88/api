@@ -36,8 +36,6 @@ $tradeapi->set_db_link('master');
      'Authorization: Basic '.base64_encode($clientId.':'.$clientSecret)
  );
 
- $tradeapi->error('ming', __('header'.$headers)); //주문수량을 잔여수량 이하로 입력해주세요.
-
  // 요청 바디 설정
  $body = array(
     "organization" => "0020",
@@ -68,10 +66,10 @@ $tradeapi->set_db_link('master');
  
  // 응답 확인
  if ($httpCode == 200) {
-    $tradeapi->error('200', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('ss', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
     //$tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
-    $tradeapi->error('404', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('ff', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
     //$tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
 
  }
