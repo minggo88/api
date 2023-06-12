@@ -28,7 +28,7 @@ $tradeapi->set_db_link('master');
  $clientSecret = '83160c33-9045-4915-86d8-809473cdf5c3';
  
  // API 엔드포인트
- $apiUrl = 'https://sandbox.codef.io';
+ $apiUrl = 'https://development.codef.io';
 
  // 요청 헤더 설정
  $headers = array(
