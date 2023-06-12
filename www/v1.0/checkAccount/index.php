@@ -28,7 +28,7 @@ $tradeapi->set_db_link('master');
  $clientSecret = '83160c33-9045-4915-86d8-809473cdf5c3';
  
  // API 엔드포인트
- $apiUrl = 'https://development.codef.io';
+ $apiUrl = 'https://api.codef.io';
 
  // 요청 헤더 설정
  $headers = array(
@@ -41,8 +41,8 @@ $tradeapi->set_db_link('master');
     "organization" => "0020",
     "connectedId" => "3Lj7J-OvQub96",
     "account" => "1002440000000",
-    "startDate" => "20190601",
-    "endDate" => "20190619",
+    "startDate" => "20230601",
+    "endDate" => "20230612",
     "orderBy" => "0",
     "inquiryType" => "1",
     "pageCount" => "10"
