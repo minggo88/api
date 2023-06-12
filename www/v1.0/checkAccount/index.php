@@ -48,9 +48,10 @@ $tradeapi->set_db_link('master');
      "pageCount": "10"
  );
 
+ /*
  // 요청 생성
  $ch = curl_init();
- /*
+ 
  curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
