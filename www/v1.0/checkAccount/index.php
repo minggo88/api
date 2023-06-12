@@ -37,19 +37,19 @@ $tradeapi->set_db_link('master');
  );
 
  $tradeapi->error('ming', __('header'.$headers)); //주문수량을 잔여수량 이하로 입력해주세요.
- /*
+
  // 요청 바디 설정
  $body = array(
-     "organization": "0020",
-     "connectedId": "3Lj7J-OvQub96",
-     "account": "1002440000000",
-     "startDate": "20190601",
-     "endDate": "20190619",
-     "orderBy": "0",
-     "inquiryType": "1",
-     "pageCount": "10"
- );
-*/
+    "organization" => "0020",
+    "connectedId" => "3Lj7J-OvQub96",
+    "account" => "1002440000000",
+    "startDate" => "20190601",
+    "endDate" => "20190619",
+    "orderBy" => "0",
+    "inquiryType" => "1",
+    "pageCount" => "10"
+);
+
  /*
  // 요청 생성
  $ch = curl_init();
