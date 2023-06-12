@@ -37,7 +37,7 @@ $tradeapi->set_db_link('master');
  );
 
  $tradeapi->error('ming', __('header'.$headers)); //주문수량을 잔여수량 이하로 입력해주세요.
- 
+ /*
  // 요청 바디 설정
  $body = array(
      "organization": "0020",
@@ -49,7 +49,7 @@ $tradeapi->set_db_link('master');
      "inquiryType": "1",
      "pageCount": "10"
  );
-
+*/
  /*
  // 요청 생성
  $ch = curl_init();
