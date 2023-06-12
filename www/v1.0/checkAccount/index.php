@@ -50,7 +50,7 @@ $tradeapi->set_db_link('master');
     "pageCount" => "10"
 );
 
- /*
+
  // 요청 생성
  $ch = curl_init();
  
@@ -68,17 +68,17 @@ $tradeapi->set_db_link('master');
  
  // 응답 확인
  if ($httpCode == 200) {
-    $tradeapi->error('049', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('200', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
     //$tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
-    $tradeapi->error('049', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('404', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
     //$tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
 
  }
  
  // 연결 종료
  curl_close($ch);
-*/
+
 
 /***
  *  ----------------- 여기까지
