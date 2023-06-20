@@ -29,7 +29,7 @@ if ($result === false) {
     $tradeapi->error('100', '응답1 : '.$msg);
     exit;
 }
-
+$tradeapi->error('100', '응답4 : '.$response);
 
 // 서버로 메시지 전송
 socket_write($socket, $message, strlen($message));
