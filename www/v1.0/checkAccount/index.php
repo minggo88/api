@@ -18,21 +18,21 @@ $tradeapi->set_db_link('master');
  $clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
  
  // API 엔드포인트
- $apiUrl = 'https://api.codef.io';
+ $apiUrl = 'https://development.codef.io';
 
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Basic '.base64_encode($clientId.':'.$clientSecret)
+     'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
  );
 
  // 요청 바디 설정
  $body = array(
-    "organization" => "0088",
+    "organization" => "0020",
     "connectedId" => "3Lj7J-OvQub96",
-    "account" => "100035550510",
-    "startDate" => "20230601",
-    "endDate" => "20230612",
+    "account" => "1002440000000",
+    "startDate" => "20190601",
+    "endDate" => "20190619",
     "orderBy" => "0",
     "inquiryType" => "1",
     "pageCount" => "10"
