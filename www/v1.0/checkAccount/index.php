@@ -30,6 +30,7 @@ if ($result === false) {
     exit;
 }
 
+
 // 서버로 메시지 전송
 socket_write($socket, $message, strlen($message));
 
