@@ -26,7 +26,7 @@ if ($socket === false) {
 $result = socket_connect($socket, $ip, $port);
 if ($result === false) {
     $msg = "서버 연결 실패: " . socket_strerror(socket_last_error($socket));
-    
+    $tradeapi->error('100', '응답1 : '.$msg);
     exit;
 }
 
@@ -37,10 +37,11 @@ socket_write($socket, $message, strlen($message));
 $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
 
+
 // 소켓 닫기
 socket_close($socket);
 
-$tradeapi->error('100', '응답 : '.$response);
+$tradeapi->error('100', '응답2 : '.$response);
 
 /*
 $r = array('message'=>$msg,'response'=>$msg )
