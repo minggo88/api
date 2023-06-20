@@ -26,13 +26,12 @@ if ($socket === false) {
 $result = socket_connect($socket, $ip, $port);
 if ($result === false) {
     $msg = "서버 연결 실패: " . socket_strerror(socket_last_error($socket));
-    $tradeapi->error('100', '실패4 : '.$msg);
     exit;
 }
-/*
+
 // 서버로 메시지 전송
 socket_write($socket, $message, strlen($message));
-
+/*
 // 서버로부터 응답 받기
 $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
