@@ -16,20 +16,20 @@ $message = "02000200XXXXXXXX200132015071110421423           023           000000
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 if ($socket === false) {
     $msg = "소켓 생성 실패: " . socket_strerror(socket_last_error());
-    $tradeapi->error('100', '실패2 : '.$msg);
+    $tradeapi->error('100', '실패2 : '.$msg);    
     exit;
 }
-//$tradeapi->error('100', '실패3 : '.$msg);
+//mk
 
 // 서버에 연결
 
 $result = socket_connect($socket, $ip, $port);
 if ($result === false) {
-    $msg = "서버 연결 실패: " . socket_strerror(socket_last_error($socket));
+    $msg = "서버 연결 실패: " . socket_strerror(socket_last_error($socket))."  //  ".$result;
     $tradeapi->error('100', '응답1 : '.$msg);
     exit;
 }
-
+$tradeapi->error('100', '응답4 : '.$response);
 
 // 서버로 메시지 전송
 socket_write($socket, $message, strlen($message));
@@ -37,12 +37,12 @@ socket_write($socket, $message, strlen($message));
 // 서버로부터 응답 받기
 $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
-
+$tradeapi->error('100', '응답2 : '.$response);
 
 // 소켓 닫기
 socket_close($socket);
 
-$tradeapi->error('100', '응답2 : '.$response);
+$tradeapi->error('100', '응답3 : '.$response);
 
 /*
 $r = array('message'=>$msg,'response'=>$msg )
