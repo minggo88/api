@@ -77,6 +77,3 @@ $r = $tradeapi->save_member_info($_REQUEST);
 
 // response
 $tradeapi->success($r);
-
- * 
- */
