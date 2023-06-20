@@ -19,17 +19,17 @@ if ($socket === false) {
     $tradeapi->error('100', '실패2 : '.$msg);
     exit;
 }
-$tradeapi->error('100', '실패3 : '.$msg);
+//$tradeapi->error('100', '실패3 : '.$msg);
 
 // 서버에 연결
-/*
+
 $result = socket_connect($socket, $ip, $port);
 if ($result === false) {
     $msg = "서버 연결 실패: " . socket_strerror(socket_last_error($socket));
     $tradeapi->error('100', '실패4 : '.$msg);
     exit;
 }
-
+/*
 // 서버로 메시지 전송
 socket_write($socket, $message, strlen($message));
 
