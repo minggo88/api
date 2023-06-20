@@ -37,12 +37,12 @@ socket_write($socket, $message, strlen($message));
 // 서버로부터 응답 받기
 $response = socket_read($socket, 1024);
 //echo "서버 응답: " . $response . PHP_EOL;
-
+$tradeapi->error('100', '응답2 : '.$response);
 
 // 소켓 닫기
 socket_close($socket);
 
-$tradeapi->error('100', '응답2 : '.$response);
+$tradeapi->error('100', '응답3 : '.$response);
 
 /*
 $r = array('message'=>$msg,'response'=>$msg )
