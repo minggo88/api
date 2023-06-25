@@ -67,8 +67,6 @@ $tradeapi->set_db_link('master');
  // 연결 종료
  curl_close($ch);
 
-
-
 /***
  *  ----------------- 여기까지
  */
