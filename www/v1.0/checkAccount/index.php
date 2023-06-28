@@ -65,6 +65,7 @@ if ($responseCode == 200) {
 /***
  * connected ID 요청
  */
+$serviceType = 'Bank';
 $scope = 'oob'; // 스코프 (oob: 인증 및 연결 동의, inquiry: 조회, transfer: 이체 등)
 
 // 인증 정보를 사용하여 Access Token을 요청
