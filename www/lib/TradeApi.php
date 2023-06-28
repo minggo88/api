@@ -3014,8 +3014,5 @@ SELECT
         return $GLOBALS['tradeapi']->checkMedia($s);
     }}
 
-  
-
-
 }
 

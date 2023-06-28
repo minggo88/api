@@ -45,9 +45,9 @@ curl_close($con);
 //$tokenMap = null;
 
 if ($responseCode == 200) {
-      $decodedResponse = urldecode($response);
-      $tokenMap = json_decode($decodedResponse, true); // 값 할당
-      //$tokenMap = json_decode(urldecode($response), true);
+      //$decodedResponse = urldecode($response);
+      //$tokenMap = json_decode($decodedResponse, true); // 값 할당
+      $tokenMap = json_decode(urldecode($response), true);
       return $tokenMap;
 } else {
       return null;
