@@ -17,10 +17,6 @@ $tradeapi->set_db_link('master');
  $clientId = 'f5595264-2d91-4273-948c-0f4b6951beb2';
  $clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
  
-
-
-
-
 //토큰수령
 
 $url = "https://oauth.codef.io/oauth/token";
@@ -42,11 +38,8 @@ $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
 
-//$tokenMap = null;
 
 if ($responseCode == 200) {
-      //$decodedResponse = urldecode($response);
-      //$tokenMap = json_decode($decodedResponse, true); // 값 할당
       $tokenMap = json_decode(urldecode($response), true);
       return $tokenMap;
 } else {
@@ -59,8 +52,18 @@ if ($responseCode == 200) {
 
 
 
+
+
+
+
+
+
+
+
+
 //$accessToken = publishToken($clientId,$clientSecret);
 $tradeapi->save_member_info($_REQUEST);
+
 
  // API 엔드포인트
  $apiUrl = 'https://development.codef.io';
@@ -70,7 +73,6 @@ $tradeapi->save_member_info($_REQUEST);
      'Content-Type: application/json; charset=UTF-8',
      'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
  );
- //'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
 
  // 요청 바디 설정
  $body = array(
