@@ -103,7 +103,7 @@ $connectedIdResult = file_get_contents($connectedIdUrl, false, $connectedIdConte
 $connectedIdResponse = json_decode($connectedIdResult, true);
 $connectedId = $connectedIdResponse['connectedId'];
 
-$tradeapi->error('049', __('API 요청 성공'. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
+$tradeapi->error('049', __('커넥트ID'. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
 
 
 
