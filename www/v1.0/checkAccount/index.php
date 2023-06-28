@@ -37,10 +37,10 @@ curl_setopt($con, CURLOPT_POSTFIELDS, $params);
 $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
+$tokenMap;
 
 if ($responseCode == 200) {
-      //$tokenMap = json_decode(urldecode($response), true);
-      $tokenMap = json_decode($response, true);
+      $tokenMap = json_decode(urldecode($response), true);
       return $tokenMap;
 } else {
       return null;
@@ -56,7 +56,7 @@ if ($responseCode == 200) {
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Bearer '.base64_encode($tokenMap)
+     'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
  );
 
  // 요청 바디 설정
