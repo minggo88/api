@@ -38,30 +38,23 @@ $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
 
+$headers = array();
+
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
       $tradeapi->error('049', __('토큰확인'. $tokenMap));
-      return $tokenMap;
+      
+       // 요청 헤더 설정
+      $headers = array(
+         'Content-Type: application/json; charset=UTF-8',
+         'Authorization: Bearer '.$tokenMap
+);
+
 } else {
-      return null;
+      
 }
 
 //토큰까지 확인됨
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -69,10 +62,10 @@ if ($responseCode == 200) {
  $apiUrl = 'https://development.codef.io';
 
  // 요청 헤더 설정
- $headers = array(
+ /*$headers = array(
      'Content-Type: application/json; charset=UTF-8',
      'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
- );
+ );*/
 
  // 요청 바디 설정
  $body = array(
@@ -125,34 +118,4 @@ $r = $tradeapi->save_member_info($_REQUEST);
 // response
 $tradeapi->success($r);
 
-/*
-function publishToken($clientId, $clientSecret) {
-$url = "https://oauth.codef.io/oauth/token";
-   $params = "grant_type=client_credentials&scope=read";
-   
-   $con = curl_init($url);
-   curl_setopt($con, CURLOPT_POST, true);
-   curl_setopt($con, CURLOPT_RETURNTRANSFER, true);
-   curl_setopt($con, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded"));
-   
-   $auth = $clientId . ":" . $clientSecret;
-   $authEncBytes = base64_encode($auth);
-   $authHeader = "Basic " . $authEncBytes;
-   
-   curl_setopt($con, CURLOPT_HTTPHEADER, array("Authorization: " . $authHeader));
-   curl_setopt($con, CURLOPT_POSTFIELDS, $params);
-   
-   $response = curl_exec($con);
-   $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
-   curl_close($con);
-   
-   if ($responseCode == 200) {
-       $tokenMap = json_decode(urldecode($response), true);
-       return $tokenMap;
-   } else {
-       return null;
-   }
-   
-}
-*/
 ?>
