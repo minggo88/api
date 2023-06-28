@@ -61,6 +61,55 @@ if ($responseCode == 200) {
 
 //토큰까지 확인됨
 
+/***
+ * connected ID 요청
+ */
+$scope = 'oob'; // 스코프 (oob: 인증 및 연결 동의, inquiry: 조회, transfer: 이체 등)
+
+// 인증 정보를 사용하여 Access Token을 요청
+$authUrl = 'https://oauth.codef.io/oauth/token';
+$authData = array(
+    'client_id' => $clientId,
+    'client_secret' => $clientSecret,
+    'scope' => $scope,
+);
+$authOptions = array(
+    'http' => array(
+        'method' => 'POST',
+        'header' => 'Content-Type: application/json',
+        'content' => json_encode($authData),
+    ),
+);
+$authContext = stream_context_create($authOptions);
+$authResult = file_get_contents($authUrl, false, $authContext);
+$authResponse = json_decode($authResult, true);
+$accessToken = $authResponse['access_token'];
+
+// Access Token을 사용하여 connectedId 발급 요청
+$connectedIdUrl = 'https://api.codef.io/v1/account/connectedId';
+$connectedIdData = array(
+    'organization' => $serviceType,
+);
+$connectedIdOptions = array(
+    'http' => array(
+        'method' => 'POST',
+        'header' => 'Content-Type: application/json' . PHP_EOL .
+                    'Authorization: Bearer ' . $accessToken,
+        'content' => json_encode($connectedIdData),
+    ),
+);
+$connectedIdContext = stream_context_create($connectedIdOptions);
+$connectedIdResult = file_get_contents($connectedIdUrl, false, $connectedIdContext);
+$connectedIdResponse = json_decode($connectedIdResult, true);
+$connectedId = $connectedIdResponse['connectedId'];
+
+$tradeapi->error('049', __('API 요청 성공'. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
+
+
+
+
+
+
 
 
  // API 엔드포인트
