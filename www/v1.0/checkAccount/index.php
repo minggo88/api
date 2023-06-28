@@ -40,7 +40,8 @@ curl_close($con);
 $tokenMap;
 
 if ($responseCode == 200) {
-      $tokenMap = json_decode(urldecode($response), true);
+      //$tokenMap = json_decode(urldecode($response), true);
+      $tokenMap = json_decode($response, true);
       return $tokenMap;
 } else {
       return null;
