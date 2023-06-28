@@ -66,7 +66,7 @@ $tradeapi->save_member_info($_REQUEST);
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Bearer '.$tradeapi->publishToken($clientId,$clientSecret)
+     'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
  );
  //'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
 
