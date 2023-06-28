@@ -48,10 +48,9 @@ if ($responseCode == 200) {
       $headers = array(
          'Content-Type: application/json; charset=UTF-8',
          'Authorization: Bearer '.$tokenMap
-);
-
+      );
 } else {
-      
+      $tradeapi->error('049', __('토큰실패'. $responseCode));
 }
 
 //토큰까지 확인됨
