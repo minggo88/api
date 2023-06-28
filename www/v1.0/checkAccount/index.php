@@ -37,7 +37,6 @@ curl_setopt($con, CURLOPT_POSTFIELDS, $params);
 $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
-$tokenMap;
 
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
