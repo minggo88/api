@@ -49,7 +49,7 @@ if ($responseCode == 200) {
          'Content-Type: application/json; charset=UTF-8',
          'Authorization: Bearer '.$token
       );
-      //$tradeapi->error('049', __('헤더확인'. implode(" ", $tokenMap)));
+      $tradeapi->error('049', __('헤더확인'. implode(" ", $headers)));
 } else {
       $tradeapi->error('049', __('토큰실패'. $responseCode));
 }
