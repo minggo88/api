@@ -42,7 +42,7 @@ $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
 
-$tokenMap = json_decode(urldecode($response), true);
+$tokenMap = null;
 
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
@@ -66,7 +66,7 @@ $tradeapi->save_member_info($_REQUEST);
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Bearer '.$tradeapi->publishToken($tokenMap)
+     'Authorization: Bearer '.$tradeapi->publishToken($clientId,$clientSecret)
  );
  //'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
 
