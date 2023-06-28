@@ -40,12 +40,12 @@ curl_close($con);
 
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
-      $tradeapi->error('049', __('토큰확인'. $tokenMap));
       return $tokenMap;
 } else {
       return null;
 }
 
+$tradeapi->error('049', __('토큰확인'. $tokenMap));
 //토큰까지 확인됨
 
 
