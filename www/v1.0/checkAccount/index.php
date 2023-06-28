@@ -43,13 +43,13 @@ $headers = array();
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
       //$tradeapi->error('049', __('토큰확인'. var_dump($tokenMap)));
-      
+      $token = implode(" ", $tokenMap);
        // 요청 헤더 설정
       $headers = array(
          'Content-Type: application/json; charset=UTF-8',
-         'Authorization: Bearer '.$tokenMap
+         'Authorization: Bearer '.$token
       );
-      $tradeapi->error('049', __('헤더확인'. implode(" ", $tokenMap)));
+      //$tradeapi->error('049', __('헤더확인'. implode(" ", $tokenMap)));
 } else {
       $tradeapi->error('049', __('토큰실패'. $responseCode));
 }
