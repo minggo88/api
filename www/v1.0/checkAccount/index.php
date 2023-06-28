@@ -54,7 +54,7 @@ if ($responseCode == 200) {
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Bearer '.$tokenMap
+     'Authorization: Bearer '.base64_encode($tokenMap)
  );
 
  // 요청 바디 설정
