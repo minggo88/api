@@ -21,6 +21,7 @@ $tradeapi->set_db_link('master');
 
 $url = "https://oauth.codef.io/oauth/token";
 $params = "grant_type=client_credentials&scope=read";
+$token2 = "";//accessToken
 
 $con = curl_init($url);
 curl_setopt($con, CURLOPT_POST, true);
@@ -80,10 +81,6 @@ $authOptions = array(
         'content' => json_encode($authData),
     ),
 );
-$authContext = stream_context_create($authOptions);
-$authResult = file_get_contents($authUrl, false, $authContext);
-$authResponse = json_decode($authResult, true);
-$accessToken = $authResponse['access_token'];
 
 // Access Token을 사용하여 connectedId 발급 요청
 $connectedIdUrl = 'https://api.codef.io/v1/account/connectedId';
@@ -94,7 +91,7 @@ $connectedIdOptions = array(
     'http' => array(
         'method' => 'POST',
         'header' => 'Content-Type: application/json' . PHP_EOL .
-                    'Authorization: Bearer ' . $accessToken,
+                    'Authorization: Bearer ' . $token2,
         'content' => json_encode($connectedIdData),
     ),
 );
@@ -103,7 +100,7 @@ $connectedIdResult = file_get_contents($connectedIdUrl, false, $connectedIdConte
 $connectedIdResponse = json_decode($connectedIdResult, true);
 $connectedId = $connectedIdResponse['connectedId'];
 
-$tradeapi->error('049', __('커넥트ID'. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
+$tradeapi->error('049', __('커넥트ID : '. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
 
 
 
