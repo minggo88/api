@@ -84,7 +84,7 @@ if ($responseCode == 200) {
  // 요청 생성
  $ch = curl_init();
  
- curl_setopt($ch, CURLOPT_URL, $apiUrl.'v1/kr/bank/p/account/transaction-list');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
