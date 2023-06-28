@@ -37,34 +37,16 @@ curl_setopt($con, CURLOPT_POSTFIELDS, $params);
 $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
+$tokenMap;
 
 if ($responseCode == 200) {
       $tokenMap = json_decode(urldecode($response), true);
-      $tradeapi->error('049', __('토큰확인'. $tokenMap)); //주문수량을 잔여수량 이하로 입력해주세요.
       return $tokenMap;
 } else {
-      $tradeapi->error('049', __('토큰실패'. $responseCode)); //주문수량을 잔여수량 이하로 입력해주세요.
       return null;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//토큰까지 확인됨(오류시 토큰맵 확인)
 
  // API 엔드포인트
  $apiUrl = 'https://development.codef.io';
@@ -72,7 +54,7 @@ if ($responseCode == 200) {
  // 요청 헤더 설정
  $headers = array(
      'Content-Type: application/json; charset=UTF-8',
-     'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
+     'Authorization: Bearer '.$tokenMap
  );
 
  // 요청 바디 설정
