@@ -42,7 +42,7 @@ $response = curl_exec($con);
 $responseCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
 curl_close($con);
 
-$tokenMap = null;
+//$tokenMap = null;
 
 if ($responseCode == 200) {
       $decodedResponse = urldecode($response);
