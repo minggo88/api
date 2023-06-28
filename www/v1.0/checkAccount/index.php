@@ -95,8 +95,7 @@ $body2 = array(
  $ch = curl_init();
  
  //curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/account/transaction-list');
- 
- curl_setopt($ch, CURLOPT_URL, 'https://development.codef.io/v1/kr/bank/a/account/holder-authentication');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'v1/kr/bank/a/account/holder-authentication');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  //curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
