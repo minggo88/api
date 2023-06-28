@@ -73,8 +73,8 @@ if ($responseCode == 200) {
     "organization" => "0020",
     "connectedId" => "3Lj7J-OvQub96",
     "account" => "1002440000000",
-    "startDate" => "20190601",
-    "endDate" => "20190619",
+    "startDate" => "20230601",
+    "endDate" => "20230619",
     "orderBy" => "0",
     "inquiryType" => "1",
     "pageCount" => "10"
