@@ -45,7 +45,7 @@ if ($responseCode == 200) {
       //$tradeapi->error('049', __('토큰확인'. var_dump($tokenMap)));
       $token = implode(" ", $tokenMap);
       //$token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlX3R5cGUiOiIxIiwic2NvcGUiOlsicmVhZCJdLCJzZXJ2aWNlX25vIjoiMDAwMDAyNDk3MDAyIiwiZXhwIjoxNjg4NTM1NDE1LCJhdXRob3JpdGllcyI6WyJJTlNVUkFOQ0UiLCJQVUJMSUMiLCJCQU5LIiwiRVRDIiwiU1RPQ0siLCJDQVJEIl0sImp0aSI6IjkyNTJmMDRiLTgyN2YtNDAxMS05ODgxLTQxZGRhYzcxMTMxYyIsImNsaWVudF9pZCI6ImY1NTk1MjY0LTJkOTEtNDI3My05NDhjLTBmNGI2OTUxYmViMiJ9.ETcfmQ-oUiw7zayFlk1roXQ8j-gUVoZPfpJ7IoZ91MdK6te3sb-K8d2GqJ6qk8XEO-ee-8vblIUPyxFzewJOvsBLc7VBIl8keArjFfnus5l2VBmvDpwVFkJflMteaF8IKww9U7hRqqFWlt8Lz1MhQaZN1QpeeaDCH-3wGgpA432Bsw99X3e3gIt-dsxU98eZ1E2F_R9s5xSHCs5G2wXTqnMaMRzuuGCVEgrxupeXHBPw008EHauJa29LceSxAeFkYfCC1qOlYQTEAHbva1ireeW02zhcTe9sFE9Dr4AUrtouOa5gCOZ5WRgID27QBpH1Jkpww-xz0p-IJ5s-7h98jA";
-      $token2 = $tokenMap[0];
+      $token2 = $tokenMap[1];
       $tradeapi->error('049', __('토큰확인'. $token.' / '.$token2));
 
        // 요청 헤더 설정
