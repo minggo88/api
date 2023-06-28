@@ -61,7 +61,7 @@ if ($responseCode == 200) {
 
 
 
-$accessToken = publishToken($clientId,$clientSecret);
+//$accessToken = publishToken($clientId,$clientSecret);
 
 
 
