@@ -84,22 +84,14 @@ if ($responseCode == 200) {
     "pageCount" => "10"
 );
 
-$body2 = array(
-   "organization" => "0088",
-   "account": "110207676620",
-   "identity": "880719"
-);
-
 
  // 요청 생성
  $ch = curl_init();
  
- //curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/account/transaction-list');
- curl_setopt($ch, CURLOPT_URL, $apiUrl.'v1/kr/bank/a/account/holder-authentication');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
- //curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
- curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body2));
+ curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 
