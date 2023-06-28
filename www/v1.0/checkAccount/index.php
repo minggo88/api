@@ -18,7 +18,7 @@ $tradeapi->set_db_link('master');
  $clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
  
  
- $tradeapi->error('049', __('토큰테스트'. publishToken($clientId,$clientSecret);));
+ //$tradeapi->error('049', __('토큰테스트'. publishToken($clientId,$clientSecret);));
 
  // API 엔드포인트
  $apiUrl = 'https://development.codef.io';
