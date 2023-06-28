@@ -50,7 +50,7 @@ if ($responseCode == 200) {
  // API 엔드포인트
  $apiUrl = 'https://development.codef.io';
 
- $tradeapi->error('049', __('토큰확인'. $tokenMap)); //주문수량을 잔여수량 이하로 입력해주세요.
+ //$tradeapi->error('049', __('토큰확인'. $tokenMap)); //주문수량을 잔여수량 이하로 입력해주세요.
 
  // 요청 헤더 설정
  $headers = array(
