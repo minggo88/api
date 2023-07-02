@@ -16,6 +16,7 @@ $tradeapi->set_db_link('master');
 
  $clientId = 'f5595264-2d91-4273-948c-0f4b6951beb2';
  $clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
+ $publicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsZIbPm4TtJ3kz4fm0v2SdJHN5ej5sCxL1PVLcVo55p+K8ivhvUnzaM0a0vfcxVaBN5q4aQMKXkWVZ0YqFQxFGPl9lJ/ndbY4mBLWIvBsA7U9NN4UFwSbuEdL7TYN9gPhKyyA/5ntSB9E0k6lH43aa1eyRaY+Q6SG+OwJxueib/A3uO+KDKOTClW9rzXbA1/5gwe0R1rBRj6FBMWo+qXfF/+8LPveOu9PMn9W5xboQ4/DvIUyTTroIfl26x/Kb/o5TXgbidSSTUhPzwNTSAvO6gxhVM+jD1Sq8qECJtMrE+DzT4faqv+O2IyfB42dlJ22BcaHZdsRGsVt57xsrO0wKwIDAQAB';
  
 //토큰수령
 
@@ -65,43 +66,73 @@ if ($responseCode == 200) {
 /***
  * connected ID 요청
  */
-$serviceType = 'Bank';
-$scope = 'oob'; // 스코프 (oob: 인증 및 연결 동의, inquiry: 조회, transfer: 이체 등)
+$urlPath = 'https://api.codef.io/v1/account/create';
 
-// 인증 정보를 사용하여 Access Token을 요청
-$authUrl = 'https://oauth.codef.io/oauth/token';
-$authData = array(
-    'client_id' => $clientId,
-    'client_secret' => $clientSecret,
-    'scope' => $scope,
-);
-$authOptions = array(
-    'http' => array(
-        'method' => 'POST',
-        'header' => 'Content-Type: application/json',
-        'content' => json_encode($authData),
-    ),
-);
+$bodyMap = array();
+$list = array();
 
-// Access Token을 사용하여 connectedId 발급 요청
-$connectedIdUrl = 'https://api.codef.io/v1/account/connectedId';
-$connectedIdData = array(
-    'organization' => $serviceType,
-);
-$connectedIdOptions = array(
-    'http' => array(
-        'method' => 'POST',
-        'header' => 'Content-Type: application/json' . PHP_EOL .
-                    'Authorization: Bearer ' . $token2,
-        'content' => json_encode($connectedIdData),
-    ),
-);
-$connectedIdContext = stream_context_create($connectedIdOptions);
-$connectedIdResult = file_get_contents($connectedIdUrl, false, $connectedIdContext);
-$connectedIdResponse = json_decode($connectedIdResult, true);
-$connectedId = $connectedIdResponse['connectedId'];
+$accountMap1 = array();
+$accountMap1['countryCode'] = 'KR';
+$accountMap1['businessType'] = 'BK';
+$accountMap1['clientType'] = 'P';
+$accountMap1['organization'] = '0003';
+$accountMap1['loginType'] = '0';
 
-$tradeapi->error('049', __('커넥트ID : '. $connectedId)); //주문수량을 잔여수량 이하로 입력해주세요.
+//$password1 = '엔드유저의 인증서 비밀번호';
+$password1 = '134679qa!@';
+// RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
+// RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
+$accountMap1['password'] = encryptRSA($password1, $publicKey);
+
+function encodeToFileString($filePath) {
+    $fileContent = file_get_contents($filePath);
+    $fileString = base64_encode($fileContent);
+    
+    return $fileString;
+}
+
+$accountMap1['keyFile'] = encodeToFileString('/../../np/signPri.key');
+$accountMap1['derFile'] = encodeToFileString('/../../np/signCert.der');
+$list[] = $accountMap1;
+
+$accountMap2 = array();
+$accountMap2['countryCode'] = 'KR';
+$accountMap2['businessType'] = 'BK';
+$accountMap2['clientType'] = 'P';
+$accountMap2['organization'] = '0020';
+$accountMap2['loginType'] = '1';
+
+$password2 = 'Rlrekrj1!';
+// RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
+// RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
+$accountMap2['password'] = encryptRSA($password2, $publicKey);
+
+$accountMap2['id'] = 'flyminggo@naver.com ';
+$accountMap2['birthday'] = '880719';
+$list[] = $accountMap2;
+
+$bodyMap['accountList'] = $list;
+
+// CODEF API 호출
+$result = apiRequest($urlPath, $bodyMap);
+
+function encryptRSA($plainText, $base64PublicKey) {
+   $publicKey = base64_decode($base64PublicKey);
+   $publicKeyResource = openssl_pkey_get_public($publicKey);
+   
+   $encrypted = '';
+   if (openssl_public_encrypt($plainText, $encrypted, $publicKeyResource)) {
+       $encrypted = base64_encode($encrypted);
+   } else {
+       // 암호화 실패 시 예외 처리
+   }
+   
+   return $encrypted;
+}
+
+
+
+$tradeapi->error('049', __('커넥트ID : '. $bodyMap)); //주문수량을 잔여수량 이하로 입력해주세요.
 
 
 
