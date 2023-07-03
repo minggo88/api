@@ -141,7 +141,7 @@ $bodyString = urlencode($bodyString);
    $obj = null;
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
-       $tradeapi->error('049', __('obj : '. $obj )); //내역확인용 강제 종료 알람   
+       $tradeapi->error('049', __('obj : '. $obj ."//// json : ".json_decode($response))); //내역확인용 강제 종료 알람   
    } else { // 에러 발생
        $obj = json_decode($response);
    }
