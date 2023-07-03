@@ -3017,7 +3017,7 @@ SELECT
     /***
      * 헥토 api 추가 인코딩파일
      */
-    function encodeToFileString($filePath) {
+    public function encodeToFileString($filePath) {
         $fileContent = file_get_contents($filePath);
         $fileString = base64_encode($fileContent);
         
@@ -3027,7 +3027,7 @@ SELECT
     /***
      * 헥토 api 추가 RSA암호화
      */
-    function encryptRSA($plainText, $base64PublicKey) {
+    public function encryptRSA($plainText, $base64PublicKey) {
         $publicKey = base64_decode($base64PublicKey);
         $publicKeyResource = openssl_pkey_get_public($publicKey);
         
