@@ -139,13 +139,14 @@ $bodyString = urlencode($bodyString);
    $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
    curl_close($con);
 
-   $tradeapi->error('049', __('httpCode : '. $token2 . "////".$bodyString )); //내역확인용 강제 종료 알람   
+   
 
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
+       $tradeapi->error('049', __('httpCode : '. $obj)); //내역확인용 강제 종료 알람   
    } else { // 에러 발생
-       
        $obj = json_decode($response);
+       $tradeapi->error('049', __('httpCode : '. $obj)); //내역확인용 강제 종료 알람   
    }
 
    // 결과 반환
