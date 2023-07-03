@@ -82,11 +82,12 @@ $accountMap1['loginType'] = '0';
 $password1 = '134679qa!@';
 // RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
-//$accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
-$epw = $tradeapi->encryptRSA($password1, $publicKey);
-$tradeapi->error('049', __('ewp : '. $epw )); //내역확인용 강제 종료 알람
+$accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
 
 //$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
+$keyvalue = $tradeapi->encodeToFileString('/../../np/signPri.key');
+$tradeapi->error('049', __('키값확인 : '. $keyvalue )); //내역확인용 강제 종료 알람
+
 //$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
 $list[] = $accountMap1;
 
@@ -100,7 +101,7 @@ $accountMap2['loginType'] = '1';
 $password2 = 'Rlrekrj1!';
 // RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
-//$accountMap2['password'] = $tradeapi->encryptRSA($password2, $publicKey);
+$accountMap2['password'] = $tradeapi->encryptRSA($password2, $publicKey);
 
 $accountMap2['id'] = 'flyminggo@naver.com ';
 $accountMap2['birthday'] = '880719';
