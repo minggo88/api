@@ -223,6 +223,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 $encrypted = base64_encode($encrypted);
             } else {
                 // 암호화 실패 시 예외 처리
+                $encrypted = 'fail';
             }
             
             return $encrypted;
