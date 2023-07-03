@@ -83,6 +83,8 @@ $password1 = '134679qa!@';
 // RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
 //$accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
+$epw = $tradeapi->encryptRSA($password1, $publicKey);
+$tradeapi->error('049', __('ewp : '. $epw )); //내역확인용 강제 종료 알람
 
 //$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
 //$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
@@ -109,9 +111,9 @@ $bodyMap['accountList'] = $list;
 // CODEF API 호출
 //$result = $tradeapi->apiRequest($urlPath, $bodyMap);
 
+$result = print_r($bodyMap, true);
 
-
-$tradeapi->error('049', __('커넥트ID : '. implode(" ", $bodyMap) )); //주문수량을 잔여수량 이하로 입력해주세요.
+$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람
 
 
 
