@@ -10,8 +10,6 @@ $_REQUEST['userno'] = $userno;
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
 
-private static $mapper;
-
 /***
  *    -------------api 연결 여기부터
  */
@@ -116,17 +114,16 @@ $bodyMap['accountList'] = $list;
 // CODEF API 호출
 //$result = $tradeapi->apiRequest($urlPath, $bodyMap,$accesstoken);
 
-if (!isset(self::$mapper)) {
-   self::$mapper = new \JsonMapper();
-}
+
 
 // POST요청을 위한 리퀘스트바디 생성(UTF-8 인코딩)
 $bodyString = json_encode($bodyMap);
 $bodyString = urlencode($bodyString);
 
+$tradeapi->error('049', __('bodyString : '. $bodyString )); //내역확인용 강제 종료 알람
 // API 요청
 $json = HttpRequest::post($urlPath, $accessToken, $bodyString);
-$result = self::$mapper->writeValueAsString($json);
+$result = $mapper->writeValueAsString($json);
 
 if ($json->error == "access_denied") {
    $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
