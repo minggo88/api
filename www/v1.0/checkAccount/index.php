@@ -86,6 +86,15 @@ $accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
 
 //$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
 $keyvalue = $tradeapi->encodeToFileString('/../../np/signPri.key');
+$filePath = '/../../np/signPri.key';
+
+if (file_exists($filePath)) {
+   $tradeapi->error('049', __('파일확인111111 ')); //내역확인용 강제 종료 알람
+} else {
+   $tradeapi->error('049', __('파일없음')); //내역확인용 강제 종료 알람
+}
+
+
 $tradeapi->error('049', __('키값확인 : '. $keyvalue )); //내역확인용 강제 종료 알람
 
 //$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
