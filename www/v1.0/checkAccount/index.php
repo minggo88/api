@@ -120,29 +120,48 @@ $bodyMap['accountList'] = $list;
 $bodyString = json_encode($bodyMap);
 $bodyString = urlencode($bodyString);
 
-$tradeapi->error('049', __('bodyString : '. $bodyString )); //내역확인용 강제 종료 알람
 // API 요청
-$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
-$result = $mapper->writeValueAsString($json);
+//$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
+$json='';
+try {
+   $url = $url_path;
+   $con = curl_init($url);
+   curl_setopt($con, CURLOPT_RETURNTRANSFER, true);
+   curl_setopt($con, CURLOPT_POST, true);
+   curl_setopt($con, CURLOPT_HTTPHEADER, [
+       'Accept: application/json',
+       'Content-Type: application/json',
+       'Authorization: Bearer ' . $token,
+   ]);
+   curl_setopt($con, CURLOPT_POSTFIELDS, $bodyString);
 
-if ($json->error == "access_denied") {
-   $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
-   $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+   $response = curl_exec($con);
+   $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
+   curl_close($con);
+
+   echo "POST Response Code: " . $httpCode . " Message: " . curl_error($con) . "\n";
+
+   if ($httpCode == 200) { // 정상 응답
+       $obj = json_decode($response);
+   } else { // 에러 발생
+       echo "POST request not worked\n";
+       $obj = json_decode($response);
+   }
+
+   // 결과 반환
+   $json = $obj;
+   $result = $mapper->writeValueAsString($json);
+   if ($json->error == "access_denied") {
+      $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
+      $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+   }
+
+   $tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람
+} catch (Exception $e) {
+   //echo $e->getMessage();
+   $json = "fail";
+   $tradeapi->error('049', __('httpRequest 실패 : '.$e)); //내역확인용 강제 종료 알람
 }
-
-$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람        
-                   
-            
-            
-            
-            
-        
-
-
-
-
-
-
 
 
 
