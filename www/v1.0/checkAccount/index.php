@@ -137,10 +137,10 @@ $bodyString = urlencode($bodyString);
    $response = curl_exec($con);
    $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
    curl_close($con);
-
+   
+   $obj = null;
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
-       $tradeapi->error('049', __('httpCode : '. $httpCode . "////".$response )); //내역확인용 강제 종료 알람   
    } else { // 에러 발생
        $obj = json_decode($response);
    }
@@ -153,6 +153,7 @@ $bodyString = urlencode($bodyString);
       $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
    }
 
+   $tradeapi->error('049', __('obj : '. $obj . "//// json : ".$json. "//// result : ".$result )); //내역확인용 강제 종료 알람   
    
 
 
