@@ -200,6 +200,35 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return !$_SESSION['WALLETNO'] ? true : false;
         }
 
+        //mk헥토
+        /***
+         * 헥토 api 추가 인코딩파일
+         */
+        public function encodeToFileString($filePath) {
+            $fileContent = file_get_contents($filePath);
+            $fileString = base64_encode($fileContent);
+            
+            return $fileString;
+        }
+
+        /***
+         * 헥토 api 추가 RSA암호화
+         */
+        public function encryptRSA($plainText, $base64PublicKey) {
+            $publicKey = base64_decode($base64PublicKey);
+            $publicKeyResource = openssl_pkey_get_public($publicKey);
+            
+            $encrypted = '';
+            if (openssl_public_encrypt($plainText, $encrypted, $publicKeyResource)) {
+                $encrypted = base64_encode($encrypted);
+            } else {
+                // 암호화 실패 시 예외 처리
+            }
+            
+            return $encrypted;
+        }
+
+
         public function isLogin()
         {
             return $this->get_login_userno() ? true : false;
@@ -3013,32 +3042,5 @@ SELECT
     if(!function_exists('checkMedia')){function checkMedia($s){
         return $GLOBALS['tradeapi']->checkMedia($s);
     }}
-
-    /***
-     * 헥토 api 추가 인코딩파일
-     */
-    public function encodeToFileString($filePath) {
-        $fileContent = file_get_contents($filePath);
-        $fileString = base64_encode($fileContent);
-        
-        return $fileString;
-    }
-
-    /***
-     * 헥토 api 추가 RSA암호화
-     */
-    public function encryptRSA($plainText, $base64PublicKey) {
-        $publicKey = base64_decode($base64PublicKey);
-        $publicKeyResource = openssl_pkey_get_public($publicKey);
-        
-        $encrypted = '';
-        if (openssl_public_encrypt($plainText, $encrypted, $publicKeyResource)) {
-            $encrypted = base64_encode($encrypted);
-        } else {
-            // 암호화 실패 시 예외 처리
-        }
-        
-        return $encrypted;
-     }
 }
 
