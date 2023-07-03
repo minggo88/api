@@ -56,7 +56,7 @@ if ($responseCode == 200) {
          'Content-Type: application/json; charset=UTF-8',
          'Authorization: Bearer '.$token2
       );
-      $tradeapi->error('049', __('헤더확인'. implode(" ", $headers)));
+      //$tradeapi->error('049', __('헤더확인'. implode(" ", $headers)));
 } else {
       $tradeapi->error('049', __('토큰실패'. $responseCode));
 }
@@ -98,7 +98,7 @@ $accountMap2['loginType'] = '1';
 $password2 = 'Rlrekrj1!';
 // RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
-$accountMap2['password'] = $tradeapi->encryptRSA($password2, $publicKey);
+//$accountMap2['password'] = $tradeapi->encryptRSA($password2, $publicKey);
 
 $accountMap2['id'] = 'flyminggo@naver.com ';
 $accountMap2['birthday'] = '880719';
