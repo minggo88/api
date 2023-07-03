@@ -215,7 +215,8 @@ if (!defined('__LOADED_TRADEAPI__')) {
          * 헥토 api 추가 RSA암호화
          */
         public function encryptRSA($plainText, $base64PublicKey) {
-            $publicKey = base64_decode($base64PublicKey);
+            //$publicKey = base64_decode($base64PublicKey);
+            $publicKey = "-----BEGIN PUBLIC KEY-----\n" . chunk_split($base64PublicKey, 64, "\n") . "-----END PUBLIC KEY-----";
             $publicKeyResource = openssl_pkey_get_public($publicKey);
             
             $encrypted = '';
