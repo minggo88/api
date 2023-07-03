@@ -123,7 +123,7 @@ $bodyString = urlencode($bodyString);
 // API 요청
 //$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
 
-   $url = $url_path;
+   $url = $urlPath;
    $con = curl_init($url);
    curl_setopt($con, CURLOPT_RETURNTRANSFER, true);
    curl_setopt($con, CURLOPT_POST, true);
