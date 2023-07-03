@@ -131,20 +131,21 @@ try {
    curl_setopt($con, CURLOPT_HTTPHEADER, [
        'Accept: application/json',
        'Content-Type: application/json',
-       'Authorization: Bearer ' . $token,
+       'Authorization: Bearer ' . $token2,
    ]);
    curl_setopt($con, CURLOPT_POSTFIELDS, $bodyString);
+   $tradeapi->error('049', __('커넥트ID : '. $token2."/////".$bodyString )); //내역확인용 강제 종료 알람
 
    $response = curl_exec($con);
    $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
    curl_close($con);
 
-   echo "POST Response Code: " . $httpCode . " Message: " . curl_error($con) . "\n";
+   //echo "POST Response Code: " . $httpCode . " Message: " . curl_error($con) . "\n";
 
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
    } else { // 에러 발생
-       echo "POST request not worked\n";
+       //echo "POST request not worked\n";
        $obj = json_decode($response);
    }
 
