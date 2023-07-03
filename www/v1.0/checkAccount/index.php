@@ -123,7 +123,6 @@ $bodyString = urlencode($bodyString);
 // API 요청
 //$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
 
-try {
    $url = $url_path;
    $con = curl_init($url);
    curl_setopt($con, CURLOPT_RETURNTRANSFER, true);
@@ -140,7 +139,7 @@ try {
    $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
    curl_close($con);
 
-   
+   $tradeapi->error('049', __('httpCode : '. $httpCode )); //내역확인용 강제 종료 알람   
 
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
@@ -158,13 +157,8 @@ try {
    }
 
    
-} catch (Exception $e) {
-   
-   $json = "fail";
-   $tradeapi->error('049', __('httpRequest 실패 : '.$e)); //내역확인용 강제 종료 알람
-}
 
-$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람
+
 
 
 
