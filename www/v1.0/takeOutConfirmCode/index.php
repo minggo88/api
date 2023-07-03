@@ -82,7 +82,7 @@ if($media=='email') {
 	$_SESSION['confirm_number'] = $tmpnum;
 	$_SESSION['confirm_email_address'] = $email_address;
 	// var_dump($email_address, __('인증번호를 입력해주세요.'), __('Your verification code is: {tmpnum}', array('{tmpnum}'=>$tmpnum))); exit;
-	$r = $tradeapi->send_email($email_address, __('반출신청 예정자가 있습니다.'), __('Your verification code is: {tmpnum}', array('{tmpnum}'=>$tmpnum)));
+	$r = $tradeapi->send_email($email_address, __('반출신청 예정자가 있습니다.'), __('신청자: {tmpnum}, 신청자ID: {tmpnum}, 상품이름: {tmpnum},  수량: {tmpnum},  신청시간: {tmpnum}', array('{tmpnum}'=>$tmpnum)));
     // 작업 필요합니다.
 	if(!$r) {
         $tradeapi->error('200', __('Failed to send confirm code.').' '.$tradeapi->send_email_error_msg);
