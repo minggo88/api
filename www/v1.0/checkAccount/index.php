@@ -133,20 +133,18 @@ $bodyString = urlencode($bodyString);
        'Authorization: Bearer ' . $token2,
    ]);
    curl_setopt($con, CURLOPT_POSTFIELDS, $bodyString);
+   
 
    $response = curl_exec($con);
    $httpCode = curl_getinfo($con, CURLINFO_HTTP_CODE);
    curl_close($con);
 
-   $obj = json_decode($response);
-   $tradeapi->error('049', __('httpCode : '.$httpCode."///" $obj)); //내역확인용 강제 종료 알람   
+   $tradeapi->error('049', __('httpCode : '. $token2 . "////".$bodyString )); //내역확인용 강제 종료 알람   
 
    if ($httpCode == 200) { // 정상 응답
        $obj = json_decode($response);
-       
    } else { // 에러 발생
        $obj = json_decode($response);
-       
    }
 
    // 결과 반환
