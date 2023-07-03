@@ -108,7 +108,7 @@ $list[] = $accountMap2;
 $bodyMap['accountList'] = $list;
 
 // CODEF API 호출
-$result = $tradeapi->apiRequest($urlPath, $bodyMap,$accesstoken);
+//$result = $tradeapi->apiRequest($urlPath, $bodyMap,$accesstoken);
 
 $result = print_r($bodyMap, true);
 
