@@ -122,7 +122,7 @@ $bodyString = urlencode($bodyString);
 
 // API 요청
 //$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
-$json='';
+
 try {
    $url = $url_path;
    $con = curl_init($url);
