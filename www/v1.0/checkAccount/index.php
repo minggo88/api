@@ -145,6 +145,9 @@ $bodyString = urlencode($bodyString);
        $obj = json_decode($response);
    }
 
+   //$tradeapi->error('049', __('obj : '. $obj . "//// json : ".$json. "//// result : ".$result )); //내역확인용 강제 종료 알람   
+   $tradeapi->error('049', __('obj : '. $obj )); //내역확인용 강제 종료 알람   
+
    // 결과 반환
    $json = $obj;
    $result = $mapper->writeValueAsString($json);
@@ -153,7 +156,7 @@ $bodyString = urlencode($bodyString);
       $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
    }
 
-   $tradeapi->error('049', __('obj : '. $obj . "//// json : ".$json. "//// result : ".$result )); //내역확인용 강제 종료 알람   
+   
    
 
 
