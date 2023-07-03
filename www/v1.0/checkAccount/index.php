@@ -10,6 +10,8 @@ $_REQUEST['userno'] = $userno;
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
 
+private static $mapper;
+
 /***
  *    -------------api 연결 여기부터
  */
@@ -75,7 +77,7 @@ $accountMap1 = array();
 $accountMap1['countryCode'] = 'KR';
 $accountMap1['businessType'] = 'BK';
 $accountMap1['clientType'] = 'P';
-$accountMap1['organization'] = '0003';
+$accountMap1['organization'] = '0020';
 $accountMap1['loginType'] = '0';
 
 //$password1 = '엔드유저의 인증서 비밀번호';
@@ -107,12 +109,39 @@ $list[] = $accountMap2;
 
 $bodyMap['accountList'] = $list;
 
+//$result = print_r($bodyMap, true);
+
+//$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람
+
 // CODEF API 호출
 //$result = $tradeapi->apiRequest($urlPath, $bodyMap,$accesstoken);
 
-$result = print_r($bodyMap, true);
+if (!isset(self::$mapper)) {
+   self::$mapper = new \JsonMapper();
+}
 
-$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람
+// POST요청을 위한 리퀘스트바디 생성(UTF-8 인코딩)
+$bodyString = json_encode($bodyMap);
+$bodyString = urlencode($bodyString);
+
+// API 요청
+$json = HttpRequest::post($urlPath, $accessToken, $bodyString);
+$result = self::$mapper->writeValueAsString($json);
+
+if ($json->error == "access_denied") {
+   $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
+   $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+}
+
+$tradeapi->error('049', __('커넥트ID : '. $result )); //내역확인용 강제 종료 알람        
+                   
+            
+            
+            
+            
+        
+
+
 
 
 
