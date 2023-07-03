@@ -82,10 +82,10 @@ $accountMap1['loginType'] = '0';
 $password1 = '134679qa!@';
 // RSAUtil.encryptRSA() 함수의 PHP 대체 방법을 사용해야 합니다.
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
-$accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
+//$accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
 
-$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
-$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
+//$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
+//$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
 $list[] = $accountMap1;
 
 $accountMap2 = array();
