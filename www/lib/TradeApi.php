@@ -230,6 +230,32 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return $encrypted;
         }
 
+        /***
+         * 헥토 api request
+         */
+        private static $mapper;
+
+        public static function apiRequest($urlPath, $bodyMap, $accessToken) {
+            if (!isset(self::$mapper)) {
+                self::$mapper = new \JsonMapper();
+            }
+            
+            // POST요청을 위한 리퀘스트바디 생성(UTF-8 인코딩)
+            $bodyString = json_encode($bodyMap);
+            $bodyString = urlencode($bodyString);
+            
+            // API 요청
+            $json = HttpRequest::post($urlPath, $accessToken, $bodyString);
+            $result = self::$mapper->writeValueAsString($json);
+            
+            if ($json->error == "access_denied") {
+                $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
+                $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+            }
+            
+            return $result;
+        }
+
 
         public function isLogin()
         {
