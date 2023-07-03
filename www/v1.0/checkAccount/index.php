@@ -84,13 +84,9 @@ $password1 = '134679qa!@';
 // RSA 암호화를 위한 라이브러리나 함수를 사용하십시오.
 $accountMap1['password'] = $tradeapi->encryptRSA($password1, $publicKey);
 
-//$accountMap1['keyFile'] = $tradeapi->encodeToFileString('/../../np/signPri.key');
-$keyvalue = $tradeapi->encodeToFileString(dirname(__file__) . '/../../np/signPri.key');
-$filePath = dirname(__file__) .'/../../np/signPri.key';
+$accountMap1['keyFile'] = $tradeapi->encodeToFileString(dirname(__file__).'/../../np/signPri.key');
+$accountMap1['derFile'] = $tradeapi->encodeToFileString(dirname(__file__).'/../../np/signCert.der');
 
-$tradeapi->error('049', __('키값확인 : '. $keyvalue )); //내역확인용 강제 종료 알람
-
-//$accountMap1['derFile'] = $tradeapi->encodeToFileString('/../../np/signCert.der');
 $list[] = $accountMap1;
 
 $accountMap2 = array();
@@ -112,7 +108,7 @@ $list[] = $accountMap2;
 $bodyMap['accountList'] = $list;
 
 // CODEF API 호출
-//$result = $tradeapi->apiRequest($urlPath, $bodyMap);
+$result = $tradeapi->apiRequest($urlPath, $bodyMap,$accesstoken);
 
 $result = print_r($bodyMap, true);
 
