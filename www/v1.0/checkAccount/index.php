@@ -189,40 +189,45 @@ $bodyString = urlencode($bodyString);
 );
 */
 // 요청 바디 설정
-$password1 = '134679qa!@';
+$password1 = 'Dpszlfndi1!';
 $pw = $tradeapi->encryptRSA($password1, $publicKey);
-$account = '1002059350450';
-$accountpw = '6402';
-$acpw = $tradeapi->encryptRSA($accountpw, $publicKey);
+$account = '23891002273004';
+
 
 /***
  * password 복호화
  */
 $key = $tradeapi->search_kkikdageo();
 
+$tagetData = file_get_contents(dirname(__FILE__).'/../../np/sk.bin');
+
 // 복호화
-$decryptedData = openssl_decrypt($encryptedData, 'AES-256-CBC', $key, 0, '1234567890123456');
-$r = $r.$decryptedData;
+$decryptedData = openssl_decrypt($tagetData, 'AES-256-CBC', $key, 0, '1234567890123456');
+
+//날자 만들기
+$year = date('Y'); // 현재 연도
+$month = date('m'); // 현재 월
+$firstDayOfMonth = $year . $month . '01';
+$today = date('Ymd');
 
 $body = array(
-   "organization" => "0020",
-   "id" => "NGNG123",
-   "password" => $pw,
+   "organization" => "0081",
    "fastId" => $account,
-   "fastPassword" => $acpw,
+   "fastPassword" => $decryptedData,
+   "id" => "KKIKDA2021",
+   "password" => $pw,
    "account" => $account,
-   "accountPassword" => $acpw,
-   "startDate" => "20230701",
-   "endDate" => "20230705",
+   "accountPassword" => $decryptedData,
+   "startDate" => $firstDayOfMonth,
+   "endDate" => $today,
    "orderBy" => "0",
-   "identity" => "880719",
-   "smsAuthNo" => ""
+   "identity" => "6238602033"
 );
 
  // 요청 생성
  $ch = curl_init();
  
- curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/fast-account/transaction-list');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/b/fast-account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
@@ -238,8 +243,8 @@ $body = array(
  if ($httpCode == 200) {
    $decodedData = urldecode($response);
    $data = json_decode($decodedData, true);
-    //$tradeapi->error('ss', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
-    $tradeapi->error('049', __('API 요청 성공'. implode(" ", $data))); //주문수량을 잔여수량 이하로 입력해주세요.
+   //$tradeapi->error('049', __('API 요청 성공'. implode(" ", $data))); //주문수량을 잔여수량 이하로 입력해주세요.
+   $tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
     //$tradeapi->error('ff', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
     $tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
