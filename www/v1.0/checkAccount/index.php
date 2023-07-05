@@ -14,7 +14,7 @@ $tradeapi->set_db_link('master');
 $key = $tradeapi->search_kkikdageo();
 
 // 원본 데이터
-$data = '1111';
+$data = '1429';
 $r = '생성성공';
 // 암호화
 $encryptedData = openssl_encrypt($data, 'AES-256-CBC', $key, 0, '1234567890123456');
