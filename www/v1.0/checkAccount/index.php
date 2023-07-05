@@ -66,6 +66,7 @@ if ($responseCode == 200) {
 /***
  * connected ID 요청
  */
+/*
 $urlPath = 'https://api.codef.io/v1/account/create';
 
 $bodyMap = array();
@@ -159,7 +160,7 @@ $bodyString = urlencode($bodyString);
 
    
    
-
+*/
 
 
 
@@ -174,6 +175,7 @@ $bodyString = urlencode($bodyString);
      'Authorization: Bearer '.base64_encode($clientId.':'.$clientSecret)
  );*/
 
+ /* 수시입출금
  // 요청 바디 설정
  $body = array(
     "organization" => "0020",
@@ -185,12 +187,33 @@ $bodyString = urlencode($bodyString);
     "inquiryType" => "1",
     "pageCount" => "10"
 );
+*/
+// 요청 바디 설정
+$password1 = '134679qa!@';
+$pw = $tradeapi->encryptRSA($password1, $publicKey);
+$account = '1002059350450';
+$accountpw = '6402';
+$acpw = $tradeapi->encryptRSA($accountpw, $publicKey);
 
+$body = array(
+   "organization" => "0020",
+   "id" => "NGNG123",
+   "password" => $pw,
+   "fastId" => $account,
+   "fastPassword" => $acpw,
+   "account" => $account,
+   "accountPassword" => $acpw,
+   "startDate" => "20230701",
+   "endDate" => "20230705",
+   "orderBy" => "0",
+   "identity" => "880719",
+   "smsAuthNo" => ""
+);
 
  // 요청 생성
  $ch = curl_init();
  
- curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/account/transaction-list');
+ curl_setopt($ch, CURLOPT_URL, $apiUrl.'/v1/kr/bank/p/fast-account/transaction-list');
  curl_setopt($ch, CURLOPT_POST, true);
  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($body));
