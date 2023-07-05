@@ -2627,6 +2627,34 @@ SELECT
             $sql.= " WHERE userno = '".$this->escape($data['userno'])."' ";
             return $this->query($sql);
         }
+        function encrypted_value($value){
+			$key = $this->search_kkikdageo();
+			
+			$result = openssl_encrypt($value, "AES-128-CBC", $key);
+			
+			return $result;
+		}
+		
+		function decrypt_value($encrypted){
+			$key = $this->search_kkikdageo();
+			
+			$decrypted = openssl_decrypt($encrypted, "AES-128-CBC", $key);
+			
+			return $decrypted;
+		}
+		
+		function search_kkikdageo(){
+			$current_file_path =  dirname(__FILE__);
+			if (file_exists($current_file_path.'/key.bin')) {
+			  $key = file_get_contents($current_file_path.'/key.bin');
+			} else {
+				$key = random_bytes(32); // 32바이트(256비트) 길이의 무작위 바이트 배열을 생성합니다.
+				file_put_contents($current_file_path.'/key.bin', $key); // 생성한 키를 파일로 저장합니다.
+				chmod($current_file_path.'/key.bin', 0600); // 액세스 권한 설정
+			}
+			return $key;
+		}
+
 
         function get_unworked_deposit_msg ($cnt=50) {
             $regtime = (time()-30 ) . '000000'; // 3최근 30초 간 메시지는 제외
