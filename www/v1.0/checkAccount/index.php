@@ -20,7 +20,7 @@ $r = '생성성공';
 $encryptedData = openssl_encrypt($data, 'AES-256-CBC', $key, 0, '1234567890123456');
 try{
    // 저장
-file_put_contents(dirname(__FILE__).'/np/sk.bin', $encryptedData);
+file_put_contents(dirname(__FILE__).'/../../np/sk.bin', $encryptedData);
 
 } catch(Exception $e) {
    $r = '생성실패'.$e;
