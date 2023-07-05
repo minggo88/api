@@ -195,6 +195,15 @@ $account = '1002059350450';
 $accountpw = '6402';
 $acpw = $tradeapi->encryptRSA($accountpw, $publicKey);
 
+/***
+ * password 복호화
+ */
+$key = $tradeapi->search_kkikdageo();
+
+// 복호화
+$decryptedData = openssl_decrypt($encryptedData, 'AES-256-CBC', $key, 0, '1234567890123456');
+$r = $r.$decryptedData;
+
 $body = array(
    "organization" => "0020",
    "id" => "NGNG123",
