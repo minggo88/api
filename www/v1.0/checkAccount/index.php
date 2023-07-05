@@ -227,8 +227,10 @@ $body = array(
  
  // 응답 확인
  if ($httpCode == 200) {
+   $decodedData = urldecode($response);
+   $data = json_decode($decodedData, true);
     //$tradeapi->error('ss', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
-    $tradeapi->error('049', __('API 요청 성공'. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
+    $tradeapi->error('049', __('API 요청 성공'. $data)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
     //$tradeapi->error('ff', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
     $tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
