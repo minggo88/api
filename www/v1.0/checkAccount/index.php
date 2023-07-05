@@ -203,6 +203,7 @@ $tagetData = file_get_contents(dirname(__FILE__).'/../../np/sk.bin');
 
 // 복호화
 $decryptedData = openssl_decrypt($tagetData, 'AES-256-CBC', $key, 0, '1234567890123456');
+$acpw = $tradeapi->encryptRSA($decryptedData, $publicKey);
 
 //날자 만들기
 $year = date('Y'); // 현재 연도
@@ -213,11 +214,11 @@ $today = date('Ymd');
 $body = array(
    "organization" => "0081",
    "fastId" => $account,
-   "fastPassword" => $decryptedData,
+   "fastPassword" => $acpw,
    "id" => "KKIKDA2021",
    "password" => $pw,
    "account" => $account,
-   "accountPassword" => $decryptedData,
+   "accountPassword" => $acpw,
    "startDate" => $firstDayOfMonth,
    "endDate" => $today,
    "orderBy" => "0",
