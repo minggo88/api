@@ -22,6 +22,13 @@ try{
    // 저장
 file_put_contents(dirname(__FILE__).'/../../np/sk.bin', $encryptedData);
 
+// 이진 파일에서 암호화된 데이터 읽기
+$encryptedData = file_get_contents(dirname(__FILE__).'/../../np/sk.bin');
+
+// 복호화
+$decryptedData = openssl_decrypt($encryptedData, 'AES-256-CBC', $key, 0, '1234567890123456');
+$r = $r.$decryptedData;
+
 } catch(Exception $e) {
    $r = '생성실패'.$e;
 }
