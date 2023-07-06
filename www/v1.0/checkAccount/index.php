@@ -42,7 +42,7 @@ if($cnt >0){
 
 
 
-$tradeapi->error('049', __($currencies[0][0]));
+$tradeapi->error('049', __($currencies[0]['txnid']));
 
 
 // get my member information
