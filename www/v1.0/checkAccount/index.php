@@ -250,7 +250,7 @@ $body = array(
    //$text['result'] = $data['result'];
 
 // data 데이터
-   $result['data'] = $data['data'];
+   $result = $data['data'];
 
    $text = "";
    $resTrHistoryList = $data['resTrHistoryList'];
