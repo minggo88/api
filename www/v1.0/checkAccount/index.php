@@ -249,7 +249,7 @@ $body = array(
    $text = $data['result']['data']['resTrHistoryList'];
 
 // data 데이터
-   $text['data'] = $data['data'];
+   //$text['data'] = $data['data'];
 
    //$tradeapi->error('049', __('API 요청 성공'. implode(" ", $data))); //주문수량을 잔여수량 이하로 입력해주세요.
    $tradeapi->error('049', __($text)); //주문수량을 잔여수량 이하로 입력해주세요.
