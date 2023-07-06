@@ -33,6 +33,7 @@ try {
     $tradeapi->add_wallet_txn($userno, $address, $symbol, $deposit_name, 'R', 'I', $deposit_amount, $fee, $tax, "O"); 
 
     // 관리자에게 SMS 알림.
+    /*
     $tran_phone = $tradeapi->get_admin_phone_number('sms');
     $tran_phone = '+82'.preg_replace('/^0/', '', $tran_phone, 0); // 전화번호 앞 지역번호 삭제
     $tran_msg  = "[".str_replace('api.','',$_SERVER['HTTP_HOST'])."] {$user_info->userid}회원님이 ".number_format($deposit_amount).$symbol."을 입금 신청했습니다. ";
@@ -40,7 +41,7 @@ try {
 
     // 성공시 commit
     $tradeapi->transaction_end('commit');
-
+    */
 } catch(Exception $e) {
 
     // 실패시 rollback
