@@ -17,11 +17,32 @@ if($cnt >0){
    $currencies = $tradeapi->query_list_object($sql);
 
 
+   //api처리내역
+
+
+   //api최신화중 완료되지 않은 내용이 있다는 전재로 진행
+   
+
+
+
+
+
+
+
+
+
+   for ($i = 0; $i < count($cnt); $i++) {
+      $name = $currencies[$i].['address_relative'];
+      $amount = $currencies[$i].['amount'];
+
+      $sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
+   }
+
 }
 
 
 
-$tradeapi->error('049', __($currencies));
+$tradeapi->error('049', __($sql2));
 
 
 // get my member information
