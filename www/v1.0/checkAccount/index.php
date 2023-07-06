@@ -14,7 +14,6 @@ $sql = "SELECT COUNT(*) FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND sta
 
 $cnt = $this->query_one($sql);
 
-$currencies=[];
 if($cnt >0){
    $sql = "SELECT txnid,userno,address_relative,amount FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
    $currencies = $tradeapi->query_list_object($sql);
