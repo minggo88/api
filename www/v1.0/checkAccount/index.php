@@ -246,7 +246,7 @@ $body = array(
    $data = json_decode($decodedData, true);
    $text = [];
    // result 데이터
-   $text = $data['result']['data']['resTrHistoryList'];
+   $text = $data['data']['resTrHistoryList'];
 
 // data 데이터
    //$text['data'] = $data['data'];
