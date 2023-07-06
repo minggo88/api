@@ -251,10 +251,26 @@ $body = array(
 
 // data 데이터
    $result['data'] = $data['data'];
-   $input['result'] = $result['data']['resTrHistoryList']['0'];
+
+   $text = "";
+   $resTrHistoryList = $data['resTrHistoryList'];
+   foreach ($resTrHistoryList as $transaction) {
+      $text=$text. $transaction['resAccountTrDate'];
+      $text=$text. $transaction['resAccountTrTime'];
+      $text=$text. $transaction['resAccountOut'];
+      $text=$text. $transaction['resAccountIn'];
+      $text=$text. $transaction['resAccountDesc1'];
+      $text=$text. $transaction['resAccountDesc2'];
+      $text=$text. $transaction['resAccountDesc3'];
+      $text=$text. $transaction['resAccountDesc4'];
+      $text=$text. $transaction['resAfterTranBalance'];
+      
+   }
+
+   //$input['result'] = $result['data']['resTrHistoryList']['0'];
 
    //$tradeapi->error('049', __('API 요청 성공'. implode(" ", $data))); //주문수량을 잔여수량 이하로 입력해주세요.
-   $tradeapi->error('049', __($input)); //주문수량을 잔여수량 이하로 입력해주세요.
+   $tradeapi->error('049', __($text)); //주문수량을 잔여수량 이하로 입력해주세요.
  } else {
    //$tradeapi->error('ff', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
    $tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
