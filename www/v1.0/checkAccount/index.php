@@ -5,14 +5,13 @@ include dirname(__file__) . "/../../lib/TradeApi.php";
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
 
-$_REQUEST['userno'] = $userno;
-
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
 
 $sql = "SELECT COUNT(*) FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
 
-$cnt = $this->query_fetch_object($sql);
+$cnt = $tradeapi->query_fetch_object($sql);
+
 /*
 if($cnt >0){
    $sql = "SELECT txnid,userno,address_relative,amount FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
