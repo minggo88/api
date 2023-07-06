@@ -18,13 +18,12 @@ $is_manager_account = $tradeapi->query_one("SELECT COUNT(*) FROM js_trade_curren
 if($is_manager_account) {
     $tradeapi->error('100', '판매자용 계정은 입금과 출금을 신청하실 수 없습니다.');
 }
-$tradeapi->error('100', '판매자용 계정은 입금과 출금을 신청하실 수 없습니다.');
 
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
 
 // transaction start
-$tradeapi->transaction_start();
+//$tradeapi->transaction_start();
 try {
 
     $fee = 0;
