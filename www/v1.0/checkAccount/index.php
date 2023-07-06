@@ -32,17 +32,17 @@ if($cnt >0){
 
 
    for ($i = 0; $i < count($cnt); $i++) {
-      $name = $currencies[$i].['address_relative'];
-      $amount = $currencies[$i].['amount'];
+      //$name = $currencies[$i].['address_relative'];
+      //$amount = $currencies[$i].['amount'];
 
-      $sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
+      //$sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
    }
 
 }
 
 
 
-$tradeapi->error('049', __($sql2));
+$tradeapi->error('049', __($currencies[0]));
 
 
 // get my member information
