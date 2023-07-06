@@ -10,14 +10,14 @@ $tradeapi->set_db_link('master');
 
 $sql = "SELECT COUNT(*) FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
 
-$cnt = $tradeapi->query_fetch_object($sql);
-
+$cnt = $tradeapi->query_one($sql);
 /*
 if($cnt >0){
    $sql = "SELECT txnid,userno,address_relative,amount FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
    $currencies = $tradeapi->query_list_object($sql);
 }
 */
+
 
 $tradeapi->error('049', __($cnt));
 
