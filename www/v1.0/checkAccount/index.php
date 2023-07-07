@@ -30,10 +30,10 @@ if($cnt >0){
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
-      //$dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
-      $dataArray = json_decode($data, true);
+      $dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
+      //$dataArray = json_decode($data, true);
       
-      $tradeapi->error('049', __($data[0]));
+      $tradeapi->error('049', __($dataArray));
       /*$txnid = $data['txnid'];
       $userno = $data['userno'];
       $name = $data['name'];
