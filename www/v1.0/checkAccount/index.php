@@ -14,7 +14,7 @@ $cnt = $tradeapi->query_one($sql);
 
 if($cnt >0){
    $sql = "SELECT txnid,userno,address_relative,amount FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
-   $currencies = $tradeapi->query_list_object($sql);
+   $currencies = $tradeapi->_fetch_array($sql);
 
    //api처리내역
 
@@ -34,8 +34,8 @@ if($cnt >0){
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
-      $dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
-      $dataArray = json_decode($data, true);
+      //$dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
+      //$dataArray = json_decode($data, true);
 
       
       $txnid = $dataArray['txnid'];
