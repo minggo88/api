@@ -37,13 +37,15 @@ if($cnt >0){
       $dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
       $dataArray = json_decode($data, true);
 
-      /*$txnid = $dataArray['txnid'];
+      
+      $txnid = $dataArray['txnid'];
       $userno = $dataArray['userno'];
       $name = $dataArray['name'];
       $amount = $dataArray['amount'];
 
       $result = $txnid."/".$userno."/".$name."/".$amount;
-      */
+      
+      $tradeapi->error('049', __($result));
       
       //$amount = $currencies[$i].['amount'];
 
@@ -54,7 +56,7 @@ if($cnt >0){
 
 
 
-$tradeapi->error('049', __($dataArray));
+$tradeapi->error('049', __($data));
 
 
 // get my member information
