@@ -28,11 +28,11 @@ if($cnt >0){
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
-      $jsonString = str_replace("'", '"', $data);
+      //$jsonString = str_replace("'", '"', $data);
       // JSON 문자열을 PHP 배열로 변환합니다.
-      $jsonArray = json_decode($jsonString, true);
+      //$jsonArray = json_decode($data, true);
       $valueList = [];
-      foreach ($jsonArray as $value) {
+      foreach ($data as $value) {
          $valueList[] = $value;
       }
 
