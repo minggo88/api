@@ -33,10 +33,10 @@ if($cnt >0){
          $valueList[] = $value;
       }
       
-      $txnid = $data[0];
-      $userno = $data[1];
-      $name = $data[2];
-      $amount = $data[3];
+      $txnid = $valueList[0];
+      $userno = $valueList[1];
+      $name = $valueList[2];
+      $amount = $valueList[3];
 
       $result = $txnid."/".$userno."/".$name."/".$amount;
       
