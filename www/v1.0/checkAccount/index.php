@@ -16,7 +16,6 @@ if($cnt >0){
    $sql = "SELECT txnid,userno,address_relative,amount FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
    $currencies = $tradeapi->query_list_object($sql);
 
-
    //api처리내역
 
 
@@ -32,7 +31,19 @@ if($cnt >0){
 
 
    for ($i = 0; $i < count($cnt); $i++) {
-      //$name = $currencies[$i].['address_relative'];
+      //배열로 만들기
+      $data = $currencies[$i];
+      $data = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
+      $dataArray = json_decode($data, true);
+
+      $txnid = $dataArray['txnid'];
+      $userno = $dataArray['userno'];
+      $name = $dataArray['name'];
+      $amount = $dataArray['amount'];
+
+      $result = $txnid."/".$userno."/".$name."/".$amount;
+
+      
       //$amount = $currencies[$i].['amount'];
 
       //$sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
@@ -42,7 +53,7 @@ if($cnt >0){
 
 
 
-$tradeapi->error('049', __($currencies[0]));
+$tradeapi->error('049', __($result));
 
 
 // get my member information
