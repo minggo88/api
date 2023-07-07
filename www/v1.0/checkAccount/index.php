@@ -30,11 +30,12 @@ if($cnt >0){
 
 
    $data=[];
+   $dataArray = [];
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
       $dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
-      //$dataArray = json_decode($data, true);
+      $dataArray = json_decode($data, true);
 
       /*$txnid = $dataArray['txnid'];
       $userno = $dataArray['userno'];
