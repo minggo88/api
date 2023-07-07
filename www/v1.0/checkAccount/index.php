@@ -25,15 +25,20 @@ if($cnt >0){
    
 
 
-   $data=[];
-   $dataArray = [];
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
-      $dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
+      $jsonString = str_replace("'", '"', $data);
+      // JSON 문자열을 PHP 배열로 변환합니다.
+      $jsonArray = json_decode($jsonString, true);
+      $valueList = [];
+      foreach ($jsonArray as $value) {
+         $valueList[] = $value;
+      }
+
       //$dataArray = json_decode($data, true);
       
-      $tradeapi->error('049', __($dataArray));
+      $tradeapi->error('049', __($valueList));
       /*$txnid = $data['txnid'];
       $userno = $data['userno'];
       $name = $data['name'];
