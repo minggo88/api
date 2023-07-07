@@ -28,26 +28,24 @@ if($cnt >0){
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
       $data = $currencies[$i];
-      //$jsonString = str_replace("'", '"', $data);
-      // JSON 문자열을 PHP 배열로 변환합니다.
-      //$jsonArray = json_decode($data, true);
       $valueList = [];
       foreach ($data as $value) {
          $valueList[] = $value;
       }
-
-      //$dataArray = json_decode($data, true);
       
-      $tradeapi->error('049', __($valueList));
-      /*$txnid = $data['txnid'];
-      $userno = $data['userno'];
-      $name = $data['name'];
-      $amount = $data['amount'];
+      $txnid = $data[0];
+      $userno = $data[1];
+      $name = $data[2];
+      $amount = $data[3];
 
       $result = $txnid."/".$userno."/".$name."/".$amount;
       
-      $tradeapi->error('049', __($result));
-      */
+      $sql_income = "SELECT incomeIndex FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."' ORDER BY incomeIndex ASC LIMIT 1;";
+      $incomeIndex = $tradeapi->query_one($sql);
+
+
+      $tradeapi->error('049', __($incomeIndex));
+      
       //$amount = $currencies[$i].['amount'];
 
       //$sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
