@@ -17,12 +17,12 @@ if($cnt >0){
    $currencies = $tradeapi->query_list_object($sql);
 
    //api처리내역
-   
+
 
    //api최신화중 완료되지 않은 내용이 있다는 전재로 진행
    
 
-
+   $tradeapi->error('049', __($currencies));
 
 
 
@@ -33,7 +33,7 @@ if($cnt >0){
    $dataArray = [];
    for ($i = 0; $i < count($cnt); $i++) {
       //배열로 만들기
-      $data = $tradeapi->_fetch_array($currencies[$i]);
+      $data = $currencies[$i];
       //$dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
       //$dataArray = json_decode($data, true);
 
