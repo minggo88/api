@@ -22,11 +22,7 @@ if($cnt >0){
    //api최신화중 완료되지 않은 내용이 있다는 전재로 진행
    
 
-   $tradeapi->error('049', __($currencies));
-
-
-
-
+   
 
 
    $data=[];
@@ -36,7 +32,7 @@ if($cnt >0){
       $data = $currencies[$i];
       //$dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
       //$dataArray = json_decode($data, true);
-
+      $tradeapi->error('049', __($data));
       
       $txnid = $dataArray['txnid'];
       $userno = $dataArray['userno'];
