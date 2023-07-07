@@ -44,7 +44,7 @@ if($cnt >0){
       $incomeIndex = $tradeapi->query_one($sql_income);
 
 
-      $tradeapi->error('049', __($incomeIndex));
+      $tradeapi->error('049', __($sql_income));
       
       //$amount = $currencies[$i].['amount'];
 
