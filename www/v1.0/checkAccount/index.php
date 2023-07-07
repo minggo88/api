@@ -41,7 +41,7 @@ if($cnt >0){
       $result = $txnid."/".$userno."/".$name."/".$amount;
       
       $sql_income = "SELECT incomeIndex FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."' ORDER BY incomeIndex ASC LIMIT 1;";
-      $incomeIndex = $tradeapi->query_one($sql);
+      $incomeIndex = $tradeapi->query_one($sql_income);
 
 
       $tradeapi->error('049', __($incomeIndex));
