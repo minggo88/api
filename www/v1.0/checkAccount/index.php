@@ -33,8 +33,8 @@ if($cnt >0){
       //$dataArray = str_replace("'", "\"", $data); // 작은 따옴표를 큰 따옴표로 변환하여 유효한 JSON 형식으로 만듭니다.
       //$dataArray = json_decode($data, true);
       
-      
-      $txnid = $data['txnid'];
+      $tradeapi->error('049', __($data[0]));
+      /*$txnid = $data['txnid'];
       $userno = $data['userno'];
       $name = $data['name'];
       $amount = $data['amount'];
@@ -42,7 +42,7 @@ if($cnt >0){
       $result = $txnid."/".$userno."/".$name."/".$amount;
       
       $tradeapi->error('049', __($result));
-      
+      */
       //$amount = $currencies[$i].['amount'];
 
       //$sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
