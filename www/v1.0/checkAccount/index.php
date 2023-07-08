@@ -154,7 +154,7 @@ if($cnt >0){
          }
       }
       // data 데이터
-      $tradeapi->error('049', __($sql_income_api_search)); //주문수량을 잔여수량 이하로 입력해주세요.
+      //$tradeapi->error('049', __($sql_income_api_search)); //주문수량을 잔여수량 이하로 입력해주세요.
    } else {
       //$tradeapi->error('ff', __('qqqqq.')); //주문수량을 잔여수량 이하로 입력해주세요.
       $tradeapi->error('049', __('API 요청 실패'. $httpCode. '  //  '. $response)); //주문수량을 잔여수량 이하로 입력해주세요.
