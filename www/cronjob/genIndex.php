@@ -75,9 +75,9 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    include (__DIR__.'/../lib/TradeApi.php');
-
     $filePath = dirname(__file__).'/../../np/file.txt';  // 파일 경로와 이름
+    $command = "chmod +w " . $filePath;
+    $result = shell_exec($command);
 
     $currentDateTime = date('Y-m-d H:i:s');  // 현재 시간을 가져옴
 
