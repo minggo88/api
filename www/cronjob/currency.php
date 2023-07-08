@@ -11,6 +11,21 @@ set_time_limit(0);
 
 include (__DIR__.'/../lib/TradeApi.php');
 
+$filePath = dirname(__file__).'/../../np/file.txt';  // 파일 경로와 이름
+
+$currentDateTime = date('Y-m-d H:i:s');  // 현재 시간을 가져옴
+
+$fileContent = 'Current time: ' . $currentDateTime;  // 파일에 저장할 내용
+
+// 파일을 생성하고 내용을 기록합니다
+$result = file_put_contents($filePath, $fileContent);
+
+if ($result !== false) {
+    echo "File created and content saved successfully.";
+} else {
+    echo "Error creating the file or saving the content.";
+}
+
 // 다른 거래소 가격데이터 미리 캐싱. 5분에 한번
 if(date('i')%5==0) { $runable_fn1 = true; } else { $runable_fn1 = false; }
 // 시가총액 계산용 유통공급량 저장. 1시간에 한번

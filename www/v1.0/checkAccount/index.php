@@ -93,6 +93,19 @@ if($cnt >0){
    $firstDayOfMonth = $year . $month . '01';
    $today = date('Ymd');
 
+   //1일일경우 전달과 비교
+   if ($firstDayOfMonth === $today) {
+      if ($month === '01') {
+          // 1월 1일인 경우 전년도 12월 25일로 $firstDayOfMonth을 변경합니다
+          $year = $year - 1;
+          $firstDayOfMonth = $year . '1225';
+      } else {
+          // 그 외의 경우 전달의 25일로 $firstDayOfMonth을 변경합니다
+          $previousMonth = sprintf('%02d', $month - 1);
+          $firstDayOfMonth = $year . $previousMonth . '25';
+      }
+  }
+
    $body = array(
       "organization" => "0081",
       "fastId" => $account,
@@ -218,7 +231,7 @@ if($cnt >0){
          
          $tradeapi->query_one($sql_wallet_update);
 
-         $tradeapi->error('049', __($sql_wallet_update));
+         //$tradeapi->error('049', __($sql_wallet_update));
       }
            
       
