@@ -13,12 +13,16 @@ include(dirname(__file__) . '/../lib/TradeApi.php');
 ignore_user_abort(1);
 set_time_limit(0);
 
+
+
 $tradeapi->logging = false;
 $tradeapi->set_log_dir(dirname(__file__) . '/../log/' . basename(__file__, '.php') . '/');
 $tradeapi->set_log_name('');
 $tradeapi->write_log('genIndex.php start.');
 
 $filename = __file__;
+
+
 
 // 프로세스 작동중인지 확인. 작동중이면 종료.
 @exec("ps  -ef| grep -i '{$filename}' | grep -v grep", $output);
@@ -70,6 +74,17 @@ if($sql) {
     // KKIKDA 지수
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
+
+    include (__DIR__.'/../lib/TradeApi.php');
+
+    $filePath = dirname(__file__).'/../../np/file.txt';  // 파일 경로와 이름
+
+    $currentDateTime = date('Y-m-d H:i:s');  // 현재 시간을 가져옴
+
+    $fileContent = 'Current time: ' . $currentDateTime;  // 파일에 저장할 내용
+
+    // 파일을 생성하고 내용을 기록합니다
+    $result = file_put_contents($filePath, $fileContent);
 }
 
 $tradeapi->write_log('genIndex.php end.');
