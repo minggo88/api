@@ -75,7 +75,7 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    $test = "INSERT INTO js_test (text1, tvalue) VALUES('{$KKIDA}', '{$now}');";
+    $test = "INSERT INTO `kkikda`.`js_test` (`text1`, `tvalue`) VALUES('{$KKIDA}', '{$now}');";
     $tradeapi->query($test);
 }
 
