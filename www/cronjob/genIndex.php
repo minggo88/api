@@ -75,16 +75,8 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    $filePath = dirname(__file__).'/../../np/file.txt';  // 파일 경로와 이름
-    $command = "chmod +w " . $filePath;
-    $result = shell_exec($command);
-
-    $currentDateTime = date('Y-m-d H:i:s');  // 현재 시간을 가져옴
-
-    $fileContent = 'Current time: ' . $currentDateTime;  // 파일에 저장할 내용
-
-    // 파일을 생성하고 내용을 기록합니다
-    $result = file_put_contents($filePath, $fileContent);
+    $test = "INSERT INTO kkikda.js_test (text1, `time`) VALUES('{$KKIDA}', '{$now}');";
+    $tradeapi->query($test);
 }
 
 $tradeapi->write_log('genIndex.php end.');
