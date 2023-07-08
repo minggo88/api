@@ -9,9 +9,7 @@ set_time_limit(0);
  * 각각의 단위작업별로 실행시간이 다릅니다.
  */
 
-
-
-
+include (__DIR__.'/../lib/TradeApi.php');
 
 // 다른 거래소 가격데이터 미리 캐싱. 5분에 한번
 if(date('i')%5==0) { $runable_fn1 = true; } else { $runable_fn1 = false; }
