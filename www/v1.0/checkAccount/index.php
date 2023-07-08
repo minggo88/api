@@ -65,7 +65,8 @@ if($cnt >0){
          $confirmed = $tradeapi->query_one($sql_wallet_search);
          $confirmed = $confirmed + $amount;
 
-         $sql_wallet_update = "UPDATE kkikda.js_exchange_wallet SET confirmed=".$confirmed." WHERE userno='.$userno.' AND symbol='KRW';";
+         $sql_wallet_update = "UPDATE kkikda.js_exchange_wallet SET confirmed=".$confirmed." WHERE userno='".$userno."' AND symbol='KRW';";
+         
          $tradeapi->query_one($sql_wallet_update);
 
          $tradeapi->error('049', __($sql_wallet_update));
