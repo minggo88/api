@@ -52,7 +52,7 @@ if($cnt >0){
          $incomeIndex = $tradeapi->query_one($sql_income_search);
 
          $sql_income_update = "UPDATE kkikda.js_income SET userno='".$userno."', complteYN='Y', txnindex='".$txnid."' WHERE incomeIndex='".$incomeIndex."';";
-         $incomeIndex = $tradeapi->query_one($sql_income_update);
+         $tradeapi->query_one($sql_income_update);
 
          //txn 업데이트
          $text = "자동 업데이트 imcomeIndex : ".$incomeIndex;
