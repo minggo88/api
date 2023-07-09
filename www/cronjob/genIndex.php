@@ -31,9 +31,6 @@ if (count($output) > 1) {
     exit();
 }
 
-$test = "INSERT INTO js_test set `text1` = '{$KKIDA}', `tvalue` = '{$now}' ";
-$tradeapi->query($test);
-
 $tradeapi->set_db_link('master');
 
 $now = date('Y-m-d');
@@ -78,7 +75,8 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    
+    //$test = "INSERT INTO js_test set `text1` = '{$KKIDA}', `tvalue` = '{$now}' ";
+    //$tradeapi->query($test);
 }
 
 $tradeapi->write_log('genIndex.php end.');
