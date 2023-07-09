@@ -8,7 +8,7 @@
  * 종료 명령어:
  * $ php genChart.php stop
  */
-exit('작업완료했습니다. 더이상 사용하지 않습니다.');
+//exit('작업완료했습니다. 더이상 사용하지 않습니다.');
 define('__API_RUNMODE__', 'live');
 include(dirname(__file__) . '/../lib/TradeApi.php');
 
