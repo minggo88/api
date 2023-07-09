@@ -4,7 +4,7 @@
  * 거래소 지수 데이터 생성.
  * 
  * 실행 명령어: 
- * $ php genIndex.php start
+ * $ php genChart.php start
  * 종료 명령어:
  * $ php genChart.php stop
  */
@@ -75,8 +75,8 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    //$test = "INSERT INTO js_test set `text1` = '{$KKIDA}', `tvalue` = '{$now}' ";
-    //$tradeapi->query($test);
+    $test = "INSERT INTO js_test set `text1` = '{$KKIDA}', `tvalue` = '{$now}' ";
+    $tradeapi->query($test);
 }
 
 $tradeapi->write_log('genIndex.php end.');
