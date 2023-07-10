@@ -50,6 +50,7 @@ $_amount_exchange = 0;
 $query_tot = "SELECT confirmed FROM js_exchange_wallet WHERE userno = '".$userno."' and symbol = 'KRW' AND goods_grade = '' ;";
 $total_money = $tradeapi->query_fetch_object($query_tot);	
 
+
 //주문금액 확인을 위한 array 생성
 $query_symbol = "SELECT DISTINCT pack_info FROM js_auction_goods WHERE pack_info != 'Y';";
 $symbol_name = $tradeapi->query_list_object($query_symbol);	
@@ -71,6 +72,7 @@ $sql = "SELECT IFNULL(SUM(amount+fee),0) amount FROM js_exchange_wallet_txn WHER
 
 $withdrawing = $tradeapi->query_one($sql);
 
+
 // 잔액 만큼의 구매 정보 추출
 for($i=0; $i<count($wallets); $i++) {
     $wallet = (object) $wallets[$i];
@@ -82,6 +84,7 @@ for($i=0; $i<count($wallets); $i++) {
         //     $wallet->address = '농협 / 355-0064-6186-53 / (주)패션아라'; // 중국어 은행.
         // }
     }
+	$wallet->total_money = $total_money;
 
     $currency = null;
     if(isset($currencies[$wallet->symbol])) {
@@ -110,10 +113,12 @@ for($i=0; $i<count($wallets); $i++) {
     $wallet->tradable_today = $currency->out_max_volume_1day < $wallet->tradable ? $currency->out_max_volume_1day : $wallet->tradable;
 
     // 출금 중 금액
-    $wallet->withdrawing = $tradeapi->query_one("SELECT IFNULL(SUM(amount+fee),0) amount FROM js_exchange_wallet_txn WHERE symbol='{$tradeapi->escape($wallet->symbol)}' AND `status` = 'O' AND txn_type='W' AND userno='{$tradeapi->escape($userno)}'") * 1;
-    $_amount_exchange += $wallet->withdrawing;
+    //$wallet->withdrawing = $tradeapi->query_one("SELECT IFNULL(SUM(amount+fee),0) amount FROM js_exchange_wallet_txn WHERE symbol='{$tradeapi->escape($wallet->symbol)}' AND `status` = 'O' AND txn_type='W' AND userno='{$tradeapi->escape($userno)}'") * 1;
+    //$_amount_exchange += $wallet->withdrawing;
+	$wallet->withdrawing = $withdrawing*1;
     // 잠긴 금액
     $wallet->locked = $airdrops[$wallet->symbol]->airdrop * 1;
+	
 
     $order_table = "js_trade_".strtolower($wallet->symbol)."".strtolower($tradeapi->default_exchange)."_order";
     $order_table_exists = $tradeapi->isTable($order_table);
@@ -126,9 +131,26 @@ for($i=0; $i<count($wallets); $i++) {
     // if($wallet->goods_grade) {
     //     var_dump($order_table, $order_table_exists, $wallet->goods_grade, $sql, $wallet->trading);exit;
     // }
-    // 매수 중 금액
-    $_amount_exchange += $order_table_exists ? $tradeapi->query_one("SELECT SUM(price*volume_remain) remain FROM {$order_table} WHERE `status` IN ('O','T') AND trading_type='B' AND userno='{$tradeapi->escape($userno)}'") : 0;
-
+    //230202 매수 중 금액이라 써잇는데 결과값은 항상 0; 혹시몰라 남겨두지만 필요할 가능성이 낮음 -> null갑으로 인한 오류
+    $_amount_exchange += $order_table_exists ? $tradeapi->query_one("SELECT SUM(price*volume_remain) remain FROM {$order_table} WHERE status IN ('O','T') AND trading_type='B' AND userno='{$tradeapi->escape($userno)}'") : 0;
+	
+	// (new)매수 중 금액 -> 쿼리실행시 오류(table이름에 대한 오류로 해결못했음)
+	//$wait_buy = count($symbol_name).'/'.$symbol.'/'.in_array($symbol,$symbol_name);
+	
+	/*if(in_array($symbol,$list_table)){
+		$sql2 = "SELECT IFNULL(SUM(price*volume_remain),'0') remain FROM {$order_table} WHERE `status` IN ('O','T') AND trading_type='B' AND userno='{$tradeapi->escape($userno)}' ";
+	
+		//$sql2 = "SELECT count(*) FROM {$order_table} WHERE status IN ('O','T') AND trading_type='B' AND userno='{$tradeapi->escape($userno)}' ";
+		$text = $symbol.'/'.in_array($symbol,$list_table).'/'.count($list_table).'/'.$list_table[0].";";
+		//쿼리 실행시 오류...
+		//$wait_buy = $tradeapi->query_fetch_object($sql2);
+		$wait_buy = '1111111111111111111111';
+		
+		//$wallet->wait_buy = $tradeapi->calc_wait_buy($order_table, $userno);
+		//$wallet->wait_buy = $tradeapi->query_fetch_object($sql2);
+	}*/
+	$wallet->wait_buy = $wait_buy;
+	
     // 전체 잔액
     $wallet->valuation = (($wallet->tradable + $wallet->trading + $wallet->locked).'')*1;
 
@@ -150,12 +172,15 @@ for($i=0; $i<count($wallets); $i++) {
     $txn_buy_volume = $wallet->confirmed * 1;
     $txn_buy_volume -= $wallet->deposit_volume;
     $wallet->txn_buy_volume = $txn_buy_volume;
+	$sum_buy_goods = 0;
+	$wallet->sum_buy_goods = $sum_buy_goods;
     // 총 구매 금액(구매에 의한 잔액에 해당하는 것만 계산)
     $sum_buy_amount = 0;
     $t=0;
     // $wallet->txns = array();
     while( $txn_buy_volume > 0 ) {
         $txns = $tradeapi->get_buy_ordertxn($wallet->symbol, $exchange, $userno);
+		
         if($txns) {
             foreach($txns as $txn) {
                 $buy_volume = $txn_buy_volume <= $txn->volume ? $txn_buy_volume : $txn->volume * 1;
@@ -169,13 +194,26 @@ for($i=0; $i<count($wallets); $i++) {
         } else {
             break;
         }
+		
+		
 
         if($t>100) { // 무한루프 방지.
             // var_dump($wallet->symbol, $exchange, $userno, $t);
             break;
         }
+	
         $t++;
     }
+	$txns2 = $tradeapi->get_buy_ordertxn2($wallet->symbol, $userno);
+	
+	if($txns2){
+		$sum_buy_goods = $txns2[0]->price;
+	}else{
+		$sum_buy_goods = $txn_buy_volume;
+	}
+	$wallet->sum_buy_goods = $sum_buy_goods;
+	
+	
 
     // 평균 매수가
     $wallet->avg_buy_price = $wallet->confirmed>0 ? round($sum_buy_amount / $wallet->confirmed, $d) : 0;
@@ -188,7 +226,7 @@ for($i=0; $i<count($wallets); $i++) {
 
     $wallets[$i] = $wallet;
 }
-
+	
 // 교환 화폐의 잔액 처리.
 for($i=0; $i<count($wallets); $i++) {
     $wallet = $wallets[$i];
@@ -200,7 +238,7 @@ for($i=0; $i<count($wallets); $i++) {
         $wallet->valuation = $wallet->tradable + $wallet->trading;
         $wallets[$i] = $wallet;
         break;
-    }
+    }	
 }
 // var_dump($wallets, $tradeapi->default_exchange); exit;
 

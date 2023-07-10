@@ -1995,11 +1995,20 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $exchange = $this->escape(strtolower($exchange));
             $cnt = $this->escape(preg_replace( '/[^0-9]/', '', $cnt));
             $cnt = $cnt ? $cnt : 20;
-            $sql = " SELECT _txn.volume, _txn.price ";
+            $sql = " SELECT _txn.volume, _txn.price, _order.price AS b_price ";
             $sql.= " FROM js_trade_".$symbol.$exchange."_ordertxn _ot LEFT JOIN js_trade_".$symbol.$exchange."_txn _txn ON _ot.`txnid`=_txn.txnid LEFT JOIN js_trade_".$symbol.$exchange."_order _order ON _ot.`orderid`=_order.`orderid` ";
             $sql.= " WHERE _ot.userno={$this->escape($userno)} AND _order.trading_type='B' ";
             $sql.= " ORDER BY _ot.txnid DESC ";
             $sql.= " LIMIT {$cnt} ";
+            return $this->query_list_object($sql);
+        }
+		
+		public function get_buy_ordertxn2($symbol, $userno) {
+            $symbol = $this->escape(strtolower($symbol));
+            $cnt = 1;
+            $sql = " SELECT price FROM js_auction_goods  ";
+            $sql.= " WHERE owner_userno = '".$userno."' " ;
+			$sql.= " AND pack_info = '".$symbol."' LIMIT {$cnt};";
             return $this->query_list_object($sql);
         }
 
