@@ -187,7 +187,7 @@ if($cnt >0){
    
 
 
-   for ($i = 0; $i < count($cnt); $i++) {
+   for ($i = 0; $i < $cnt; $i++) {
       //배열로 만들기
       $data = $currencies[$i];
       $valueList = [];
