@@ -163,7 +163,7 @@ if($cnt >0){
             $sql_income_insert = "INSERT INTO kkikda.js_income (resAccountDesc1, resAccountDesc2, resAccountDesc3, resAccountDesc4, resAccountIn, resAccountOut, resAccountTrDate, resAccountTrTime, resAfterTranBalance, complteYN)
             VALUES('".$resAccountDesc1."', '".$resAccountDesc2."', '".$resAccountDesc3."', '".$resAccountDesc4."', '".$resAccountIn."', '".$resAccountOut."', '".$resAccountTrDate."', '".$resAccountTrTime."', '".$resAfterTranBalance."', 'N');
             ";
-            $cnt2 = $tradeapi->query_one($sql_income_insert);
+            $tradeapi->query_one($sql_income_insert);
          }
       }
       // data 데이터
@@ -184,7 +184,7 @@ if($cnt >0){
    //api최신화중 완료되지 않은 내용이 있다는 전재로 진행
    
 
-   
+   $tradeapi->error('049', __($cnt)); //주문수량을 잔여수량 이하로 입력해주세요.
 
 
    for ($i = 0; $i < $cnt; $i++) {
