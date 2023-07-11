@@ -163,7 +163,7 @@ if($cnt >0){
             $sql_income_insert = "INSERT INTO kkikda.js_income (resAccountDesc1, resAccountDesc2, resAccountDesc3, resAccountDesc4, resAccountIn, resAccountOut, resAccountTrDate, resAccountTrTime, resAfterTranBalance, complteYN)
             VALUES('".$resAccountDesc1."', '".$resAccountDesc2."', '".$resAccountDesc3."', '".$resAccountDesc4."', '".$resAccountIn."', '".$resAccountOut."', '".$resAccountTrDate."', '".$resAccountTrTime."', '".$resAfterTranBalance."', 'N');
             ";
-            $cnt = $tradeapi->query_one($sql_income_insert);
+            $cnt2 = $tradeapi->query_one($sql_income_insert);
          }
       }
       // data 데이터
