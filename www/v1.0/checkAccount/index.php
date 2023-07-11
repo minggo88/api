@@ -204,7 +204,7 @@ if($cnt >0){
       
       //입금 내역확인
       $sql_income_search = "SELECT count(*) FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";
-      $income_cnt = $tradeapi->query_one($sql);
+      $income_cnt = $tradeapi->query_one($sql_income_search);
       
       //입금 내역이 있으면 진행
       if($income_cnt>0){
