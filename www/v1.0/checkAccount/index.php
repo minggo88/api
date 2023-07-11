@@ -183,14 +183,14 @@ if($cnt >0){
 
    //api최신화중 완료되지 않은 내용이 있다는 전재로 진행
    
-   $update_cnt_sql = "SELECT COUNT(*) FROM js_income WHERE js_income.complteYN='N'";
+   $update_cnt_sql = "SELECT COUNT(*) FROM js_income WHERE js_income.complteYN='N';";
    $update_cnt = $tradeapi->query_one($update_cnt_sql);
 
 
-   $tradeapi->error('049', __($updat_cnt)); //주문수량을 잔여수량 이하로 입력해주세요.
+   $tradeapi->error('049', __($update_cnt)); //주문수량을 잔여수량 이하로 입력해주세요.
 
 
-   for ($i = 0; $i < $updat_cnt; $i++) {
+   for ($i = 0; $i < $update_cnt; $i++) {
       //배열로 만들기
       $data = $currencies[$i];
       $valueList = [];
