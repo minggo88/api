@@ -36,14 +36,14 @@ if (isset($_POST['dataArray'])) {
         $p_date_sql = "SELECT meta_val FROM js_auction_goods_meta WHERE goods_idx = '{$symbol}' AND meta_key = 'meta_wp_production_date';";
         $p_date = $tradeapi->query_one($p_date_sql);
 
-        $item_idx_sql = "SELECT idx FROM js_auction_goods WHERE owner_userno = '{$userno}' and pack_info = '{$symbol}' LIMIT {$cnt};";
-        $idx_array = $tradeapi->query_list_object($sql);
-        
         //메인반출내용 입력
         $insert_sql = "INSERT INTO kkikda.js_takeout_item
         (takeout_userno, takeout_item_name, takeout_item_count, takeout_item_pack_info, takeout_item_idx, takeout_item_production_date, takeout_state, takeout_apply_date, takeout_complete_date, takeout_note1, takeout_note2, takeout_note3, takeout_note4, takeout_note5)
         VALUES('{$userno}','{$name}', '{$cnt}', '{$symbol}', 'main', '{$p_date}', 'R', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '', '', '', '', '');";
         $tradeapi->query_one($insert_sql);
+
+        $item_idx_sql = "SELECT idx FROM js_auction_goods WHERE owner_userno = '{$userno}' and pack_info = '{$symbol}' LIMIT {$cnt};";
+        $idx_array = $tradeapi->query_list_object($item_idx_sql);
         //세부 idx입력
         foreach ($idx_array as $idx) {
             $insert_sql = "INSERT INTO kkikda.js_takeout_item
