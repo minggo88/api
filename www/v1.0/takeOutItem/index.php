@@ -30,11 +30,11 @@ if (isset($_POST['dataArray'])) {
         $name = $data['name'];
         $symbol = $data['symbol'];
         $cnt = $data['cnt'];
-        
+        $text = $text.$name.$symbol.$cnt;
         // 여기서부터는 $name, $code, $count 변수를 사용하여 원하는 작업을 수행할 수 있습니다.
         // 예를 들어, 데이터베이스에 저장하거나 다른 연산을 수행하는 등의 작업을 수행할 수 있습니다.
     }
-    $text = implode(', ', $dataArray);
+    
 
     // Ajax 요청에 대한 응답을 줄 때는 JSON 형식으로 보내는 것이 일반적입니다.
     // 여기서는 간단한 응답을 준비하고 JSON 형식으로 보내는 예제를 보여드리겠습니다.
