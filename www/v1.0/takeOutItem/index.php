@@ -43,7 +43,8 @@ if (isset($_POST['dataArray'])) {
         $tradeapi->query_one($insert_sql);
 
         $item_idx_sql = "SELECT idx FROM js_auction_goods WHERE owner_userno = '{$userno}' and pack_info = '{$symbol}' LIMIT {$cnt};";
-        $idx_array = $tradeapi->query_list_object($item_idx_sql);
+        $text= $insert_sql;
+        //$idx_array = $tradeapi->query_list_object($item_idx_sql);
         //세부 idx입력
         foreach ($idx_array as $idx) {
             $insert_sql = "INSERT INTO kkikda.js_takeout_item
