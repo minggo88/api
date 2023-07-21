@@ -30,15 +30,21 @@ if (isset($_POST['dataArray'])) {
         $name = $data['name'];
         $symbol = $data['symbol'];
         $cnt = $data['cnt'];
-        $text = $text.$name.$symbol.$cnt;
+        $production_dat = '';
+
+        $p_date_sql = "SELECT meta_val FROM js_auction_goods_meta WHERE goods_idx = '{$symbol}' AND meta_key = 'meta_wp_production_date';";
+        $p_date = $tradeapi->query_one($p_date_sql);
+        
+        $insert_sql = "INSERT INTO kkikda.js_takeout_item
+        (takeout_userno, takeout_item_name, takeout_item_count, takeout_item_pack_info, takeout_item_idx, takeout_item_production_date, takeout_state, takeout_apply_date, takeout_complete_date, takeout_note1, takeout_note2, takeout_note3, takeout_note4, takeout_note5)
+        VALUES('{$userno}','{$name}', '{$cnt}', '{$symbol}', 'main', '{$p_date}', 'R', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '', '', '', '', '');";
+        $tradeapi->query_one($insert_sql);
+
+
         // 여기서부터는 $name, $code, $count 변수를 사용하여 원하는 작업을 수행할 수 있습니다.
         // 예를 들어, 데이터베이스에 저장하거나 다른 연산을 수행하는 등의 작업을 수행할 수 있습니다.
     }
     
-
-    // Ajax 요청에 대한 응답을 줄 때는 JSON 형식으로 보내는 것이 일반적입니다.
-    // 여기서는 간단한 응답을 준비하고 JSON 형식으로 보내는 예제를 보여드리겠습니다.
-    //$r = array('status' => 'success', 'message' => 'Data processed successfully / ' + $text);
     $r['msg'] = 'check : '.$text;
 } else {
     $tradeapi->error('000', __('데이터형 오류'));
