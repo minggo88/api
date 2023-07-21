@@ -5,9 +5,6 @@ include dirname(__file__) . "/../../lib/TradeApi.php";
 $tradeapi->checkLogin();
 $userno = $tradeapi->get_login_userno();
 
-$p_date_sql = "SELECT meta_val FROM js_auction_goods_meta WHERE goods_idx = '{$symbol}' AND meta_key = 'meta_wp_production_date';";
-$p_date = $tradeapi->query_one($p_date_sql);
-
 //메인반출내용
 $search_sql = 
     "SELECT takeout_item_name AS t_name,
