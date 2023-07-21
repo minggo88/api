@@ -37,7 +37,7 @@ if (isset($_POST['dataArray'])) {
 
     // Ajax 요청에 대한 응답을 줄 때는 JSON 형식으로 보내는 것이 일반적입니다.
     // 여기서는 간단한 응답을 준비하고 JSON 형식으로 보내는 예제를 보여드리겠습니다.
-    $tradeapi->error('001', __('여기까진 계획대로 : ' + $text));
+    $tradeapi->error('001', __('여기까진 계획대로 : ' + $dataArray));
 } else {
     $tradeapi->error('000', __('데이터형 오류'));
 }
