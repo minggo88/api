@@ -45,12 +45,12 @@ if (isset($_POST['dataArray'])) {
         $item_idx_sql = "SELECT idx FROM js_auction_goods WHERE owner_userno = '{$userno}' and pack_info = '{$symbol}' LIMIT {$cnt};";
         $idx_array = $tradeapi->query_list_object($item_idx_sql);
         //세부 idx입력
-        foreach ($idx_array as $idx) {
-            /*$insert_sql = "INSERT INTO kkikda.js_takeout_item
+        foreach ($idx_array as $data) {
+            $insert_sql = "INSERT INTO kkikda.js_takeout_item
             (takeout_userno, takeout_item_name, takeout_item_count, takeout_item_pack_info, takeout_item_idx, takeout_item_production_date, takeout_state, takeout_apply_date, takeout_complete_date, takeout_note1, takeout_note2, takeout_note3, takeout_note4, takeout_note5)
-            VALUES('{$userno}','{$name}', '{$cnt}', '{$symbol}', '{$idx}', '{$p_date}', 'I', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'idx입력한 내용입니다.', '', '', '', '');";
-            //$tradeapi->query_one($insert_sql);*/
-            $text= $idx;
+            VALUES('{$userno}','{$name}', '{$cnt}', '{$symbol}', '{$data->idx}', '{$p_date}', 'I', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'idx입력한 내용입니다.', '', '', '', '');";
+            //$tradeapi->query_one($insert_sql);
+            $text= $insert_sql;
         }
 
 
