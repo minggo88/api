@@ -38,7 +38,7 @@ if (isset($_POST['dataArray'])) {
 
     // Ajax 요청에 대한 응답을 줄 때는 JSON 형식으로 보내는 것이 일반적입니다.
     // 여기서는 간단한 응답을 준비하고 JSON 형식으로 보내는 예제를 보여드리겠습니다.
-    $tradeapi->error('001', __('여기까진 계획대로 : ' + $text));
+    $r = array('status' => 'success', 'message' => 'Data processed successfully / ' + $text);
 } else {
     $tradeapi->error('000', __('데이터형 오류'));
 }
@@ -346,5 +346,5 @@ $remain_volume_buy = round($remain_volume_buy, 4);
 $r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
 */
 // response
-$r = array('status' => 'success', 'message' => 'Data processed successfully');
+
 $tradeapi->success($r);
