@@ -200,6 +200,63 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return !$_SESSION['WALLETNO'] ? true : false;
         }
 
+        //mk헥토
+        /***
+         * 헥토 api 추가 인코딩파일
+         */
+        public function encodeToFileString($filePath) {
+            $fileContent = file_get_contents($filePath);
+            $fileString = base64_encode($fileContent);
+            
+            return $fileString;
+        }
+
+        /***
+         * 헥토 api 추가 RSA암호화
+         */
+        public function encryptRSA($plainText, $base64PublicKey) {
+            //$publicKey = base64_decode($base64PublicKey);
+            $publicKey = "-----BEGIN PUBLIC KEY-----\n" . chunk_split($base64PublicKey, 64, "\n") . "-----END PUBLIC KEY-----";
+            $publicKeyResource = openssl_pkey_get_public($publicKey);
+            
+            $encrypted = '';
+            if (openssl_public_encrypt($plainText, $encrypted, $publicKeyResource)) {
+                $encrypted = base64_encode($encrypted);
+            } else {
+                // 암호화 실패 시 예외 처리
+                $encrypted = 'fail';
+            }
+            
+            return $encrypted;
+        }
+
+        /***
+         * 헥토 api request
+         */
+        private static $mapper;
+
+        public static function apiRequest($urlPath, $bodyMap, $accessToken) {
+            if (!isset(self::$mapper)) {
+                self::$mapper = new \JsonMapper();
+            }
+            
+            // POST요청을 위한 리퀘스트바디 생성(UTF-8 인코딩)
+            $bodyString = json_encode($bodyMap);
+            $bodyString = urlencode($bodyString);
+            
+            // API 요청
+            $json = HttpRequest::post($urlPath, $accessToken, $bodyString);
+            $result = self::$mapper->writeValueAsString($json);
+            
+            if ($json->error == "access_denied") {
+                $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
+                $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+            }
+            
+            return $result;
+        }
+
+
         public function isLogin()
         {
             return $this->get_login_userno() ? true : false;
@@ -662,7 +719,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             FROM js_exchange_wallet t1 
             LEFT JOIN js_trade_currency t2 ON t1.symbol=t2.symbol
             LEFT JOIN js_trade_price t3 ON t1.symbol=t3.symbol AND t1.goods_grade=t3.goods_grade
-            WHERE t1.userno='.$this->escape($userno).' AND t2.name != "" ';
+            WHERE t1.userno='.$this->escape($userno).' ';
             if($symbol!='' && strtolower($symbol)!='all') {
                 $sql.= ' and t1.symbol="'.strtoupper($this->escape($symbol)).'"';
             }
@@ -907,12 +964,6 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $sql = "SELECT IFNULL(SUM(amount),0) FROM js_exchange_wallet_txn WHERE userno='{$this->escape($userno)}' AND symbol='{$this->escape(strtoupper($symbol))}' AND txn_type='R' AND status='D' ";
             return $this->query_one($sql) * 1;
         }
-		
-		//매수 중 금액
-		public function calc_wait_buy($order_table, $userno) {
-            $sql2 = "SELECT IFNULL(SUM(price*volume_remain),'0') AS remain FROM {$order_table} WHERE `status` IN ('O','T') AND trading_type='B' AND userno='{$tradeapi->escape($userno)}' ";
-            return $this->query_one($sql2) * 1;
-        }
 
         /**
          * find wallet transaction
@@ -1046,10 +1097,6 @@ if (!defined('__LOADED_TRADEAPI__')) {
         public function cal_fee($symbol, $action, $amount) {
             $sql = "select fee_in, fee_out, fee_out_ratio, fee_buy_ratio, fee_sell_ratio, display_decimals from js_trade_currency where symbol='".strtoupper($this->escape($symbol))."' ";
             $currency = $this->query_fetch_object($sql);
-			
-			//$sql = "SELECT fee_sell,fee_buy FROM js_config_trade;";
-            //$currency = $this->query_fetch_object($sql);
-			
             $fee = 0;
             switch($action) {
                 case 'withdraw': $fee = $currency->fee_out_ratio>0 ? ceil($currency->fee_out_ratio * $amount * pow(10, $currency->display_decimals))/pow(10, $currency->display_decimals) : $currency->fee_out*1; break;
@@ -1057,9 +1104,6 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 case 'buy': $fee = ceil($currency->fee_buy_ratio * $amount * pow(10, $currency->display_decimals))/pow(10, $currency->display_decimals); break;
                 case 'sell': $fee = ceil($currency->fee_sell_ratio * $amount * pow(10, $currency->display_decimals))/pow(10, $currency->display_decimals); break;
             }
-			
-			//$this->error('011', __('Please enter the correct media.').$sql.$fee);
-			
             return $fee;
         }
 
@@ -1206,10 +1250,9 @@ if (!defined('__LOADED_TRADEAPI__')) {
             if($exchange!='') {
                 $sql .= " and t1.exchange='".strtoupper($this->escape($exchange))."' ";
             }
-            /* mk 등급삭제로 인한 삭제
-			if($goods_grade!='') {
+            if($goods_grade!='') {
                 $sql .= " and t1.goods_grade='".strtoupper($goods_grade)."' ";
-            }*/
+            }
 
             $r = $this->query_list_object($sql);
             for($i=0 ; $i<count($r) ; $i++) {
@@ -1565,7 +1608,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
 
             // order list
             $sql_select = " SELECT 
-                    DISTINCT t.orderid,
+                    t.orderid,
                     t.userno,
                     IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
                     t.address,
@@ -1585,13 +1628,11 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     UNIX_TIMESTAMP(t.time_traded) AS time_traded,
                     t.goods_grade,
                     (select meta_val from js_auction_goods_meta where goods_idx = '{$symbol}' and meta_key = 'meta_wp_production_date')  as production_date,
-                    CASE WHEN t.trading_type='B' THEN 0 ELSE IFNULL(t2.fee, 0) END AS fee,
-					CASE WHEN t.trading_type='B' THEN amount ELSE amount-IFNULL(t2.fee, 0) END AS settl_price,
+                    IFNULL(t2.fee, 0)       AS fee,
+                    amount-(IFNULL(t2.fee, 0))           AS settl_price,
                     (SELECT `name` FROM js_trade_currency WHERE symbol='{$symbol}') as currency_name,
                     t.status ";
 
-			//IFNULL(t2.fee, 0)       AS fee,
-            //amount-(IFNULL(t2.fee, 0))           AS settl_price,
             $sql = " FROM {$table} t FORCE INDEX(userno, PRIMARY)  
                 LEFT JOIN {$table1} t1 on t.orderid=t1.orderid
                 LEFT JOIN {$table2} t2 on t1.txnid = t2.txnid
@@ -1616,16 +1657,11 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 $cnt = $this->query_fetch_object($sql_select_cnt.$sql);
                 $cnt = isset($cnt->cnt) ? $cnt->cnt : 0;
             }
-			
-			$sql.= " GROUP BY t.orderid ";
 
             // 페이징 후 데이터만
             $sql = $sql_select . $sql;
             $sql.= " ORDER BY {$order_by} {$order_method} ";
             $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
-            
-			//$this->error('011', __('Please enter the correct media.').$sql_select);
-			
             // exit($sql);
             $r = $this->query_list_object($sql);
             for($i=0 ; $i<count($r) ; $i++) {
@@ -1649,6 +1685,129 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return $result;
         }
 
+        public function get_order_list_all($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='') {
+
+            $wallet = $this->query_list_object("select distinct(jew.symbol)
+                        from js_exchange_wallet jew join js_trade_currency jtc on jew.symbol = jtc.symbol
+                        where userno = '{$userno}'
+                          and jew.symbol NOT IN ('AAT', 'NFTN', 'USD', 'ETH', 'KRW') and jtc.active='Y'");
+
+
+            if (count($wallet) > 0) {
+
+                $login_userno = $this->get_login_userno();
+
+                switch($status) {
+                    case 'close' : $status = "'C'";  break;
+                    case 'open' : $status = "'O'";  break;
+                    case 'delete' : case 'cancel' : $status = "'D'";  break;
+                    case 'trading' : $status = "'T'";  break;
+                    case 'unclose' : $status = "'O','T'";  break;
+                    case 'all' : $status =""; break;
+                    default : $status = "'O','T','C'"; // delete/cancel 은 제외합니다.
+                }
+
+                if($orderid>0) {
+                    $page = 1;
+                }
+                $sn = ($page-1) * $rows;
+
+                $sql_select = "select orderid, userno, my_order, address, amount, time_order, trading_type, symbol, exchange, price, volume, volume_remain, status, time_traded, goods_grade, production_date, fee, settl_price, currency_name, tstatus from ( ";
+                $sql = "";
+
+                for ($i=0; $i<count($wallet); $i++) {
+                    if($i>0) $sql.=" UNION ALL ";
+
+                    $table = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_order';
+                    $table1 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_ordertxn';
+                    $table2 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_txn';
+
+                    $sql.= " SELECT 
+                            t.orderid,
+                            t.userno,
+                            IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
+                            t.address,
+                            t.amount,
+                            UNIX_TIMESTAMP(t.time_order) AS time_order,
+                            CASE WHEN t.trading_type='B' THEN 'buy' ELSE 'sell' END AS trading_type,
+                            '{$wallet[$i]->symbol}' AS symbol, '{$exchange}' AS exchange,
+                            t.price,
+                            t.volume,
+                            t.volume_remain,
+                            CASE 
+                                WHEN t.status='C' THEN 'close' 
+                                WHEN t.status='O' THEN 'open' 
+                                WHEN t.status='D' THEN 'cancel' 
+                                ELSE 'trading' END AS status ,
+                            UNIX_TIMESTAMP(t.time_traded) AS time_traded,
+                            t.goods_grade,
+                            (select meta_val from js_auction_goods_meta where goods_idx = '{$wallet[$i]->symbol}' and meta_key = 'meta_wp_production_date')  as production_date,
+                            IFNULL(t2.fee, 0)       AS fee,
+                            amount-(IFNULL(t2.fee, 0))           AS settl_price,
+                            (SELECT `name` FROM js_trade_currency WHERE symbol='{$wallet[$i]->symbol}') as currency_name,
+                            t.status as tstatus ";
+
+                    $sql.= " FROM {$table} t FORCE INDEX(userno, PRIMARY)  
+                                LEFT JOIN {$table1} t1 on t.orderid=t1.orderid
+                                LEFT JOIN {$table2} t2 on t1.txnid = t2.txnid
+                            WHERE 1 ";
+                    if($userno) {
+                        $sql.= " AND t.userno ='".$this->escape($userno)."' ";
+                    }
+                    if($trading_type) {
+                        $sql.= " AND t.trading_type ='".$this->escape($trading_type)."' ";
+                    }
+                    if($status) {
+                        $sql.= " AND t.status IN ({$status}) ";
+                    }
+                    if($orderid>0) {
+                        $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
+                    }
+
+                }
+                $sql .= " ) t ";
+
+                // total cnt가 필요해서.
+                if($return_type=='datatable') {
+                    // total cnt
+                    $sql_select_cnt = "select count(t.orderid) cnt from ( ";
+                    $cnt = $this->query_fetch_object($sql_select_cnt.$sql);
+                    $cnt = isset($cnt->cnt) ? $cnt->cnt : 0;
+
+                    echo $cnt;
+                }
+
+                // 페이징 후 데이터만
+                $sql = $sql_select . $sql;
+                $sql.= " ORDER BY {$order_by} {$order_method} ";
+                $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+
+                // exit($sql);
+                $r = $this->query_list_object($sql);
+                for($i=0 ; $i<count($r) ; $i++) {
+                    $r[$i]->volume = number_format($r[$i]->volume, 5, '.', '');
+                    $digit = $this->get_quote_digit($r[$i]->price, $exchange);
+                    $r[$i]->price = number_format($r[$i]->price, $digit, '.', '');
+                    $r[$i]->trading_type_str = $r[$i]->trading_type=='buy' ? __('buy') : __('sell');
+                }
+
+                if($return_type=='datatable') { // datatable 형식으로 리턴
+                    $result = array(
+                        'data'    => $r,
+                        'draw' => $_REQUEST['draw']*1,
+                        'recordsFiltered' => $cnt,
+                        'recordsTotal' => $cnt
+                    );
+                } else { // 기본 배열 리턴
+                    $result = $r;
+                }
+
+                return $result;
+            }
+        }
+
+
+
         public function get_order($symbol, $exchange, $orderid) {
             $symbol = strtoupper($symbol);
             $exchange = strtoupper($exchange);
@@ -1665,8 +1824,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
         public function cancel_order($symbol, $exchange, $orderid) {
             $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_order';
             $sql = "update {$table} set ";
-            $sql.= ' status="D", volume_remain="0", '; // 취소시 모두 환급해주기때문에 남은 volume을 0으로 처리
-			$sql.= ' time_traded=NOW() ';
+            $sql.= ' status="D", volume_remain="0" '; // 취소시 모두 환급해주기때문에 남은 volume을 0으로 처리
             $sql.= ' where orderid="'.$this->escape($orderid).'" ';
             return $this->query($sql);
         }
@@ -1853,7 +2011,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
 			$sql.= " AND pack_info = '".$symbol."' LIMIT {$cnt};";
             return $this->query_list_object($sql);
         }
-		
+
         public function get_bong_data($symbol, $exchange, $from_time, $to_time='', $grade='') {
             $from_time = trim(preg_replace('/[^0-9]/', '', $from_time))=='' ? '' : $from_time;
             if(!$from_time) {
@@ -2096,11 +2254,10 @@ SELECT
         // }
 
         function delete_old_data($symbol, $exchange, $term, $grade='') {
-             //230314 무한루프로 인한 삭제
-			/*$table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_chart ';
+            $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_chart ';
             // if( !$this->check_table_exists($table) ) return false;
             $sql = 'DELETE  FROM `'.$this->escape($table).'` WHERE term = "'.$this->escape($term).'" AND goods_grade="'.$this->escape($grade).'" ';
-            $sql.= 'AND DATE <= (SELECT DATE FROM `'.$this->escape($table).'` FORCE INDEX (PRIMARY) ORDER BY DATE DESC LIMIT 1000, 1)';*/
+            $sql.= 'AND DATE <= (SELECT DATE FROM `'.$this->escape($table).'` FORCE INDEX (PRIMARY) ORDER BY DATE DESC LIMIT 1000, 1)';
         }
         // function delete_old_data($symbol, $exchange, $term) {
         //     $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_chart ';
@@ -2272,9 +2429,8 @@ SELECT
             $sql.= $sql_update;
             $r = $this->query($sql);
             if($r) {
-                /**  230313 admin에서 문제 이건가??  **/
-				/*$sql = "UPDATE js_trade_currency SET price='{$this->escape($price->price_close)}' WHERE symbol='{$this->escape(strtoupper($symbol))}' AND display_grade='{$this->escape(strtoupper($goods_grade))}' ";
-                $this->query($sql);*/
+                $sql = "UPDATE js_trade_currency SET price='{$this->escape($price->price_close)}' WHERE symbol='{$this->escape(strtoupper($symbol))}' AND display_grade='{$this->escape(strtoupper($goods_grade))}' ";
+                $this->query($sql);
             }
             return $r;
         }
@@ -2408,7 +2564,7 @@ SELECT
         }
 
         function get_member_info ($userno) {
-            $sql = " SELECT userno, userid, name, nickname, phone, mobile, mobile_country_code, email, bool_email, bool_sms, bool_lunar, birthday, level_code, regdate, otpkey, bool_confirm_email, bool_confirm_mobile, bool_confirm_idimage, bank_name, bank_account, bank_owner, bool_realname, image_identify_url, image_mix_url, gender, image_bank_url, bool_confirm_bank, zipcode, city, address_a, address_b, user_join_type, SUBSTR(user_join_number,1,6) AS user_info_A, SUBSTR(user_join_number,7,1) AS user_info_B, user_join_number AS enc_user_no  FROM js_member WHERE userno = '".$this->escape($userno)."' ";
+            $sql = " SELECT userno, userid, name, nickname, phone, mobile, mobile_country_code, email, bool_email, bool_sms, bool_lunar, birthday, level_code, regdate, otpkey, bool_confirm_email, bool_confirm_mobile, bool_confirm_idimage, bank_name, bank_account, bank_owner, bool_realname, image_identify_url, image_mix_url, gender, image_bank_url, bool_confirm_bank, zipcode, city, address_a, address_b FROM js_member WHERE userno = '".$this->escape($userno)."' ";
             return $this->query_fetch_object($sql);
         }
 
@@ -2472,24 +2628,6 @@ SELECT
                         break;
                     case 'userno' : 
                         break;
-					case 'join_type' :
-						break;
-					case 'join_user_number_A' :
-						break;
-					case 'join_user_number_B' :
-						break;
-					case 'bank_account' :
-						$value = $this->encrypted_value($this->escape($data[$name]));
-						if(isset($data[$name])){$sql.= ", {$name} = '".$value."' ";}
-						break;
-					case 'user_join_number' :
-						$value = $this->encrypted_value($this->escape($data[$name]));
-						if(isset($data[$name])){$sql.= ", {$name} = '".$value."' ";}
-						break;
-					case 'bank_account' :
-						$value = $this->encrypted_value($this->escape($data[$name]));
-						if(isset($data[$name])){$sql.= ", {$name} = '".$value."' ";}
-						break;
                     default :
                         if(isset($data[$name])){$sql.= ", {$name} = '".$this->escape($data[$name])."' ";}
                         break;
@@ -2498,8 +2636,7 @@ SELECT
             $sql.= " WHERE userno = '".$this->escape($data['userno'])."' ";
             return $this->query($sql);
         }
-		
-		function encrypted_value($value){
+        function encrypted_value($value){
 			$key = $this->search_kkikdageo();
 			
 			$result = openssl_encrypt($value, "AES-128-CBC", $key);
@@ -2526,6 +2663,7 @@ SELECT
 			}
 			return $key;
 		}
+
 
         function get_unworked_deposit_msg ($cnt=50) {
             $regtime = (time()-30 ) . '000000'; // 3최근 30초 간 메시지는 제외
@@ -2969,6 +3107,5 @@ SELECT
     if(!function_exists('checkMedia')){function checkMedia($s){
         return $GLOBALS['tradeapi']->checkMedia($s);
     }}
-
 }
 
