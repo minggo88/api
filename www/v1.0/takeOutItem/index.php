@@ -66,7 +66,7 @@ if (isset($_POST['dataArray'])) {
  */
             
             //exchage_wallet
-            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, regdate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$data->idx}';";
+            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, regdate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
             $tradeapi->query_one($update_sql_exchage_wallet);
 
             $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='1', reg_date=NOW() WHERE  `symbol`='GJ2GW26TZH' AND `tokenid`='GJ2GY95KNN';";
@@ -80,11 +80,14 @@ if (isset($_POST['dataArray'])) {
             $tradeapi->query_one($update_sql_auction_goods_inv);
 
             //history insert
-            $search_item = "SELECT stock_number AS stock_num, price AS price FROM js_auction_goods WHERE idx='{$data->idx}';";
+            $search_item = "SELECT stock_number FROM js_auction_goods WHERE idx='{$data->idx}';";
             $search_array = $tradeapi->query_list_object($search_item);
 
-            $update_sql_history = "INSERT INTO `kkikda`.`js_auction_goods_history` (`idx`, `active`, `stock_number`, `pack_info`, `seller_userno`,`owner_userno`, `reg_date`, `nft_link`, `exchange_info`, price) 
-            VALUES ('{$data->idx}','N', '{$search_array->stock_num}', '{$symbol}', '{$userno}', '1005', NOW(), '', '2', '{$search_array->price}');";
+            $search_item = "SELECT stock_number FROM js_auction_goods WHERE idx='{$data->idx}';";
+            $stock_number = $tradeapi->query_one($search_item);
+
+            $update_sql_history = "INSERT INTO `kkikda`.`js_auction_goods_history` (`idx`, `active`, `stock_number`, `pack_info`, `seller_userno`,`owner_userno`, `reg_date`, `nft_link`, `exchange_info`) 
+            VALUES ('{$data->idx}','N', '{$stock_number}', '{$symbol}', '{$userno}', '1005', NOW(), '', '2');";
             $tradeapi->query_one($update_sql_history);
         }
 
