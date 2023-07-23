@@ -15,6 +15,7 @@ $media = checkMedia(strtolower(checkEmpty(loadParam('media'), 'media'))); // 기
 $mobile_number = setDefault(loadParam('mobile_number'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
 $mobile_country_code = setDefault(loadParam('mobile_country_code'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
 $email_address = setDefault(loadParam('email_address'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
+$message_text = setDefault(loadParam('message_text'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
 
 // value 값 확인.
 if($media=='mobile') {
@@ -82,7 +83,7 @@ if($media=='email') {
 	$_SESSION['confirm_number'] = $tmpnum;
 	$_SESSION['confirm_email_address'] = $email_address;
 	// var_dump($email_address, __('인증번호를 입력해주세요.'), __('Your verification code is: {tmpnum}', array('{tmpnum}'=>$tmpnum))); exit;
-	$r = $tradeapi->send_email($email_address, __('반출신청 예정자가 있습니다.'), __('신청자: {tmpnum}, 신청자ID: {tmpnum}, 상품이름: {tmpnum},  수량: {tmpnum},  신청시간: {tmpnum}', array('{tmpnum}'=>$tmpnum)));
+	$r = $tradeapi->send_email($email_address, __('반출신청 예정자가 있습니다.'), __('신청자: '.$userno.', 내용 : '.$message_text.'', array('{tmpnum}'=>$tmpnum)));
     // 작업 필요합니다.
 	if(!$r) {
         $tradeapi->error('200', __('Failed to send confirm code.').' '.$tradeapi->send_email_error_msg);
