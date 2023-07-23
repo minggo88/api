@@ -15,7 +15,7 @@ $media = checkMedia(strtolower(checkEmpty(loadParam('media'), 'media'))); // 기
 $mobile_number = setDefault(loadParam('mobile_number'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
 $mobile_country_code = setDefault(loadParam('mobile_country_code'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
 $email_address = setDefault(loadParam('email_address'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
-$message_text = setDefault(loadParam('message_text'), ''); // 핸드폰 번호 , 이메일 주소. 예)id1@domain.com,id2@domain.com,...
+$message_text = setDefault(loadParam('message_text'), ''); // 반출정보
 
 // value 값 확인.
 if($media=='mobile') {
@@ -50,7 +50,7 @@ if($media=='email') {
 // 	$joind = $tradeapi->query_one("select userno from js_member where mobile='{$tradeapi->escape($t)}'");
 // 	if($joind) {
 // 		$tradeapi->error('035', __('이미 가입하셨습니다.').' '.__('로그인 해주세요.'));
-// 	}
+// 	} 
 // }
 // if($media=='email') {
 // 	$joind = $tradeapi->query_one("select userno from js_member where email='{$tradeapi->escape($email_address)}'");
