@@ -66,10 +66,10 @@ if (isset($_POST['dataArray'])) {
  */
             
             //exchage_wallet
-            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
+            $update_sql_exchage_wallet = "UPDATE `kkikda`.`ㅍ` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
             $tradeapi->query_one($update_sql_exchage_wallet);
 
-            $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='0', mod_date=NOW() WHERE  `symbol`='{$symbol}' AND `tokenid`='{$data->idx}';";
+            $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='0', mode_date=NOW() WHERE  `symbol`='{$symbol}' AND `tokenid`='{$data->idx}';";
             $tradeapi->query_one($update_sql_exchange_wallet_nft);
             
             //auction_goods
