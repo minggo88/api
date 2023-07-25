@@ -66,14 +66,14 @@ if (isset($_POST['dataArray'])) {
  */
             
             //exchage_wallet
-            $update_sql_exchage_wallet = "UPDATE `kkikda`.`ㅍ` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
+            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
             $tradeapi->query_one($update_sql_exchage_wallet);
 
             $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='0' WHERE  `symbol`='{$symbol}' AND `tokenid`='{$data->idx}';";
             $tradeapi->query_one($update_sql_exchange_wallet_nft);
             
             //auction_goods
-            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1005', mod_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
+            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1005', mode_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
             $tradeapi->query_one($update_sql_auction_goods);
 
             $update_sql_auction_goods_inv = "UPDATE `kkikda`.`js_auction_inventory` SET `amount`=0, reg_date=NOW() WHERE `goods_idx`='{$data->idx}';";
