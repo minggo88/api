@@ -73,7 +73,7 @@ if (isset($_POST['dataArray'])) {
             $tradeapi->query_one($update_sql_exchange_wallet_nft);
             
             //auction_goods
-            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1005', mode_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
+            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1005', mod_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
             $tradeapi->query_one($update_sql_auction_goods);
 
             $update_sql_auction_goods_inv = "UPDATE `kkikda`.`js_auction_inventory` SET `amount`=0, reg_date=NOW() WHERE `goods_idx`='{$data->idx}';";
