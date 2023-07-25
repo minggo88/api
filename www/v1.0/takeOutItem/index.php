@@ -66,14 +66,14 @@ if (isset($_POST['dataArray'])) {
  */
             
             //exchage_wallet
-            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, regdate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
+            $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
             $tradeapi->query_one($update_sql_exchage_wallet);
 
-            $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='1', reg_date=NOW() WHERE  `symbol`='GJ2GW26TZH' AND `tokenid`='GJ2GY95KNN';";
+            $update_sql_exchange_wallet_nft = "UPDATE `kkikda`.`js_exchange_wallet_nft` SET `amount`='0', mod_date=NOW() WHERE  `symbol`='{$symbol}' AND `tokenid`='{$data->idx}';";
             $tradeapi->query_one($update_sql_exchange_wallet_nft);
             
             //auction_goods
-            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1015', reg_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
+            $update_sql_auction_goods = "UPDATE `kkikda`.`js_auction_goods` SET `active`='N', owner_userno = '1005', mod_date=NOW() WHERE  `idx`='{$data->idx}' AND `owner_userno` = '{$userno}';";
             $tradeapi->query_one($update_sql_auction_goods);
 
             $update_sql_auction_goods_inv = "UPDATE `kkikda`.`js_auction_inventory` SET `amount`=0, reg_date=NOW() WHERE `goods_idx`='{$data->idx}';";
@@ -86,9 +86,9 @@ if (isset($_POST['dataArray'])) {
             $search_item = "SELECT stock_number FROM js_auction_goods WHERE idx='{$data->idx}';";
             $stock_number = $tradeapi->query_one($search_item);
 
-            $update_sql_history = "INSERT INTO `kkikda`.`js_auction_goods_history` (`idx`, `active`, `stock_number`, `pack_info`, `seller_userno`,`owner_userno`, `reg_date`, `nft_link`, `exchange_info`) 
+            $insert_sql_history = "INSERT INTO `kkikda`.`js_auction_goods_history` (`idx`, `active`, `stock_number`, `pack_info`, `seller_userno`,`owner_userno`, `reg_date`, `nft_link`, `exchange_info`) 
             VALUES ('{$data->idx}','N', '{$stock_number}', '{$symbol}', '{$userno}', '1005', NOW(), '', '2');";
-            $tradeapi->query_one($update_sql_history);
+            $tradeapi->query_one($insert_sql_history);
         }
     }
         
