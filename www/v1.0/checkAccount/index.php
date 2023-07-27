@@ -21,8 +21,8 @@ if($cnt >0){
     *    -------------api 연결 여기부터
     */
 
-   $clientId = 'f5595264-2d91-4273-948c-0f4b6951beb2';
-   $clientSecret = '0ad6e0f7-fa82-41e2-bf2c-9a53a9a9b7f7';
+   $clientId = 'ef9294ee-dad6-4796-9077-cd6f41773059';
+   $clientSecret = 'b078b370-6465-427f-b389-427c9ac72730';
    $publicKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsZIbPm4TtJ3kz4fm0v2SdJHN5ej5sCxL1PVLcVo55p+K8ivhvUnzaM0a0vfcxVaBN5q4aQMKXkWVZ0YqFQxFGPl9lJ/ndbY4mBLWIvBsA7U9NN4UFwSbuEdL7TYN9gPhKyyA/5ntSB9E0k6lH43aa1eyRaY+Q6SG+OwJxueib/A3uO+KDKOTClW9rzXbA1/5gwe0R1rBRj6FBMWo+qXfF/+8LPveOu9PMn9W5xboQ4/DvIUyTTroIfl26x/Kb/o5TXgbidSSTUhPzwNTSAvO6gxhVM+jD1Sq8qECJtMrE+DzT4faqv+O2IyfB42dlJ22BcaHZdsRGsVt57xsrO0wKwIDAQAB';
    
    //토큰수령
@@ -69,7 +69,7 @@ if($cnt >0){
    }
 
     // API 엔드포인트
-   $apiUrl = 'https://development.codef.io';
+   $apiUrl = 'https://api.codef.io';
 
    // 요청 바디 설정
    $password1 = 'Dpszlfndi1!';
