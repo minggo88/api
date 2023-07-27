@@ -23,9 +23,9 @@ if(isset($r->pin)) {unset($r->pin);}
 
 $tradeapi->set_db_link('master');
 $r2 = $userno ? $tradeapi->get_member_info($userno) : (object) array();
-if(isset($r->user_join_type)) {$r->user_join_type = $r2->user_join_type;}
-if(isset($r->user_join_number)) {$r->user_join_number = $r2->user_join_number;}
-if(isset($r->userpw)) {$r->user_join_type = $r2->user_join_type;}
+if(!isset($r->user_join_type)) {$r->user_join_type = $r2->user_join_type;}
+if(!isset($r->user_join_number)) {$r->user_join_number = $r2->user_join_number;}
+
 
 // get permission code
 $r->permission = $tradeapi->get_permission_code($r->bool_confirm_mobile, $r->bool_confirm_idimage, $r->bool_confirm_bank ? true : false);
