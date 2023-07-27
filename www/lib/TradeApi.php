@@ -2636,6 +2636,8 @@ SELECT
             $sql.= " WHERE userno = '".$this->escape($data['userno'])."' ";
             return $this->query($sql);
         }
+
+        //암호화
         function encrypted_value($value){
 			$key = $this->search_kkikdageo();
 			
@@ -2644,6 +2646,7 @@ SELECT
 			return $result;
 		}
 		
+        //복호화
 		function decrypt_value($encrypted){
 			$key = $this->search_kkikdageo();
 			
