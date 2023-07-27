@@ -71,9 +71,13 @@ if($sql) {
     $KKIDA = real_number($eval_amount/30000000, 2, 'round');
     $tradeapi->query("INSERT INTO js_trade_index set `date`='{$now}', code='kkikda', `value`='{$KKIDA}' ON DUPLICATE KEY UPDATE `value`='{$KKIDA}' ");
 
-    $text = "select SUM(amount) from ( ".implode(' UNION ALL ', $sql)." ) t ";
-    $test = "INSERT INTO js_test set `text1` = '{$sql}', `tvalue` = '{$text}' ";
-    $tradeapi->query($test);
+    $nowTime = time();
+    $ctime = date('i', $nowTime);
+    
+    if ($ctime % 10 === 0) {
+        $test = "INSERT INTO js_test set `text1` = '{$nowTime}', `tvalue` = '{$ctime}' ";
+        $tradeapi->query($test);
+    }
 }
 
 $tradeapi->write_log('genIndex.php end.');
