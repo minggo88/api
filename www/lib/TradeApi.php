@@ -3072,8 +3072,6 @@ SELECT
          * 2. 헥토api를 이용하여 통장정보 최신화(js_income) 및 계정에 포인트 지급
          */
         public function hectoApiExec() {
-            $this->set_db_link('master');
-
             $sql = "SELECT COUNT(*) FROM js_exchange_wallet_txn WHERE symbol = 'KRW' AND status = 'O';";
 
             $cnt = $this->query_one($sql);
@@ -3302,6 +3300,8 @@ SELECT
 
                 //$sql2 = "SELECT * FROM js_income WHERE complteYN = 'N' AND js_income.resAccountDesc3 LIKE '%".$name."%' AND js_income.resAccountIn = '".$amount."';";   
             }
+
+            return null;
         }
     }
     $GLOBALS['tradeapi'] = new TradeApi;
