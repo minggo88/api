@@ -2564,7 +2564,7 @@ SELECT
         }
 
         function get_member_info ($userno) {
-            $sql = " SELECT userno, userid, name, nickname, phone, mobile, mobile_country_code, email, bool_email, bool_sms, bool_lunar, birthday, level_code, regdate, otpkey, bool_confirm_email, bool_confirm_mobile, bool_confirm_idimage, bank_name, bank_account, bank_owner, bool_realname, image_identify_url, image_mix_url, gender, image_bank_url, bool_confirm_bank, zipcode, city, address_a, address_b FROM js_member WHERE userno = '".$this->escape($userno)."' ";
+            $sql = " SELECT userno, userid, name, nickname, phone, mobile, mobile_country_code, email, bool_email, bool_sms, bool_lunar, birthday, level_code, regdate, otpkey, bool_confirm_email, bool_confirm_mobile, bool_confirm_idimage, bank_name, bank_account, bank_owner, bool_realname, image_identify_url, image_mix_url, gender, image_bank_url, bool_confirm_bank, zipcode, city, address_a, address_b, user_join_type, user_join_number FROM js_member WHERE userno = '".$this->escape($userno)."' ";
             return $this->query_fetch_object($sql);
         }
 
