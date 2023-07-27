@@ -18,9 +18,13 @@ if(isset($r->bank_account)) {
     $ori_text = $tradeapi->decrypt_value($en_text);
     $r->bank_account = $ori_text;
 }
-
 if(isset($r->pin)) {unset($r->pin);}
 if(isset($r->userpw)) {unset($r->userpw);}
+
+$tradeapi->set_db_link('master');
+$r2 = $userno ? $tradeapi->get_member_info($userno) : (object) array();
+if(isset($r->user_join_type)) {$r->user_join_type = $r2->user_join_type;}
+if(isset($r->user_join_number)) {$r->user_join_number = $r2->user_join_number;}
 
 // get permission code
 $r->permission = $tradeapi->get_permission_code($r->bool_confirm_mobile, $r->bool_confirm_idimage, $r->bool_confirm_bank ? true : false);
