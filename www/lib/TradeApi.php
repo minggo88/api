@@ -200,6 +200,63 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return !$_SESSION['WALLETNO'] ? true : false;
         }
 
+        //mk헥토
+        /***
+         * 헥토 api 추가 인코딩파일
+         */
+        public function encodeToFileString($filePath) {
+            $fileContent = file_get_contents($filePath);
+            $fileString = base64_encode($fileContent);
+            
+            return $fileString;
+        }
+
+        /***
+         * 헥토 api 추가 RSA암호화
+         */
+        public function encryptRSA($plainText, $base64PublicKey) {
+            //$publicKey = base64_decode($base64PublicKey);
+            $publicKey = "-----BEGIN PUBLIC KEY-----\n" . chunk_split($base64PublicKey, 64, "\n") . "-----END PUBLIC KEY-----";
+            $publicKeyResource = openssl_pkey_get_public($publicKey);
+            
+            $encrypted = '';
+            if (openssl_public_encrypt($plainText, $encrypted, $publicKeyResource)) {
+                $encrypted = base64_encode($encrypted);
+            } else {
+                // 암호화 실패 시 예외 처리
+                $encrypted = 'fail';
+            }
+            
+            return $encrypted;
+        }
+
+        /***
+         * 헥토 api request
+         */
+        private static $mapper;
+
+        public static function apiRequest($urlPath, $bodyMap, $accessToken) {
+            if (!isset(self::$mapper)) {
+                self::$mapper = new \JsonMapper();
+            }
+            
+            // POST요청을 위한 리퀘스트바디 생성(UTF-8 인코딩)
+            $bodyString = json_encode($bodyMap);
+            $bodyString = urlencode($bodyString);
+            
+            // API 요청
+            $json = HttpRequest::post($urlPath, $accessToken, $bodyString);
+            $result = self::$mapper->writeValueAsString($json);
+            
+            if ($json->error == "access_denied") {
+                $result = "access_denied은 API 접근 권한이 없는 경우입니다.";
+                $result = $result."코드에프 대시보드의 API 설정을 통해 해당 업무 접근 권한을 설정해야 합니다.";
+            }
+            
+            return $result;
+        }
+
+
         public function isLogin()
         {
             return $this->get_login_userno() ? true : false;
@@ -1938,11 +1995,20 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $exchange = $this->escape(strtolower($exchange));
             $cnt = $this->escape(preg_replace( '/[^0-9]/', '', $cnt));
             $cnt = $cnt ? $cnt : 20;
-            $sql = " SELECT _txn.volume, _txn.price ";
+            $sql = " SELECT _txn.volume, _txn.price, _order.price AS b_price ";
             $sql.= " FROM js_trade_".$symbol.$exchange."_ordertxn _ot LEFT JOIN js_trade_".$symbol.$exchange."_txn _txn ON _ot.`txnid`=_txn.txnid LEFT JOIN js_trade_".$symbol.$exchange."_order _order ON _ot.`orderid`=_order.`orderid` ";
             $sql.= " WHERE _ot.userno={$this->escape($userno)} AND _order.trading_type='B' ";
             $sql.= " ORDER BY _ot.txnid DESC ";
             $sql.= " LIMIT {$cnt} ";
+            return $this->query_list_object($sql);
+        }
+		
+		public function get_buy_ordertxn2($symbol, $userno) {
+            $symbol = $this->escape(strtolower($symbol));
+            $cnt = 1;
+            $sql = " SELECT price FROM js_auction_goods  ";
+            $sql.= " WHERE owner_userno = '".$userno."' " ;
+			$sql.= " AND pack_info = '".$symbol."' LIMIT {$cnt};";
             return $this->query_list_object($sql);
         }
 
@@ -2571,6 +2637,37 @@ SELECT
             return $this->query($sql);
         }
 
+        //암호화
+        function encrypted_value($value){
+			$key = $this->search_kkikdageo();
+			
+			$result = openssl_encrypt($value, "AES-128-CBC", $key);
+			
+			return $result;
+		}
+		
+        //복호화
+		function decrypt_value($encrypted){
+			$key = $this->search_kkikdageo();
+			
+			$decrypted = openssl_decrypt($encrypted, "AES-128-CBC", $key);
+			
+			return $decrypted;
+		}
+		
+		function search_kkikdageo(){
+			$current_file_path =  dirname(__FILE__);
+			if (file_exists($current_file_path.'/key.bin')) {
+			  $key = file_get_contents($current_file_path.'/key.bin');
+			} else {
+				$key = random_bytes(32); // 32바이트(256비트) 길이의 무작위 바이트 배열을 생성합니다.
+				file_put_contents($current_file_path.'/key.bin', $key); // 생성한 키를 파일로 저장합니다.
+				chmod($current_file_path.'/key.bin', 0600); // 액세스 권한 설정
+			}
+			return $key;
+		}
+
+
         function get_unworked_deposit_msg ($cnt=50) {
             $regtime = (time()-30 ) . '000000'; // 3최근 30초 간 메시지는 제외
             $stime = (time()-60*60*24*3 ) . '000000'; // 3일전 저장된 매시지만 확인
@@ -3013,6 +3110,5 @@ SELECT
     if(!function_exists('checkMedia')){function checkMedia($s){
         return $GLOBALS['tradeapi']->checkMedia($s);
     }}
-
 }
 

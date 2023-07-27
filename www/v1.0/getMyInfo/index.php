@@ -12,6 +12,13 @@ $tradeapi->set_db_link('slave');
 
 // get my member information
 $r = $userno ? $tradeapi->get_member_info($userno) : (object) array();
+
+if(isset($r->bank_account)) {
+    $en_text = $r->bank_account;
+    $ori_text = $tradeapi->decrypt_value($en_text);
+    $r->bank_account = $ori_text;
+}
+
 if(isset($r->pin)) {unset($r->pin);}
 if(isset($r->userpw)) {unset($r->userpw);}
 
