@@ -13,16 +13,12 @@ include(dirname(__file__) . '/../lib/TradeApi.php');
 ignore_user_abort(1);
 set_time_limit(0);
 
-
-
 $tradeapi->logging = false;
 $tradeapi->set_log_dir(dirname(__file__) . '/../log/' . basename(__file__, '.php') . '/');
 $tradeapi->set_log_name('');
 $tradeapi->write_log('genIndex.php start.');
 
 $filename = __file__;
-
-
 
 // 프로세스 작동중인지 확인. 작동중이면 종료.
 @exec("ps  -ef| grep -i '{$filename}' | grep -v grep", $output);
