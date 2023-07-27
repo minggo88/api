@@ -85,6 +85,7 @@ if($cnt >0){
 
    // 복호화
    $decryptedData = openssl_decrypt($tagetData, 'AES-256-CBC', $key, 0, '1234567890123456');
+   $tradeapi->error('049', __('API 요청 실패'. $decryptedData. '  //  '. $tagetData)); //주문수량을 잔여수량 이하로 입력해주세요.
    $acpw = $tradeapi->encryptRSA($decryptedData, $publicKey);
 
    //날자 만들기
