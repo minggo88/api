@@ -1190,7 +1190,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             if ($symbol=='') {
                 $sql .= " AND tc.display_grade = tp.goods_grade ";
             }
-            $sql .= " ORDER BY tc.sortno";
+            $sql .= " ORDER BY tc.name";
             $r = $this->query_list_object($sql);
             for($i=0; $i<count($r); $i++) {
                 $r[$i]->price = $r[$i]->price_close; // 등급별로 종가가 달라서 현제가를 기본 등급의 종가로 변경합니다.
