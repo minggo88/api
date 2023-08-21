@@ -20,7 +20,7 @@ $getNFTData = setDefault($_REQUEST['getNFTData'], 'Y');
 // 슬레이브 디비 사용하도록 설정.
 $tradeapi->set_db_link('slave');
 
-$symbol = $tradeapi->query_list_one("SELECT idx FROM js_auction_goods WHERE pack_info = 'Y' AND title LIKE '%{$item_name}%';"); 
+$symbol = $tradeapi->query_list_one("SELECT idx FROM js_auction_goods WHERE pack_info = 'Y' AND title LIKE '%{$symbol}%';"); 
 if(!$symbol) {
     $symbol = array('없는심볼');
 }
