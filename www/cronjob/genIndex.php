@@ -55,8 +55,19 @@ for ($i = 0; $i < $cnt; $i++) {
             //     WHERE tc.term='1d' AND tc.date <= '2022-12-26 23:59:59' AND tc.goods_grade='S' 
             //     ORDER BY tc.date DESC LIMIT 1
             // ) t 
-            $sql[] = "SELECT symbol, `date`, goods_grade, `close`, cnt, IFNULL(cnt*`close`, 0) amount FROM ( SELECT '{$symbol}' symbol, tc.date, tc.close, tc.goods_grade, (SELECT sum(confirmed) FROM js_exchange_wallet ew WHERE ew.symbol='{$symbol}' AND ew.`goods_grade`=tc.`goods_grade` AND ew.userno>0 ) cnt FROM {$table_chart} tc  WHERE tc.term='1d' AND tc.date <= '{$now} 23:59:59' AND tc.goods_grade='{$g}' ORDER BY tc.date DESC LIMIT 1 ) t ";
-
+            $check_grade_sql = "SELECT goods_grade,price_close FROM js_trade_price WHERE symbol = 'gohqyq8an2' AND price_high > 0";
+            $data = $tradeapi->query_list_object($check_grade_sql);
+            
+		    if($data[0] === $g){
+                $sql[] = "SELECT symbol, `date`, goods_grade, `close`, cnt, IFNULL(cnt*`close`, 0) amount FROM ( SELECT '{$symbol}' symbol, tc.date, tc.close, tc.goods_grade, (SELECT sum(confirmed) FROM js_exchange_wallet ew WHERE ew.symbol='{$symbol}' AND ew.`goods_grade`=tc.`goods_grade` AND ew.userno>0 ) cnt FROM {$table_chart} tc  WHERE tc.term='1d' AND tc.date <= '{$now} 23:59:59' AND tc.goods_grade='{$g}' ORDER BY tc.date DESC LIMIT 1 ) t ";
+                
+                $check_grade_sql2 = "SELECT count(*) FROM ( SELECT '{$symbol}' symbol, tc.date, tc.close, tc.goods_grade, (SELECT sum(confirmed) FROM js_exchange_wallet ew WHERE ew.symbol='{$symbol}' AND ew.`goods_grade`=tc.`goods_grade` AND ew.userno>0 ) cnt FROM {$table_chart} tc  WHERE tc.term='1d' AND tc.date >= '{$now} 00:00:00' AND tc.goods_grade='{$g}' ORDER BY tc.date DESC LIMIT 1 ) t ";
+                $cnt2 = $tradeapi->query_one($check_grade_sql);
+                if ($cnt2 < 1) {
+                    $sql = "INSERT INTO `kkikda`.`{$table_chart}` (`term`, `date`, `goods_grade`, `open`, `high`, `low`, `close`) VALUES ('1d', '{$now} 00:00:00', '{$g}', '{$data[1]}', '{$data[1]}', '{$data[1]}', '{$data[1]}');";
+                    $tradeapi->query($sql);
+                }
+            }
         }
 
     }

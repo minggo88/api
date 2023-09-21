@@ -223,6 +223,11 @@ for($i=0; $i<count($wallets); $i++) {
     $wallet->eval_income = round($wallet->eval_amount - $wallet->sum_buy_amount, $d);
     // 평가 수익률
     $wallet->eval_income_rate = $wallet->sum_buy_amount>0 ? round($wallet->eval_income/$wallet->sum_buy_amount, 2) : 0;
+    // 생산년도
+    $sql_make_year = "SELECT meta_val FROM js_auction_goods_meta WHERE goods_idx = '$wallet->symbol' AND meta_key = 'meta_wp_production_date'";
+
+    $make_year = $tradeapi->query_one($sql_make_year);
+    $wallet->make_year = $make_year;
 
     $wallets[$i] = $wallet;
 }
