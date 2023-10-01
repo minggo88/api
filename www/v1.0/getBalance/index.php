@@ -133,7 +133,7 @@ for($i=0; $i<count($wallets); $i++) {
         if($txns) {
             foreach($txns as $txn) {
                 $buy_volume = $txn_buy_volume <= $txn->volume ? $txn_buy_volume : $txn->volume * 1;
-                $sum_buy_amount += $txn->price * $buy_volume;
+                $sum_buy_amount += $txn->b_price * $buy_volume;
                 $txn_buy_volume -= $txn->volume;
                 // $wallet->txns[] = array('volume'=>$buy_volume*1, 'price'=>$txn->price*1);
                 if($txn_buy_volume <= 0) {
