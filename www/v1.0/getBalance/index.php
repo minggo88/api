@@ -126,6 +126,7 @@ for($i=0; $i<count($wallets); $i++) {
     $wallet->txn_buy_volume = $txn_buy_volume;
     // 총 구매 금액(구매에 의한 잔액에 해당하는 것만 계산)
     $sum_buy_amount = 0;
+    
     $t=0;
     // $wallet->txns = array();
     while( $txn_buy_volume > 0 ) {
@@ -133,7 +134,7 @@ for($i=0; $i<count($wallets); $i++) {
         if($txns) {
             foreach($txns as $txn) {
                 $buy_volume = $txn_buy_volume <= $txn->volume ? $txn_buy_volume : $txn->volume * 1;
-                $sum_buy_amount += $txn->b_price * $buy_volume;
+                $sum_buy_amount += $txn->price * $buy_volume;
                 $txn_buy_volume -= $txn->volume;
                 // $wallet->txns[] = array('volume'=>$buy_volume*1, 'price'=>$txn->price*1);
                 if($txn_buy_volume <= 0) {
@@ -154,7 +155,8 @@ for($i=0; $i<count($wallets); $i++) {
     // 평균 매수가
     $wallet->avg_buy_price = $wallet->confirmed>0 ? round($sum_buy_amount / $wallet->confirmed, $d) : 0;
     // 매수 금액
-    $wallet->sum_buy_amount = round($sum_buy_amount, $d);
+    //$wallet->sum_buy_amount = round($sum_buy_amount, $d);
+    $wallet->sum_buy_amount = $tradeapi->query_one("SELECT sum(price) FROM js_auction_goods WHERE owner_userno = '{$tradeapi->escape($userno)}' AND pack_info = '{$wallet->symbol}}';");
     // 평가 수익
     $wallet->eval_income = round($wallet->eval_amount - $wallet->sum_buy_amount, $d);
     // 평가 수익률
