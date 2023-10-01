@@ -156,7 +156,8 @@ for($i=0; $i<count($wallets); $i++) {
     $wallet->avg_buy_price = $wallet->confirmed>0 ? round($sum_buy_amount / $wallet->confirmed, $d) : 0;
     // 매수 금액
     //$wallet->sum_buy_amount = round($sum_buy_amount, $d);
-    $wallet->sum_buy_amount = $tradeapi->query_one("SELECT sum(price) FROM js_auction_goods WHERE owner_userno = '{$tradeapi->escape($userno)}' AND pack_info = '{$wallet->symbol}}';");
+    //$wallet->sum_buy_amount = $tradeapi->query_one("SELECT sum(price) FROM js_auction_goods WHERE owner_userno = '{$tradeapi->escape($userno)}' AND pack_info = '{$wallet->symbol}}';");
+    $wallet->sum_buy_amount = "SELECT sum(price) FROM js_auction_goods WHERE owner_userno = '{$tradeapi->escape($userno)}' AND pack_info = '{$wallet->symbol}}';";
     // 평가 수익
     $wallet->eval_income = round($wallet->eval_amount - $wallet->sum_buy_amount, $d);
     // 평가 수익률
