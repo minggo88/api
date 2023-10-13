@@ -1688,7 +1688,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return $result;
         }
 
-        public function get_order_list_all($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date) {
+        public function get_order_list_all($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date='') {
 
             $wallet = $this->query_list_object("select distinct(jew.symbol)
                         from js_exchange_wallet jew join js_trade_currency jtc on jew.symbol = jtc.symbol
@@ -1767,7 +1767,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
                     if($start_date !=''){
-                        $wallet_query.= " and t.time_traded > '".$start_date." '";
+                        $wallet_query.= " AND t.time_traded > '".$start_date." '";
                     }
 
                 }
@@ -1808,7 +1808,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $result = $r;
                 }
 
-                return $sql;
+                return $start_data;
             }
         }
 
