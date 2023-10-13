@@ -1650,7 +1650,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
             }
             if($start_date !=''){
-                $wallet_query.= " and t.time_traded > '".$start_date." '";
+                $sql.= " AND t.time_traded > '".$start_date." '";
             }
 
             // total cnt가 필요해서.
@@ -1767,7 +1767,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
                     if($start_date !=''){
-                        $wallet_query.= " AND t.time_traded > '".$start_date." '";
+                        $sql.= " AND t.time_traded > '".$start_date." '";
                     }
 
                 }
@@ -1808,7 +1808,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $result = $r;
                 }
 
-                return $start_date;
+                return $result;
             }
         }
 
