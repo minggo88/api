@@ -39,4 +39,4 @@ if ($symbol == "ALL") {
 
 
 // response
-$tradeapi->success($txns, $return_type);
+$tradeapi->success($txns, $return_type, $start_date);
