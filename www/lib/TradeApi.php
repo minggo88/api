@@ -1808,7 +1808,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $result = $r;
                 }
 
-                return $start_data;
+                return $start_date;
             }
         }
 
