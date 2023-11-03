@@ -1789,7 +1789,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
 
                 // exit($sql);
-                /*$r = $this->query_list_object($sql);
+                $r = $this->query_list_object($sql);
                 for($i=0 ; $i<count($r) ; $i++) {
                     $r[$i]->volume = number_format($r[$i]->volume, 5, '.', '');
                     $digit = $this->get_quote_digit($r[$i]->price, $exchange);
@@ -1806,11 +1806,9 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     );
                 } else { // 기본 배열 리턴
                     $result = $r;
-                }*/
+                }
 
-                return $sql;
-
-                //return $result;
+                return $result;
             }
         }
 
