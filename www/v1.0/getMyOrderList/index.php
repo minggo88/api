@@ -30,7 +30,7 @@ $order_by = $_REQUEST['columns'][$order_column_no]['data'];
 if ($symbol == "ALL") {
     $txns = $tradeapi->get_order_list_all($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
 }else if($symbol == "TRADE"){
-    $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, 'time_traded', 'DESC', $return_type, $start_date);
+    $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
 } else {
     // check previos address
     $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
