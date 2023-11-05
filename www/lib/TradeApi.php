@@ -1818,6 +1818,34 @@ if (!defined('__LOADED_TRADEAPI__')) {
             }
         }
 
+        public function get_inout_list($userno='', $symbol) {
+            $login_userno = $this->get_login_userno();
+            $status = "";
+            switch($symbol) {
+                case '1' : $status = " AND txn_type = 'R' ";  break;
+                case '2' : $status = " AND txn_type = 'W' ";  break;
+                default : $status = ""; // delete/cancel 은 제외합니다.
+            }
+
+            $sql= "SELECT txn_type, txndate, regdate, amount  FROM js_exchange_wallet_txn WHERE userno = '{$login_userno}' AND symbol = 'KRW' ";
+            $sql = $sql.$symbol;
+            $sql = $sql." ORDER BY regdate DESC; ";
+
+            $r = $this->query_list_object($sql);
+            for($i=0 ; $i<count($r) ; $i++) {
+                $r[$i]->amount = number_format($r[$i]->price, $digit, '.', '');
+            }
+            
+            $result = array(
+                'data'    => $r,
+                'draw' => $_REQUEST['draw']*1,
+                'recordsFiltered' => $cnt,
+                'recordsTotal' => $cnt
+            );
+
+            return $result;
+            
+        }
 
 
         public function get_order($symbol, $exchange, $orderid) {
