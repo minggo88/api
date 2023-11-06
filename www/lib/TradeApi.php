@@ -1828,7 +1828,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             }
 
             $sql= "SELECT txn_type, txndate, regdate, amount  FROM js_exchange_wallet_txn WHERE userno = '{$login_userno}' AND symbol = 'KRW' ";
-            $sql = $sql.$symbol;
+            $sql = $sql.$status;
             $sql = $sql." ORDER BY regdate DESC; ";
 
             $r = $this->query_list_object($sql);
