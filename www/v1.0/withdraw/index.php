@@ -18,7 +18,7 @@ $userno = $tradeapi->get_login_userno();
 $symbol = checkSymbol(strtoupper(checkEmpty($_REQUEST['symbol'], 'symbol'))); // 코인
 $from_address = checkEmpty($_REQUEST['from_address'], 'from_address'); // 송신인 주소
 $to_address = checkEmpty($_REQUEST['to_address'], 'to_address'); // 수취인 주소
-$amount = checkEmpty(checkNumber($_REQUEST['amount']), 'amount');// 송금량
+$amount = checkZero(checkNumber($_REQUEST['amount']), 'amount');// 송금량
 $pin = checkEmpty($_REQUEST['pin'], 'pin'); // 계좌 송금 비번.
 
 // --------------------------------------------------------------------------- //
