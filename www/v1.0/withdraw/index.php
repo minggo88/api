@@ -35,7 +35,7 @@ $tradeapi->set_db_link('master');
 $currency_info = $tradeapi->get_currency($symbol);
 $currency_info = $currency_info[0];
 if($currency_info->out_min_volume>0 && $currency_info->out_min_volume>$amount) {
-    $tradeapi->error('028', __('Please enter a value larger than the minimum withdrawal amount.'));
+    $tradeapi->error('028', __('Please enter a value larger than the minimum withdrawal amount.'.$amount));
 }
 if($currency_info->out_max_volume>0 && $currency_info->out_max_volume<$amount) {
     $tradeapi->error('029', __('출금하실 금액을 최대출금액보다 작게 입력해주세요.'));
