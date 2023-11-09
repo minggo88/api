@@ -1833,7 +1833,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
 
             $r = $this->query_list_object($sql);
             for($i=0 ; $i<count($r) ; $i++) {
-                $r[$i]->amount = number_format($r[$i]->price, $digit, '.', '');
+                $r[$i]->amount = number_format($r[$i]->amount, $digit, '.', '');
             }
             
             $result = array(
