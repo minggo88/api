@@ -18,7 +18,7 @@ $userno = $tradeapi->get_login_userno();
 $symbol = checkSymbol(strtoupper(checkEmpty($_REQUEST['symbol'], 'symbol'))); // 코인
 $from_address = checkEmpty($_REQUEST['from_address'], 'from_address'); // 송신인 주소
 $to_address = checkEmpty($_REQUEST['to_address'], 'to_address'); // 수취인 주소
-$amount = checkZero(checkNumber($_REQUEST['amount']), 'amount');// 송금량
+$amount = checkEmpty(checkNumber($_REQUEST['amount']), 'amount');// 송금량
 $pin = checkEmpty($_REQUEST['pin'], 'pin'); // 계좌 송금 비번.
 
 // --------------------------------------------------------------------------- //
@@ -35,7 +35,7 @@ $tradeapi->set_db_link('master');
 $currency_info = $tradeapi->get_currency($symbol);
 $currency_info = $currency_info[0];
 if($currency_info->out_min_volume>0 && $currency_info->out_min_volume>$amount) {
-    $tradeapi->error('028', __('Please enter a value larger than the minimum withdrawal amount.'.$amount));
+    $tradeapi->error('028', __('Please enter a value larger than the minimum withdrawal amount.'));
 }
 if($currency_info->out_max_volume>0 && $currency_info->out_max_volume<$amount) {
     $tradeapi->error('029', __('출금하실 금액을 최대출금액보다 작게 입력해주세요.'));
