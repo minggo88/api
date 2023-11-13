@@ -37,10 +37,11 @@ if($volume<0.0001) {
 //     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
 // }
 // 매매 설정 확인
+/*
 $config_basic = $tradeapi->get_config('js_config_basic');
 if($config_basic->bool_trade!='1') {
     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
-}
+}*/
 
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');

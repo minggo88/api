@@ -24,10 +24,10 @@ $goods_grade = checkEmpty($_REQUEST['goods_grade'], 'goods_grade'); // 상품등
 //     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
 // }
 // 매매 설정 확인
-$config_basic = $tradeapi->get_config('js_config_basic');
+/*$config_basic = $tradeapi->get_config('js_config_basic');
 if($config_basic->bool_trade!='1') {
     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
-}
+}*/
 
 // 소숫점 4자리까지 수량을 쓸 수 있도록 하기.
 // $d = $volume - floor($volume);
