@@ -1760,9 +1760,10 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     if($trading_type) {
                         $sql.= " AND t.trading_type ='".$this->escape($trading_type)."' ";
                     }
-                    if($status) {
-                        $sql.= " AND t.status IN ({$status}) ";
-                    }
+                    //mk231115 있는 이유를 모르겠음 생략 
+                    //if($status) {
+                    //    $sql.= " AND t.status IN ({$status}) ";
+                    //}
                     if($orderid>0) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
