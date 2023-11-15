@@ -1794,7 +1794,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 }
                 
 
-                // exit($sql);
+                exit($sql);
                 $r = $this->query_list_object($sql);
                 for($i=0 ; $i<count($r) ; $i++) {
                     $r[$i]->volume = number_format($r[$i]->volume, 5, '.', '');
@@ -1814,7 +1814,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $result = $r;
                 }
 
-                return $sql;
+                return $result;
             }
         }
 
