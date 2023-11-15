@@ -1767,6 +1767,8 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
                     if($start_date !=''){
+                        $sql.= " AND t.time_traded > '".$start_date." '";
+                    }else if($status == "'T'"){
                         $sql.= " AND t.time_order > '".$start_date." '";
                     }
 
