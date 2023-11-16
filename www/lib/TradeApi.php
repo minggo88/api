@@ -1767,14 +1767,11 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     if($orderid>0) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
-                    //mk231116 time_tread는 변경되어 sql 변경 있는 이유를 모르겠음 생략 
-                    //if($status == "'T'"){
-                    //    $sql.= " AND t.time_order > '".$start_date." '";
-                    //}else if($start_date !=''){
-                    //    $sql.= " AND t.time_traded > '".$start_date." '";
-                    //}
-                    if($start_date !=''){
+                    
+                    if($status == "'T'"){
                         $sql.= " AND t.time_order > '".$start_date." '";
+                    }else if($start_date !=''){
+                        $sql.= " AND t.time_traded > '".$start_date." '";
                     }
 
                 }
@@ -1872,7 +1869,8 @@ if (!defined('__LOADED_TRADEAPI__')) {
         public function cancel_order($symbol, $exchange, $orderid) {
             $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_order';
             $sql = "update {$table} set ";
-            $sql.= ' status="D", volume_remain="0" '; // 취소시 모두 환급해주기때문에 남은 volume을 0으로 처리
+            $sql.= ' status="D", volume_remain="0", '; // 취소시 모두 환급해주기때문에 남은 volume을 0으로 처리
+            $sql.= ' time_traded = NOW() ';//취소시 시간 최신화
             $sql.= ' where orderid="'.$this->escape($orderid).'" ';
             return $this->query($sql);
         }
