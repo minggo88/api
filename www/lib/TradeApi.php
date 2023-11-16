@@ -1767,10 +1767,14 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     if($orderid>0) {
                         $sql.= " AND t.orderid < ".$this->escape($orderid)." ";
                     }
-                    if($status == "'T'"){
+                    //mk231116 time_tread는 변경되어 sql 변경 있는 이유를 모르겠음 생략 
+                    //if($status == "'T'"){
+                    //    $sql.= " AND t.time_order > '".$start_date." '";
+                    //}else if($start_date !=''){
+                    //    $sql.= " AND t.time_traded > '".$start_date." '";
+                    //}
+                    if($start_date !=''){
                         $sql.= " AND t.time_order > '".$start_date." '";
-                    }else if($start_date !=''){
-                        $sql.= " AND t.time_traded > '".$start_date." '";
                     }
 
                 }
@@ -1811,7 +1815,8 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         'data'    => $r,
                         'draw' => $_REQUEST['draw']*1,
                         'recordsFiltered' => $cnt,
-                        'recordsTotal' => $cnt
+                        'recordsTotal' => $cnt,
+                        'sql'     => $sql
                     );
                 } else { // 기본 배열 리턴
                     $result = $r;
