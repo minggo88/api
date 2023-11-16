@@ -1812,8 +1812,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         'data'    => $r,
                         'draw' => $_REQUEST['draw']*1,
                         'recordsFiltered' => $cnt,
-                        'recordsTotal' => $cnt,
-                        'sql'     => $sql
+                        'recordsTotal' => $cnt
                     );
                 } else { // 기본 배열 리턴
                     $result = $r;
