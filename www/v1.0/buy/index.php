@@ -168,7 +168,7 @@ try {
         if($volume > $check){
             $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
             $check += $total_amount;
-            $tradeapi->error('017', __('total_amount information.'.$total_amount));
+            //$tradeapi->error('017', __('total_amount information.'.$total_amount));
         }
         
     } else {
@@ -204,7 +204,7 @@ try {
             if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
                 $check += $trade_amount;
-                $tradeapi->error('017', __('trade_amount information.'.$trade_amount));
+                //$tradeapi->error('017', __('trade_amount information.'.$trade_amount));
             }
             
 
@@ -303,7 +303,7 @@ try {
             if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
                 $check += $remain_amount;
-                $tradeapi->error('017', __('remain_amount information.'.$remain_amount));
+                //$tradeapi->error('017', __('remain_amount information.'.$remain_amount));
             }
         }
 
@@ -366,6 +366,7 @@ $r = array(
     'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 
     'order_price'=>$price, 
     'remain_volume'=>$remain_volume_buy, 
+    'check'=>$check, 
     'orderid'=>$orderid_buy);
 
 // response
