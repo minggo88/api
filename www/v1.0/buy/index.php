@@ -168,6 +168,7 @@ try {
         if($volume > $check){
             $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
             $check += $total_amount;
+            $tradeapi->error('017', __('total_amount information.'.$total_amount));
         }
         
     } else {
@@ -203,6 +204,7 @@ try {
             if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
                 $check += $trade_amount;
+                $tradeapi->error('017', __('trade_amount information.'.$trade_amount));
             }
             
 
@@ -301,6 +303,7 @@ try {
             if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
                 $check += $remain_amount;
+                $tradeapi->error('017', __('remain_amount information.'.$remain_amount));
             }
         }
 
@@ -355,7 +358,15 @@ $avg_trade_price = count($avg_trade_price) > 0 ? round( array_sum($avg_trade_pri
 $remain_volume_buy = round($remain_volume_buy, 4);
 
 // gen return value
-$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
+//$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
+$r = array(
+    'price'=>$avg_trade_price, 
+    //'volume'=>round($volume-$remain_volume_buy,4), 
+    'volume'=>round($volume,4), 
+    'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 
+    'order_price'=>$price, 
+    'remain_volume'=>$remain_volume_buy, 
+    'orderid'=>$orderid_buy);
 
 // response
 $tradeapi->success($r);
