@@ -165,9 +165,7 @@ try {
     $orders_sell = $tradeapi->get_order_by_price('S', $symbol, $exchange, $price,'',$goods_grade);
     if(!$orders_sell && count($orders_sell)<1) {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
-        if($check >= $volume){
-            continue;
-        }else{
+        if($volume > $check){
             $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
             $check += $total_amount;
         }
@@ -202,9 +200,7 @@ try {
             $trade_amount = $trade_volume * $trade_price;
 
             // 구매자 지갑에서 USD 차감.
-            if($check >= $volume){
-                continue;
-            }else{
+            if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
                 $check += $trade_amount;
             }
@@ -302,9 +298,7 @@ try {
         if( $remain_volume_buy > 0 ) {
             $remain_amount = $remain_volume_buy * $price; // 남은 주문수량 * 주문가 = 남은매수금액;
             
-            if($check >= $volume){
-                continue;
-            }else{
+            if($volume > $check){
                 $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
                 $check += $remain_amount;
             }
