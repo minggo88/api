@@ -19,7 +19,8 @@ $volume = checkZero(checkNumber($_REQUEST['volume']), 'volume');// 구매량
 $amount = setDefault($_REQUEST['amount'], ''); // 구매금액
 $goods_grade = checkEmpty($_REQUEST['goods_grade'], 'goods_grade'); // 상품등급
 
-
+//231117 mk 구매가 2번연속 일어나서 수정하기 위한 변수 생성
+$check = 0;
 // --------------------------------------------------------------------------- //
 // 매매 시간 확인 ( 9 ~ 18시 ) , 토요일(6)/일요일(7) 에는 매매 중지
 // if(date('H') < 9 || 18 <= date('H') || date('N')=='6' || date('N')=='7' ) {
@@ -164,7 +165,13 @@ try {
     $orders_sell = $tradeapi->get_order_by_price('S', $symbol, $exchange, $price,'',$goods_grade);
     if(!$orders_sell && count($orders_sell)<1) {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
-        $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
+        if($check >= $volume){
+            continue;
+        }else{
+            $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
+            $check += $total_amount;
+        }
+        
     } else {
         // 매도 주문이 있을때는 아래에서 각각 매매하면서 해당금액으로 KRW를 차감합니다.
         foreach($orders_sell as $order_sell) {
@@ -195,7 +202,13 @@ try {
             $trade_amount = $trade_volume * $trade_price;
 
             // 구매자 지갑에서 USD 차감.
-            $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
+            if($check >= $volume){
+                continue;
+            }else{
+                $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
+                $check += $trade_amount;
+            }
+            
 
             // 판매자 지갑에 돈 지불.
             $userno_sell = $order_sell->userno;
@@ -288,7 +301,13 @@ try {
         // 매도 주문들 처리 하고도 남은구매량이 있으면 구매자의 USD 차감함.
         if( $remain_volume_buy > 0 ) {
             $remain_amount = $remain_volume_buy * $price; // 남은 주문수량 * 주문가 = 남은매수금액;
-            $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
+            
+            if($check >= $volume){
+                continue;
+            }else{
+                $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
+                $check += $remain_amount;
+            }
         }
 
 
