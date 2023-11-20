@@ -275,9 +275,9 @@ try {
                 $sql = "SELECT * FROM js_auction_goods WHERE pack_info='{$goods_info->idx}' and owner_userno='{$user_fee->userno}' limit  {$volume} ";
                 $goods_remain_list =  $tradeapi->query_list_object($sql);
 
-                if (count($goods_remain_list) < $volume) {
+                /*if (count($goods_remain_list) < $volume) {
                     $tradeapi->error('049', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
-                }
+                }*/
 
                 $user_buy_info = $tradeapi->get_member_info($userno_buy);
 
