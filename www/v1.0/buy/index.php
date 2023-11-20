@@ -46,8 +46,10 @@ $tradeapi->set_db_link('master');
 // 화폐 정보
 $currency = ($tradeapi->get_currency($symbol))[0];
 // 최소 거래량 확인.
+$num1 = $currency->trade_min_volume;
+$num2 = $currency->trade_min_volume;
 if($currency->trade_min_volume>0 && $currency->trade_min_volume > $volume ) {
-	$tradeapi->error('041',str_replace(array('{trade_min_volume}','{symbol}'), array($currency->trade_min_volume*1, $symbol), __('거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요.')));
+	$tradeapi->error('041',str_replace(array('{trade_min_volume}','{symbol}'), array($currency->trade_min_volume*1, $symbol), __('거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요.'.$num1."/".$num2)));
 }
 
 // 현재가
