@@ -1665,9 +1665,9 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $sql = $sql_select . $sql;
             $sql.= " ORDER BY {$order_by} {$order_method} ";
             if($rows < 99){
-                $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+                //$sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
             }else{
-                $sql.= " LIMIT 10000;";
+                //$sql.= " LIMIT 10000;";
             }
             
             // exit($sql);
