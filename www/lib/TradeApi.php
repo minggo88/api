@@ -1578,7 +1578,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
          * @param String $return_type 데어터 리턴 형식. 기본은 그냥 array() 리턴이였는데 dataTable 형식이 필요해서 추가했습니다.
          * @return Array 주문정보 객체 포함한 배열.
          */
-        public function get_order_list($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date='', $trading_type2='') {
+        public function get_order_list($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date='') {
             $symbol = strtoupper($symbol);
             $exchange = strtoupper($exchange);
             $trading_type = $trading_type ? ($trading_type=='B' ? 'B' : 'S') : '';
@@ -1664,10 +1664,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             // 페이징 후 데이터만
             $sql = $sql_select . $sql;
             $sql.= " ORDER BY {$order_by} {$order_method} ";
-            if($trading_type2 != 'trading'){
-                $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
-            }
-            
+            $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
             // exit($sql);
             $r = $this->query_list_object($sql);
             for($i=0 ; $i<count($r) ; $i++) {
@@ -1691,7 +1688,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return $result;
         }
 
-        public function get_order_list_all($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date='') {
+        public function get_order_list_all($userno='', $status, $symbol, $exchange, $page=1, $rows=20, $orderid='0', $trading_type='', $order_by='orderid', $order_method='DESC', $return_type='', $start_date='', $trading_type2='') {
 
             $wallet = $this->query_list_object("select distinct(jew.symbol)
                         from js_exchange_wallet jew join js_trade_currency jtc on jew.symbol = jtc.symbol
@@ -1797,7 +1794,9 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     
                 }else{
                     $sql.= " ORDER BY {$order_by} {$order_method} ";
-                    $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+                    if($trading_type2 != 'trading'){
+                        $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+                    }
                 }
                 
 
