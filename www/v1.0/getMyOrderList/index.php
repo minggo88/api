@@ -17,6 +17,7 @@ if(isset($_REQUEST['start'])) {
 $rows = $_REQUEST['length'] ? $_REQUEST['length'] : checkNumber(setDefault($_REQUEST['rows'], '10'));
 $return_type = checkRetrunType(strtolower(setDefault($_REQUEST['return_type'], 'JSON'))); // 구매 화폐
 $trading_type = setDefault($_REQUEST['trading_type'], ''); // '' : all, 'B':구매, 'S': 판매
+$trading_type2 = $_REQUEST['trading_type2'];//'' : none, 'trading' : 거래중인품목
 
 // 슬레이브 디비 사용하도록 설정.
 $tradeapi->set_db_link('slave');
@@ -26,16 +27,21 @@ $order_method = $_REQUEST['order'][0]['dir']=='desc' ? 'DESC' : 'ASC';
 $order_column_no = $_REQUEST['order'][0]['column'];
 $order_by = $_REQUEST['columns'][$order_column_no]['data'];
 
-
-if ($symbol == "ALL") {
-    $txns = $tradeapi->get_order_list_all($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
-}else if($symbol == "TRADE"){
-    $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
-} else {
-    // check previos address
-    $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
-    // var_dump($txns); exit;
+if($trading_type2 = "trading"){
+    $txns = $tradeapi->get_order_list_all($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date, $trading_type2);
+}else{
+    if ($symbol == "ALL") {
+        $txns = $tradeapi->get_order_list_all($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
+    }else if($symbol == "TRADE"){
+        $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
+    } else {
+        // check previos address
+        $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
+        // var_dump($txns); exit;
+    }
 }
+
+
 
 
 
