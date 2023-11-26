@@ -33,10 +33,10 @@ if ($symbol == "ALL") {
     $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
 } else {
     // check previos address
-    if($trading_type != ""){
-        $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, 1000, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);    
-    }else{
+    if($trading_type != "trade"){
         $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
+    }else{
+        $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, 1000, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);    
     }
     // var_dump($txns); exit;
 }
