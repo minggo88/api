@@ -1667,7 +1667,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             if($rows < 99){
                 $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
             }else{
-                $sql.= " LIMIT 10000;";
+                //$sql.= " LIMIT 10000;";
             }
             
             // exit($sql);
