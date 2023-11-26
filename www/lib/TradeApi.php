@@ -1664,7 +1664,10 @@ if (!defined('__LOADED_TRADEAPI__')) {
             // 페이징 후 데이터만
             $sql = $sql_select . $sql;
             $sql.= " ORDER BY {$order_by} {$order_method} ";
-            $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+            if($rows < 999){
+                $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+            }
+            
             // exit($sql);
             $r = $this->query_list_object($sql);
             for($i=0 ; $i<count($r) ; $i++) {
