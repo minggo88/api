@@ -159,6 +159,7 @@ $tradeapi->transaction_start();
 
 // 전체 추가금액 = 추가금액 + 추가 수수료;
 $total_add_amount = $add_amount + $add_fee; 
+$tradeapi->error('114', __('total_add_amount : '.$total_add_amount));
 // $total_add_amount = $add_amount + $add_fee + $buy_royalty;  // 구매자에게도 로열티를 과금시 - 미사용
 
 // 잔액 가/감액
