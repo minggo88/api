@@ -162,9 +162,10 @@ $total_add_amount = $add_amount + $add_fee;
 // $total_add_amount = $add_amount + $add_fee + $buy_royalty;  // 구매자에게도 로열티를 과금시 - 미사용
 
 // 잔액 가/감액
+/*
 if($total_add_amount > 0) { // 잔액 감액
 	// 쿼리에 $add_amount, $add_fee를 남기기위해 $total_add_amount 를 사용하지 않습니다.
-	//111$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($total_add_amount)} WHERE userno='{$tradeapi->escape($buyer_userno)}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
+	$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($total_add_amount)} WHERE userno='{$tradeapi->escape($buyer_userno)}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 	$sql = "INSERT INTO js_exchange_wallet_txn SET `userno`='{$tradeapi->escape($buyer_userno)}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($user_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($manager_wallet->address)}', `txn_type`='AD', `direction`='O', `amount`='{$tradeapi->escape($add_amount)}', `fee`='{$tradeapi->escape($add_fee)}', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' ";
 }
 if($total_add_amount<0) { // 잔액 가액
@@ -185,7 +186,7 @@ if($total_add_amount<0) { // 잔액 감액
 	// 수수료는 없이 총 추가한 금액만 amount에 합산해 추가합니다. 계산 혼돈하지 않기위해.
 }
 $tradeapi->query($sql);
-
+*/
 //옥션 등록, 존재 하면 금액 추가(재 apply)
 if($goods_info->pack_info=='Y') {
 	// 패키지 서브 상품 바로구매 내역 저장.
