@@ -164,7 +164,7 @@ $total_add_amount = $add_amount + $add_fee;
 // 잔액 가/감액
 if($total_add_amount > 0) { // 잔액 감액
 	// 쿼리에 $add_amount, $add_fee를 남기기위해 $total_add_amount 를 사용하지 않습니다.
-	$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($total_add_amount)} WHERE userno='{$tradeapi->escape($buyer_userno)}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
+	//111$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($total_add_amount)} WHERE userno='{$tradeapi->escape($buyer_userno)}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 	$sql = "INSERT INTO js_exchange_wallet_txn SET `userno`='{$tradeapi->escape($buyer_userno)}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($user_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($manager_wallet->address)}', `txn_type`='AD', `direction`='O', `amount`='{$tradeapi->escape($add_amount)}', `fee`='{$tradeapi->escape($add_fee)}', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' ";
 }
 if($total_add_amount<0) { // 잔액 가액
@@ -309,7 +309,7 @@ if($re){
     $tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$seller_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($seller_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($manager_wallet->address)}', `txn_type`='AS', `direction`='I', `amount`='{$tradeapi->escape($sell_amount)}', `fee`='{$tradeapi->escape($sell_fee)}', `royalty`='{$tradeapi->escape($sell_royalty)}', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' "); // amount: 실 입금액, fee: 차감한 수수료.
 
 	// 관리자 지갑에서 판매금액 차감
-	$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($sell_amount)} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
+	//222$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($sell_amount)} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 	$tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$manager_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($manager_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($seller_wallet->address)}', `txn_type`='AS', `direction`='O', `amount`='{$tradeapi->escape($sell_amount)}', `fee`='0', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' "); // amount: 실 입금액, fee: 차감한 수수료.
 
 	// 로열티 지급 - 창작자 정보가 있고, 창작자가 판매자가 아니고, 로열티 금액이 있을때 지급
@@ -319,7 +319,7 @@ if($re){
 		$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed + {$tradeapi->escape($sell_royalty)} WHERE userno='{$tradeapi->escape($goods_info->creator_userno)}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 		$tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$goods_info->creator_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($creator_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($manager_wallet->address)}', `txn_type`='RY', `direction`='I', `amount`='{$tradeapi->escape($sell_royalty)}', `fee`='0', `tax`='0', `royalty`='0', `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' "); // amount: 실 입금액, fee: 차감한 수수료.
 		// 관리자 지갑에서 로열티 차감
-		$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($sell_royalty)} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
+		//333$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape($sell_royalty)} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 		$tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$manager_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($manager_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($creator_wallet->address)}', `txn_type`='RY', `direction`='O', `amount`='{$tradeapi->escape($sell_royalty)}', `fee`='0', `tax`='0', `royalty`='0', `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' "); // amount: 실 입금액, fee: 차감한 수수료.
 	}
 
@@ -346,7 +346,7 @@ if($re){
 				$tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$bider_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($bider_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($manager_wallet->address)}', `txn_type`='AR', `direction`='I', `amount`='{$tradeapi->escape($refund_amount)}', `fee`='0', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='Auction Bid Refund' ");
 				// 트렌젝션 종류. R:(외부)입금, B:백업(콜드스토리지), W:(외부)출금, D:배당, E:교환, A:출석체크, I:초대하기, S:보내기, P:결제(pay), BO:보너스, R:환불(refund), C:충전(Charge), GA:Game Action, DO: Donation(Fan), MI:MINT(NFT생성), AD:Auction Direct Buy, AB:Auction Bid, AF: Auction Fee(옥션수수료), AS: Auction Sell, AR: Auction (Bid) Refund
 				// walletmanager 잔액 제거
-				$tradeapi->query("UPDATE js_exchange_wallet SET confirmed=confirmed - {$tradeapi->escape($refund_amount)} WHERE symbol='{$tradeapi->escape($auction_info->price_symbol)}' AND userno='{$tradeapi->escape($manager_userno)}'");
+				//444$tradeapi->query("UPDATE js_exchange_wallet SET confirmed=confirmed - {$tradeapi->escape($refund_amount)} WHERE symbol='{$tradeapi->escape($auction_info->price_symbol)}' AND userno='{$tradeapi->escape($manager_userno)}'");
 				// 로그 작성
 				$tradeapi->query("INSERT INTO js_exchange_wallet_txn SET `userno`='{$manager_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($manager_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($bider_wallet->address)}', `txn_type`='AR', `direction`='O', `amount`='{$tradeapi->escape($refund_amount)}', `fee`='0', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='Auction Bid Refund' ");
 			}
