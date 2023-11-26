@@ -179,7 +179,8 @@ if($total_add_amount > 0) { // 잔액 가액
 	// 수수료는 없이 총 추가한 금액만 amount에 합산해 추가합니다. 계산 혼돈하지 않기위해.
 }
 if($total_add_amount<0) { // 잔액 감액
-	$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape(abs($total_add_amount))} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
+	//2번 입력되고잇어서 생략
+	//$tradeapi->query("UPDATE js_exchange_wallet SET confirmed = confirmed - {$tradeapi->escape(abs($total_add_amount))} WHERE userno='{$manager_userno}' AND symbol='{$tradeapi->escape($auction_info->price_symbol)}'  ");
 	$sql = "INSERT INTO js_exchange_wallet_txn SET `userno`='{$manager_userno}', `symbol`='{$tradeapi->escape($auction_info->price_symbol)}', `address`='{$tradeapi->escape($manager_wallet->address)}', `regdate`=NOW(), `txndate`=NOW(), `address_relative`='{$tradeapi->escape($user_wallet->address)}', `txn_type`='AD', `direction`='O', `amount`='{$tradeapi->escape(abs($total_add_amount))}', `fee`='0', `tax`=0, `status`='D', `key_relative`='{$tradeapi->escape($auction_idx)}', `txn_method`='COIN', app_no='".__APP_NO__."', `msg`='buy' ";
 	// 수수료는 없이 총 추가한 금액만 amount에 합산해 추가합니다. 계산 혼돈하지 않기위해.
 }
