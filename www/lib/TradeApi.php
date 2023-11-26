@@ -1818,7 +1818,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $result = $r;
                 }
 
-                return $sql;
+                return $result;
             }
         }
 
