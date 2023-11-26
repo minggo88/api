@@ -1664,7 +1664,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             // 페이징 후 데이터만
             $sql = $sql_select . $sql;
             $sql.= " ORDER BY {$order_by} {$order_method} ";
-            if($rows < 999){
+            if($rows < 99){
                 $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
             }
             
