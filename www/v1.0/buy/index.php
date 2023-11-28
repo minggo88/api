@@ -27,9 +27,9 @@ $bool_agree = $_REQUEST['use_agreement']; //이용약관 동의여부
 // }
 // 매매 설정 확인
 $config_basic = $tradeapi->get_config('js_config_basic');
-if($config_basic->bool_trade!='1') {
+/*if($config_basic->bool_trade!='1') {
     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
-}
+}*/
 
 // 소숫점 사용 불가처리
 // $d = $volume - floor($volume);
