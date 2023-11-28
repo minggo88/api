@@ -38,6 +38,11 @@ $config_basic = $tradeapi->get_config('js_config_basic');
 //     $tradeapi->error('000', '구매수량에 소숫점을 입력하실수 없습니다.'); //수량에는 소수점 4자리까지만 입력해주세요.
 // }
 
+/***
+ * where_confirm 계산 어디서 하는지 확인 변수
+ * 
+ */
+$where_confirm = '';
 
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('master');
@@ -172,6 +177,7 @@ try {
     if(!$orders_sell && count($orders_sell)<1) {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
         $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
+        $where_confirm = $where_confirm.'1';
     } else {
         // 매도 주문이 있을때는 아래에서 각각 매매하면서 해당금액으로 KRW를 차감합니다.
         foreach($orders_sell as $order_sell) {
@@ -203,7 +209,7 @@ try {
 
             // 구매자 지갑에서 USD 차감.
             $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
-
+            $where_confirm = $where_confirm.'2'.$userno_buy.'/'. $exchange.'/'. $trade_amount.'/';
             // 판매자 지갑에 돈 지불.
             $userno_sell = $order_sell->userno;
             // 거래 수수료
@@ -346,6 +352,7 @@ try {
         if( $remain_volume_buy > 0 ) {
             $remain_amount = $remain_volume_buy * $price; // 남은 주문수량 * 주문가 = 남은매수금액;
             $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
+            $where_confirm = $where_confirm.'4'.$remain_amount.'/';
         }
 
 
@@ -374,6 +381,7 @@ try {
     if($trade_price>0) {
         // 현재가 갱신
         $tradeapi->set_current_price_data($symbol, $exchange, $goods_grade);
+        $where_confirm = $where_confirm.'5 '.$exchange.'/';
     }
 
     // 알림
@@ -397,9 +405,10 @@ $tradeapi->gen_chanrt_data ($symbol, $exchange, $goods_grade);
 // 평균 거래금액
 $avg_trade_price = count($avg_trade_price) > 0 ? round( array_sum($avg_trade_price) / ($volume-$remain_volume_buy), 4 ) : 0;
 $remain_volume_buy = round($remain_volume_buy, 4);
-
+ 
 // gen return value
-$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
+$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 
+'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy, 'where_money'=>$where_confirm);
 
 // response
 $tradeapi->success($r);
