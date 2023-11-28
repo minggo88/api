@@ -1929,7 +1929,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $this->write_log("[charge_buy_price] sql:{$sql}, $userno, $exchange, $amount, before: ".$this->get_balance($userno, $exchange, $goods_grade));
             return $this->query($sql);
         }
-      
+
         public function charge_sell_price($userno, $symbol, $amount, $goods_grade='') {
             $sql = "update js_exchange_wallet set ";
             $sql.= 'confirmed=confirmed - '.$this->escape($amount).' ';

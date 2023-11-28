@@ -178,7 +178,7 @@ try {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
         // 매도 주문이 없으니 바로 주문 등록됨 주문 등록으로 비용 차감되니까 실금액에서 차감하지 않음 (동결금액 확인 중요!)
         //$tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
-        $where_confirm = $where_confirm.'1'.$tradeapi->charge_buy_price_sql($userno_buy, $exchange, $total_amount).'/';
+        
     } else {
         // 매도 주문이 있을때는 아래에서 각각 매매하면서 해당금액으로 KRW를 차감합니다.
         foreach($orders_sell as $order_sell) {
