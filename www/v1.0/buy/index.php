@@ -177,7 +177,7 @@ try {
     if(!$orders_sell && count($orders_sell)<1) {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
         $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
-        $where_confirm = $where_confirm.'1'.$tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount).'/';
+        $where_confirm = $where_confirm.'1'.$tradeapi->charge_buy_price_sql($userno_buy, $exchange, $total_amount).'/';
     } else {
         // 매도 주문이 있을때는 아래에서 각각 매매하면서 해당금액으로 KRW를 차감합니다.
         foreach($orders_sell as $order_sell) {
@@ -352,7 +352,7 @@ try {
         if( $remain_volume_buy > 0 ) {
             $remain_amount = $remain_volume_buy * $price; // 남은 주문수량 * 주문가 = 남은매수금액;
             $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
-            $where_confirm = $where_confirm.'4'.$remain_amount.'/';
+            $where_confirm = $where_confirm.'4'.$tradeapi->charge_buy_price_sql($userno_buy, $exchange, $remain_amount).'/';
         }
 
 
