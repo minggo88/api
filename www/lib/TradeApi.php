@@ -1896,25 +1896,6 @@ if (!defined('__LOADED_TRADEAPI__')) {
             return $this->query($sql);
         }
 
-        public function write_buy_order_sql($userno, $address, $symbol, $exchange, $price, $volume, $amount, $goods_grade) {
-            $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_order';
-            $status = '';
-            $sql = "insert into $table set ";
-            $sql.= ' userno='.$this->escape($userno).', ';
-            $sql.= ' address="'.$this->escape($address).'", ';
-            $sql.= ' time_order=sysdate(), ';
-            $sql.= ' time_traded=NULL, ';
-            $sql.= ' trading_type="B", ';
-            $sql.= ' price='.$this->escape($price).', ';
-            $sql.= ' volume='.$this->escape($volume).', ';
-            $sql.= ' volume_remain='.$this->escape($volume).', ';
-            $sql.= ' amount='.$this->escape($amount).', ';
-            $sql.= ' goods_grade="'.$this->escape($goods_grade).'", ';
-            $sql.= ' status="O" ';
-            $this->write_log($sql.','.__FILE__.','.__LINE__);
-            return $sql;
-        }
-
         public function write_sell_order($userno, $address, $symbol, $exchange, $price, $volume, $amount, $goods_grade) {
             $table = 'js_trade_'.strtolower($symbol).strtolower($exchange).'_order';
             $status = '';
