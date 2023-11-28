@@ -76,9 +76,10 @@ if($trade_price_info->trade_min_price && $trade_price_info->trade_min_price > $p
 }
 
 //이용약관 확인
+/*
 if($bool_agree != "true") {
 	$tradeapi->error('044', __('이용약관을 확인해 주세요.'));
-}
+}*/
 
 
 // 지갑 - 구매금액을 확인해야 해서 $exchange 지갑을 가져옵니다.
