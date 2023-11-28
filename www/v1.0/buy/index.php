@@ -148,6 +148,7 @@ $user_fee = $tradeapi->get_member_info(2);// walletmanager 코인별로 분리�
 if(!$user_fee) {
     $tradeapi->error('017', __('There is no fee account information.'));
 }
+/*
 $wallet_exchange_fee = $tradeapi->get_wallet($user_fee->userno, $exchange);
 $wallet_exchange_fee = $wallet_exchange_fee ? $wallet_exchange_fee[0] : null;
 if(!$wallet_exchange_fee) {
@@ -155,6 +156,7 @@ if(!$wallet_exchange_fee) {
     $wallet_exchange_fee = $tradeapi->get_wallet($user_fee->userno, $exchange);
     $wallet_exchange_fee = $wallet_exchange_fee ? $wallet_exchange_fee[0] : null;
 }
+*/
 
 // transaction start
 $tradeapi->transaction_start();
@@ -221,12 +223,14 @@ try {
             // 미 판매 수량의 평균 매수가를 구해야 함.
             $tax_income = 0 ; //$tradeapi->cal_tax($exchange, 'buy', $trade_amount);
             // 판매자 거래대금. = 거래대금 - 거래 수수료 - 거래 세금 - 양도 소득 세금.
-            $trade_receive = $trade_amount - $fee - $tax_transaction - $tax_income;
+            //$trade_receive = $trade_amount - $fee - $tax_transaction - $tax_income;
+            $trade_receive = $trade_amount;
             // 원단위 절삭.
             $trade_receive = floor($trade_receive); // floor($trade_receive*1)/1;
             // 판매 대금 지급
             $tradeapi->add_wallet($userno_sell, $exchange, $trade_receive);
             // 수수료 계좌에 수수료 지급.
+            /*
             if($fee>0) {
                 $tradeapi->add_wallet($user_fee->userno, $exchange, $fee);
                 // $tradeapi->add_wallet_txn($user_fee->userno, $wallet_exchange_fee->address, $exchange, $userno_sell, 'R', $fee, 0, 0, "D", $orderid_buy, date('Y-m-d H:i:s'));
@@ -239,6 +243,7 @@ try {
                 $tradeapi->add_wallet($user_fee->userno, $exchange, $tax_income);
                 // $tradeapi->add_wallet_txn($user_fee->userno, $wallet_exchange_fee->address, $exchange, $userno_sell, 'R', $tax_income, 0, 0, "D", $orderid_buy, date('Y-m-d H:i:s'));
             }
+            */
 
             // 판매 주문 수정.
             $tradeapi->trade_order($orderid_sell, $symbol, $exchange, $trade_volume, $trade_status_sell);
