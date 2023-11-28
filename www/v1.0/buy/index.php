@@ -171,6 +171,8 @@ try {
     $trade_volume = 0; // 최종 거래된 수량을 반영하기 위한 변수
     $remain_volume_buy = $volume; // 남은 매수 수량
     $avg_trade_price = array();
+    $where_confirm = $where_confirm.'0'.$tradeapi->write_buy_order_sql($userno_buy, $address_buy, $symbol, $exchange, $price, $volume, $total_amount, $goods_grade).'/';.'/';
+
 
     // 주문 목록에서 매수가 이하의 판매주문이 있는지 확인하고
     $orders_sell = $tradeapi->get_order_by_price('S', $symbol, $exchange, $price,'',$goods_grade);
