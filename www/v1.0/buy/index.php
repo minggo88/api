@@ -18,19 +18,18 @@ $price = checkQuotePrice(checkZero(checkNumber($_REQUEST['price']), 'price'), $e
 $volume = checkZero(checkNumber($_REQUEST['volume']), 'volume');// 구매량
 $amount = setDefault($_REQUEST['amount'], ''); // 구매금액
 $goods_grade = checkEmpty($_REQUEST['goods_grade'], 'goods_grade'); // 상품등급
+$bool_agree = $_REQUEST['use_agreement']; //이용약관 동의여부
 
-//231117 mk 구매가 2번연속 일어나서 수정하기 위한 변수 생성
-$check = 0;
 // --------------------------------------------------------------------------- //
 // 매매 시간 확인 ( 9 ~ 18시 ) , 토요일(6)/일요일(7) 에는 매매 중지
 // if(date('H') < 9 || 18 <= date('H') || date('N')=='6' || date('N')=='7' ) {
 //     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
 // }
 // 매매 설정 확인
-/*$config_basic = $tradeapi->get_config('js_config_basic');
+$config_basic = $tradeapi->get_config('js_config_basic');
 if($config_basic->bool_trade!='1') {
     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
-}*/
+}
 
 // 소숫점 사용 불가처리
 // $d = $volume - floor($volume);
@@ -46,10 +45,8 @@ $tradeapi->set_db_link('master');
 // 화폐 정보
 $currency = ($tradeapi->get_currency($symbol))[0];
 // 최소 거래량 확인.
-$num1 = $currency->trade_min_volume;
-$num2 = $currency->trade_min_volume;
 if($currency->trade_min_volume>0 && $currency->trade_min_volume > $volume ) {
-	$tradeapi->error('041',str_replace(array('{trade_min_volume}','{symbol}'), array($currency->trade_min_volume*1, $symbol), __('거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요.'.$num1."/".$num2)));
+	$tradeapi->error('041',str_replace(array('{trade_min_volume}','{symbol}'), array($currency->trade_min_volume*1, $symbol), __('거래수량을 {trade_min_volume} {symbol}이상으로 입력해주세요.')));
 }
 
 // 현재가
@@ -77,6 +74,12 @@ if($trade_price_info->trade_max_price && $trade_price_info->trade_max_price < $p
 if($trade_price_info->trade_min_price && $trade_price_info->trade_min_price > $price) {
     $tradeapi->error('102','매매 가격 범위('.number_format($trade_price_info->trade_min_price).' ~ '.number_format($trade_price_info->trade_max_price).')로 매매하실 수 있습니다.');
 }
+
+//이용약관 확인
+if($bool_agree != "true") {
+	$tradeapi->error('044', __('이용약관을 확인해 주세요.'));
+}
+
 
 // 지갑 - 구매금액을 확인해야 해서 $exchange 지갑을 가져옵니다.
 $wallet_exchange = $tradeapi->get_wallet($userno_buy, $exchange);
@@ -167,12 +170,7 @@ try {
     $orders_sell = $tradeapi->get_order_by_price('S', $symbol, $exchange, $price,'',$goods_grade);
     if(!$orders_sell && count($orders_sell)<1) {
         // 매도 주문이 없으니 주문금액 전액을 지갑에서 비용 차감. 즉, USD 차감.
-        if($volume > $check){
-            $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
-            $check += $total_amount;
-            //$tradeapi->error('017', __('total_amount information.'.$total_amount));
-        }
-        
+        $tradeapi->charge_buy_price($userno_buy, $exchange, $total_amount);
     } else {
         // 매도 주문이 있을때는 아래에서 각각 매매하면서 해당금액으로 KRW를 차감합니다.
         foreach($orders_sell as $order_sell) {
@@ -203,12 +201,7 @@ try {
             $trade_amount = $trade_volume * $trade_price;
 
             // 구매자 지갑에서 USD 차감.
-            if($volume > $check){
-                $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
-                $check += $trade_amount;
-                //$tradeapi->error('017', __('trade_amount information.'.$trade_amount));
-            }
-            
+            $tradeapi->charge_buy_price($userno_buy, $exchange, $trade_amount);
 
             // 판매자 지갑에 돈 지불.
             $userno_sell = $order_sell->userno;
@@ -269,28 +262,78 @@ try {
             $tradeapi->set_quote_data($symbol, $exchange, $trade_price, $goods_grade);
 
             $goods_info = $tradeapi->query_fetch_object("SELECT g.idx goods_idx, g.*  FROM js_auction_goods g WHERE idx='{$symbol}' ");
+			
+			$sql2 = "SELECT COUNT(*) AS cnt, SUM(price) AS t_price FROM js_auction_goods WHERE owner_userno = '{$userno_buy}' AND pack_info = '{$symbol}';";
+	
+			$before_buy = $tradeapi->query_list_object($sql2);
+			
+			//매입가격 재계산 및 데이터 업데이트
+			$before_buy_cnt = 0;//이전의 구입 
+			$before_buy_total = 0;//이전의 구입 가격 총액
+			$buy_total = ($trade_price * $trade_volume);
+			if(!empty($before_buy[0]->t_price)){
+				$before_buy_cnt = $before_buy[0]->cnt*1;
+				$before_buy_total = $before_buy[0]->t_price;
+			}
+			
+			$total_price = $buy_total + $before_buy_total;
+			$total_cnt = $before_buy_cnt + $trade_volume;
+			$buy_avg_price = $total_price/$total_cnt;
+			
             // pack일 경우
             if ($goods_info->pack_info=='Y') {
-
+				/*230204 mk 기존 소스 변경
                 $sql = "SELECT * FROM js_auction_goods WHERE pack_info='{$goods_info->idx}' and owner_userno='{$user_fee->userno}' limit  {$volume} ";
                 $goods_remain_list =  $tradeapi->query_list_object($sql);
 
-                /*if (count($goods_remain_list) < $volume) {
+                if (count($goods_remain_list) < $volume) {
                     $tradeapi->error('049', __('Please enter the order quantity below the remain quantity.')); //주문수량을 잔여수량 이하로 입력해주세요.
-                }*/
+                }
 
                 $user_buy_info = $tradeapi->get_member_info($userno_buy);
 
                 foreach ($goods_remain_list as $good) {
-                    // js_auction_goods.owner_userno 를 판매자에서 구매자 회원번호로 변경 수량만큼
+                    
+					// js_auction_goods.owner_userno 를 판매자에서 구매자 회원번호로 변경 수량만큼
                     $tradeapi->query("UPDATE js_auction_goods SET owner_userno={$user_buy_info->userno} WHERE idx='{$good->idx}' ");
                     // js_auction_inventory에 goods_idx 별로 회원정보 변경(또는 추가)
                     $now_date = date('Y-m-d H:i:s');
                     $tradeapi->query("INSERT INTO js_auction_inventory (goods_idx, userno, userid, amount, buy_price, buy_auction_idx, reg_date) 
                                         VALUES ('{$good->idx}', {$user_fee->userno}, '{$user_buy_info->userid}', 1, 0, '', '{$now_date}') 
                                         on duplicate key update userno={$user_buy_info->userno} , userid='{$user_buy_info->userid}'");
-                }
+					
+                }*/
+				//IDX값 모두 가져오기
+				$t_volume = $trade_volume *1;
+				$sql = "SELECT * FROM js_auction_goods WHERE pack_info='{$goods_info->idx}' and owner_userno='{$userno_sell}' limit  {$t_volume} ";
+				
+				$goods_remain_list =  $tradeapi->query_list_object($sql);
+						
+				foreach ($goods_remain_list as $good) {
+				//업데이트 - UPDATE 쿼리 -IDX 값을 찾아야함
+					$sql = "UPDATE js_auction_goods SET ";
+					$sql .= "owner_userno = '{$userno_buy}', ";
+					$sql .= "price = '{$buy_avg_price}' ";
+					$sql .= "WHERE IDX='{$good->idx}' ";
+					$sql .= "AND owner_userno='{$userno_sell}' ;";
+								
+					$tradeapi->query_fetch_object($sql);
+					
+					//auction_goods_history에 내용 추가
+					$sql2 = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
+					$sql2 .= "VALUES('{$good->idx}', 'Y', '{$good->stock_number}', '{$symbol}', '{$userno_sell}', '{$userno_buy}', '', '1', '{$trade_price}');";
+					
+					$tradeapi->query_fetch_object($sql2);
+				}
+
+				$sql = "UPDATE js_auction_goods SET ";
+				$sql .= "price = '{$buy_avg_price}' ";
+				$sql .= "WHERE owner_userno='{$userno_buy}' ";
+				$sql .= "AND pack_info='{$goods_info->idx}' ;";		
+
+				$tradeapi->query_fetch_object($sql);
             }
+			
 
             // 남은구매량이 없으면 종료
             if( $remain_volume_buy <= 0 ) {
@@ -301,12 +344,7 @@ try {
         // 매도 주문들 처리 하고도 남은구매량이 있으면 구매자의 USD 차감함.
         if( $remain_volume_buy > 0 ) {
             $remain_amount = $remain_volume_buy * $price; // 남은 주문수량 * 주문가 = 남은매수금액;
-            
-            if($volume > $check){
-                $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
-                $check += $remain_amount;
-                //$tradeapi->error('017', __('remain_amount information.'.$remain_amount));
-            }
+            $tradeapi->charge_buy_price($userno_buy, $exchange, $remain_amount);
         }
 
 
@@ -360,16 +398,7 @@ $avg_trade_price = count($avg_trade_price) > 0 ? round( array_sum($avg_trade_pri
 $remain_volume_buy = round($remain_volume_buy, 4);
 
 // gen return value
-//$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
-$r = array(
-    'price'=>$avg_trade_price, 
-    //'volume'=>round($volume-$remain_volume_buy,4), 
-    'volume'=>round($volume,4), 
-    'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 
-    'order_price'=>$price, 
-    'remain_volume'=>$remain_volume_buy, 
-    'check'=>$check, 
-    'orderid'=>$orderid_buy);
+$r = array('price'=>$avg_trade_price, 'volume'=>round($volume-$remain_volume_buy,4), 'amount'=>round($avg_trade_price*($volume-$remain_volume_buy),4)*1, 'order_price'=>$price, 'remain_volume'=>$remain_volume_buy, 'orderid'=>$orderid_buy);
 
 // response
 $tradeapi->success($r);

@@ -54,16 +54,16 @@ if (isset($_POST['dataArray'])) {
 
             
             /**
- * 상품반출 api입니다
- * 
- * userno 기반입니다.
- * js_takeout_item에 내용을 저장하고 지갑내 수량 감소(js_exchange_wallet cofirmed -> -1 ,js_exchange_wallet_nft -> amount=0), 
- * 
- * 전체 재고(js_auction_goods active ->N/ owner_userno = 1005 , js_auction_inventory -> amount=0) 내 내용 삭제(삭제 DB로 이동), 
- * 히스토리 기록(js_auction_goods_history -> exchange_info = 2, owner_userno = 1005)
- * {$data->idx}
- * '{$userno}'
- */
+             * 상품반출 api입니다
+             * 
+             * userno 기반입니다.
+             * js_takeout_item에 내용을 저장하고 지갑내 수량 감소(js_exchange_wallet cofirmed -> -1 ,js_exchange_wallet_nft -> amount=0), 
+             * 
+             * 전체 재고(js_auction_goods active ->N/ owner_userno = 1005 , js_auction_inventory -> amount=0) 내 내용 삭제(삭제 DB로 이동), 
+             * 히스토리 기록(js_auction_goods_history -> exchange_info = 2, owner_userno = 1005)
+             * {$data->idx}
+             * '{$userno}'
+             */
             
             //exchage_wallet
             $update_sql_exchage_wallet = "UPDATE `kkikda`.`js_exchange_wallet` SET `confirmed`= `confirmed`-1, moddate=NOW() WHERE  `userno`='{$userno}' AND `symbol`='{$symbol}';";
