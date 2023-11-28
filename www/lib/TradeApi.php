@@ -1919,11 +1919,12 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $sql.= 'confirmed=confirmed - '.$this->escape($amount).' ';
             $sql.= 'where ';
             $sql.= 'userno='.$this->escape($userno).' and ';
-            if($goods_grade) {
+            /*if($goods_grade) {
                 //231117 mk confirmed 는 1개인데 등급을 넣어버리는 바람에 오류가 생김
                 //$sql.= 'goods_grade="'.$this->escape($goods_grade).'" and ';
                 $sql.= 'goods_grade="" and ';
-            }
+            }*/
+            $sql.= 'goods_grade="" and ';
             $sql.= 'symbol="'.strtoupper($this->escape($exchange)).'" ';
             $this->write_log("[charge_buy_price] sql:{$sql}, $userno, $exchange, $amount, before: ".$this->get_balance($userno, $exchange, $goods_grade));
             return $this->query($sql);
