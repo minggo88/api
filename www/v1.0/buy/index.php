@@ -229,10 +229,9 @@ try {
             $trade_receive = floor($trade_receive); // floor($trade_receive*1)/1;
             // 판매 대금 지급
             $tradeapi->add_wallet($userno_sell, $exchange, $trade_receive);
-            // 수수료 계좌에 수수료 지급.
-            /*
+            // 수수료 계좌에 수수료 지급.            
             if($fee>0) {
-                $tradeapi->add_wallet($user_fee->userno, $exchange, $fee);
+                $tradeapi->add_wallet($user_fee->userno, $exchange, 0);
                 // $tradeapi->add_wallet_txn($user_fee->userno, $wallet_exchange_fee->address, $exchange, $userno_sell, 'R', $fee, 0, 0, "D", $orderid_buy, date('Y-m-d H:i:s'));
             }
             if($tax_transaction>0) {
@@ -243,8 +242,8 @@ try {
                 $tradeapi->add_wallet($user_fee->userno, $exchange, $tax_income);
                 // $tradeapi->add_wallet_txn($user_fee->userno, $wallet_exchange_fee->address, $exchange, $userno_sell, 'R', $tax_income, 0, 0, "D", $orderid_buy, date('Y-m-d H:i:s'));
             }
-            */
 
+            
             // 판매 주문 수정.
             $tradeapi->trade_order($orderid_sell, $symbol, $exchange, $trade_volume, $trade_status_sell);
 
