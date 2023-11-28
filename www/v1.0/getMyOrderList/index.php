@@ -16,7 +16,7 @@ if(isset($_REQUEST['start'])) {
 }
 $rows = $_REQUEST['length'] ? $_REQUEST['length'] : checkNumber(setDefault($_REQUEST['rows'], '10'));
 $return_type = checkRetrunType(strtolower(setDefault($_REQUEST['return_type'], 'JSON'))); // 구매 화폐
-$trading_type = setDefault($_REQUEST['trading_type'], ''); // '' : all, 'B':구매, 'S': 판매, 'trade': 거래 limit 제거
+$trading_type = setDefault($_REQUEST['trading_type'], ''); // '' : all, 'B':구매, 'S': 판매
 
 // 슬레이브 디비 사용하도록 설정.
 $tradeapi->set_db_link('slave');
@@ -33,11 +33,7 @@ if ($symbol == "ALL") {
     $txns = $tradeapi->get_order_list_all($userno, 'trading', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
 } else {
     // check previos address
-    if($trading_type != "trade"){
-        $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
-    }else{
-        $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, 1000, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);    
-    }
+    $txns = $tradeapi->get_order_list($userno, 'all', $symbol, $exchange, $page, $rows, $orderid, $trading_type, $order_by, $order_method, $return_type, $start_date);
     // var_dump($txns); exit;
 }
 

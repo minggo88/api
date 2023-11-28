@@ -1797,7 +1797,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     
                 }else{
                     $sql.= " ORDER BY {$order_by} {$order_method} ";
-                    //$sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
+                    $sql.= " LIMIT ".$this->escape($sn).", ".$this->escape($rows)."";
                 }
                 
 
