@@ -1947,9 +1947,10 @@ if (!defined('__LOADED_TRADEAPI__')) {
         /**
          * 물품 히스토리 등록.
          */
-        public function set_history($symbol, $sell_userno, $buy_userno, $price) {
+        public function set_history($symbol, $sell_userno, $buy_userno, $price, $trade_type) {
+            //trade_type 1: 매수, 2: 매도, 3. 물품출고
             $sql = "INSERT INTO kkikda.js_auction_goods_history (idx, active, stock_number, pack_info, seller_userno, owner_userno, exchange_info, nft_link, price)
-                SELECT idx, 'Y', stock_number, pack_info, '{$sell_userno}', '{$buy_userno}', '1', '', '{$price}'
+                SELECT idx, 'Y', stock_number, pack_info, '{$sell_userno}', '{$buy_userno}', {$trade_type}, '', '{$price}'
                 FROM js_auction_goods
                 WHERE pack_info = '{$symbol}' AND owner_userno = '{$buy_userno}'
                 ORDER BY mod_date DESC

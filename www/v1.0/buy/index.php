@@ -388,7 +388,7 @@ try {
     }
 
     //히스토리 남기기
-    $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price);
+    $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price, '1');
 
     // 알림
     if (!$trade_status_buy) {
