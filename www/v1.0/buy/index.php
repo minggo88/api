@@ -387,6 +387,9 @@ try {
         $where_confirm = $where_confirm.'5 '.$exchange.'/';
     }
 
+    //히스토리 남기기
+    $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price);
+
     // 알림
     if (!$trade_status_buy) {
         $tradeapi->put_message(2, $userno_buy,"[{$currency->name} ({$goods_grade})] {$amount} ({$volume}개) KRW 구매 대기 되었습니다.");

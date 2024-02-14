@@ -1945,6 +1945,21 @@ if (!defined('__LOADED_TRADEAPI__')) {
         }
 
         /**
+         * 물품 히스토리 등록.
+         */
+        public function set_history($symbol, $sell_userno, $buy_userno, $price) {
+            $sql = "INSERT INTO kkikda.js_auction_goods_history (idx, active, stock_number, pack_info, seller_userno, owner_userno, exchange_info, nft_link, price)
+                SELECT idx, 'Y', stock_number, pack_info, '{$sell_userno}', '{$buy_userno}', '1', '', '{$price}'
+                FROM js_auction_goods
+                WHERE pack_info = '{$symbol}' AND owner_userno = '{$buy_userno}'
+                ORDER BY mod_date DESC
+                LIMIT 1;";
+            
+            // exit($sql);
+            return $this->query($sql);
+        }
+
+        /**
          * 특정 가격의 주문내역 추출.
          */
         public function get_order_by_price($trading_type, $symbol, $exchange, $price, $userno='', $goods_grade='') {
