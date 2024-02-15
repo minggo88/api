@@ -337,7 +337,7 @@ try {
 					//$tradeapi->query_fetch_object($sql2);
 
                     //히스토리 남기기
-                    $tradeapi->set_history({$good->idx}, {$good->stock_number}, $symbol, $userno_sell, $userno_buy, $trade_price, '1');
+                    $tradeapi->set_history($good->idx, $good->stock_number, $symbol, $userno_sell, $userno_buy, $trade_price, '1');
 				}
 
 				$sql = "UPDATE js_auction_goods SET ";
