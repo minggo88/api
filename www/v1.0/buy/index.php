@@ -324,7 +324,7 @@ try {
 					$sql = "UPDATE js_auction_goods SET ";
 					$sql .= "owner_userno = '{$userno_buy}', ";
 					$sql .= "price = '{$buy_avg_price}', ";
-                    $sql .= "mod_date = NOW() "
+                    $sql .= "mod_date = NOW() ";
 					$sql .= "WHERE IDX='{$good->idx}' ";
 					$sql .= "AND owner_userno='{$userno_sell}' ;";
 								
