@@ -237,7 +237,7 @@ try {
             $tradeapi->set_quote_data($symbol, $exchange, $trade_price, $goods_grade);
 
             //히스토리 남기기
-            $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price, '2');
+            $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price, '1');
                         
             // 남은 판매량이 없으면 종료
             if( $remain_volume_sell <= 0 ) {
