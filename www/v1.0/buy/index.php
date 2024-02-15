@@ -323,17 +323,21 @@ try {
 				//업데이트 - UPDATE 쿼리 -IDX 값을 찾아야함
 					$sql = "UPDATE js_auction_goods SET ";
 					$sql .= "owner_userno = '{$userno_buy}', ";
-					$sql .= "price = '{$buy_avg_price}' ";
+					$sql .= "price = '{$buy_avg_price}', ";
+                    $sql .= "mod_date = NOW()"
 					$sql .= "WHERE IDX='{$good->idx}' ";
 					$sql .= "AND owner_userno='{$userno_sell}' ;";
 								
 					$tradeapi->query_fetch_object($sql);
 					
-					//auction_goods_history에 내용 추가
+                    
 					$sql2 = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
 					$sql2 .= "VALUES('{$good->idx}', 'Y', '{$good->stock_number}', '{$symbol}', '{$userno_sell}', '{$userno_buy}', '', '1', '{$trade_price}');";
 					
 					$tradeapi->query_fetch_object($sql2);
+
+                    //히스토리 남기기
+                    $tradeapi->set_history($symbol, $userno_sell, $buy_userno, $trade_price, '2');
 				}
 
 				$sql = "UPDATE js_auction_goods SET ";
