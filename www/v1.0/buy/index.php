@@ -323,8 +323,7 @@ try {
 				//업데이트 - UPDATE 쿼리 -IDX 값을 찾아야함
 					$sql = "UPDATE js_auction_goods SET ";
 					$sql .= "owner_userno = '{$userno_buy}', ";
-					$sql .= "price = '{$buy_avg_price},' ";
-                    $sql .= "mod_date = NOW() ";
+					$sql .= "price = '{$buy_avg_price}' ";
 					$sql .= "WHERE IDX='{$good->idx}' ";
 					$sql .= "AND owner_userno='{$userno_sell}' ;";
 								
