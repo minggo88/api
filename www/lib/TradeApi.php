@@ -1945,7 +1945,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
         }
 
         /**
-         * 물품 히스토리 등록.
+         * 물품 히스토리 등록.  오류로 사용안함
          */
         public function set_history($idx='', $stock_number='', $symbol, $sell_userno, $buy_userno, $price, $trade_type) {
             $sql = "";

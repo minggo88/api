@@ -235,10 +235,7 @@ try {
 
             // 호가 데이터 갱신 - 거래가에 호가 갱신.
             $tradeapi->set_quote_data($symbol, $exchange, $trade_price, $goods_grade);
-
-            //히스토리 남기기
-            $tradeapi->set_history($symbol, $userno_sell, $userno_buy, $trade_price, '1');
-                        
+            
             // 남은 판매량이 없으면 종료
             if( $remain_volume_sell <= 0 ) {
                 break;

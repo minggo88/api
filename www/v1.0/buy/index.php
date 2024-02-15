@@ -331,13 +331,10 @@ try {
 					$tradeapi->query_fetch_object($sql);
 					
                     
-					//$sql2 = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
-					//$sql2 .= "VALUES('{$good->idx}', 'Y', '{$good->stock_number}', '{$symbol}', '{$userno_sell}', '{$userno_buy}', '', '1', '{$trade_price}');";
+					$sql2 = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
+					$sql2 .= "VALUES('{$good->idx}', 'Y', '{$good->stock_number}', '{$symbol}', '{$userno_sell}', '{$userno_buy}', '', '1', '{$trade_price}');";
 					
-					//$tradeapi->query_fetch_object($sql2);
-
-                    //히스토리 남기기
-                    $tradeapi->set_history($good->idx, $good->stock_number, $symbol, $userno_sell, $userno_buy, $trade_price, '1');
+					$tradeapi->query_fetch_object($sql2);
 				}
 
 				$sql = "UPDATE js_auction_goods SET ";
