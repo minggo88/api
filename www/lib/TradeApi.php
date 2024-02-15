@@ -1951,10 +1951,10 @@ if (!defined('__LOADED_TRADEAPI__')) {
             $sql = "";
             //trade_type 1: 거래, 3. 반출
             if($idx != ''){
-                $sql = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
-                $sql .= "VALUES('{$idx}', 'Y', '{$stock_number}', '{$symbol}', '{$sell_userno}', '{$buy_userno}', '', '{$trade_type}', '{$price}');";
+                $sql = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price) ";
+                $sql .= " VALUES('{$idx}', 'Y', '{$stock_number}', '{$symbol}', '{$sell_userno}', '{$buy_userno}', '', '{$trade_type}', '{$price}');";
             }else{
-                $sql = "INSERT INTO kkikda.js_auction_goods_history (idx, active, stock_number, pack_info, seller_userno, owner_userno, exchange_info, nft_link, price)
+                $sql = "INSERT INTO kkikda.js_auction_goods_history (idx, active, stock_number, pack_info, seller_userno, owner_userno, exchange_info, nft_link, price) 
                 SELECT idx, 'Y', stock_number, pack_info, '{$sell_userno}', '{$buy_userno}', {$trade_type}, '', '{$price}'
                 FROM js_auction_goods
                 WHERE pack_info = '{$symbol}' AND owner_userno = '{$buy_userno}'
