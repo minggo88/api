@@ -1801,7 +1801,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                 }
                 
 
-                exit($sql);
+                // exit($sql);
                 $r = $this->query_list_object($sql);
                 for($i=0 ; $i<count($r) ; $i++) {
                     $r[$i]->volume = number_format($r[$i]->volume, 5, '.', '');
@@ -1815,8 +1815,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                         'data'    => $r,
                         'draw' => $_REQUEST['draw']*1,
                         'recordsFiltered' => $cnt,
-                        'recordsTotal' => $cnt,
-                        'sql' => $sql
+                        'recordsTotal' => $cnt
                     );
                 } else { // 기본 배열 리턴
                     $result = $r;
