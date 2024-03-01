@@ -1728,7 +1728,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $table1 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_ordertxn';
                     $table2 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_txn';
 
-                    $sql.= " SELECT 
+                    /*$sql.= " SELECT 
                             t.orderid,
                             t.userno,
                             IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
@@ -1738,6 +1738,31 @@ if (!defined('__LOADED_TRADEAPI__')) {
                             CASE WHEN t.trading_type='B' THEN 'buy' ELSE 'sell' END AS trading_type,
                             '{$wallet[$i]->symbol}' AS symbol, '{$exchange}' AS exchange,
                             t.price,
+                            t.volume,
+                            t.volume_remain,
+                            CASE 
+                                WHEN t.status='C' THEN 'close' 
+                                WHEN t.status='O' THEN 'open' 
+                                WHEN t.status='D' THEN 'cancel' 
+                                ELSE 'trading' END AS status ,
+                            UNIX_TIMESTAMP(t.time_traded) AS time_traded,
+                            t.goods_grade,
+                            (select meta_val from js_auction_goods_meta where goods_idx = '{$wallet[$i]->symbol}' and meta_key = 'meta_wp_production_date')  as production_date,
+                            IFNULL(t2.fee, 0)       AS fee,
+                            amount-(IFNULL(t2.fee, 0))           AS settl_price,
+                            (SELECT `name` FROM js_trade_currency WHERE symbol='{$wallet[$i]->symbol}') as currency_name,
+                            t.status as tstatus ";*/
+
+                    $sql.= " SELECT 
+                            t.orderid,
+                            t.userno,
+                            IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
+                            t.address,
+                            t.amount,
+                            UNIX_TIMESTAMP(t.time_order) AS time_order,
+                            CASE WHEN t.trading_type='B' THEN 'buy' ELSE 'sell' END AS trading_type,
+                            '{$wallet[$i]->symbol}' AS symbol, '{$exchange}' AS exchange,
+                            CASE WHEN t2.price IS NULL THEN t.price ELSE t2.price END AS price,
                             t.volume,
                             t.volume_remain,
                             CASE 
