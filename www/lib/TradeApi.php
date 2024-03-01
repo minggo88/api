@@ -1758,12 +1758,12 @@ if (!defined('__LOADED_TRADEAPI__')) {
                             t.userno,
                             IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
                             t.address,
-                            t.amount,
+                            IFNULL((CASE WHEN t2.price IS NULL THEN t.price ELSE t2.price END) * t2.volume, 0) AS amount,
                             UNIX_TIMESTAMP(t.time_order) AS time_order,
                             CASE WHEN t.trading_type='B' THEN 'buy' ELSE 'sell' END AS trading_type,
                             '{$wallet[$i]->symbol}' AS symbol, '{$exchange}' AS exchange,
                             CASE WHEN t2.price IS NULL THEN t.price ELSE t2.price END AS price,
-                            t.volume,
+                            COALESCE(t2.volume, 0) AS volume,
                             t.volume_remain,
                             CASE 
                                 WHEN t.status='C' THEN 'close' 
