@@ -1728,7 +1728,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                     $table1 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_ordertxn';
                     $table2 = 'js_trade_'.strtolower($wallet[$i]->symbol).strtolower($exchange).'_txn';
 
-                    /*$sql.= " SELECT 
+                    $sql.= " SELECT 
                             t.orderid,
                             t.userno,
                             IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
@@ -1751,9 +1751,9 @@ if (!defined('__LOADED_TRADEAPI__')) {
                             IFNULL(t2.fee, 0)       AS fee,
                             amount-(IFNULL(t2.fee, 0))           AS settl_price,
                             (SELECT `name` FROM js_trade_currency WHERE symbol='{$wallet[$i]->symbol}') as currency_name,
-                            t.status as tstatus ";*/
+                            t.status as tstatus ";
 
-                    $sql.= " SELECT 
+                    /*$sql.= " SELECT 
                             t.orderid,
                             t.userno,
                             IF(t.userno='{$login_userno}', 'Y', 'N') my_order, 
@@ -1777,6 +1777,7 @@ if (!defined('__LOADED_TRADEAPI__')) {
                             amount-(IFNULL(t2.fee, 0))           AS settl_price,
                             (SELECT `name` FROM js_trade_currency WHERE symbol='{$wallet[$i]->symbol}') as currency_name,
                             t.status as tstatus ";
+                    */
 
                     $sql.= " FROM {$table} t FORCE INDEX(userno, PRIMARY)  
                                 LEFT JOIN {$table1} t1 on t.orderid=t1.orderid
