@@ -103,7 +103,9 @@ $tradeapi->transaction_start();
 $tradeapi->del_wallet($userno, $symbol, $amount);
 
 // 출금 신청.
-$tradeapi->save_withdraw($userno, $symbol, $real_amount, $fee, $to_address, $from_address, __('Member requested withdrawal.'));
+//앞단에서 fee 계산하고 들어왔기때문에 수정
+//$tradeapi->save_withdraw($userno, $symbol, $real_amount, $fee, $to_address, $from_address, __('Member requested withdrawal.'));
+$tradeapi->save_withdraw($userno, $symbol, $amount, $fee, $to_address, $from_address, __('Member requested withdrawal.'));
 
 // 성공시 commit
 $tradeapi->transaction_end('commit');
