@@ -24,10 +24,10 @@ $goods_grade = checkEmpty($_REQUEST['goods_grade'], 'goods_grade'); // 상품등
 //     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
 // }
 // 매매 설정 확인
-$config_basic = $tradeapi->get_config('js_config_basic');
+/*$config_basic = $tradeapi->get_config('js_config_basic');
 if($config_basic->bool_trade!='1') {
     $tradeapi->error('100', '매매시간이 아닙니다. 평일 오전 9에서 오후 6시 사이에 매매해주세요.');
-}
+}*/
 
 // 소숫점 4자리까지 수량을 쓸 수 있도록 하기.
 // $d = $volume - floor($volume);
@@ -235,6 +235,36 @@ try {
 
             // 호가 데이터 갱신 - 거래가에 호가 갱신.
             $tradeapi->set_quote_data($symbol, $exchange, $trade_price, $goods_grade);
+            
+            //거래내역 auction_goods 등록 및 history 등록
+            $goods_info = $tradeapi->query_fetch_object("SELECT g.idx goods_idx, g.*  FROM js_auction_goods g WHERE idx='{$symbol}' ");
+
+            // pack일 경우
+            if ($goods_info->pack_info=='Y') {
+				//IDX값 모두 가져오기
+				$t_volume = $trade_volume *1;
+				$sql = "SELECT * FROM js_auction_goods WHERE pack_info='{$goods_info->idx}' and owner_userno='{$userno_sell}' limit  {$t_volume} ";
+				
+				$goods_remain_list =  $tradeapi->query_list_object($sql);
+						
+				foreach ($goods_remain_list as $good) {
+				//업데이트 - UPDATE 쿼리 -IDX 값을 찾아야함
+					$sql = "UPDATE js_auction_goods SET ";
+					$sql .= "owner_userno = '{$userno_buy}', ";
+					$sql .= "price = '{$trade_price}', ";
+                    $sql .= "mod_date = NOW() ";
+					$sql .= "WHERE IDX='{$good->idx}' ";
+					$sql .= "AND owner_userno='{$userno_sell}' ;";
+								
+					$tradeapi->query_fetch_object($sql);
+					
+					//auction_goods_history에 내용 추가
+					$sql2 = "INSERT INTO kkikda.js_auction_goods_history(idx, active, stock_number, pack_info, seller_userno, owner_userno,  nft_link, exchange_info, price)";
+					$sql2 .= "VALUES('{$good->idx}', 'Y', '{$good->stock_number}', '{$symbol}', '{$userno_sell}', '{$userno_buy}', '', '1', '{$trade_price}');";
+					
+					$tradeapi->query_fetch_object($sql2);
+				}
+            }
 
             // 남은 판매량이 없으면 종료
             if( $remain_volume_sell <= 0 ) {
