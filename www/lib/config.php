@@ -138,6 +138,42 @@ if (!defined('__DB_INFO__')) {
                 'smtp_password' => 'uzhdrdcexqhqgwdj'
             );
             break;
+        case 'dev_ys':
+            $_db_info = array(
+                'master' => array(
+                    'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
+                    'username' => 'ext',
+                    'password' => 'ext1234!@',
+                    'charset' => 'utf8mb4',
+                    'database' => 'ext'
+                ),
+                'slave' => array(
+                    array(
+                        'host' => 'kkikda-dev.catyypkt8dey.ap-northeast-2.rds.amazonaws.com',
+                        'username' => 'ext',
+                        'password' => 'ext1234!@',
+                        'charset' => 'utf8mb4',
+                        'database' => 'ext'
+                    )
+                )
+            );
+            $_memcache_info = array(
+                'host' => 'kkikdacache-dev.a12ygy.cfg.apn2.cache.amazonaws.com',
+                'port' => '11211',
+            );
+            $_google_drive_target_folderid = '1BWHSK6ofmXWi6kUgewJlGJ-T8psue72y';
+            $_google_drive_credentialsFile = 'google_drive_credentials_dev.json';
+            $_twitter_api = array(
+                'CONSUMER_KEY' => 'WZzjf9mUcmxUK0m1oHNZZZkQH',
+                'CONSUMER_SECRET' => 'ww4XvC9tg9DUrLRv9Wujr7SepMTOTqdgqE6MQFh193Oh4I4xaL',
+                'ACCESS_TOKEN' => '1458659640611581952-2lgGtgUeXGvlsiR1pNGdKokhVjQQHN',
+                'ACCESS_TOKEN_SECRET' => '0eJEwaAmtWGdVdqmqBldBjjZKZQ0L1Li5ZL8vbZXfjKYH',
+            );
+            $_gmail_account = array(
+                'smtp_username' => 'info.teaplate@gmail.com',
+                'smtp_password' => 'uzhdrdcexqhqgwdj'
+            );
+            break;
         case 'live':
             $_db_info = array(
                 'master' => array(
