@@ -29,7 +29,7 @@ $exchangeapi->set_db_link('master');
 
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
-// 가입
+// 전체데이터 가져오기
 
 $sql = " SELECT 
 			sms_index, 
