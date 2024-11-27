@@ -15,7 +15,7 @@ $exchangeapi->write_log("REQUEST: " . json_encode($_REQUEST));
 
 
 // 거래소 api는 토큰을 전달 받을때만 작동하도록 되어 있어서 로그인시 token을 생성해 줍니다.
-// $exchangeapi->token = session_create_id();
+$exchangeapi->token = session_create_id();
 session_start();
 session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
