@@ -1,15 +1,6 @@
 <?php
-include dirname(__file__) . "/../../lib/ExchangeApi.php";
-// if($_SERVER['REMOTE_ADDR']!='61.74.240.65') {$exchangeapi->error('001','시스템 정검중입니다.');}
-$exchangeapi->set_logging(true);
-// $exchangeapi->set_log_dir(__dir__.'/../../log/'.basename(__dir__).'/');
-// if(__API_RUNMODE__=='live'||__API_RUNMODE__=='loc') {
-	$exchangeapi->set_log_dir($exchangeapi->log_dir.'/'.basename(__dir__).'/');
-// } else {
-	// $exchangeapi->set_log_dir(__dir__.'/');
-// }
-$exchangeapi->set_log_name('');
-$exchangeapi->write_log("REQUEST: " . json_encode($_REQUEST));
+include dirname(__file__) . "/../../lib/TradeApi.php";
+
 
 // -------------------------------------------------------------------- //
 
@@ -25,12 +16,9 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 // --------------------------------------------------------------------------- //
 
 // 마스터 디비 사용하도록 설정.
-$exchangeapi->set_db_link('master');
-
-$exchangeapi->transaction_start();// DB 트랜젝션 시작
+$tradeapi->set_db_link('slave');
 
 // 전체데이터 가져오기
-
 $sql = " SELECT 
 			sms_index, 
 			CASE 
