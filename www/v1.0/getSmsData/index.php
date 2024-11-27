@@ -49,9 +49,9 @@ $sql = " SELECT
 			sms.call = cu.c_call
 		WHERE 
 			complete <> 'D'
-		ORDER BY 
-			complete = 'N' DESC,
-			sms_index desc;";
+		ORDER BY  
+			complete = 'N' DESC, 
+			sms_index DESC";
 
 $sms_data = $tradeapi->query_list_object($sql);
 
