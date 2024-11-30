@@ -21,11 +21,6 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
 // 로그인 세션 확인.
 // $exchangeapi->checkLogout();
-add_name: c_name,
-                add_call: c_call,
-                add_address1: c_address1,
-                add_address2: c_address2
-
 
 $c_name = setDefault(loadParam('add_name'), '');
 $c_call = setDefault(loadParam('add_call'), '');
