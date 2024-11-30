@@ -27,10 +27,6 @@ $c_address2 = setDefault(loadParam('up_address2'), '');
 
 // 가입
 
-$sql = " UPDATE `kkikda`.`js_test_manager` 
-			SET `m_name`='$m_name' , `m_call`='$m_call' , `m_id`='$m_id' , `m_password`='$m_password' 
-			WHERE  `m_index`='$m_index';";
-
 $sql = " UPDATE `kkikda`.`js_test_customer` 
 			SET `c_name`='$c_name', `c_call`='$c_call', `c_address1`='$c_address1', `c_address2`='$c_address2' 
 			WHERE  `test_customer_index`='$c_index';";
