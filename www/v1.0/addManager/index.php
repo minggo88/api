@@ -8,16 +8,6 @@ $exchangeapi->set_logging(true);
 // } else {
 	// $exchangeapi->set_log_dir(__dir__.'/');
 // }
-$exchangeapi->set_log_name('');
-$exchangeapi->write_log("REQUEST: " . json_encode($_REQUEST));
-
-// -------------------------------------------------------------------- //
-
-
-// 거래소 api는 토큰을 전달 받을때만 작동하도록 되어 있어서 로그인시 token을 생성해 줍니다.
-// $exchangeapi->token = session_create_id();
-session_start();
-session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
 // 로그인 세션 확인.
 // $exchangeapi->checkLogout();
@@ -31,23 +21,23 @@ $m_use = setDefault(loadParam('add_use'), '');
 
 // --------------------------------------------------------------------------- //
 
-// 마스터 디비 사용하도록 설정.
-$exchangeapi->set_db_link('master');
+$exchangeapi->token = session_create_id();
+session_start();
+session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
-$exchangeapi->transaction_start();// DB 트랜젝션 시작
+// 로그인 세션 확인.
+// $exchangeapi->checkLogout();
+
+// --------------------------------------------------------------------------- //
+
+// 마스터 디비 사용하도록 설정.
+$tradeapi->set_db_link('slave');
 
 // 가입
 
-$sql = " INSERT INTO `kkikda`.`js_test_sms` (`call`, `tvalue`) VALUES ('$mobile', '$text') ";
 $sql = " INSERT INTO `kkikda`.`js_test_manager` (`m_id`, `m_password`, `m_name`, `m_call`, `m_use`) 
-VALUES ('$m_id', '$m_password', '$m_name', '$m_call', '$m_use');";
+		VALUES ('$m_id', '$m_password', '$m_name', '$m_call', '$m_use');";
 
-$exchangeapi->query($sql);
-$member = $exchangeapi->get_member_info_by_userid($userid);
+$sms_data = $tradeapi->query_list_object($sql);
 
-
-$exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
-
-
-// response
-$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
+$tradeapi->success($sms_data);
