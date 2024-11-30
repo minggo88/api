@@ -23,7 +23,7 @@ $sql = " SELECT m_index, m_name, m_call, m_id, m_password, m_use
 			FROM js_test_manager
 			ORDER BY 
 				m_use = 'Y' DESC,
-				m_name DESC;";
+				m_name ASC;";
 
 $sms_data = $tradeapi->query_list_object($sql);
 
