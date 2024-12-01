@@ -1,5 +1,6 @@
 <?php
-include dirname(__file__) . "/../../lib/ExchangeApi.php";
+include dirname(__file__) . "/../../lib/TradeApi.php";
+$exchangeapi->token = session_create_id();
 
 function sendSMS($to, $message) {
 	// 한국 전화번호를 +82 형식으로 변환
@@ -42,15 +43,7 @@ function sendSMS($to, $message) {
 }
 
 // if($_SERVER['REMOTE_ADDR']!='61.74.240.65') {$exchangeapi->error('001','시스템 정검중입니다.');}
-$exchangeapi->set_logging(true);
-// $exchangeapi->set_log_dir(__dir__.'/../../log/'.basename(__dir__).'/');
-// if(__API_RUNMODE__=='live'||__API_RUNMODE__=='loc') {
-	$exchangeapi->set_log_dir($exchangeapi->log_dir.'/'.basename(__dir__).'/');
-// } else {
-	// $exchangeapi->set_log_dir(__dir__.'/');
-// }
-$exchangeapi->set_log_name('');
-$exchangeapi->write_log("REQUEST: " . json_encode($_REQUEST));
+$tradeapi->set_db_link('slave');
 
 // -------------------------------------------------------------------- //
 
@@ -75,35 +68,22 @@ $c_sendtext = setDefault(loadParam('c_sendtext'), '');
 
 // --------------------------------------------------------------------------- //
 
-// 마스터 디비 사용하도록 설정.
-$exchangeapi->set_db_link('master');
-
-$exchangeapi->transaction_start();// DB 트랜젝션 시작
-
-// 가입
 $sql = " UPDATE `kkikda`.`js_test_order` 
 			SET `complete`='Y', 'complete_manager' = '1'
 			WHERE  `sms_index`='$c_index';";
 
-$exchangeapi->query($sql);
-
-$member = $exchangeapi->get_member_info_by_userid($userid);
+$u_data = $tradeapi->query_list_object($sql);
 
 $sql2 = " INSERT INTO `kkikda`.`js_test_order` (`call`, `order_item`, `order_num`, `address`, `order_manager`) 
 			VALUES ('$c_call', '$c_order', $c_ordernum, '$c_address1', '1');
 		";
 
-$exchangeapi->query($sql2);
-
-$member = $exchangeapi->get_member_info_by_userid($userid);
-
-$exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
+$u2_data = $tradeapi->query_list_object($sql2);
 
 sendSMS($c_call, $c_sendtext);
 
-// response
-$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
 
+$tradeapi->success($u2_data);
 
 
 
