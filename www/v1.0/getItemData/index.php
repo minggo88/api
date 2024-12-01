@@ -13,17 +13,24 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 // 로그인 세션 확인.
 // $exchangeapi->checkLogout();
 
+$type_num = setDefault(loadParam('type_num'), '');
 // --------------------------------------------------------------------------- //
 
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('slave');
 
 // 전체데이터 가져오기
-$sql = " SELECT itemtype_index AS itype_index, itype_name from js_test_item_type 
-		ORDER BY  
-			itemtype_index ASC";
+$sql = " SELECT item_index, i_value 
+	FROM js_test_item 
+	WHERE 1=1 ";
+if($type_num != '') {
+	$sql .= " AND i_type = '$type_num' ";
+}
 
-$itemtype_data = $tradeapi->query_list_object($sql);
+$sql .= " ORDER BY i_value ASC;";
+		
+	
+$item_data = $tradeapi->query_list_object($sql);
 
-$tradeapi->success($itemtype_data);
+$tradeapi->success($item_data);
 
