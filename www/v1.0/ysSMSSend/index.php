@@ -1,4 +1,5 @@
 <?php
+include dirname(__file__) . "/../../lib/TradeApi.php";
 
 function sendSMS($to, $message) {
 	// 한국 전화번호를 +82 형식으로 변환
@@ -55,15 +56,15 @@ $message = setDefault(loadParam('message'), '테스트입니다.');
 
 //sendSMS($call, $message);
 
-if(! $tradeapi->send_sms($call, $call)) {
-	$tradeapi->error('037', __('Failed to send confirm code.'));
+// response
+
+$r = $tradeapi->send_sms($call, $message);
+if(!$r) {
+	$tradeapi->error('210', $tradeapi->send_sms_error_msg);
 }
 
+
 // response
-$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
-
-
-
-// 사용 예제
+$tradeapi->success($r);
 
 ?>
