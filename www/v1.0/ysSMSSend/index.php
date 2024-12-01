@@ -53,7 +53,11 @@ $message = setDefault(loadParam('message'), '테스트입니다.');
 
 // 마스터 디비 사용하도록 설정.
 
-sendSMS($call, $message);
+//sendSMS($call, $message);
+
+if(! $tradeapi->send_sms($call, $call)) {
+	$tradeapi->error('037', __('Failed to send confirm code.'));
+}
 
 // response
 $exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
