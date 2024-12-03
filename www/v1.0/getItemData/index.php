@@ -23,10 +23,7 @@ $tradeapi->set_db_link('slave');
 $sql = " SELECT item_index, i_value 
 	FROM js_test_item 
 	WHERE 1=1 ";
-if($type_num != '') {
-	$sql .= " AND i_type = '$type_num' ";
-}
-
+$sql .= " AND i_type = '$type_num' ";
 $sql .= " ORDER BY i_value ASC;";
 		
 	

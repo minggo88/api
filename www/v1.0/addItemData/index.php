@@ -22,8 +22,8 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 // 로그인 세션 확인.
 // $exchangeapi->checkLogout();
 
-$c_index = setDefault(loadParam('c_index'), '');
-$c_text = setDefault(loadParam('c_text'), '');
+$a_Index = setDefault(loadParam('add_index'), '');
+$a_text = setDefault(loadParam('add_text'), '');
 
 
 
@@ -35,10 +35,8 @@ $exchangeapi->set_db_link('master');
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
 // 가입
-
-$sql = " UPDATE `kkikda`.`js_test_item_type`  
-			SET `itype_name`='$c_text'  
-			WHERE  `itemtype_index`='$c_index';";
+$sql = " INSERT INTO `kkikda`.`js_test_item` (`i_type`, `i_value`) 
+		VALUES ('$a_Index', '$a_text'); ";
 
 $exchangeapi->query($sql);
 
