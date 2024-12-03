@@ -24,7 +24,7 @@ $sql = " SELECT endt_index, endt_text
 	FROM js_test_end_text 
 	WHERE 1=1 ";
 //$sql .= " AND i_type = '$type_num' ";
-$sql .= " ORDER BY itype_name ASC;";
+$sql .= " ORDER BY endt_text ASC;";
 		
 	
 $text_data = $tradeapi->query_list_object($sql);
