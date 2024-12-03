@@ -36,9 +36,9 @@ $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
 // 가입
 
-$sql = " UPDATE `kkikda`.`js_test_item`  
+$sql = " UPDATE `kkikda`.`js_test_item`   
 			SET `i_value`='$c_text'  
-			WHERE  `item_index`='$c_index';";
+			WHERE  `item_index`='$c_index'; ";
 
 $exchangeapi->query($sql);
 
