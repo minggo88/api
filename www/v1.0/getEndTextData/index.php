@@ -20,7 +20,7 @@ $type_num = setDefault(loadParam('type_num'), '');
 $tradeapi->set_db_link('slave');
 
 // 전체데이터 가져오기
-$sql = " SELECT itemtype_index, itype_name 
+$sql = " SELECT endt_index, endt_text 
 	FROM js_test_end_text 
 	WHERE 1=1 ";
 //$sql .= " AND i_type = '$type_num' ";
