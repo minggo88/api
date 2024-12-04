@@ -41,7 +41,6 @@ $sql = " SELECT
 			complete <> 'D'
 			AND sms.CALL = (SELECT ys_sms.call FROM js_test_sms AS ys_sms WHERE sms_index = '$s_index')
 		ORDER BY  
-			complete = 'N' DESC, 
 			sms_index DESC";
 
 $sms_data = $tradeapi->query_list_object($sql);
