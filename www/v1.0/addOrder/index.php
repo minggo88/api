@@ -23,9 +23,9 @@ $dataArray = setDefault(loadParam('dataArray'), '');
 $exchangeapi->set_db_link('master');
 
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
-foreach ($dataArray as $data) {
-	$send_name: $data['send_name'];
-}
+
+//$send_name: $data$data['send_name'];
+
 /*
 // 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
 foreach ($dataArray as $data) {
@@ -56,5 +56,5 @@ $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 // response
 $exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
 */
-$exchangeapi->success($send_name);
+$exchangeapi->success($dataArray[0]['send_name']);
 // --------------------------------------------------------------------------- //
