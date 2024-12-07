@@ -24,7 +24,7 @@ $exchangeapi->set_db_link('master');
 
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
-
+/*
 $send_name: $dataArray['send_name'];
 $send_call: $dataArray['send_call'];
 $send_address: $dataArray['send_address'];
@@ -40,7 +40,7 @@ $receive_address : $dataArray['receive_address'];
 
 $insert_sql = " INSERT INTO kkikda.js_test_order (payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
 	VALUES('$payment_type', '$payment', '$payment_name', '$item_cnt', '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num');";
-
+*/
 //$exchangeapi->query($insert_sql);
 
 $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
@@ -48,6 +48,6 @@ $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 // response
 //$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
-$exchangeapi->success(array($insert_sql));
+$exchangeapi->success(array($dataArray));
 
 // --------------------------------------------------------------------------- //
