@@ -24,37 +24,32 @@ $exchangeapi->set_db_link('master');
 
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
-//$send_name: $data$data['send_name'];
 
-/*
-// 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
-foreach ($dataArray as $data) {
-	$send_name: $data['send_name'];
-	$send_call: $data['send_call'];
-	$send_address: $data['send_address'];
-	$payment_type: $data['payment_type'];
-	$payment: $data['payment'];
-	$payment_name: $data['payment_name'];
-	$item : $data['item'];
-	$item_cnt : $data['item_cnt'];
-	$receive_name : $data['receive_name'];
-	$receive_call : $data['receive_call'];
-	$receive_address_num : $data['receive_address_num'];
-	$receive_address : $data['receive_address'];
+$send_name: $dataArray[0]['send_name'];
+$send_call: $dataArray[0]['send_call'];
+$send_address: $dataArray[0]['send_address'];
+$payment_type: $dataArray[0]['payment_type'];
+$payment: $dataArray[0]['payment'];
+$payment_name: $dataArray[0]['payment_name'];
+$item : $dataArray[0]['item'];
+$item_cnt : $dataArray[0]['item_cnt'];
+$receive_name : $dataArray[0]['receive_name'];
+$receive_call : $dataArray[0]['receive_call'];
+$receive_address_num : $dataArray[0]['receive_address_num'];
+$receive_address : $dataArray[0]['receive_address'];
 
-	$insert_sql = " INSERT INTO kkikda.js_test_order 
-		(payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
-		VALUES('$payment_type', '$payment', '$payment_name', $item_cnt, '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num');";
-	
-	$exchangeapi->query($insert_sql);
-	$r['msg'] = 'check : '.$text;
-};
+$insert_sql = " INSERT INTO kkikda.js_test_order 
+	(payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
+	VALUES('$payment_type', '$payment', '$payment_name', $item_cnt, '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num');";
+
+$exchangeapi->query($insert_sql);
+$r['msg'] = 'check : '.$text;
+
 
 $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 
 // response
 $exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
-*/
-$exchangeapi->success($dataArray[0]['send_name']);
+
 // --------------------------------------------------------------------------- //
