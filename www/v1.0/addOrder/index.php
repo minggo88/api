@@ -25,18 +25,18 @@ $exchangeapi->set_db_link('master');
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
 
 
-$send_name: $dataArray[0]['send_name'];
-$send_call: $dataArray[0]['send_call'];
-$send_address: $dataArray[0]['send_address'];
-$payment_type: $dataArray[0]['payment_type'];
-$payment: $dataArray[0]['payment'];
-$payment_name: $dataArray[0]['payment_name'];
-$item : $dataArray[0]['item'];
-$item_cnt : $dataArray[0]['item_cnt'];
-$receive_name : $dataArray[0]['receive_name'];
-$receive_call : $dataArray[0]['receive_call'];
-$receive_address_num : $dataArray[0]['receive_address_num'];
-$receive_address : $dataArray[0]['receive_address'];
+$send_name: $dataArray['send_name'];
+$send_call: $dataArray['send_call'];
+$send_address: $dataArray['send_address'];
+$payment_type: $dataArray['payment_type'];
+$payment: $dataArray['payment'];
+$payment_name: $dataArray['payment_name'];
+$item : $dataArray['item'];
+$item_cnt : $dataArray['item_cnt'];
+$receive_name : $dataArray['receive_name'];
+$receive_call : $dataArray['receive_call'];
+$receive_address_num : $dataArray['receive_address_num'];
+$receive_address : $dataArray['receive_address'];
 
 $insert_sql = " INSERT INTO kkikda.js_test_order (payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
 	VALUES('$payment_type', '$payment', '$payment_name', '$item_cnt', '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num');";
