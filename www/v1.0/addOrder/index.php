@@ -27,17 +27,17 @@ $exchangeapi->transaction_start();// DB 트랜젝션 시작
 // 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
 foreach ($dataArray as $data) {
 	$send_name: $data['send_name'];
-	$send_call: $data['send_name'];
-	$send_address: $data['send_name'];
-	$payment_type: $data['send_name'];
-	$payment: $data['send_name'];
-	$payment_name: $data['send_name'];
-	$item : $data['send_name'];
-	$item_cnt : $data['send_name'];
-	$receive_name : $data['send_name'];
-	$receive_call : $data['send_name'];
-	$receive_address_num : $data['send_name'];
-	$receive_address : $data['send_name'];
+	$send_call: $data['send_call'];
+	$send_address: $data['send_address'];
+	$payment_type: $data['payment_type'];
+	$payment: $data['payment'];
+	$payment_name: $data['payment_name'];
+	$item : $data['item'];
+	$item_cnt : $data['item_cnt'];
+	$receive_name : $data['receive_name'];
+	$receive_call : $data['receive_call'];
+	$receive_address_num : $data['receive_address_num'];
+	$receive_address : $data['receive_address'];
 
 	$insert_sql = " INSERT INTO kkikda.js_test_order 
 		(payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
