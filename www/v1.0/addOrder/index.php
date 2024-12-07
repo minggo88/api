@@ -1,9 +1,10 @@
 <?php
 include dirname(__file__) . "/../../lib/TradeApi.php";
 // if($_SERVER['REMOTE_ADDR']!='61.74.240.65') {$exchangeapi->error('001','시스템 정검중입니다.');}
-$exchangeapi->token = session_create_id();
-session_start();
-session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
+$tradeapi->set_logging(true);
+$tradeapi->set_log_dir(__dir__.'/../../log/'.basename(__dir__).'/');
+$tradeapi->set_log_name('');
+$tradeapi->write_log("REQUEST: " . json_encode($_REQUEST));
 
 // -------------------------------------------------------------------- //
 
