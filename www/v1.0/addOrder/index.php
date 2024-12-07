@@ -20,10 +20,13 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 $dataArray = setDefault(loadParam('dataArray'), '');
 // 이제 PHP에서 $dataArray를 원하는 방식으로 처리할 수 있습니다.
 
-/*$exchangeapi->set_db_link('master');
+$exchangeapi->set_db_link('master');
 
 $exchangeapi->transaction_start();// DB 트랜젝션 시작
-
+foreach ($dataArray as $data) {
+	$send_name: $data['send_name'];
+}
+/*
 // 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
 foreach ($dataArray as $data) {
 	$send_name: $data['send_name'];
@@ -53,5 +56,5 @@ $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 // response
 $exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
 */
-$exchangeapi->success($dataArray);
+$exchangeapi->success($send_name);
 // --------------------------------------------------------------------------- //
