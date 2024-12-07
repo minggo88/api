@@ -21,49 +21,42 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
 // 로그인 세션 확인.
 // $exchangeapi->checkLogout();
+$dataArray = setDefault(loadParam('dataArray'), '');
 
-// POST 요청으로부터 데이터 배열 받기
-if (isset($_POST['dataArray'])) {
-    // 전달받은 데이터 배열 저장
-    $dataArray = $_POST['dataArray'];
+// 이제 PHP에서 $dataArray를 원하는 방식으로 처리할 수 있습니다.
 
-    // 이제 PHP에서 $dataArray를 원하는 방식으로 처리할 수 있습니다.
-    
-    // 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
-    foreach ($dataArray as $data) {
-		$send_name: $data['send_name'];
-		$send_call: $data['send_name'];
-		$send_address: $data['send_name'];
-		$payment_type: $data['send_name'];
-		$payment: $data['send_name'];
-		$payment_name: $data['send_name'];
-		$item : $data['send_name'];
-		$item_cnt : $data['send_name'];
-		$receive_name : $data['send_name'];
-		$receive_call : $data['send_name'];
-		$receive_address_num : $data['send_name'];
-		$receive_address : $data['send_name'];
+// 예를 들어, 각 데이터 항목에 접근하여 처리하는 방법:
+foreach ($dataArray as $data) {
+	$send_name: $data['send_name'];
+	$send_call: $data['send_name'];
+	$send_address: $data['send_name'];
+	$payment_type: $data['send_name'];
+	$payment: $data['send_name'];
+	$payment_name: $data['send_name'];
+	$item : $data['send_name'];
+	$item_cnt : $data['send_name'];
+	$receive_name : $data['send_name'];
+	$receive_call : $data['send_name'];
+	$receive_address_num : $data['send_name'];
+	$receive_address : $data['send_name'];
 
-        $insert_sql = " INSERT INTO kkikda.js_test_order 
-			(payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num, send_date, box_cnt, receive_code, send_type, move, send_message) 
-			VALUES('$payment_type', '$payment', '$payment_name', $item_cnt, '$item', '$send_name', '$send_call', '$send_call', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num', 'N', 0, 'N', 'N', 'N', 'N');";
+	$insert_sql = " INSERT INTO kkikda.js_test_order 
+		(payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num, send_date, box_cnt, receive_code, send_type, move, send_message) 
+		VALUES('$payment_type', '$payment', '$payment_name', $item_cnt, '$item', '$send_name', '$send_call', '$send_call', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num', 'N', 0, 'N', 'N', 'N', 'N');";
 
-		// 마스터 디비 사용하도록 설정.
-		$exchangeapi->set_db_link('master');
+	// 마스터 디비 사용하도록 설정.
+	$exchangeapi->set_db_link('master');
 
-		$exchangeapi->transaction_start();// DB 트랜젝션 시작
+	$exchangeapi->transaction_start();// DB 트랜젝션 시작
 
-		$exchangeapi->query($insert_sql);
+	$exchangeapi->query($insert_sql);
 
-		$exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
+	$exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 
-		// response
-		$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
-        
-    }
-        
-     
-} 
+	// response
+	$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
+	
+}
 
 // --------------------------------------------------------------------------- //
