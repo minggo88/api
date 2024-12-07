@@ -9,7 +9,7 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
 // 마스터 디비 사용하도록 설정.
 $tradeapi->set_db_link('slave');
-
+$text = "";
 // 이제 PHP에서 $dataArray를 원하는 방식으로 처리할 수 있습니다.
 if (isset($_POST['dataArray'])) {
 	$dataArray = $_POST['dataArray'];
