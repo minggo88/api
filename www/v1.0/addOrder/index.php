@@ -48,6 +48,6 @@ $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 // response
 //$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
-$exchangeapi->success(array($dataArray));
+$exchangeapi->success($dataArray[0]);
 
 // --------------------------------------------------------------------------- //
