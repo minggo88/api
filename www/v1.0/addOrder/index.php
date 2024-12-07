@@ -63,25 +63,7 @@ if (isset($_POST['dataArray'])) {
         
     }
         
-    
+     
 } 
 
 // --------------------------------------------------------------------------- //
-
-// 마스터 디비 사용하도록 설정.
-$exchangeapi->set_db_link('master');
-
-$exchangeapi->transaction_start();// DB 트랜젝션 시작
-
-// 가입
-
-$sql = " INSERT INTO `kkikda`.`js_test_end_text` (`endt_text`) 
-		VALUES ('$u_text');";
-
-$exchangeapi->query($sql);
-
-$exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
-
-
-// response
-$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>"1111",'userno'=>"2222"));
