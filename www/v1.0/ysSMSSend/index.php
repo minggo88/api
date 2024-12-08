@@ -1,4 +1,6 @@
 <?php
+include dirname(__file__) . "/../../lib/ExchangeApi.php";
+
 function sendSMS($to, $message) {
     // 한국 전화번호를 +82 형식으로 변환
     if (substr($to, 0, 3) == '010') {
@@ -7,7 +9,7 @@ function sendSMS($to, $message) {
 
     $apiKey = 'f2b33afd';     // Nexmo API Key
     $apiSecret = 'xZOmlCRtz8QssuUs'; // Nexmo API Secret
-    $from = 'YOUR_PHONE_NUMBER'; // 내 번호를 발신자로 설정 (형식: +82XXXXXXXXXX)
+    $from = '+821039275103'; // 내 번호를 발신자로 설정 (형식: +82XXXXXXXXXX)
 
     // 메시지 본문을 UTF-8로 인코딩 (한글 깨짐 방지)
     $message = mb_convert_encoding($message, "UTF-8", "auto");
