@@ -45,8 +45,10 @@ function sendSMS($to, $message) {
 
     if ($response_data['result_code'] === '1') {
         echo "문자 발송 성공: " . $response_data['message'];
+		$tradeapi->success($response_data['message']);
     } else {
         echo "문자 발송 실패: " . $response_data['message'];
+		$tradeapi->error($response_data['message']);
     }
 }
 
