@@ -37,9 +37,17 @@ $receive_name = $dataArray[0]['receive_name'];
 $receive_call = $dataArray[0]['receive_call'];
 $receive_address_num = $dataArray[0]['receive_address_num'];
 $receive_address = $dataArray[0]['receive_address'];
+$item2 = $dataArray[0]['item2'];
+$item_cnt2 = $dataArray[0]['item_cnt2'];
+$item3 = $dataArray[0]['item3'];
+$item_cnt3 = $dataArray[0]['item_cnt3'];
+$item4 = $dataArray[0]['item4'];
+$item_cnt = $dataArray[0]['item_cnt4'];
+$item5 = $dataArray[0]['item5'];
+$item_cnt5 = $dataArray[0]['item_cnt5'];
 
-$insert_sql = " INSERT INTO kkikda.js_test_order (payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num) 
-	VALUES('$payment_type', '$payment', '$payment_name', '$item_cnt', '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num');";
+$insert_sql = " INSERT INTO kkikda.js_test_order (payment_type, payment, payment_name, item_cnt, order_item, send_name, send_call, send_address, receive_address, receive_name, receive_call, receive_address_num, item_cnt2, order_item2, item_cnt3, order_item3, item_cnt4, order_item4, item_cnt5, order_item5) 
+	VALUES('$payment_type', '$payment', '$payment_name', '$item_cnt', '$item', '$send_name', '$send_call', '$send_address', '$receive_address', '$receive_name', '$receive_call', '$receive_address_num', '$item_cnt2', '$item2', '$item_cnt3', '$item3', '$item_cnt4', '$item4', '$item_cnt5', '$item5');";
 
 $exchangeapi->query($insert_sql);
 
