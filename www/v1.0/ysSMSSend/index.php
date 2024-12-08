@@ -12,8 +12,8 @@ function sendSMS($to, $message) {
 	$sender = "01039275103";           // 발신자 번호 (인증된 발신번호여야 합니다)
 
     // 수신자 및 메시지 내용
-	$receiver = "RECEIVER_PHONE_NUMBER"; // 수신자 번호
-	$message = "안녕하세요! 알리고 API로 발송된 메시지입니다."; // 문자 내용
+	$receiver = $to; // 수신자 번호
+	$message = $message; // 문자 내용
 
 	// 요청 데이터
 	$data = [
