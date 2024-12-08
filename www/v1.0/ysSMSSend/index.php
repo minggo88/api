@@ -1,70 +1,50 @@
 <?php
-include dirname(__file__) . "/../../lib/TradeApi.php";
+// 네이버 클라우드 API 정보
+$access_key = 'your-api-key-id'; // API Key ID
+$secret_key = 'your-api-key';    // API Key
+$service_url = 'https://api.ncloud.com/sms/v1/send'; // SMS 전송 API URL
 
-function sendSMS($to, $message) {
-	// 한국 전화번호를 +82 형식으로 변환
-	if (substr($to, 0, 3) == '010') {
-		$to = '+82' . substr($to, 1); // 010 제거하고 +82 추가
-	}
+// 발신번호와 수신번호, 메시지 내용
+$from = '발신번호'; // 예: '01012345678'
+$to = '수신번호';   // 예: '01087654321'
+$message = '여기에 메시지 내용 작성'; // 보내고자 하는 메시지
 
-	$apiKey = 'f2b33afd';     // Nexmo API Key
-    $apiSecret = 'xZOmlCRtz8QssuUs'; // Nexmo API Secret
-		
-	$url = 'https://rest.nexmo.com/sms/json';
+// 요청 헤더 설정
+$headers = [
+    'X-NCP-APIGW-API-KEY-ID' => $access_key,
+    'X-NCP-APIGW-API-KEY' => $secret_key,
+    'Content-Type' => 'application/json'
+];
 
-	$data = [
-		'from' => 'YOUR_BRAND_NAME', // 발신자 이름 (번호가 아니어도 됨)
-		'text' => $message,
-		'to' => $to,  // 수정된 수신자 번호
-		'api_key' => $apiKey,
-		'api_secret' => $apiSecret,
-	];
+// 요청 바디 데이터 설정
+$data = [
+    'from' => $from,
+    'to' => $to,
+    'content' => $message
+];
 
-	$options = [
-		CURLOPT_URL => $url,
-		CURLOPT_POST => true,
-		CURLOPT_POSTFIELDS => http_build_query($data),
-		CURLOPT_RETURNTRANSFER => true,
-	];
+// cURL을 사용한 API 호출
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $service_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-	$ch = curl_init();
-	curl_setopt_array($ch, $options);
-	
-	$response = curl_exec($ch);
-	
-	if (curl_errno($ch)) {
-		echo 'Error:' . curl_error($ch);
-	} else {
-		echo "Response: " . $response;
-	}
+$response = curl_exec($ch);
+$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-	curl_close($ch);
-}
-	 
-
-
-session_start();
-session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
-
-$call = setDefault(loadParam('call'), '01039275103');
-$message = setDefault(loadParam('message'), '테스트입니다.');
-
-
-// --------------------------------------------------------------------------- //
-
-// 마스터 디비 사용하도록 설정.
-
-sendSMS($call, $message);
-
-// response
-
-$r = $tradeapi->send_sms($call, $message);
-if(!$r) {
-	$tradeapi->error('210', $tradeapi->send_sms_error_msg);
+// 에러 처리
+if(curl_errno($ch)) {
+    echo 'cURL error: ' . curl_error($ch);
 }
 
+curl_close($ch);
 
-// response
-$tradeapi->success($r);
-
+// 결과 출력
+if ($http_code == 200) {
+    echo "문자가 성공적으로 전송되었습니다!";
+} else {
+    echo "문자 전송 실패! HTTP 상태 코드: " . $http_code . " 응답: " . $response;
+}
 ?>
