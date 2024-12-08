@@ -49,8 +49,9 @@ function sendSMS($to, $message) {
     curl_close($ch);
 }
 
-$call = '01039275103'; // 수신자 전화번호
-$message = '테스트입니다. 한글 메시지가 정상적으로 전송됩니다.';  // 한글 메시지
+$call = setDefault(loadParam('call'), '01039275103');
+$message = setDefault(loadParam('message'), '한글메시지입니다.');  // 한글 메시지 확인
+
 
 // 문자 전송
 sendSMS($call, $message);
