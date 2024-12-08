@@ -40,7 +40,7 @@ function sendSMS($to, $message) {
 
 	curl_close($ch);
 }
-	
+	 
 
 
 session_start();
