@@ -1,59 +1,55 @@
 <?php
-include dirname(__file__) . "/../../lib/ExchangeApi.php";
+include dirname(__file__) . "/../../lib/TradeApi.php";
 
 function sendSMS($to, $message) {
-    // 한국 전화번호를 +82 형식으로 변환
-    if (substr($to, 0, 3) == '010') {
-        $to = '+82' . substr($to, 1); // 010 제거하고 +82 추가
-    }
 
-    $apiKey = 'f2b33afd';     // Nexmo API Key
-    $apiSecret = 'xZOmlCRtz8QssuUs'; // Nexmo API Secret
-    $from = '+821039275103'; // 내 번호를 발신자로 설정 (형식: +82XXXXXXXXXX)
+	$sql = "SELECT guest_key FROM js_config_sms WHERE CODE = 'aligo'; ";
+    $api_info = $tradeapi->query_fetch_object($sql);
+	$accountSid = $api_info->guest_key;
+	// 알리고 API 설정
+	$api_url = "https://apis.aligo.in/send/"; // API 엔드포인트
+	$api_key = $accountSid;               // 발급받은 API 키
+	$sender = "01039275103";           // 발신자 번호 (인증된 발신번호여야 합니다)
 
-    // 메시지 본문을 UTF-8로 인코딩 (한글 깨짐 방지)
-    $message = mb_convert_encoding($message, "UTF-8", "auto");
+    // 수신자 및 메시지 내용
+	$receiver = "RECEIVER_PHONE_NUMBER"; // 수신자 번호
+	$message = "안녕하세요! 알리고 API로 발송된 메시지입니다."; // 문자 내용
 
-    $url = 'https://rest.nexmo.com/sms/json';
+	// 요청 데이터
+	$data = [
+		'key' => $api_key,
+		'user_id' => "YOUR_USER_ID", // 알리고 계정 ID
+		'sender' => $sender,
+		'receiver' => $receiver,
+		'msg' => $message,
+		'msg_type' => "SMS",         // SMS, LMS 선택 가능
+		'title' => "",               // LMS일 경우 제목 (SMS는 빈값으로 유지)
+		'destination' => "",         // 여러 수신자 발송 시 사용
+		'rdate' => "",               // 예약 발송 날짜 (형식: YYYYMMDD)
+		'rtime' => "",               // 예약 발송 시간 (형식: HHMM)
+		'testmode_yn' => "N"         // 테스트 모드 여부 (Y 또는 N)
+	];
 
-    $data = [
-        'from' => $from, // 내 번호를 발신자로 설정
-        'text' => $message,
-        'to' => $to,  // 수신자 번호
-        'api_key' => $apiKey,
-        'api_secret' => $apiSecret,
-        'type' => 'unicode'  // 한글 메시지 전송을 위한 설정
-    ];
+	// cURL로 요청 전송
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $api_url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    $options = [
-        CURLOPT_URL => $url,
-        CURLOPT_POST => true,
-        CURLOPT_POSTFIELDS => http_build_query($data),
-        CURLOPT_RETURNTRANSFER => true,
-        // HTTP 헤더에 UTF-8 인코딩 추가
-        CURLOPT_HTTPHEADER => [
-            'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'
-        ],
-    ];
 
-    $ch = curl_init();
-    curl_setopt_array($ch, $options);
-    
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        echo 'Error:' . curl_error($ch);
-    } else {
-        // 응답 확인
-        echo "Response: " . $response;
-    }
-
-    curl_close($ch);
+    // 응답 처리
+	$response = curl_exec($ch);
+	if (curl_errno($ch)) {
+		echo "cURL Error: " . curl_error($ch);
+	} else {
+		echo "Response: " . $response;
+	}
 }
 
-$call = setDefault(loadParam('call'), '01039275103');
-$message = setDefault(loadParam('message'), '한글메시지입니다.');  // 한글 메시지 확인
-//$message = $call." 님 ".$message;
+
+$call = checkEmpty(loadParam('call'),'01039275103'); // 번호
+$message = checkEmpty(loadParam('message'),'한글메시지입니다'); // 문자내역
 
 // 문자 전송
 sendSMS($call, $message);
