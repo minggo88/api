@@ -25,6 +25,10 @@ function sendSMS($to, $message) {
 		CURLOPT_POST => true,
 		CURLOPT_POSTFIELDS => http_build_query($data),
 		CURLOPT_RETURNTRANSFER => true,
+		// HTTP 헤더에 UTF-8 인코딩 추가
+		CURLOPT_HTTPHEADER => [
+			'Content-Type: application/x-www-form-urlencoded; charset=UTF-8'
+		],
 	];
 
 	$ch = curl_init();
@@ -35,6 +39,7 @@ function sendSMS($to, $message) {
 	if (curl_errno($ch)) {
 		echo 'Error:' . curl_error($ch);
 	} else {
+		// 응답 확인
 		echo "Response: " . $response;
 	}
 
@@ -42,12 +47,11 @@ function sendSMS($to, $message) {
 }
 	
 
-
 session_start();
 session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 
 $call = setDefault(loadParam('call'), '01039275103');
-$message = setDefault(loadParam('message'), '테스트입니다.');
+$message = setDefault(loadParam('message'), '테스트입니다.');  // 한글 메시지 확인
 
 
 // --------------------------------------------------------------------------- //
@@ -62,7 +66,6 @@ $r = $tradeapi->send_sms($call, $message);
 if(!$r) {
 	$tradeapi->error('210', $tradeapi->send_sms_error_msg);
 }
-
 
 // response
 $tradeapi->success($r);
