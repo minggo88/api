@@ -1,4 +1,6 @@
 <?php
+include dirname(__file__) . "/../../lib/TradeApi.php";
+
 // 네이버 클라우드 API 정보
 $access_key = 'ncp_iam_BPAMKR5woBlSwJixx7sJ'; // API Key ID
 $secret_key = 'ncp_iam_BPKMKRDMqJ9oOv27HydJsfZh3QzWFCRcQ9';    // API Key
@@ -40,11 +42,14 @@ if(curl_errno($ch)) {
 }
 
 curl_close($ch);
-
+$r['msg'] = '';
 // 결과 출력
 if ($http_code == 200) {
-    echo "문자가 성공적으로 전송되었습니다!";
+    $text = "문자가 성공적으로 전송되었습니다!";
+	$r['msg'] = 'check : '.$text;
 } else {
-    echo "문자 전송 실패! HTTP 상태 코드: " . $http_code . " 응답: " . $response;
+	$r['msg'] = "문자 전송 실패! HTTP 상태 코드: " . $http_code . " 응답: " . $response;
 }
+
+$tradeapi->success($r);
 ?>
