@@ -39,11 +39,12 @@ function sendSMS($to, $message) {
 	if (curl_errno($ch)) {
 		$r['msg'] = 'Error:' . curl_error($ch);
 		echo 'Error:' . curl_error($ch);
+		$tradeapi->error('210', $r);
 	} else {
 		// 응답 확인
 		echo "Response: " . $response.$message;
 		$r['msg'] = "Response: " . $response.$message;
-		
+		$tradeapi->success($r);
 	}
 
 	curl_close($ch);
