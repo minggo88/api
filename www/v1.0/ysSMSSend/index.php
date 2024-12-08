@@ -54,6 +54,7 @@ function sendSMS($to, $message) {
 $call = setDefault(loadParam('call'), '01039275103');
 $message = setDefault(loadParam('message'), '한글메시지입니다.');  // 한글 메시지 확인
 //$message = $call." 님 ".$message;
+$message = "1 님 ".$message;
 
 // 문자 전송
 sendSMS($call, $message);
