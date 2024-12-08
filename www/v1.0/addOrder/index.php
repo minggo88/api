@@ -42,7 +42,7 @@ $item_cnt2 = $dataArray[0]['item_cnt2'];
 $item3 = $dataArray[0]['item3'];
 $item_cnt3 = $dataArray[0]['item_cnt3'];
 $item4 = $dataArray[0]['item4'];
-$item_cnt = $dataArray[0]['item_cnt4'];
+$item_cnt4 = $dataArray[0]['item_cnt4'];
 $item5 = $dataArray[0]['item5'];
 $item_cnt5 = $dataArray[0]['item_cnt5'];
 
