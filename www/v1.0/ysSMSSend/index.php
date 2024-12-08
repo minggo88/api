@@ -40,7 +40,8 @@ function sendSMS($to, $message) {
 
 	echo $ret;
 	$retArr = json_decode($ret);
-    
+    $tradeapi->success($retArr);
+	
 }
 
 
