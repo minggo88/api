@@ -20,7 +20,7 @@ function sendSMS($to, $message) {
 
     // 수신자 및 메시지 내용
 	$sms['msg'] = $message;
-	$sms['receiver'] = $receiver;
+	$sms['receiver'] = $to;
 	$sms['destination'] = '';
 	$sms['sender'] = $sender;
 
