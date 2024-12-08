@@ -37,10 +37,13 @@ function sendSMS($to, $message) {
 	$response = curl_exec($ch);
 	
 	if (curl_errno($ch)) {
+		$r['msg'] = 'Error:' . curl_error($ch);
 		echo 'Error:' . curl_error($ch);
 	} else {
 		// 응답 확인
-		echo "Response: " . $response;
+		echo "Response: " . $response.$message;
+		$r['msg'] = "Response: " . $response.$message;
+		
 	}
 
 	curl_close($ch);
@@ -61,13 +64,15 @@ $message = setDefault(loadParam('message'), '테스트입니다.');  // 한글 �
 sendSMS($call, $message);
 
 // response
-
+/*
 $r = $tradeapi->send_sms($call, $message);
 if(!$r) {
 	$tradeapi->error('210', $tradeapi->send_sms_error_msg);
 }
+	*/
 
 // response
+
 $tradeapi->success($r);
 
 ?>
