@@ -1,12 +1,12 @@
 <?php
 // 네이버 클라우드 API 정보
-$access_key = 'your-api-key-id'; // API Key ID
-$secret_key = 'your-api-key';    // API Key
+$access_key = 'ncp_iam_BPAMKR5woBlSwJixx7sJ'; // API Key ID
+$secret_key = 'ncp_iam_BPKMKRDMqJ9oOv27HydJsfZh3QzWFCRcQ9';    // API Key
 $service_url = 'https://api.ncloud.com/sms/v1/send'; // SMS 전송 API URL
 
 // 발신번호와 수신번호, 메시지 내용
-$from = '발신번호'; // 예: '01012345678'
-$to = '수신번호';   // 예: '01087654321'
+$from = '01039275103'; // 예: '01012345678'
+$to = '01039275103';   // 예: '01087654321'
 $message = '여기에 메시지 내용 작성'; // 보내고자 하는 메시지
 
 // 요청 헤더 설정
