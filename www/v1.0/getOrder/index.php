@@ -2,7 +2,7 @@
 include dirname(__file__) . "/../../lib/TradeApi.php";
 
 // 로그인 세션 확인.
-$tradeapi->checkLogin();
+//$tradeapi->checkLogin();
 //$userno = $tradeapi->get_login_userno();
 
 //메인반출내용
