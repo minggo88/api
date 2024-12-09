@@ -14,7 +14,7 @@ $search_sql =
 		 FROM js_test_order
 	    LEFT JOIN js_test_item AS it_name ON order_item = item_index
 
-            ORDER BY send_date DESC;";
+            ORDER BY stime DESC;";
 $t_data = $tradeapi->query_list_object($search_sql);
 
 $tradeapi->success($t_data);
