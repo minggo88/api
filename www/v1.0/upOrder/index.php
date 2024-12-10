@@ -30,10 +30,6 @@ $move = $dataArray['move'];
 $send_message = $dataArray['send_message'];
 $order_index = $dataArray['order_index'];
 
-
-if($box_count == 'undefined'){
-	$box_count = 0;
-}
 /*$item2 = $dataArray[0]['item2'];
 $item_cnt2 = $dataArray[0]['item_cnt2'];
 $item3 = $dataArray[0]['item3'];
