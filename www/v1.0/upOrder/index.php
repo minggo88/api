@@ -48,6 +48,6 @@ $up_sql =
 			receive_name='$receive_name', receive_call='$receive_call', receive_address_num='$receive_address_num', send_date='$send_date', 
 			box_cnt='$box_count', receive_code='$receive_code', move='$move', send_message='$send_message' 
 		WHERE order_index='$order_index';";
-$t_data = $tradeapi->query_list_object($up_sql);
+//$t_data = $tradeapi->query_list_object($up_sql);
 
 $tradeapi->success($up_sql);
