@@ -14,9 +14,7 @@ $search_data = $tradeapi->query_list_object($search_sql);
 
 
 $send_date= $dataArray['send_date'];
-$send_name= $dataArray['send_name'];
 $send_call= $dataArray['send_call'];
-$send_address= $dataArray['send_address'];
 $payment_type= $dataArray['payment_type'];
 $payment= $dataArray['payment'];
 $payment_name= $dataArray['payment_name'];
@@ -44,10 +42,10 @@ $item_cnt5 = $dataArray[0]['item_cnt5'];*/
 $up_sql = 
     "UPDATE kkikda.js_test_order
 		SET payment_type='$payment_type', payment='$payment', payment_name='$payment_name', order_item='$search_data',
-			item_cnt='$item_cnt', send_name='$send_name', send_call='$send_call', send_address='$send_address', receive_address='$receive_address', 
+			item_cnt='$item_cnt', send_call='$send_call', receive_address='$receive_address', 
 			receive_name='$receive_name', receive_call='$receive_call', receive_address_num='$receive_address_num', send_date='$send_date', 
 			box_cnt='$box_count', receive_code='$receive_code', move='$move', send_message='$send_message' 
 		WHERE order_index='$order_index';";
-//$t_data = $tradeapi->query_list_object($up_sql);
+$t_data = $tradeapi->query_list_object($up_sql);
 
 $tradeapi->success($up_sql);
