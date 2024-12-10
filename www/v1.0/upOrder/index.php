@@ -10,7 +10,7 @@ $item = $dataArray['order_item'];
 $search_sql = 
     "SELECT item_index from js_test_item WHERE i_value LIKE '%$item%';";
 $search_data = $tradeapi->query_list_object($search_sql);
-$order_item = $search_data[0]['item_index'];
+$order_item = $search_data['item_index'];
 
 
 $send_date= $dataArray['send_date'];
