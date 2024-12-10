@@ -41,7 +41,7 @@ $item_cnt5 = $dataArray[0]['item_cnt5'];*/
 //메인반출내용
 $up_sql = 
     "UPDATE kkikda.js_test_order
-		SET payment_type='$payment_type', payment='$payment', payment_name='$payment_name', order_item='$order_item',
+		SET payment_type='$payment_type', payment='$payment', payment_name='$payment_name', order_item= (SELECT item_index FROM js_test_item WHERE i_value LIKE '%$item%' LIMIT 1),
 			item_cnt='$item_cnt', send_call='$send_call', receive_address='$receive_address', 
 			receive_name='$receive_name', receive_call='$receive_call', receive_address_num='$receive_address_num', send_date='$send_date', 
 			box_cnt='$box_count', receive_code='$receive_code', move='$move', send_message='$send_message' 
