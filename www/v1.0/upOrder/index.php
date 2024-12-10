@@ -31,6 +31,9 @@ $send_message = $dataArray['send_message'];
 $order_index = $dataArray['order_index'];
 
 
+if($box_count == 'undefined'){
+	$box_count = 0;
+}
 /*$item2 = $dataArray[0]['item2'];
 $item_cnt2 = $dataArray[0]['item_cnt2'];
 $item3 = $dataArray[0]['item3'];
@@ -46,8 +49,8 @@ $up_sql =
 		SET payment_type='$payment_type', payment='$payment', payment_name='$payment_name', order_item='$search_data',
 			item_cnt='$item_cnt', send_name='$send_name', send_call='$send_call', send_address='$send_address', receive_address='$receive_address', 
 			receive_name='$receive_name', receive_call='$receive_call', receive_address_num='$receive_address_num', send_date='$send_date', 
-			box_cnt=$box_count, receive_code='$receive_code', move='$move', send_message='$send_message'
-		WHERE order_index=$order_index;";
+			box_cnt='$box_count', receive_code='$receive_code', move='$move', send_message='$send_message'
+		WHERE order_index='$order_index';";
 $t_data = $tradeapi->query_list_object($up_sql);
 
 $tradeapi->success($up_sql);
