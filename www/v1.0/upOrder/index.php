@@ -48,4 +48,4 @@ $up_sql =
 		WHERE order_index='$order_index';";
 //$t_data = $tradeapi->query_list_object($up_sql);
 
-$tradeapi->success($order_item, $up_sql );
+$tradeapi->success($up_sql);
