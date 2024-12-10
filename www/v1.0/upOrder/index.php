@@ -5,30 +5,30 @@ include dirname(__file__) . "/../../lib/TradeApi.php";
 //$tradeapi->checkLogin();
 //$userno = $tradeapi->get_login_userno();
 $dataArray = setDefault(loadParam('dataArray'), '');
-$item = $dataArray[0]['order_item'];
+$item = $dataArray['order_item'];
 
 $search_sql = 
     "SELECT item_index from js_test_item WHERE i_value LIKE '%$item%';";
 $search_data = $tradeapi->query_list_object($search_sql);
 
 
-$send_date= $dataArray[0]['send_date'];
-$send_name= $dataArray[0]['send_name'];
-$send_call= $dataArray[0]['send_call'];
-$send_address= $dataArray[0]['send_address'];
-$payment_type= $dataArray[0]['payment_type'];
-$payment= $dataArray[0]['payment'];
-$payment_name= $dataArray[0]['payment_name'];
-$item_cnt = $dataArray[0]['item_cnt'];
-$box_count = $dataArray[0]['box_count'];
-$receive_name = $dataArray[0]['receive_name'];
-$receive_call = $dataArray[0]['receive_call'];
-$receive_address_num = $dataArray[0]['receive_address_num'];
-$receive_address = $dataArray[0]['receive_address'];
-$receive_code = $dataArray[0]['receive_code'];
-$move = $dataArray[0]['move'];
-$send_message = $dataArray[0]['send_message'];
-$order_index = $dataArray[0]['order_index'];
+$send_date= $dataArray['send_date'];
+$send_name= $dataArray['send_name'];
+$send_call= $dataArray['send_call'];
+$send_address= $dataArray['send_address'];
+$payment_type= $dataArray['payment_type'];
+$payment= $dataArray['payment'];
+$payment_name= $dataArray['payment_name'];
+$item_cnt = $dataArray['item_cnt'];
+$box_count = $dataArray['box_count'];
+$receive_name = $dataArray['receive_name'];
+$receive_call = $dataArray['receive_call'];
+$receive_address_num = $dataArray['receive_address_num'];
+$receive_address = $dataArray['receive_address'];
+$receive_code = $dataArray['receive_code'];
+$move = $dataArray['move'];
+$send_message = $dataArray['send_message'];
+$order_index = $dataArray['order_index'];
 
 
 /*$item2 = $dataArray[0]['item2'];
