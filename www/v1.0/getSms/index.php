@@ -25,8 +25,6 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 $mobile = setDefault(loadParam('call'), '');
 $text = setDefault(loadParam('text'), '');
 
-$call = $_POST["call"] ?? null;
-//$text = $_POST['text'] ?? null;
 
 
 // --------------------------------------------------------------------------- //
@@ -39,7 +37,7 @@ $exchangeapi->transaction_start();// DB 트랜젝션 시작
 // 가입
 
 $sql = " INSERT INTO `kkikda`.`js_test_sms` (`call`, `tvalue`) VALUES ('$mobile', '$text') ";
-//$exchangeapi->query($sql);
+$exchangeapi->query($sql);
 
 
 
@@ -47,4 +45,4 @@ $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 
 // response
-$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>$mobile,'userno'=>$call));
+$exchangeapi->success(array('token'=>"success",'my_wallet_no'=>$mobile,'userno'=>$text));
