@@ -25,7 +25,7 @@ session_regenerate_id(); // 로그인할때마다 token 값을 바꿉니다.
 $mobile = setDefault(loadParam('call'), '');
 $text = setDefault(loadParam('text'), '');
 
-$call = $_POST['call'] ?? null;
+$call = $_POST["call"] ?? null;
 //$text = $_POST['text'] ?? null;
 
 
