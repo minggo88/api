@@ -174,7 +174,7 @@ if($social_name=='guest' || $social_name=='mobile' && ($os=='android' || $os=='i
 // put fcm tokenid + add device : inert or update
 // $_r = $exchangeapi->get_fcm_info($member->userno, $uuid);
 // if (!$_r) {
-    $exchangeapi->put_fcm_info($member->userno, $uuid, $os, $fcm_tokenid);
+//    $exchangeapi->put_fcm_info($member->userno, $uuid, $os, $fcm_tokenid);
 // }
 
 // login - userno, $userid, $name, $level_code)
