@@ -184,10 +184,10 @@ if (!$_r) {
 }
 
 // 로그인 알림.
-$title = '[KMCSE] 로그인 안내 ';
-$body = 'SAM중소기업비상장거래에 로그인하셨습니다.' . date('m-d H:i');
+//$title = '[KMCSE] 로그인 안내 ';
+//$body = 'SAM중소기업비상장거래에 로그인하셨습니다.' . date('m-d H:i');
 $user_token = $exchangeapi->query_list_one("SELECT fcm_tokenid FROM js_member_device WHERE userno='" . $exchangeapi->escape($member->userno) . "' GROUP BY fcm_tokenid ");
-$exchangeapi->send_fcm_message($user_token, $body, $title);
+//$exchangeapi->send_fcm_message($user_token, $body, $title);
 
 
 $next_step = '5';
