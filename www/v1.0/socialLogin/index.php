@@ -174,6 +174,7 @@ if($social_name=='guest' || $social_name=='mobile' && ($os=='android' || $os=='i
 // put fcm tokenid + add device : inert or update
 // $_r = $exchangeapi->get_fcm_info($member->userno, $uuid);
 // if (!$_r) {
+//241218 오류로 인해 생략
 //    $exchangeapi->put_fcm_info($member->userno, $uuid, $os, $fcm_tokenid);
 // }
 
@@ -187,6 +188,7 @@ if (!$_r) {
 //$title = '[KMCSE] 로그인 안내 ';
 //$body = 'SAM중소기업비상장거래에 로그인하셨습니다.' . date('m-d H:i');
 $user_token = $exchangeapi->query_list_one("SELECT fcm_tokenid FROM js_member_device WHERE userno='" . $exchangeapi->escape($member->userno) . "' GROUP BY fcm_tokenid ");
+//241218 오류로 인해 생략
 //$exchangeapi->send_fcm_message($user_token, $body, $title);
 
 
