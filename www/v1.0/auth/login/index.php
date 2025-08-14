@@ -9,7 +9,7 @@ include dirname(__file__) . "/../../../lib/GosApi.php";
 /**
  * 간단 로그인 - GosApi 버전 (토큰 없음)
  */
-
+/*
 // validate parameters
 $login_id = checkEmpty(loadParam('login_id'), 'login_id');
 $device_type = setDefault(loadParam('device_type'), 'mobile');
@@ -46,5 +46,18 @@ $GLOBALS['gosapi']->success([
         'status' => $user->status
     ]
 ], 'Login successful');
+*/
+
+// 임시 디버그 파일
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+echo json_encode([
+    'success' => true,
+    'message' => 'Basic PHP working',
+    'timestamp' => date('Y-m-d H:i:s'),
+    'post_data' => $_POST,
+    'get_data' => $_GET
+]);
 
 ?>
