@@ -4,7 +4,7 @@
 // 회원 가입 여부 확인
 // =====================================================
 
-include dirname(__file__) . "/../../lib/TradeApi.php";
+include dirname(__file__) . "/../../../lib/TradeApi.php";
 
 /**
  * 가입 확인 (GOS 버전)

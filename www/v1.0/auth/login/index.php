@@ -4,7 +4,7 @@
 // 로그인 (패스워드 없음)
 // =====================================================
 
-include dirname(__file__) . "/../../lib/TradeApi.php";
+include dirname(__file__) . "/../../../lib/TradeApi.php";
 
 /**
  * 간단 로그인 (이메일 또는 username만으로)

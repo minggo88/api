@@ -4,7 +4,7 @@
 // 로그인 세션 확인
 // =====================================================
 
-include dirname(__file__) . "/../../lib/TradeApi.php";
+include dirname(__file__) . "/../../../lib/TradeApi.php";
 
 /**
  * 로그인 세션 확인

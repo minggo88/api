@@ -4,7 +4,7 @@
 // 회원가입 (패스워드 없음)
 // =====================================================
 
-include dirname(__file__) . "/../../lib/TradeApi.php";
+include dirname(__file__) . "/../../../lib/TradeApi.php";
 
 /**
  * 회원가입 (간단 버전)
