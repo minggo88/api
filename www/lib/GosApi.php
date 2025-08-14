@@ -5,6 +5,8 @@
 // =====================================================
 
 include dirname(__file__) . '/SimpleRestful.php';
+include dirname(__file__) . '/Coind.php';
+include dirname(__file__) . '/vendor/autoload.php';
 
 if (!defined('__LOADED_GOSAPI__')) {
     class GosApi extends SimpleRestful {
