@@ -111,7 +111,54 @@ if (!defined('__LOADED_GOSAPI__')) {
         }
         
         /**
-         * GOS 사용자 세션 생성
+         * GOS 사용자 정보 조회
+         */
+        public function get_gos_user($login_id) {
+            $sql = "SELECT id, username, email, role, status, first_name, last_name 
+                    FROM GOS_users 
+                    WHERE (email = ? OR username = ?) 
+                    AND deleted_at IS NULL";
+            
+            return $this->query_fetch_object($sql, [$login_id, $login_id]);
+        }
+        
+        /**
+         * GOS 사용자 생성
+         */
+        public function create_gos_user($data) {
+            $sql = "INSERT INTO GOS_users (
+                        username, email, role, first_name, last_name, phone, 
+                        status, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, 'active', NOW())";
+            
+            $params = [
+                $data['username'], 
+                $data['email'], 
+                $data['role'] ?? 'student', 
+                $data['first_name'] ?? '', 
+                $data['last_name'] ?? '', 
+                $data['phone'] ?? ''
+            ];
+            
+            return $this->insert($sql, $params);
+        }
+        
+        /**
+         * GOS 활동 로그 저장
+         */
+        public function log_gos_activity($user_id, $action_type, $success = true, $error_message = null) {
+            $sql = "INSERT INTO GOS_user_logs (
+                        user_id, action_type, ip_address, success, error_message, created_at
+                    ) VALUES (?, ?, ?, ?, ?, NOW())";
+            
+            return $this->insert($sql, [
+                $user_id, 
+                $action_type, 
+                $_SERVER['REMOTE_ADDR'] ?? '', 
+                $success, 
+                $error_message
+            ]);
+        }용자 세션 생성
          */
         public function create_gos_session($user_id, $device_type = 'mobile') {
             $session_token = bin2hex(random_bytes(32));
