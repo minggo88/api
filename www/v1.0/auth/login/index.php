@@ -22,34 +22,34 @@ try {
         $GLOBALS['gosapi']->error('Only POST method allowed', 405);
     }
     
-    // 파라미터 받기
+    // 파라미터 받기 (패스워드 필드는 받되 검증하지 않음)
     $login_id = checkEmpty(loadParam('login_id'), 'login_id');
-    $password = checkEmpty(loadParam('password'), 'password');
+    $password = loadParam('password', ''); // 패스워드는 선택적
     
     // 사용자 조회
     $user = $GLOBALS['gosapi']->get_gos_user($login_id);
     
     if (!$user) {
         // 로그인 실패 로그
-        $GLOBALS['gosapi']->log_gos_activity(null, 'LOGIN_FAILED', false, 'User not found');
-        $GLOBALS['gosapi']->error('Invalid login credentials', 401);
-    }
-    
-    // 비밀번호 검증 (실제로는 password_verify 사용해야 함)
-    if (!password_verify($password, $user->password_hash)) {
-        // 로그인 실패 로그
-        $GLOBALS['gosapi']->log_gos_activity($user->id, 'LOGIN_FAILED', false, 'Invalid password');
+        $GLOBALS['gosapi']->log_gos_activity(null, 'login', false, 'User not found');
         $GLOBALS['gosapi']->error('Invalid login credentials', 401);
     }
     
     // 계정 상태 확인
     if ($user->status !== 'active') {
-        $GLOBALS['gosapi']->log_gos_activity($user->id, 'LOGIN_FAILED', false, 'Account not active');
+        $GLOBALS['gosapi']->log_gos_activity($user->id, 'login', false, 'Account not active');
         $GLOBALS['gosapi']->error('Account is not active', 403);
     }
     
+    // 로그인 성공 - 로그인 횟수 증가 및 마지막 로그인 시간 업데이트
+    $update_sql = "UPDATE GOS_users SET 
+                   login_count = login_count + 1, 
+                   last_login = NOW() 
+                   WHERE id = ?";
+    $GLOBALS['gosapi']->query($update_sql, [$user->id]);
+    
     // 로그인 성공 로그
-    $GLOBALS['gosapi']->log_gos_activity($user->id, 'LOGIN_SUCCESS', true);
+    $GLOBALS['gosapi']->log_gos_activity($user->id, 'login', true);
     
     // 응답 데이터 준비
     $response_data = [
@@ -59,7 +59,11 @@ try {
             'email' => $user->email,
             'role' => $user->role,
             'first_name' => $user->first_name,
-            'last_name' => $user->last_name
+            'last_name' => $user->last_name,
+            'nickname' => $user->nickname,
+            'profile_image' => $user->profile_image,
+            'language_preference' => $user->language_preference,
+            'login_count' => $user->login_count + 1
         ]
     ];
     

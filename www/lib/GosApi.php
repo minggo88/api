@@ -147,14 +147,15 @@ if (!defined('__LOADED_GOSAPI__')) {
             }
             
             $sql = "INSERT INTO GOS_user_logs (
-                        user_id, action_type, ip_address, success, error_message, created_at
-                    ) VALUES (?, ?, ?, ?, ?, NOW())";
+                        user_id, action_type, ip_address, user_agent, success, error_message, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, NOW())";
             
             try {
                 return $this->insert($sql, [
                     $user_id, 
                     $action_type, 
                     $_SERVER['REMOTE_ADDR'] ?? '', 
+                    $_SERVER['HTTP_USER_AGENT'] ?? '',
                     $success, 
                     $error_message
                 ]);
