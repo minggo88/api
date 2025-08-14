@@ -1,36 +1,80 @@
 <?php
 // =====================================================
 // api/www/v1.0/auth/logout/index.php
-// 로그아웃
+// 간단한 로그아웃 (토큰 없는 버전)
 // =====================================================
 
-include dirname(__file__) . "/../../../lib/TradeApi.php";
+// CORS 헤더 설정
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header('Content-Type: application/json');
 
-/**
- * 로그아웃
- */
+// OPTIONS 요청 처리
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
 
-// validate parameters
-$token = checkEmpty(loadParam('token'), 'token');
+// GosApi 포함
+require_once __DIR__ . '/../../../lib/GosApi.php';
 
-$tradeapi->set_db_link('master');
-
-// 세션 비활성화
-$result = $tradeapi->query("UPDATE GOS_user_sessions SET is_active = FALSE WHERE session_token = ?", [$token]);
-
-if($result) {
-    // 사용자 정보 가져오기 (로그용)
-    $session = $tradeapi->query_one("SELECT user_id FROM GOS_user_sessions WHERE session_token = ?", [$token]);
+try {
+    // 파라미터 검증 (사용자 ID 또는 사용자명)
+    $user_id = loadParam('user_id');
+    $username = loadParam('username');
     
-    if($session) {
-        // 로그아웃 로그
-        $tradeapi->insert("INSERT INTO GOS_user_logs (user_id, action_type, ip_address, success, created_at) VALUES (?, 'logout', ?, TRUE, NOW())", 
-                         [$session->user_id, $_SERVER['REMOTE_ADDR']]);
+    $logout_user_id = null;
+    $logout_identifier = null;
+
+    if (!empty($user_id)) {
+        // 사용자 ID로 로그아웃
+        $logout_user_id = $user_id;
+        $logout_identifier = "user_id: {$user_id}";
+    } elseif (!empty($username)) {
+        // 사용자명으로 로그아웃
+        $user = $GLOBALS['gosapi']->get_gos_user($username);
+        if ($user) {
+            $logout_user_id = $user->id;
+            $logout_identifier = "username: {$username}";
+        } else {
+            $GLOBALS['gosapi']->error('User not found', 404);
+        }
+    } else {
+        $GLOBALS['gosapi']->error('user_id or username required for logout');
+    }
+
+    // 로그아웃 로그 기록
+    $GLOBALS['gosapi']->log_gos_activity(
+        $logout_user_id, 
+        'logout', 
+        true, 
+        "Logout via {$logout_identifier}"
+    );
+    
+    // 성공 응답
+    $response_data = [
+        'user_id' => $logout_user_id,
+        'logout_identifier' => $logout_identifier,
+        'logout_time' => date('Y-m-d H:i:s'),
+        'message' => 'User logged out successfully'
+    ];
+    
+    $GLOBALS['gosapi']->success($response_data, __('Logout successful'));
+
+} catch (Exception $e) {
+    error_log('Logout API Error: ' . $e->getMessage());
+    
+    // 실패 로그 (사용자 ID를 알 수 있는 경우에만)
+    if (isset($logout_user_id) && $logout_user_id) {
+        $GLOBALS['gosapi']->log_gos_activity(
+            $logout_user_id, 
+            'logout', 
+            false, 
+            'Logout failed: ' . $e->getMessage()
+        );
     }
     
-    $tradeapi->success(['message' => __('Logout successful')]);
-} else {
-    $tradeapi->error(__('Logout failed'));
+    $GLOBALS['gosapi']->error('Internal server error', 500);
 }
 
 ?>

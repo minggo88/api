@@ -64,6 +64,20 @@ if (!defined('__LOADED_GOSAPI__')) {
         
         // ===== 데이터베이스 함수들 =====
         
+        public function query_fetch_all($sql, $params = []) {
+            if (!$this->connectDatabase()) {
+                $this->error('Database connection failed');
+            }
+            
+            try {
+                $stmt = $this->db_connection->prepare($sql);
+                $stmt->execute($params);
+                return $stmt->fetchAll(PDO::FETCH_OBJ);
+            } catch(PDOException $e) {
+                $this->error('Query failed: ' . $e->getMessage());
+            }
+        }
+        
         public function query_fetch_object($sql, $params = []) {
             if (!$this->connectDatabase()) {
                 $this->error('Database connection failed');
