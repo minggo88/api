@@ -166,6 +166,7 @@ foreach($default_coins as $coin) {
     $exchangeapi->save_wallet($new_userno, $coin, $address);
 }
 
+/*
 // app 별로 가입 보너스 있는지 확인
 if($app_id) {
     $app_no = $exchangeapi->query_one("SELECT app_no FROM js_app WHERE app_id='{$exchangeapi->escape($app_id)}' ");
@@ -176,6 +177,11 @@ if($app_id) {
         $exchangeapi->add_wallet_txn($new_userno, $wallet->address, 'SMP', '', 'BO', 'I', $signup_point, $fee=0, $tax=0, $status="D", $key_relative="", $txndate='', $msg='', $app_no);
     }
 }
+    */
+
+
+/*250819 필요없는 내용
+
 
 // 보내기 금액 받기.
 $media = false;
@@ -290,7 +296,7 @@ $_r = $exchangeapi->get_fcm_info($member->userno, $uuid);
 if(!$_r) {
     $exchangeapi->put_fcm_info($member->userno, $uuid, $os, $fcm_tokenid);
 }
-
+*/
 $exchangeapi->transaction_end('commit');// DB 트랜젝션 끝
 
 // login - userno, $userid, $name, $level_code)
