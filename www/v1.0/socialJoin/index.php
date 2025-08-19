@@ -1,4 +1,15 @@
 <?php
+header('Access-Control-Allow-Origin: https://assettea.com');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Credentials: true');
+
+// OPTIONS 요청 처리
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 include dirname(__file__) . "/../../lib/ExchangeApi.php";
 // if($_SERVER['REMOTE_ADDR']!='61.74.240.65') {$exchangeapi->error('001','시스템 정검중입니다.');}
 $exchangeapi->set_logging(true);
