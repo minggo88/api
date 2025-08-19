@@ -145,7 +145,7 @@ $sql = "insert into js_member set userid='{$exchangeapi->escape($userid)}', user
 $exchangeapi->query($sql);
 $member = $exchangeapi->get_member_info_by_userid($userid);
 $new_userno = $member->userno;
-
+/*
 // 가입 방법 저장
 $join_mehod_columns = $exchangeapi->query_one("SHOW COLUMNS FROM `js_member` LIKE 'join_method'");
 if(!$join_mehod_columns) {
@@ -160,6 +160,7 @@ if(!$join_ip) {
 }
 $exchangeapi->query("UPDATE `js_member` SET `join_ip`='".$exchangeapi->escape($_SERVER['REMOTE_ADDR'])."' WHERE userno='{$exchangeapi->escape($member->userno)}' AND `join_ip`='' ");
 
+
 // 기본 코인(ETH 생성)
 if(__API_RUNMODE__=='live') {
     if(!$exchangeapi->query_one("select address from js_exchange_wallet where symbol='ETH' and userno='{$member->userno}' ")) {
@@ -170,6 +171,7 @@ if(__API_RUNMODE__=='live') {
         // $exchangeapi->save_wallet($member->userno, 'AIL', $address);
     }
 }
+    */
 // 기본 지갑 생성
 $default_coins = array('KRW','USD'); //, 'SMP', 'SPAY'
 foreach($default_coins as $coin) {
