@@ -4,6 +4,9 @@
 // =====================================================
 
 // CORS 헤더 설정
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 // OPTIONS 요청 처리
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -19,9 +22,26 @@ try {
         $GLOBALS['gosapi']->error('Only POST method allowed', 405);
     }
     
-    // 파라미터 받기 (패스워드 필드는 받되 검증하지 않음)
-    $login_id = checkEmpty(loadParam('login_id'), 'login_id');
-    $password = loadParam('password', ''); // 패스워드는 선택적
+    // 파라미터 받기 (FormData 또는 JSON 모두 지원)
+    $login_id = '';
+    $password = '';
+    
+    // JSON 데이터 확인
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+    
+    if ($data) {
+        // JSON 데이터가 있는 경우
+        $login_id = $data['login_id'] ?? '';
+        $password = $data['password'] ?? '';
+    } else {
+        // FormData 또는 POST 데이터 사용
+        $login_id = $_POST['login_id'] ?? '';
+        $password = $_POST['password'] ?? '';
+    }
+    
+    // 로그인 ID 검증
+    $login_id = checkEmpty($login_id, 'login_id');
     
     // 사용자 조회
     $user = $GLOBALS['gosapi']->get_gos_user($login_id);
