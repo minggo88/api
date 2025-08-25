@@ -9,6 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
+// 에러 로깅 활성화
+error_reporting(E_ALL);
+ini_set('log_errors', 1);
+ini_set('error_log', '/var/log/php_errors.log');
+
 // GosApi 포함 - 올바른 경로 수정
 require_once __DIR__ . '/../../../lib/GosApi.php';
 
@@ -18,21 +23,27 @@ try {
         $GLOBALS['gosapi']->error('Only POST method allowed', 405);
     }
     
+    // 디버깅 정보 로그
+    error_log('Recording send started');
+    error_log('POST data: ' . print_r($_POST, true));
+    
     // 파라미터 받기
     $recording_id = checkEmpty(loadParam('recording_id'), 'recording_id');
     $user_id = checkEmpty(loadParam('user_id'), 'user_id');
     
-    // 녹음 정보 확인
+    // 녹음 정보 확인 (함수명 수정: get_single_row -> query_fetch_object)
     $recording_sql = "SELECT * FROM GOS_student_recordings 
                       WHERE id = ? AND user_id = ? AND upload_status = 'completed'";
-    $recording = $GLOBALS['gosapi']->get_single_row($recording_sql, [$recording_id, $user_id]);
+    $recording = $GLOBALS['gosapi']->query_fetch_object($recording_sql, [$recording_id, $user_id]);
     
     if (!$recording) {
+        error_log("Recording not found: id={$recording_id}, user_id={$user_id}");
         $GLOBALS['gosapi']->error('Recording not found or not completed', 404);
     }
     
     // 이미 전송되었는지 확인
     if ($recording->is_sent_to_teacher == 1) {
+        error_log("Recording already sent: id={$recording_id}");
         $GLOBALS['gosapi']->error('Recording already sent to teacher', 400);
     }
     
@@ -44,8 +55,11 @@ try {
     $result = $GLOBALS['gosapi']->query($update_sql, [$recording_id]);
     
     if (!$result) {
+        error_log("Failed to update recording status: id={$recording_id}");
         $GLOBALS['gosapi']->error('Failed to update recording status', 500);
     }
+    
+    error_log("Recording sent successfully: id={$recording_id}");
     
     // 활동 로그
     $GLOBALS['gosapi']->log_gos_activity($user_id, 'recording_send', true, 
@@ -69,6 +83,7 @@ try {
     
 } catch (Exception $e) {
     error_log('Recording Send API Error: ' . $e->getMessage());
-    $GLOBALS['gosapi']->error('Internal server error', 500);
+    error_log('Stack trace: ' . $e->getTraceAsString());
+    $GLOBALS['gosapi']->error('Internal server error: ' . $e->getMessage(), 500);
 }
 ?>
