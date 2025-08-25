@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-// GosApi 포함
-require_once __DIR__ . '/../../../../lib/GosApi.php'
+// GosApi 포함 - 올바른 경로 수정
+require_once __DIR__ . '/../../../lib/GosApi.php';
 
 try {
     // POST 요청만 허용
