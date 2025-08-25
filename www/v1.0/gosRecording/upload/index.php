@@ -129,30 +129,7 @@ try {
     
     // GosApi 사용 가능한지 확인
     if (!isset($GLOBALS['gosapi']) || !$GLOBALS['gosapi']) {
-        // GosApi가 없는 경우 직접 DB 연결 (임시)
-        error_log('GosApi not available, using direct response');
-        
-        $response_data = [
-            'success' => true,
-            'message' => 'Recording uploaded successfully (without DB)',
-            'recording' => [
-                'id' => time(), // 임시 ID
-                'user_id' => $user_id,
-                'page_id' => $page_id,
-                'slide_number' => $slide_number,
-                'filename' => $filename,
-                'url' => $file_url,
-                'file_size' => $file_size,
-                'duration_seconds' => $duration_seconds,
-                'format' => $recording_format,
-                'quality' => $recording_quality,
-                'upload_status' => 'completed',
-                'uploaded_at' => date('Y-m-d H:i:s')
-            ]
-        ];
-        
-        echo json_encode($response_data);
-        exit(0);
+        throw new Exception('GosApi is not available - database connection failed');
     }
     
     // DB에 녹음 정보 저장
