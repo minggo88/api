@@ -22,7 +22,7 @@ ini_set('error_log', '/var/log/php_errors.log');
 
 try {
     // GosApi 포함 - 경로 확인
-    $gosapi_path = __DIR__ . '/../../../lib/GosApi.php';
+    $gosapi_path = __DIR__ . '/../../../../lib/GosApi.php';
     if (!file_exists($gosapi_path)) {
         throw new Exception("GosApi.php not found at: $gosapi_path");
     }
