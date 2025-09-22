@@ -38,11 +38,11 @@ try {
     }
     
     // 로그인 성공 - 로그인 횟수 증가 및 마지막 로그인 시간 업데이트
-    $update_sql = "UPDATE GOS_users SET 
+    /*$update_sql = "UPDATE GOS_users SET 
                    login_count = login_count + 1, 
                    last_login = NOW() 
                    WHERE id = ?";
-    $GLOBALS['gosapi']->query($update_sql, [$user->id]);
+    $GLOBALS['gosapi']->query($update_sql, [$user->id]);*/
     
     // 로그인 성공 로그
     $GLOBALS['gosapi']->log_gos_activity($user->id, 'login', true);
