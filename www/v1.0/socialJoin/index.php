@@ -45,10 +45,10 @@ if($social_name=='guest' || $social_name=='kakao') {
         $exchangeapi->error('010',__('Please enter a 6-digit number.'));
     }
 }
-$uuid = setDefault(loadParam('uuid'), '-');
-$os = setDefault(loadParam('os'), '-');
-$fcm_tokenid = setDefault(loadParam('fcm_tokenid'), '-');
-$app_id = setDefault($_REQUEST['app_id'], ''); // 가맹점 아이디
+//$uuid = setDefault(loadParam('uuid'), '-');
+//$os = setDefault(loadParam('os'), '-');
+//$fcm_tokenid = setDefault(loadParam('fcm_tokenid'), '-');
+//$app_id = setDefault($_REQUEST['app_id'], ''); // 가맹점 아이디
 
 $bool_email = setDefault($_REQUEST['bool_email'], '0'); // 이메일 수신여부 1: 수신, 0:비수신
 $bool_marketing = setDefault($_REQUEST['bool_marketing'], '0'); // 마케싱 정보 수신여부. 1:수신, 0:미수신
