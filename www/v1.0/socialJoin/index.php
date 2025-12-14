@@ -53,6 +53,11 @@ if($social_name=='guest' || $social_name=='kakao') {
 $bool_email = setDefault($_REQUEST['bool_email'], '0'); // 이메일 수신여부 1: 수신, 0:비수신
 $bool_marketing = setDefault($_REQUEST['bool_marketing'], '0'); // 마케싱 정보 수신여부. 1:수신, 0:미수신
 
+// PMS 추가 정보
+$hospital = setDefault($_REQUEST['hospital'], '');
+$address = setDefault($_REQUEST['address'], '');
+$detailAddress = setDefault($_REQUEST['detailAddress'], '');
+
 // --------------------------------------------------------------------------- //
 // 데이터 가공 - 입력값의 형식이 달라서 생기는 오류를 막아야 합니다. ㅜ.ㅜ
 
