@@ -53,6 +53,11 @@ if($social_name=='guest' || $social_name=='kakao') {
 $bool_email = setDefault($_REQUEST['bool_email'], '0'); // 이메일 수신여부 1: 수신, 0:비수신
 $bool_marketing = setDefault($_REQUEST['bool_marketing'], '0'); // 마케싱 정보 수신여부. 1:수신, 0:미수신
 
+// PMS 추가 정보 (pms_createId에서만 넘어옴. 없으면 스킵)
+$hospital = setDefault(loadParam('hospital'), '');
+$address = setDefault(loadParam('address'), '');
+$detailAddress = setDefault(loadParam('detailAddress'), '');
+
 // --------------------------------------------------------------------------- //
 // 데이터 가공 - 입력값의 형식이 달라서 생기는 오류를 막아야 합니다. ㅜ.ㅜ
 
@@ -305,6 +310,33 @@ $exchangeapi->login($member->userno, $member->userid, $member->name, $member->le
 // 나는 몇번째 지갑인가?
 $my_wallet_no = $exchangeapi->query_one("SELECT COUNT(*)+1 FROM js_member WHERE 1000<=userno AND userno<'{$member->userno}' "); // 회원은 1000번부터 시작합니다.
 
+// pms_createId로 가입한 경우에만 PMS 테이블 저장 (hospital 없으면 저장 안 함)
+if($hospital !== '') {
+
+    // pms_createId에서는 주소도 필수라면(원하면 유지)
+    if($address=='') { $exchangeapi->error('202', '주소를 입력해주세요.'); }
+    if($detailAddress=='') { $exchangeapi->error('203', '상세주소를 입력해주세요.'); }
+
+    $sql = "
+        insert into js_member_pms
+            (userno, hospital_name, address, address_detail, regdate)
+        values
+            (
+                '{$exchangeapi->escape($new_userno)}',
+                '{$exchangeapi->escape($hospital)}',
+                '{$exchangeapi->escape($address)}',
+                '{$exchangeapi->escape($detailAddress)}',
+                UNIX_TIMESTAMP()
+            )
+        on duplicate key update
+            hospital_name=values(hospital_name),
+            address=values(address),
+            address_detail=values(address_detail)
+    ";
+    if(!$exchangeapi->query($sql)) {
+        $exchangeapi->error('205', 'PMS 정보 저장 실패');
+    }
+}
 // next-page = 5
 
 // response
