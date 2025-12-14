@@ -49,6 +49,11 @@ if($userpw=='') {
     $tradeapi->error('104', __('Enter your password!'));
 }
 
+// PMS 추가 정보
+$hospital = setDefault($_REQUEST['hospital'], '');
+$address = setDefault($_REQUEST['address'], '');
+$detailAddress = setDefault($_REQUEST['detailAddress'], '');
+
 // $uuid = checkUUID(checkEmpty($_REQUEST['uuid'], 'UUID'));
 // $os = checkEmpty($_REQUEST['os'], 'OS');
 // $fcm_tokenid = checkEmpty($_REQUEST['fcm_tokenid'], 'fcm_tokenid');
@@ -90,6 +95,45 @@ $data = array(
 // var_dump($url,$data);exit;
 $r = $tradeapi->remote_post($url, $data, null, $host.'/formjoin');
 // var_dump($r);exit; // {"bool":1,"msg":"Sign up is complete. Please login."}
+
+// pms_createId로 가입한 경우에만 PMS 정보 저장
+if($hospital !== '') {
+
+    // (선택) pms_createId로 들어온 경우엔 주소/상세주소도 필수로 강제
+    if($address=='') {
+        $tradeapi->error('202', '주소를 입력해주세요.');
+    }
+    if($detailAddress=='') {
+        $tradeapi->error('203', '상세주소를 입력해주세요.');
+    }
+
+    // 가입 성공 후 userno 조회
+    $userno = $tradeapi->query_one("select userno from js_member where userid='{$tradeapi->escape($userid)}' limit 1");
+    if(!$userno) {
+        $tradeapi->error('204', '가입 userno 조회 실패');
+    }
+
+    $sql = "
+        insert into js_member_pms
+            (userno, hospital_name, address, address_detail, regdate)
+        values
+            (
+                '{$tradeapi->escape($userno)}',
+                '{$tradeapi->escape($hospital)}',
+                '{$tradeapi->escape($address)}',
+                '{$tradeapi->escape($detailAddress)}',
+                '".time()."'
+            )
+        on duplicate key update
+            hospital_name=values(hospital_name),
+            address=values(address),
+            address_detail=values(address_detail)
+    ";
+    if(!$tradeapi->query($sql)) {
+        $tradeapi->error('205', 'PMS 정보 저장 실패');
+    }
+}
+
 if($r) {
     $r = json_decode($r);
     if($r->bool) {
