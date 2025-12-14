@@ -1,4 +1,31 @@
 <?php
+// -------------------------------------------------------------------- //
+// CORS (브라우저 preflight OPTIONS 포함)
+// - 504/네트워크 오류가 나면 브라우저는 "CORS 헤더 없음"으로도 같이 표시됩니다.
+// - OPTIONS는 본문/DB접속 없이 즉시 204로 종료해야 합니다.
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$allowed_origins = array(
+    'https://assettea.com',
+    'https://www.assettea.com',
+);
+if ($origin && in_array($origin, $allowed_origins, true)) {
+    header('Access-Control-Allow-Origin: '.$origin);
+    header('Access-Control-Allow-Credentials: true');
+    header('Vary: Origin');
+} else {
+    // 기본은 서비스 도메인만 허용
+    header('Access-Control-Allow-Origin: https://assettea.com');
+    header('Vary: Origin');
+}
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, token, lang');
+header('Access-Control-Max-Age: 86400');
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
 include dirname(__file__) . "/../../lib/ExchangeApi.php";
 
 // 실행시간 여유 (운영 504 완화용: nginx timeout이 더 짧으면 이건 효과 없음)
@@ -216,32 +243,49 @@ $exchangeapi->write_log("STEP t=" . round(microtime(true)-$t0,3) . " after-db-co
 // --------------------------------------------------------------------------- //
 // 지갑 생성(무거울 수 있는 구간): 트랜잭션 밖
 
-// 기본 코인(ETH 생성)
-if(__API_RUNMODE__=='live') {
-    if(!$exchangeapi->query_one("select address from js_exchange_wallet where symbol='ETH' and userno='{$member->userno}' ")) {
-        $exchangeapi->write_log('ETH wallet create start');
-        $address_eth = $exchangeapi->create_wallet($member->userno, 'ETH');
-        $exchangeapi->write_log('ETH wallet create end. address: '. $address_eth);
-        $exchangeapi->save_wallet($member->userno, 'ETH', $address_eth);
-    }
-}
-
-// 기본 지갑 생성
-$default_coins = array('KRW','USD');
-foreach($default_coins as $coin) {
-    $exchangeapi->write_log("wallet create start: ".$coin);
-    $address = $exchangeapi->create_wallet($new_userno, $coin);
-    $exchangeapi->save_wallet($new_userno, $coin, $address);
-    $exchangeapi->write_log("wallet create end: ".$coin);
-}
-
-$exchangeapi->write_log("STEP t=" . round(microtime(true)-$t0,3) . " after-wallets");
-
 // login - userno, $userid, $name, $level_code)
 $exchangeapi->login($member->userno, $member->userid, $member->name, $member->level_code);
 
 // 나는 몇번째 지갑인가?
 $my_wallet_no = $exchangeapi->query_one("SELECT COUNT(*)+1 FROM js_member WHERE 1000<=userno AND userno<'{$member->userno}' ");
 
-// response
-$exchangeapi->success(array('token'=>session_id(),'my_wallet_no'=>$my_wallet_no,'userno'=>$new_userno));
+// response (먼저 응답을 내려 504/프록시 타임아웃을 줄임)
+$payload = array('token'=>session_id(),'my_wallet_no'=>$my_wallet_no,'userno'=>$new_userno);
+@session_write_close();
+$exchangeapi->set_stop_process(false);
+$exchangeapi->success($payload);
+
+// 가능하면 클라이언트 응답을 먼저 종료한 뒤, 지갑 생성은 백그라운드에서 수행
+if (function_exists('fastcgi_finish_request')) {
+    @fastcgi_finish_request();
+} else {
+    @ob_flush();
+    @flush();
+}
+
+try {
+    // 기본 코인(ETH 생성)
+    if(__API_RUNMODE__=='live') {
+        if(!$exchangeapi->query_one("select address from js_exchange_wallet where symbol='ETH' and userno='{$member->userno}' ")) {
+            $exchangeapi->write_log('ETH wallet create start');
+            $address_eth = $exchangeapi->create_wallet($member->userno, 'ETH');
+            $exchangeapi->write_log('ETH wallet create end. address: '. $address_eth);
+            $exchangeapi->save_wallet($member->userno, 'ETH', $address_eth);
+        }
+    }
+
+    // 기본 지갑 생성
+    $default_coins = array('KRW','USD');
+    foreach($default_coins as $coin) {
+        $exchangeapi->write_log("wallet create start: ".$coin);
+        $address = $exchangeapi->create_wallet($new_userno, $coin);
+        $exchangeapi->save_wallet($new_userno, $coin, $address);
+        $exchangeapi->write_log("wallet create end: ".$coin);
+    }
+
+    $exchangeapi->write_log("STEP t=" . round(microtime(true)-$t0,3) . " after-wallets");
+
+} catch(Exception $e) {
+    // 응답 이후 단계 실패는 가입 자체 성공을 깨지 않도록 로그만 남김
+    $exchangeapi->write_log("WALLET_CREATE_ERROR: " . $e->getMessage());
+}
