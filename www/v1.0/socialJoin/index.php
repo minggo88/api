@@ -264,16 +264,6 @@ if (function_exists('fastcgi_finish_request')) {
 }
 
 try {
-    // 기본 코인(ETH 생성)
-    if(__API_RUNMODE__=='live') {
-        if(!$exchangeapi->query_one("select address from js_exchange_wallet where symbol='ETH' and userno='{$member->userno}' ")) {
-            $exchangeapi->write_log('ETH wallet create start');
-            $address_eth = $exchangeapi->create_wallet($member->userno, 'ETH');
-            $exchangeapi->write_log('ETH wallet create end. address: '. $address_eth);
-            $exchangeapi->save_wallet($member->userno, 'ETH', $address_eth);
-        }
-    }
-
     // 기본 지갑 생성
     $default_coins = array('KRW','USD');
     foreach($default_coins as $coin) {
