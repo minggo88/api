@@ -155,7 +155,7 @@ if(!$join_ip) {
 $exchangeapi->query("UPDATE `js_member` SET `join_ip`='".$exchangeapi->escape($_SERVER['REMOTE_ADDR'])."' WHERE userno='{$exchangeapi->escape($member->userno)}' AND `join_ip`='' ");
 
 // 기본 코인(ETH 생성)
-if(__API_RUNMODE__=='live') {
+/*if(__API_RUNMODE__=='live') {
     if(!$exchangeapi->query_one("select address from js_exchange_wallet where symbol='ETH' and userno='{$member->userno}' ")) {
         $exchangeapi->write_log('이더지갑 생성 시작');
         $address = $exchangeapi->create_wallet($member->userno, 'ETH');
@@ -163,7 +163,7 @@ if(__API_RUNMODE__=='live') {
         $exchangeapi->save_wallet($member->userno, 'ETH', $address);
         // $exchangeapi->save_wallet($member->userno, 'AIL', $address);
     }
-}
+}*/
 // 기본 지갑 생성
 $default_coins = array('KRW','USD'); //, 'SMP', 'SPAY'
 foreach($default_coins as $coin) {
